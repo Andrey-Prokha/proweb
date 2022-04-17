@@ -1,6 +1,5 @@
 const gulp = require("gulp");
 const plumber = require("gulp-plumber");
-const sourcemap = require("gulp-sourcemaps");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const sync = require("browser-sync").create();
