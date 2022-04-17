@@ -9,6 +9,15 @@ const rename = require('gulp-rename');
 const imagemin = require("gulp-imagemin");
 const htmlmin = require("gulp-htmlmin");
 const jsmin = require("gulp-jsmin");
+const del = require("del");
+
+//Delete
+
+function delbuild() {
+  return del("build");
+}
+
+exports.delbuild = delbuild;
 
 //HTML
 function html() {
@@ -83,8 +92,6 @@ const watcher = () => {
   gulp.watch("source/js/*.js").on("change", sync.reload);
 }
 
-exports.build = gulp.series(
-  html, js, images, styles
-);
+exports.build = gulp.series(delbuild, html, js, images, styles);
 
 exports.start = gulp.series(server, watcher)
