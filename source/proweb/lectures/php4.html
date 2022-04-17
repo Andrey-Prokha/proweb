@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHP Создание функций</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Функции в PHP</h1>
+
+      <p>В PHP существует две основные формы функций: встроенные и пользовательские.
+      </p>
+      <p>Для определения пользовательской функции используется ключевое слово
+        <b>function</b>.
+      </p>
+      <h4>Пример 1</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Определение и вызов функции&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    function заголовок ($str, $n)
+    {
+      echo  "&lt;H$n&gt;$str&lt;/H$n&gt;";
+    }
+    заголовок ("Часть", 1);
+    заголовок ("Глава", 2);
+    заголовок ("Раздел", 3);
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+      <p>Начиная с версии PHP 4.0 можно использовать значения аргументов,
+        подставляемые по умолчанию.
+      </p>
+      <h4>Пример 2</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Функция со значением аргумента по умолчанию&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    function заголовок ($str, $n = 2)
+    {
+      echo  "&lt;H$n&gt;$str&lt;/H$n&gt;";
+    }
+    заголовок ("Часть", 1);
+    заголовок ("Глава");
+    заголовок ("Раздел", 3);
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+      <p><b>Примечание:</b> Указанный ниже код будет отрабатывать не так, как Вы возможно ожидаете.
+        Переменная $full во всех случаях будет true.
+      </p>
+      <pre class="code">fun($ar, false);
+    function fun($row, $full = true){ ... }</pre>
+
+      <h2>Передача аргумента по ссылке</h2>
+      <p>Аргументы можно передавать <b>по ссылке</b>. Тогда все изменения, сделанные
+        с аргументом в теле функции, отразятся на самой переменной.
+      </p>
+      <h4>Пример 3</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Передача аргумента по ссылке&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    function add ( &amp;$a, $b )
+    {
+      $a += $b;
+      $b += $b;
+    }
+    $af = 10;
+    $bf = 6;
+    echo "af = $af; bf = $bf";
+    add ( $af, $bf );
+    echo "&lt;br&gt;После вызова функции:&lt;br&gt;";
+    echo "af = $af; bf = $bf";
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+      <h2>Возврат значений</h2>
+      <p>Для возврата значений из функции используется оператор <b>return</b>. Можно
+        вернуть несколько значений, если применить список <b>list()</b>.
+      </p>
+      <h4>Пример 4</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Функция, возвращающая список значений&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    function ФИО()
+    {
+      return array ("Иванов", "Иван", "Иванович");
+    }
+    <b>list</b> ($фамилия, $имя, $отчество) = ФИО();
+    echo "&lt;table&gt;";
+    echo "&lt;tr&gt;&lt;td&gt;фамилия: &lt;td&gt;$фамилия";
+    echo "&lt;tr&gt;&lt;td&gt;имя: &lt;td&gt;$имя";
+    echo "&lt;tr&gt;&lt;td&gt;отчество: &lt;td&gt;$отчество&lt;/table&gt;";
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+      <h2>Динамические функции</h2>
+      <p>В PHP можно использовать <b>динамические функции</b>. Это означает, что
+        если некоторой переменной присвоено имя функции, то с этой переменной можно
+        обращаться точно так же, как с самой функцией.
+      </p>
+      <h4>Пример 5</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Переменные функции&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    function funct1 ()
+    {
+      echo "Мы внутри функции funct1( );&lt;br&gt;";
+    }
+    function funct2 ()
+    {
+      echo "Мы внутри функции funct2( );&lt;br&gt;";
+    }
+    $myfunct = "funct1";
+    $myfunct();
+    $myfunct = "funct2";
+    $myfunct();
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+      <h2>Глобальные переменные</h2>
+      <p>Чтобы переменная, созданная вне функции, была доступна внутри функции,
+        надо объявить ее глобальной с помощью инструкции <b>global</b>.
+      </p>
+      <h4>Пример 6</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Доступ к глобальной переменной&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $gg = 45;
+    function funct ()
+    {
+      global $gg;
+      echo "Глобальная переменная имеет значение - $gg";
+    }
+    funct ();
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+      <h2>Статические переменные</h2>
+      <p>Чтобы переменная сохраняла свое значение между вызовами функции, нужно
+        объявить ее статической с помощью инструкции <b>static</b>.
+      </p>
+      <h4>Пример 7</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Сохранение значения переменной между вызовами функции&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    function funct (&amp;str)
+    {
+      static $ss = 0;
+      $ss++;
+      echo "&lt;h2&gt;$ss. $str&lt;/h2&gt;";
+    }
+    funct ("Понедельник");
+    echo "Король гулял в парке";
+    funct ("Вторник");
+    echo "Король охотился";
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+      <p>Была создана и проинициализирована переменная $ss.
+        По отношению к функции funct( ) эта переменная останется локальной.
+        При втором и последующих вызовах функции funct( ) инициализация
+        игнорируется, а запоминается последнее присвоенное значение. </p>
+      <button type="button" class="button"><a class="button__link" href="php3.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="php5.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

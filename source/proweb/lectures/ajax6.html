@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Альтернативные Ajax-у методы</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1 class="content__title">Альтернативные AJAX-у методы передачи данных</h1>
+
+      <h2>Использование &lt;IFRAME&gt;</h2>
+      <p>На наш взгляд, метод с использованием плавающих фреймов довольно неуклюж. Он использовался ранее,
+        когда браузеры не поддерживали XMLHttpRequest.</p>
+      <p>В сердце технологии лежит функция создания скрытого фрейма:</p>
+      <pre class="code">function&nbsp;createIFrame()&nbsp;{<br>&nbsp;&nbsp;var&nbsp;id&nbsp;=&nbsp;'f'&nbsp;+&nbsp;Math.floor(Math.random()&nbsp;*&nbsp;99999);<br>&nbsp;&nbsp;var&nbsp;div&nbsp;=&nbsp;document.createElement('div');<br>&nbsp;&nbsp;div.innerHTML&nbsp;=&nbsp;'&lt;iframe&nbsp;style="display:none"&nbsp;src="about:blank"'<br>&nbsp;&nbsp;&nbsp;&nbsp;+'&nbsp;id="'+id+'"&nbsp;name="'+id+'"&nbsp;onload="sendComplete(''<br>&nbsp;&nbsp;&nbsp;&nbsp;+id+'')"&gt;&lt;/iframe&gt;';<br>&nbsp;&nbsp;document.body.appendChild(div);<br>&nbsp;&nbsp;return&nbsp;document.getElementById(id);<br>}
+</pre>
+
+      <p>Для загрузки файла мы будем использовать HTML-форму, результат вызова которой направим в созданный IFRAME.</p>
+      <pre class="code">function&nbsp;sendForm(form,&nbsp;url,&nbsp;func,&nbsp;arg)&nbsp;{<br>&nbsp;&nbsp;if&nbsp;(!document.createElement)&nbsp;return;&nbsp;//&nbsp;not&nbsp;supported<br>&nbsp;&nbsp;if&nbsp;(typeof(form)=="string")&nbsp;form=document.getElementById(form);<br>&nbsp;&nbsp;var&nbsp;frame=createIFrame();<br>&nbsp;&nbsp;frame.onSendComplete&nbsp;=&nbsp;function()&nbsp;{&nbsp;func(arg,&nbsp;getIFrameXML(frame));&nbsp;};<br>&nbsp;&nbsp;form.setAttribute('target',&nbsp;frame.id);<br>&nbsp;&nbsp;form.setAttribute('action',&nbsp;url);<br>&nbsp;&nbsp;form.submit();<br>}<br><br>function&nbsp;sendComplete(id)&nbsp;{<br>&nbsp;&nbsp;var&nbsp;iframe=document.getElementById(id);<br>&nbsp;&nbsp;if&nbsp;(iframe.onSendComplete&nbsp;&amp;&amp;&nbsp;typeof(iframe.onSendComplete)&nbsp;==&nbsp;'function')<br>&nbsp;&nbsp;&nbsp;&nbsp;iframe.onSendComplete();<br>}<br><br>function&nbsp;getIFrameXML(iframe)&nbsp;{<br>&nbsp;&nbsp;var&nbsp;doc=iframe.contentDocument;<br>&nbsp;&nbsp;if&nbsp;(!doc&nbsp;&amp;&amp;&nbsp;iframe.contentWindow)&nbsp;doc=iframe.contentWindow.document;<br>&nbsp;&nbsp;if&nbsp;(!doc)&nbsp;doc=window.frames[iframe.id].document;<br>&nbsp;&nbsp;if&nbsp;(!doc)&nbsp;return&nbsp;null;<br>&nbsp;&nbsp;if&nbsp;(doc.location=="about:blank")&nbsp;return&nbsp;null;<br>&nbsp;&nbsp;if&nbsp;(doc.XMLDocument)&nbsp;doc=doc.XMLDocument;<br>&nbsp;&nbsp;return&nbsp;doc;<br>}
+
+</pre>
+      <p>Функция sendComplete будет вызвана по окончании загрузки фрейма.
+        Её задача - обработка результата операции, либо просто уведомление пользователя о завершении загрузки.
+        Для этого будет вызвана пользовательская программа func с двумя аргументами:
+        пользовательский arg, плюс DOM-результат, возвращенный сервером.
+        Мы подразумеваем, что сервер возвращает XML.
+        Для его извлечения из фрейма служит довольно громоздкая кроссбраузерная функция getIFrameXML.</p>
+      <p>Приведем пример:</p>
+      <pre class="code">&lt;script&nbsp;type="text/javascript"&gt;<br>//&nbsp;...&nbsp;сюда&nbsp;необходимо&nbsp;скопировать&nbsp;все&nbsp;вышеописанные&nbsp;функции&nbsp;&nbsp;...var&nbsp;cnt=0;<br><br>function&nbsp;uploadComplete(element,&nbsp;doc)&nbsp;{<br>&nbsp;&nbsp;if&nbsp;(!doc)&nbsp;return;<br>&nbsp;&nbsp;if&nbsp;(typeof(element)=="string")&nbsp;element=document.getElementById(element);<br>&nbsp;&nbsp;element.innerHTML='Результат&nbsp;запроса&nbsp;#'+(++cnt)<br>&nbsp;&nbsp;&nbsp;&nbsp;+':&nbsp;'+doc.documentElement.firstChild.nodeValue;<br>}<br><br>&lt;/script&gt;<br><br>&lt;form&nbsp;id="ajaxUploadForm"&nbsp;method="post"&nbsp;enctype="multipart/form-data"<br>onsubmit="sendForm(this,'uploadFile.php',uploadComplete,'resultDiv');return&nbsp;true;"&gt;<br>&lt;label&gt;Файл:&nbsp;&lt;input&nbsp;type="file"&nbsp;name="uploadFile"&nbsp;/&gt;&lt;/label&gt;<br>&lt;input&nbsp;type="submit"&nbsp;value="Загрузить"&nbsp;/&gt;<br>&lt;/form&gt;<br>&lt;input&nbsp;type="button"&nbsp;value="Альтернативный&nbsp;вызов&nbsp;загрузки&nbsp;файла"<br>onclick="sendForm('ajaxUploadForm','uploadFile.php',uploadComplete,'resultDiv')"&nbsp;/&gt;<br>&lt;div&nbsp;id="resultDiv"&gt;&lt;/div&gt;
+</pre>
+      <p>Текст файла <b>uploadFile.php</b>:</p>
+      <pre class="code">header("Content-type: application/xml; charset=UTF-8");
+echo '&amp;lt;?xml version="1.0" encoding="UTF-8" ?&gt;' ?&gt;
+&lt;result&gt;Получен файл [&amp;lt;?php echo($_FILES['uploadFile']['name']); ?&gt;]
+ размером &amp;lt;?php echo($_FILES['uploadFile']['size']); ?&gt; байт&lt;/result&gt;</pre>
+
+      <h2>Использование &lt;SCRIPT&gt;</h2>
+      <p>Следует признать, что данный AJAX-метод является самым лаконичным на стороне клиента.
+        Кроме того, по сравнению с методами XMLHttpRequest/IFRAME он имеет одно важное преимущество:
+        AJAX-запросы можно направлять не только к собственному, но и к чужим серверам.
+        Это преимущество, правда, может обернуться существенным недостатком,
+        если вы обеспокоены вопросами безопасности и не хотите,
+        чтобы к вашему серверу обращались пользователи других серверов.
+        Если же вы наоборот хотите разместить этим способом у себя на странице чужой AJAX-виджет,
+        также будьте бдительны: выбранный вами AJAX-провайдер сможет в любой момент внедрить на вашу страницу любой (в
+        том
+        числе вредоносный) код.
+        Например, подсматривающий пароли ваших пользователей:
+        В общем, подходить к использованию данного метода следует с осторожностью, осознавая все плюсы и минусы.
+      </p>
+      <p>В своей основе лежит следующий метод:</p>
+      <pre class="code">function&nbsp;callServer()&nbsp;{<br>&nbsp;&nbsp;var&nbsp;script&nbsp;=&nbsp;document.createElement("script");<br>&nbsp;&nbsp;script.src&nbsp;=&nbsp;'http://domain.ru/dynamicDataScript.php';<br>&nbsp;&nbsp;script.type&nbsp;=&nbsp;'text/javascript';<br>&nbsp;&nbsp;document.body.appendChild(script);<br>}
+</pre>
+      <p>Серверный скрипт dynamicData.php возвращает код JavaScript,
+        который незамедлительно выполняется в браузере клиента.
+        Данный код может, например, как минимум, загрузить
+        в переменные (var) новые значения, как максимум - полностью перерисовать Web-страницу.
+        Единственное, что он не может делать, это использовать функцию document.write()
+        для вставки HTML-кода (данная функция доступна только при первичной загрузке страницы).
+        Ограничение весьма условное, так как все то же самое можно реализовать через DOM и/или innerHTML.
+      </p>
+      <pre class="code">&lt;script&nbsp;language='Javascript'&nbsp;type="text/javascript"&gt;<br>//--создаем&nbsp;элемент&nbsp;script&nbsp;и&nbsp;присваиваем&nbsp;ему&nbsp;значение<br>function&nbsp;sendQ(url){<br>&nbsp;&nbsp;&nbsp;var&nbsp;elem&nbsp;=&nbsp;document.createElement("script");<br>&nbsp;&nbsp;&nbsp;obj=document.body.insertBefore(elem,&nbsp;document.body.firstChild);<br>&nbsp;&nbsp;&nbsp;obj.setAttribute("id",&nbsp;"js");<br>&nbsp;&nbsp;&nbsp;obj.setAttribute("language",&nbsp;"Javascript");<br>&nbsp;&nbsp;&nbsp;obj.setAttribute("type",&nbsp;"text/javascript");<br>&nbsp;&nbsp;&nbsp;obj.setAttribute("src",&nbsp;url);<br>&nbsp;&nbsp;&nbsp;setTimeout('del()',&nbsp;0);<br>}<br><br>function&nbsp;del(){&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;удаляем&nbsp;только&nbsp;что&nbsp;созданный&nbsp;элемент&nbsp;script<br>&nbsp;&nbsp;&nbsp;var&nbsp;obj=document.getElementById('js');<br>&nbsp;&nbsp;&nbsp;document.body.removeChild(obj);<br>}<br>&lt;/script&gt;<br><br>&lt;p&nbsp;onclick="sendQ('js.php')"&gt;&lt;b&gt;кликни&nbsp;меня&lt;/b&gt;&lt;/p&gt;<br>&lt;div&nbsp;id="strif"&gt;получи&nbsp;время&nbsp;сервера&nbsp;в&nbsp;секундах&lt;/div&gt;
+</pre>
+      <p><b>js.php</b>:</p>
+      <pre class="code">document.getElementById('strif').innerHTML='&lt; ?=time()?&gt;';</pre>
+
+      <p>Вся эта гибкость, конечно же, кажется нам чрезмерной - хочется как-то систематизировать процесс,
+        ввести ряд ограничений, хотя бы на уровне договоренностей. Во-первых, стоит договориться о том,
+        что никаких операций со страницей серверный JavaScript-код не производит,
+        а лишь передает данные (это будет полезным и с точки зрения его переиспользования на других страницах сайта).
+        В связи с этим весьма полезным представляется набор соглашений JSON (JavaScript Object Notation)
+        по представлению данных в формате, удобном для обработки интерпретатором JavaScript.
+      </p>
+
+      <h3>JSON (JavaScript Object Notation)</h3>
+      <p>По сути, JSON - это JavaScript-код, описывающий некую структуру данных.
+        В нем используются две основные синтаксические конструкции:</p>
+      <pre class="code">// объявление массива:
+var array = [ v1, v2, ... ];
+// объявление ассоциативного массива:
+var hash = { "key1" : v1, "key2" : v2, ... };
+</pre>
+      <p>С их помощью можно описать структуру данных произвольной сложности. Например:</p>
+      <pre class="code">{
+    "firstName": "Иван",
+    "lastName": "Федоров",
+    "address": {
+        "street": "Ордынка",
+        "city": "Москва",
+        "postalCode": 127327
+    },
+    "phoneNumbers": [
+        "495 765-1234",
+        "916 123-4567"
+    ]
+}
+</pre>
+      <p>Если предположить, что вышеприведенный текст находится в переменной JSON_text,
+        то работать в JavaScript с ним становится очень удобно:</p>
+      <pre class="code">var p = eval("(" + JSON_text + ")");
+
+div.innerHTML = p.firstName+" "+p.lastName+
+	" живет в городе "+p.address.city;
+</pre>
+      <p>Просто несравнимо по удобству с манипулированием моделью XML/DOM!</p>
+
+      <p>Таким образом, для передачи данных нам нужно лишь научить наш серверный скрипт форматировать данные в формате
+        JSON.
+      </p>
+
+      <p>Для построения законченного AJAX-приложения нам не хватает лишь одного - уведомления клиента о том,
+        что процесс загрузки данных завершен. Сам по себе JSON такой возможности не предоставляет.
+        Можно конечно грузить JSON-данные через XMLHttpRequest.responseText,
+        используя все возможности последнего по контролю за завершением соединения,
+        однако, это не есть тема которая нам сейчас важна.</p>
+      <p>JSONP: JSON With Padding</p>
+
+      <p>Для устранения указанного выше недостатка была предложена концепция JSONP (JSON With Padding).
+        Она состоит в том, что в запрос к серверу добавляется параметр callback,
+        в котором клиент указывает имя функции, которую необходимо вызвать для обработки данных.
+        Для иллюстрации приведем простой серверный PHP-скрипт (sample_ajax_script_json.php),
+        возвращающий данные в формате JSONP:</p>
+      <pre class="code">echo($_REQUEST['callback']
+            .'({"result":"Данные из файла sample_ajax_script_json.php"})');</pre>
+
+      <p>Если обратиться к скрипту с запросом:
+        sample_ajax_script_json.php?callback=onComplete123, в ответ мы получим строку:</p>
+      <pre class="code">onComplete123({"result":"Данные из файла sample_ajax_script_json.php"})
+</pre>
+      <p>Нам остается лишь обеспечить наличие функции onComplete123(), которая отобразит результат запроса.</p>
+
+      <p>Теперь постараемся сделать нашу AJAX-систему универсальной:</p>
+
+      <pre class="code">// в ассоциативном массиве callbacks мы будем динамически
+// создавать и хранить до завершения запроса все
+// callback-функции (ведь AJAX-запросы могут поступать
+// одновременно от разных компонент на Web-странице)
+
+var callbacks=new Object();
+
+function callJSONP(url, func, arg) {
+  var cbId;
+  // генерируем уникальный callback-id:
+  do cbId = 'c' + Math.floor(Math.random() * 99999);
+  &nbsp;&nbsp;&nbsp;&nbsp;while (callbacks[cbId]);
+  // создаем callback-функцию для данного запроса:
+  callbacks[cbId] = function(obj)
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ func(arg, obj); delete callbacks[cbId]; };
+  // создаем элемент script:
+  var script = document.createElement('script');
+  // сообщаем серверу имя нашей функции:
+  script.src = url+(url.indexOf('?')&gt;=0 ? '&amp;' : '?')+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'callback=callbacks.'+cbId;
+  script.type = 'text/javascript';
+  // делаем запрос к серверу:
+  document.body.appendChild(script);
+}</pre>
+      <ul>Полученную функцию callJSONP() следует вызывать со следующими аргументами:
+        <li>url - ссылка на серверный AJAX-скрипт, возвращающий данные в формате JSONP;
+          в ссылку необходимо включить все параметры запроса (метод POST в случае с элементом &lt;script&gt;
+          неприменим);
+        </li>
+        <li>func - функция для обработки результата (например, отображения данных);
+          функция будет вызвана с двумя параметрами: func(arg, obj):
+        </li>
+        <li>arg - пользовательский аргумент (например, идентификатор элемента страницы, который следует
+          обновить),
+          который будет передан без изменения в функцию func();
+        </li>
+        <li>obj - объект JSON, подлежащий обработке.
+        </li>
+      </ul>
+      <p>В заключение приведем пример использования:</p>
+      <pre class="code">&lt;script type="text/javascript"&gt;
+// ... сюда необходимо скопировать вышеописанную функцию callJSONP() ...
+function showHTML(element, responseObject) {
+  if (typeof(element)=="string") element=document.getElementById(element);
+  element.innerHTML=responseObject.result;
+}
+&lt;/script&gt;
+
+&lt;input type="button" value="Загрузить!"
+ onclick="callJSONP('sample_ajax_script_json.php',showHTML,'targetDiv')"/&gt;
+&lt;div id="targetDiv"&gt;Здесь появится
+ результат вызова sample_ajax_script_json.php&lt;/div&gt;</pre>
+      <button type="button" class="button"><a class="button__link" href="ajax5.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="ajax7.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

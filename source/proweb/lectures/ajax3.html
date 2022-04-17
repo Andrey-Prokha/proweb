@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Создание Ajax-приложения</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1 class="content__title">Создание Ajax-приложения</h1>
+
+      <p>Первым шагом надо создать XML-файл с данными. Назовем этот файл <b>data.xml.</b>
+      </p>
+      <p><b><i>data.xml</i></b>
+      </p>
+      <pre class="code">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+    &lt;root&gt;
+      &lt;data&gt;
+        Это некоторые данные, которые хранятся в XML-файле
+        и были получены JavaScript-ом.
+      &lt;/data&gt;
+    &lt;/root&gt;
+    </pre class="code-wrapper">
+    
+      <p>Теперь создадим простенькую Web-страничку, содержащую данные для примера.
+        Это страница с JavaScript-ом, и пользователи будут запрашивать ее для того, чтобы
+        увидеть технологию Ajax в действии. Назовем этот файл <b>ajax.html</b>.
+      </p>
+      <p><b><i>ajax.html</i></b>
+      </p>
+    <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"?&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Разработка Web-приложений с помощью технологии Ajax&lt;/h1&gt;
+    &lt;p&gt;Эта страница демонстрирует использование Ajax-технологии
+    (Асинхронных Javascript и XML) для обновления содержания страницы
+    посредством чтения удаленного файла динамически - без перезагрузки
+    страницы. Обратите внимание эта операция невозможна при отключенном
+    JavaScript-е.
+    &lt;/p&gt;
+    &lt;p id="xmlData"&gt;Это данные по умолчанию.
+    &lt;a href="data.xml" title="Обзор данных XML файла."
+    onclick="ajaxRead('data.xml');return false"&gt;
+    Обзор XML данных&lt;/a&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+
+      <p>Обратите внимание: для пользователей с отключенным JavaScript вставлена ссылка к
+        файлу <b>data.xml</b>. Для пользователей с включенным JavaScript-ом будет
+        вызвана функция <b>ajaxRead</b>.
+
+      </p>
+      <p>Теперь напишем скрипт, который и будет получать данные из файла XML. Его надо
+        будет вставить в нашу Web-страницу в области <b>head</b>.
+      </p>
+      <pre class="code">&lt;script type="text/javascript"&gt;
+  &lt;!--
+  function ajaxRead(file){
+  var xmlObj = null;
+    </pre>
+      <p>Далее идет обязательная часть скрипта - проверка доступности методов.
+        Все браузеры описывают объект по-своему. При наличии <b>window.XMLHttpRequest</b>
+        (для Mozilla, Netscape 7 и Safari 1.2) создаем экземпляр объекта
+        <b>XMLHttpRequest</b>.
+        Если этот метод недоступен, проверяем наличие <b>window.ActiveXObject</b>
+        (для Internet Explorer 5+) и создаем экземпляр объекта <b>ActiveXObject</b>.
+        Если браузер не предоставляет ни одну из проверяемых возможностей, то заканчиваем
+        функцию и возвращаемся.
+      </p>
+      <pre class="code">if(window.XMLHttpRequest){
+      xmlObj = new XMLHttpRequest();
+    } else if(window.ActiveXObject){
+      xmlObj = new ActiveXObject("Microsoft.XMLHTTP");
+    } else {
+      return;
+    }
+    </pre>
+
+      <p>При каждом изменении состояния объекта <b>XMLHttpRequest</b> происходит событие
+        <b>onreadystatechange</b>. Если состояние изменяется мы используем конструкцию
+      </p>
+      <pre class="code">xmlObj.onreadystatechange = function(){ : }. </pre>
+      <p>С помощью <b>if</b> убеждаемся, что данные доступны, затем запускаем функцию
+        обновления. Она имеет два параметра: <b>ID</b> элемента в Web-странице
+        (обновляемый элемент в текущей Web-странице) и данные для заполнения этого элемента.
+        Обновляться будет тег <b>p</b>, имеющий атрибут <b>id="xmlData"</b>. С помощью
+        свойства <b>responseXML</b> объявляем, что это XML-файл. <b>xmlObj.responseXML</b>
+        является объектом DOM. Этот объект можно интерпретировать как объект <b>document</b>
+        удаленного XML-файла. Другими словами, <b>xmlObj.responseXML</b> - это объект
+        <b>document</b>, если бы запускали скрипт в самом файле <b>data.xml</b>.
+        Через метод <b>getElementsByTagName</b> ищем данные по имени тега. В данном случае
+        это первый тег с именем <b>data</b>. Конструкция
+      </p>
+      <pre class="code"> xmlObj.responseXML.getElementsByTagName('data')[0]</pre>
+      <p>выделяет только узел.
+        Чтобы выделить содержимое узла используется свойство <b>firstChild.data</b>.</p>
+      <pre class="code">xmlObj.onreadystatechange = function(){
+    if(xmlObj.readyState == 4){
+      updateObj('xmlData',
+      xmlObj.responseXML.getElementsByTagName('data')[0].firstChild.data);
+         // updateObj('xmlData', xmlObj.responseText ); // если не XML документ
+    }
+    }
+    </pre>
+      <p>Методом <b>open</b> открываем соединение с сервером с указанием типа передачи
+        данных GET, URL файла данных (в нашем случае переменная <b>file</b>, которая была
+        отослана как параметр функции <b>ajaxRead</b> - <b>data.xml</b>) и асинхронности
+        (по умолчанию).
+      </p>
+      <pre class="code">xmlObj.open ('GET', file);</pre>
+      <p>В последней строке просто отсылаем пустую строку на сервер. Иначе состояние
+        объекта <b>XMLHttpRequest</b> никогда не станет равным 4, то есть не будет
+        "завершено", и страничку нельзя будет обновить. Для POST-запроса отправили бы данные.
+      </p>
+      <pre class="code">xmlObj.send ('');
+}</pre>
+      <p>Функция обновления <b>updateObj</b> с помощью <b>getElementById</b> ищет узел
+        по указанному <b>ID</b> и заменяет его содержимое. Ее первый параметр <b>obj</b>
+        - <b>ID</b> обновляемого объекта; второй параметр <b>d</b>ata - новые данные,
+        которые должны быть помещены в обновляемый объект <b>obj</b>.
+      </p>
+      <pre class="code">function updateObj(obj, data){
+    document.getElementById(obj). innerHTML = "&lt;b&gt;"+data+"&lt;/b&gt;"; }
+    //-&gt;&lt;/script&gt;</pre>
+      </p>
+      <p>Пример использования для разных браузеров:
+      </p>
+      <pre class="code">function loadHTML(sURL)
+    {
+      var request=null;
+    
+      // пытаемся создать объект для MSXML 2 и старше
+      if(!request) try {
+        request=new ActiveXObject('Msxml2.XMLHTTP');
+      } catch (e){}
+    
+      // не вышло... попробуем для MSXML 1
+      if(!request) try {
+        request=new ActiveXObject('Microsoft.XMLHTTP');
+      } catch (e){}
+    
+      // не вышло... попробуем для Mozilla
+      if(!request) try {
+        request=new XMLHttpRequest();
+      } catch (e){}
+    
+      if(!request)
+        // ничего не получилось...
+        return "";
+    
+      // делаем запрос
+      request.open('GET', sURL, false);
+      request.send(null);
+    
+      // возвращаем текст
+      return request.responseText;
+    }</pre>
+
+      <h2>Получение части данных</h2>
+      <p>У объекта XMLHTTPRequest есть состояние readyState=3, при котором ответ находится в процессе загрузки, и уже
+        полученная часть может быть прочитана в responseText.
+        У большинства браузеров(кроме IE, который изобрел свой объект <a href="http://msdn.microsoft.com"
+          target="_blank">XDomainRequest</a>) состояние interactive можно использовать для передачи сообщений с сервера
+        не
+        закрывая соединение.</p>
+      <p>Для IE от версии 8 испольуйте XDomainRequest вместо new ActiveXObject('MSXML2.XMLHTTP'), но этот класс работает
+        несколько иначе, чем XmlHTTPRequest.</p>
+      <button type="button" class="button"><a class="button__link" href="ajax2.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="ajax4.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

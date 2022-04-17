@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Решение проблем конфигурации с помощью групповых политик</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+
+  <div class="page-wrapper">
+
+    <header class="header">
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+        </uL>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1 class="content__title">Решение проблем конфигурации с помощью групповых политик.</h1>
+      <p>Групповые политики нужны для управления операционной системы Windows. Они применяются во время персонализации
+        интерфейса, ограничения доступа к определенным ресурсам системы и многого другого. Используют данные функции
+        преимущественно системные администраторы. Они создают однотипную рабочую среду на нескольких компьютерах,
+        ограничивают доступ пользователям. В этой статье мы подробно разберем групповые политики в Windows 7, расскажем
+        про редактор, его настройку и приведем некоторые примеры групповых политик.</p>
+      <h2>Редактор групповой политики</h2>
+      <p>В Windows 7 Домашняя Базовая/Расширенная и Начальная редактор групповых политик просто отсутствует.
+        Разработчики
+        позволяют использовать его только в профессиональных версиях Виндовс, например, в Windows 7 Максимальная. Если
+        вы не обладаете этой версией, то те же действия вам придется выполнять через изменения параметров реестра.
+        Давайте подробнее рассмотрим редактор.</p>
+      <h3>Запуск редактора групповой политики</h3>
+      <p>Переход к среде работы с параметрами и настройками осуществляется за несколько простых действий. Вам только
+        необходимо:</p>
+      <ol>
+        <ol>
+          <li>Зажать клавиши&nbsp;<em>Win + R</em>, чтобы открыть&nbsp;<em>&laquo;Выполнить&raquo;</em>.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic1.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Напечатать в строке&nbsp;<em>gpedit.msc</em>&nbsp;и подтвердить действие,
+            нажав&nbsp;<em>&laquo;ОК&raquo;</em>. Далее запустится новое окно.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic2.png">
+      </figure>
+      <p>Теперь можно приступать к работе в редакторе.</p>
+      <h3>Работа в редакторе</h3>
+      <p>Разделяется главное окно управления на две части. Слева располагается структурированные категории политик. Они
+        в
+        свою очередь делятся еще на две различные группы &ndash; настройка компьютера и настройка пользователя.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic3.png">
+      </figure>
+      <p>В правой части отображается информация о выбранной политике из меню слева.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic4.png">
+      </figure>
+      <p>Из этого можно сделать вывод, что работа в редакторе осуществляется путем перемещения по категориям для поиска
+        необходимой настройки. Выберите, например,&nbsp;<em>&laquo;Административные
+          шаблоны&raquo;</em>&nbsp;в&nbsp;<em>&laquo;Конфигурации пользователя&raquo;</em>&nbsp;и перейдите в
+        папку&nbsp;<em>&laquo;Меню &laquo;Пуск&raquo; и диспетчер задач&raquo;</em>. Теперь справа отобразятся параметры
+        и их состояния. Нажмите на любую строку, чтобы открыть ее описание.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic5.png">
+      </figure>
+      <h2>Настройки политики</h2>
+      <p>Каждая политика доступна для настройки. Открывается окно редактирования параметров по двойному щелчку на
+        определенную строку. Вид окон может отличаться, все зависит от выбранной политики.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic6.png">
+      </figure>
+      <p>Стандартное простое окно имеет три различных состояния, которые настраиваются пользователем. Если точка стоит
+        напротив&nbsp;<em>&laquo;Не задано&raquo;</em>, то политика не
+        действует.&nbsp;<em>&laquo;Включить&raquo;</em>&nbsp;&ndash; она будет работать и активируются
+        настройки.&nbsp;<em>&laquo;Отключить&raquo;</em>&nbsp;&ndash; находится в рабочем состоянии, однако параметры не
+        применяются.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic7.png">
+      </figure>
+      <p>Рекомендуем обратить внимание на строку&nbsp;<em>&laquo;Поддерживается&raquo;</em>&nbsp;в окне, она показывает,
+        на какие версии Windows распространяется политика.</p>
+      <h2>Фильтры политик</h2>
+      <p>Минусом редактора является отсутствие функции поиска. Существует множество различных настроек и параметров, их
+        больше трех тысяч, все они разбросаны по отдельным папкам, а поиск приходится осуществлять вручную. Однако
+        данный процесс упрощается благодаря структурированной группе из двух ветвей, в которых расположились
+        тематические папки.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic8.png">
+      </figure>
+      <p>Например, в разделе&nbsp;<em>&laquo;Административные шаблоны&raquo;</em>, в любой конфигурации, находятся
+        политики, которые никак не связаны с безопасностью. В этой папке находится еще несколько папок с определенными
+        настройками, однако можно включить полное отображение всех параметров, для этого нужно нажать на ветвь и выбрать
+        пункт в правой части редактора&nbsp;<em>&laquo;Все параметры&raquo;</em>, что приведет к открытию всех политик
+        данной ветви.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic9.png">
+      </figure>
+      <h3>Экспорт списка политик</h3>
+      <p>Если все-таки появляется необходимость найти определенный параметр, то сделать это можно только путем экспорта
+        списка в текстовый формат, а потом уже через, например&nbsp;Word, осуществлять поиск. В главном окне редактора
+        есть специальная функция&nbsp;<em>&laquo;Экспорт списка&raquo;</em>, он переносит все политики в формат TXT и
+        сохраняет в выбранном месте на компьютере.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic10.png">
+      </figure>
+      <h3>Применение фильтрации</h3>
+      <p>Благодаря появлению ветви<em>&nbsp;&laquo;Все параметры&raquo;</em>&nbsp;и улучшению функции фильтрации поиск
+        практически не нужен, ведь лишнее откидывается путем применения фильтров, а отображаться будут только
+        необходимые политики. Давайте подробнее рассмотрим процесс применения фильтрации:</p>
+      <ol>
+        <ol>
+          <li>Выберите, например,&nbsp;<em>&laquo;Конфигурация компьютера&raquo;</em>, откройте
+            раздел&nbsp;<em>&laquo;Административные шаблоны&raquo;</em>&nbsp;и перейдите в&nbsp;<em>&laquo;Все
+              параметры&raquo;</em>.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic11.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Разверните всплывающее меню&nbsp;<em>&laquo;Действие&raquo;</em>&nbsp;и перейдите
+            в&nbsp;<em>&laquo;Параметры фильтра&raquo;</em>.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic12.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Поставьте галочку возле пункта&nbsp;<em>&laquo;Включить фильтры по ключевым словам&raquo;</em>. Здесь
+            имеется несколько вариантов подбора соответствий. Откройте всплывающее меню напротив строки ввода текста
+            и выберите&nbsp;<em>&laquo;Любой&raquo;</em>&nbsp;&ndash; если нужно отображать все политики, которые
+            соответствуют хотя бы одному указанному слову,&nbsp;<em>&laquo;Все&raquo;</em>&nbsp;&ndash; отобразит
+            политики, содержащие текст из строки в любом порядке,&nbsp;<em>&laquo;Точный&raquo;</em>&nbsp;&ndash;
+            только параметры, точно соответствующие заданному фильтру по словам, в правильном порядке. Флажками
+            снизу строки соответствий отмечаются места, где будет осуществляться выборка.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic13.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Нажмите&nbsp;<em>&laquo;ОК&raquo;</em>&nbsp;и после этого в
+            строке&nbsp;<em>&laquo;Состояние&raquo;</em>&nbsp;отобразятся только подходящие параметры.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic14.png">
+      </figure>
+      <p>В том же всплывающем меню&nbsp;<em>&laquo;Действие&raquo;</em>&nbsp;ставится или убирается галочка напротив
+        строки&nbsp;<em>&laquo;Фильтр&raquo;</em>, если нужно применить или отменить заранее заданные настройки подбора
+        соответствий.</p>
+      <h2>Принцип работы с групповыми политиками</h2>
+      <p>Рассматриваемый в этой статье инструмент позволяет применять множество самых разнообразных параметров. К
+        сожалению, большинство из них понятно только профессионалам, использующим групповые политики в рабочих целях.
+        Однако и обычному пользователю есть что настроить, используя некоторые параметры. Разберем несколько простых
+        примеров.</p>
+      <h3>Изменение окна безопасности Windows</h3>
+      <p>Если в Виндовс 7 зажать сочетание клавиш&nbsp;<em>Ctrl + Alt + Delete</em>, то будет запущено окно
+        безопасности,
+        где осуществляется переход к диспетчеру задач, блокировка ПК, завершение сеанса системы, смена профиля
+        пользователя и пароля.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic15.png">
+      </figure>
+      <p>Каждая команда за исключением&nbsp;<em>&laquo;Сменить пользователя&raquo;</em>&nbsp;доступна для редактирования
+        путем изменения нескольких параметров. Выполняется это в среде с параметрами или путем изменения реестра.
+        Рассмотрим оба варианта.</p>
+      <ol>
+        <ol>
+          <li>Откройте редактор.</li>
+          <li>Перейдите в папку&nbsp;<em>&laquo;Конфигурация
+              пользователя&raquo;</em>,&nbsp;<em>&laquo;Административные
+              шаблоны&raquo;</em>,&nbsp;<em>&laquo;Система&raquo;</em>&nbsp;и&nbsp;<em>&laquo;Варианты действий
+              после нажатия Ctrl + Alt + Delete&raquo;</em>.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic16.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Откройте любую необходимую политику в окне справа.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic17.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>В простом окне управления состоянием параметра поставьте галочку
+            напротив&nbsp;<em>&laquo;Включить&raquo;</em>&nbsp;и не забудьте применить изменения.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic18.png">
+      </figure>
+      <p>Пользователям, у которых нет редактора политик, все действия нужно будет выполнять через реестр. Давайте
+        рассмотрим все действия пошагово:</p>
+      <ol>
+        <ol>
+          <li>Перейдите к редактированию реестра.</li>
+        </ol>
+      </ol>
+      <ol>
+        <ol>
+          <li>Перейдите к разделу&nbsp;<em>&laquo;System&raquo;</em>. Он находится по этому ключу:</li>
+        </ol>
+      </ol>
+      <p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System</code></p>
+      <ol>
+        <ol>
+          <li>Там вы увидите три строки, отвечающие за появление функций в окне безопасности.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic19.png">
+      </figure>
+      <ol>
+        <li>Откройте необходимую строку и поменяйте значение на&nbsp;<em>&laquo;1&raquo;</em>, чтобы активировать
+          параметр.</li>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic20.png">
+      </figure>
+      <p>После сохранения изменений деактивированные параметры больше не будут отображаться в окне безопасности Windows
+        7.
+      </p>
+      <h3>Изменения панели мест</h3>
+      <p>Многие используют диалоговые окна&nbsp;<em>&laquo;Сохранить как&raquo;</em>&nbsp;или&nbsp;<em>&laquo;Открыть
+          как&raquo;</em>. Слева отображается навигационная панель, включая
+        раздел&nbsp;<em>&laquo;Избранное&raquo;</em>. Данный раздел настраивается стандартными средствами Windows,
+        однако это долго и неудобно. Поэтому лучше воспользоваться групповыми политиками для редактирования отображения
+        значков в данном меню. Редактирование происходит следующим образом:</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic21.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Перейдите в редактор, выберите&nbsp;<em>&laquo;Конфигурация пользователя&raquo;</em>, перейдите
+            к&nbsp;<em>&laquo;Административные шаблоны&raquo;</em>,&nbsp;<em>&laquo;Компоненты
+              Windows&raquo;</em>,&nbsp;<em>&laquo;Проводник&raquo;</em>&nbsp;и конечной папкой будет
+            &laquo;<em>Общее диалоговое окно открытия файлов&raquo;</em>.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic22.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Здесь вас интересует&nbsp;<em>&laquo;Элементы, отображаемые в панели мест&raquo;</em>.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic23.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Поставьте точку напротив&nbsp;<em>&laquo;Включить&raquo;</em>&nbsp;и добавьте до пяти различных путей
+            сохранения в соответствующие строки. Справа от них отображается инструкция правильного указания путей к
+            локальным или сетевым папкам.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic24.png">
+      </figure>
+      <p>Теперь рассмотрим добавление элементов через реестр для пользователей, у которых отсутствует редактор.</p>
+      <ol>
+        <ol>
+          <li>Перейдите по пути:</li>
+        </ol>
+      </ol>
+      <p><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\</code></p>
+      <ol>
+        <ol>
+          <li>Выберите папку&nbsp;<em>&laquo;Policies&raquo;</em>&nbsp;и сделайте в ней раздел&nbsp;<em>comdlg32</em>.
+          </li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic25.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Перейдите в созданный раздел и сделайте внутри него папку&nbsp;<em>Placesbar</em>.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic26.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>В этом разделе потребуется создать до пяти строковых параметров и назвать их
+            от&nbsp;<em>&laquo;Place0&raquo;</em>&nbsp;до&nbsp;<em>&laquo;Place4&raquo;</em>.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic27.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>После создания откройте каждый из них и в строку введите необходимый путь к папке.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic28.png">
+      </figure>
+      <h3>Слежение за завершением работы компьютера</h3>
+      <p>Когда вы завершаете работу за компьютером, выключение системы происходит без показа дополнительных окон, что
+        позволяет не быстрее выключить ПК. Но иногда требуется узнать почему происходит выключение или перезапуск
+        системы. В этом поможет включение специального диалогового окна. Включается оно с помощью редактора или путем
+        изменения реестра.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic29.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Откройте редактор и перейдите к&nbsp;<em>&laquo;Конфигурация
+              компьютера&raquo;</em>,&nbsp;<em>&laquo;Административные шаблоны&raquo;</em>, после чего выберите
+            папку&nbsp;<em>&laquo;Система&raquo;</em>.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic30.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>В ней нужно выбрать параметр&nbsp;<em>&laquo;Отображать диалог слежения за завершением
+              работы&raquo;</em>.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic31.png">
+      </figure>
+      <ol>
+        <ol>
+          <li>Откроется простое окно настройки, где необходимо поставить точку
+            напротив&nbsp;<em>&laquo;Включить&raquo;</em>, при этом в разделе параметры во всплывающем меню
+            необходимо указать&nbsp;<em>&laquo;Всегда&raquo;</em>. После не забудьте применить изменения.</li>
+        </ol>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic32.png">
+      </figure>
+      <p>Данная функция включается и через реестр. Вам нужно совершить несколько простых действий:</p>
+      <ol>
+        <ol>
+          <li>Запустите реестр и перейдите по пути:</li>
+        </ol>
+      </ol>
+      <p><code>HKLM\Software\Policies\Microsoft\Windows NT\Reliability</code></p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic33.png">
+      </figure>
+      <ol>
+        <li>Найдите в разделе две
+          строки:&nbsp;<em>&laquo;ShutdownReasonOn&raquo;</em>&nbsp;и&nbsp;<em>&laquo;ShutdownReasonUI&raquo;</em>.
+        </li>
+        <li>Введите в строку с состоянием&nbsp;<em>&laquo;1&raquo;</em>.</li>
+      </ol>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya8_pic34.png">
+      </figure>
+      <button type="button" class="button"><a class="button__link"
+          href="zagruzka_i_ustanovka_programmnogo_obespecheniya7.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link"
+          href="zagruzka_i_ustanovka_programmnogo_obespecheniya9.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

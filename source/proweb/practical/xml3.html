@@ -1,0 +1,806 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>XML Schema Definition Language</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>XML XML Schema Definition Language</h1>
+      <p>Цель лабораторной работы:</p>
+      <ol>
+        <li>Познакомиться c XML схемами на примере XSD</li>
+        <li>Научиться описывать структуру XML документов с помощью XSD</li>
+      </ol>
+      <h2>Теоретические сведения</h2>
+      <p>Консорциум W3C выработал рекомендацию языка определения схем XML (XSD), объединив наиболее популярные языки
+        описания схем в один стандарт. Основная цель, которая при этом преследовалась, &mdash; получение стандарта,
+        который можно широко реализовать и при этом он платформно-независимый.</p>
+      <p>Язык XML Schema Definition Language, который также называют XML Schema Language, во многом похож на язык XDR, с
+        которым вы познакомились раньше. Схемы XSD способны решать следующие задачи:</p>
+      <ul>
+        <li>Перечисление элементов в документе XML и проверка наличия в документе только объявленных элементов.</li>
+        <li>Объявление и определение атрибутов, модифицирующих элементы документа.</li>
+        <li>Определение родительско-дочерних отношений между элементами.</li>
+        <li>Определение состояний и моделей содержания для элементов и атрибутов.</li>
+        <li>Задание типов данных.</li>
+        <li>Установка значений по умолчанию.</li>
+        <li>Возможность расширения.</li>
+        <li>Поддержка использования пространств имен.</li>
+      </ul>
+      <p>Корневым элементом в схеме XML является элемент&nbsp;<dfn>Schema</dfn>, который содержит все остальные элементы
+        в
+        документе схемы. В рамках корневого элемента схемы XSD атрибутом&nbsp;<dfn>xmlns</dfn>&nbsp;определяется
+        пространство имен&nbsp;<dfn>XMLSchema</dfn>, которое содержит элементы и атрибуты XSD схемы.</p>
+      <p><code class="code code--inline">&lt;xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;</code></p>
+      <p>Все элементы XSD начинаются с префикса&nbsp;<dfn>xsd:</dfn>, который указывается для пространства имен XSD,
+        объявленного в корневом элементе экземпляра схемы.</p>
+      <p>XML-документ, который проверяется с помощью схемы, также должен содержать объявление пространства имен.
+        Пространство имен всегда указывается в корневом элементе экземпляра документа с помощью
+        атрибута&nbsp;<dfn>xmlns:</dfn></p>
+      <p><code class="code code--inline">xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</code></p>
+      <p>Это пространство имен содержит элементы и атрибуты&nbsp;<dfn>XMLSchema</dfn>, которые можно включать в документ
+        XML. По общему соглашению префикс&nbsp;<dfn>xsi</dfn>&nbsp;используется для этого пространства имен и
+        добавляется в начале имен всех элементов и атрибутов, принадлежащих пространству имен, отделяясь от них
+        двоеточием.</p>
+      <p>Ссылка на конкретную схему приводится в атрибуте</p>
+      <p><code class="code code--inline">xsi:schemaLocation="http://kit.znu.edu.ua/scemes/имя_файла.xsd"</code></p>
+      <p>Процесс создания схемы включает в себя два шага &mdash; определение и объявление типов элементов или типов
+        атрибутов. Элементы и атрибуты XML-документа объявляются элементами
+        схемы&nbsp;<dfn>xsd:element</dfn>&nbsp;и&nbsp;<dfn>xsd:attribute</dfn>. Структура же XML-документа определяется
+        элементами схемы&nbsp;<dfn>xsd:simpleType</dfn>&nbsp;и&nbsp;<dfn>xsd:complexType</dfn>.</p>
+      <p>Основное&nbsp;<strong>объявление элемента</strong>&nbsp;состоит из имени и типа данных</p>
+      <p><code class="code code--inline">&lt;xsd:element name="имя_элемента" type="xsd:тип_данных"/&gt;</code></p>
+      <p>В схемах XSD дескрипторы, используемые в документах XML, разделяются на две категории &mdash; сложные типы и
+        простые типы. Элементы сложных типов могут содержать другие элементы, а также обладают определенными атрибутами;
+        элементы простых типов такими возможностями не обладают.</p>
+      <p><strong>Атрибут</strong>&nbsp;- объявление простого типа, которое не может содержать другие элементы.
+        Объявление
+        атрибута похоже на объявление элемента:</p>
+      <p><code class="code code--inline">&lt;xsd:attribute name="имя_атрибута" type="xsd:тип_данных"/&gt;</code></p>
+      <h3>Простые типы данных</h3>
+      <p>Есть две главных категории&nbsp;<strong>простых типов</strong>:</p>
+      <ul>
+        <li>встроенные типы;</li>
+        <li>определенные пользователем простые типы.</li>
+      </ul>
+      <p>Язык XSD имеет большое количество&nbsp;<dfn>встроенных простых типов</dfn>&nbsp;данных. Встроенные типы
+        включают
+        в себя примитивные типы и производные.&nbsp;<dfn>Примитивные типы</dfn>&nbsp;данных не получены из других типов
+        данных. Например, числа с плавающей запятой - математическое понятие, которое не получено из других типов
+        данных.&nbsp;<dfn>Производные типы</dfn>&nbsp;данных определены в терминах существующих типов данных. Например,
+        целое число - частный случай, полученный из десятичного типа данных.</p>
+      <p>Следующая таблица представляет список примитивных типов данных XML-схемы, аспекты, которые могут быть применены
+        к
+        типу данных и описания типа данных.</p>
+      <table class="table">
+        <caption>Примитивные типы данных</caption>
+        <thead>
+          <tr class="table__row">
+            <th class="table__cell">Тип данных</th>
+            <th class="table__cell">Аспекты</th>
+            <th class="table__cell">Описание</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>string</dfn></td>
+            <td class="table__cell">length, pattern, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет символьную строку.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>Boolean</dfn></td>
+            <td class="table__cell">pattern, whiteSpace</td>
+            <td class="table__cell">Представляет логическое значение, которое может быть true или false.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>decimal</dfn></td>
+            <td class="table__cell">enumeration, pattern, totalDigits, fractionDigits, minInclusive, minExclusive,
+              maxInclusive,
+              maxExclusive, whiteSpace</td>
+            <td class="table__cell">Представляет произвольное число.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>float</dfn></td>
+            <td class="table__cell">pattern, enumeration, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет 32-битовое число с плавающей запятой одиночной точности.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>double</dfn></td>
+            <td class="table__cell">pattern, enumeration, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет 64-битовое число с плавающей запятой двойной точности.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>duration</dfn></td>
+            <td class="table__cell">enumeration, pattern, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет продолжительность времени. Шаблон для duration следующий -
+              PnYnMnDTnHnMnS, где nY
+              представляет число лет; nM - месяцев; nD - дней; Т - разделитель даты и времени; nH - число часов;
+              nM - минут; nS - секунд.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>dateTime</dfn></td>
+            <td class="table__cell">enumeration, pattern, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет конкретное время. Шаблон для dateTime следующий - CCYY-MM-DDThh:mm:ss,
+              где CC
+              представляет столетие; YY - год; MM - месяц; DD - день; Т - разделитель даты и времени; hh - число
+              часов; mm - минут; ss - секунд. При необходимости можно указывать доли секунды. Например, сотые доли
+              в шаблоне: ss.ss</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>time</dfn></td>
+            <td class="table__cell">enumeration, pattern, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет конкретное время дня. Шаблон для time следующий -hh:mm:ss.sss (долевая
+              часть секунд
+              необязательна).</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>date</dfn></td>
+            <td class="table__cell">enumeration, pattern, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет календарную дату. Шаблон для date такой - CCYY-MM-DD (здесь
+              необязательна часть,
+              представляющая время).</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>gYearMonth  </dfn></td>
+            <td class="table__cell">enumeration, pattern, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет конкретный месяц конкретного года (CCYY-MM ).</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>gYear</dfn></td>
+            <td class="table__cell">enumeration, pattern, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет календарный год (CCYY).</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>gMonthDay</dfn></td>
+            <td class="table__cell">enumeration, pattern, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет конкретный день конкретного месяца (--MM-DD).</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>gDay</dfn></td>
+            <td class="table__cell">enumeration, pattern, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет календарный день (---DD).</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>gMonth</dfn></td>
+            <td class="table__cell">enumeration, pattern, minInclusive, minExclusive, maxInclusive, maxExclusive,
+              whiteSpace</td>
+            <td class="table__cell">Представляет календарный месяц (--MM--).</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>hexBinary</dfn></td>
+            <td class="table__cell">length, pattern, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет произвольную шестнадцатерично-закодированную двоичную информацию.
+              HexBinary - набор
+              двоичных октетов фиксированной длины, состоящий из четырех пар шестнадцатеоисных символов. Например,
+              0-9a-fA-F.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>base64Binary</dfn></td>
+            <td class="table__cell">length, pattern, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет произвольную Base64-закодированную двоичную информацию. Base64Binary -
+              набор двоичных
+              октетов фиксированной длины.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>anyURI</dfn></td>
+            <td class="table__cell">length, pattern, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет URI как определено в RFC 2396. Значение anyURI может быть абсолютно или
+              относительно, и
+              может иметь необязательный идентификатор фрагмента.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>QName</dfn></td>
+            <td class="table__cell">length, enumeration, pattern, maxLength, minLength, whiteSpace</td>
+            <td class="table__cell">Представляет составное имя. Имя составлено из префикса и локального названия,
+              отделенного
+              двоеточием. И префикс и локальные названия должны быть NCNAME. Префикс должен быть связан с
+              namespace URI ссылкой, используя объявление пространства имени.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>NOTATION</dfn></td>
+            <td class="table__cell">length, enumeration, pattern, maxLength, minLength, whiteSpace</td>
+            <td class="table__cell">Представляет тип атрибута СИСТЕМЫ ОБОЗНАЧЕНИЙ. Набор QNAMES.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Следующая таблица представляет список производных типов данных XML-схемы, аспекты, которые могут быть применены
+        к
+        типу данных и описания типа данных.</p>
+      <table class="table">
+        <caption>Производные типы данных</caption>
+        <thead>
+          <tr class="table__row">
+            <th class="table__cell">Тип данных</th>
+            <th class="table__cell">Аспекты</th>
+            <th class="table__cell">Описание</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>normalizedString</dfn></td>
+            <td class="table__cell">length, pattern, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет нормализованные строки. Этот тип данных получен из string.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>token</dfn></td>
+            <td class="table__cell">enumeration, pattern, length, minLength, maxLength, whiteSpace</td>
+            <td class="table__cell">Представляет маркированные строки. Этот тип данных получен из normalizedString.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>language</dfn></td>
+            <td class="table__cell">length, pattern, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет идентификаторы естественного языка (определенный RFC 1766). Этот тип
+              данных получен из
+              token</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>IDREFS</dfn></td>
+            <td class="table__cell">length, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет тип атрибута IDREFS. Содержит набор значений типа IDREF.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>ENTITIES</dfn></td>
+            <td class="table__cell">length, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет тип атрибута ENTITIES. Содержит набор значений типа ENTITY.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>NMTOKEN</dfn></td>
+            <td class="table__cell">length, pattern, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет тип атрибута NMTOKEN. NMTOKEN - набор символов имен (символы, цифры и
+              другие символы) в
+              любой комбинации. В отличие отName и NCNAME, NMTOKEN не имеет никаких ограничений на первый символ.
+              Этот тип данных получен из token.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>NMTOKENS</dfn></td>
+            <td class="table__cell">length, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет тип атрибута NMTOKENS. Содержит набор значений типа NMTOKEN.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>Name</dfn></td>
+            <td class="table__cell">length, pattern, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет имена в XML. Name - лексема(маркер), которая начинается с символа,
+              символа
+              подчеркивания или двоеточия и продолжается символами имен (символы, цифры, и другие символы). Этот
+              тип данных получен из token.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>NCName</dfn></td>
+            <td class="table__cell">length, pattern, maxLength, minLength, enumeration, whiteSpace</td>
+            <td class="table__cell">Представляет неколонкированные названия. Этот тип данных - тот же, что и Name, но не
+              может
+              начинаться с двоеточия. Этот тип данных получен из Name.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>ID</dfn></td>
+            <td class="table__cell">length, enumeration, pattern, maxLength, minLength, whiteSpace</td>
+            <td class="table__cell">Представляет тип атрибута ID, определенный в XML 1.0 Рекомендации. ИДЕНТИФИКАТОР не
+              должен иметь
+              двоеточия (NCName) и должен быть уникален в пределах XML документа. Этот тип данных получен из
+              NCNAME.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>IDREF</dfn></td>
+            <td class="table__cell">length, enumeration, pattern, maxLength, minLength, whiteSpace</td>
+            <td class="table__cell">Представляет ссылку к элементу, имеющему атрибут ID, который точно соответствует
+              установленному
+              ИДЕНТИФИКАТОРУ. IDREF должен быть NCNAME и должен быть значением элемента или атрибута типа ID в
+              пределах XML документа. Этот тип данных получен из NCNAME.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>ENTITY</dfn></td>
+            <td class="table__cell">length, enumeration, pattern, maxLength, minLength, whiteSpace</td>
+            <td class="table__cell">Представляет тип атрибута ENTITY. Это - ссылка к неанализируемому объекту с именем,
+              которое точно
+              соответствует установленному имени. ENTITY должен быть NCNAME и должен быть объявлен в схеме как
+              неанализируемое имя объекта. Этот тип данных получен из NCNAME.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>integer</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет последовательность десятичных цифр с необязательным знаком (+ или -).
+              Этот тип данных
+              получен из decimal.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>nonPositiveInteger   </dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число, меньшее или равное нулю. NonPositiveInteger состоит из
+              отрицательного
+              знака (-) и последовательности десятичных цифр. Этот тип данных получен из целого числа.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>negativeInteger</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число, меньшее нуля. Этот тип данных получен из
+              nonPositiveInteger.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>long</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число с минимальным значением -9223372036854775808 и максимумом
+              9223372036854775807. Этот тип данных получен из целого числа.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>int</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число с минимальным значением -2147483648 и максимумом
+              2147483647. Этот тип
+              данных получен из long.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>short</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число с минимальным значением -32768 и максимумом 32767. Этот тип
+              данных получен
+              из int.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>byte</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число с минимальным значением -128 и максимумом 127. Этот тип
+              данных получен из
+              short.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>nonNegativeInteger    </dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число, большее равное нулю. Этот тип данных получен из целого
+              числа.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>unsignedLong</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число с минимумом нуль и максимумом 18446744073709551615. Этот
+              тип данных получен
+              из nonNegativeInteger.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>unsignedInt</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число с минимумом нуль и максимумом 4294967295. Этот тип данных
+              получен из
+              unsignedLong.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>unsignedShort</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число с минимумом нуль и максимумом 65535. Этот тип данных
+              получен из
+              unsignedInt.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>unsignedByte</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число с минимумом нуля и максимума 255. Этот тип данных получен
+              из unsignedShort.
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>positiveInteger</dfn></td>
+            <td class="table__cell">enumeration, fractionDigits, pattern, minInclusive, minExclusive, maxInclusive,
+              maxExclusive,
+              totalDigits, whiteSpace</td>
+            <td class="table__cell">Представляет целое число, которое является большим чем нуль. Этот тип данных получен
+              из
+              nonNegativeInteger.</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Определённые пользователем простые типы</h3>
+      <p>Получены из встроенных типов, применением к ним именованых ограничений, называемыми
+        аспектами(Facets).&nbsp;<strong>Аспекты</strong>&nbsp;ограничивают допустимые значения простых типов. Синтаксис
+        применения аспектов ограничения следующий:</p>
+      <p><code
+          class="code code--inline">&lt;xsd:restriction base="тип_данных"&gt; &lt;xsd:имя_аспекта value="значение_аспекта"/&gt; &lt;/xsd:restriction&gt;</code>
+      </p>
+      <table class="table">
+        <caption>Аспекты ограничения простых типов</caption>
+        <tbody>
+          <tr class="table__row">
+            <th class="table__cell">Аспект</th>
+            <th class="table__cell">Значение</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>enumeration</dfn></td>
+            <td class="table__cell">Определенный набор значений. Ограничивает тип данных указанными значениями.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>fractionDigits   </dfn></td>
+            <td class="table__cell">Значение с определенным максимальным числом десятичных цифр в дробной части.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>length</dfn></td>
+            <td class="table__cell">Целочисленное число единиц длины. Единицы длины зависят от типа данных.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>maxExclusive</dfn></td>
+            <td class="table__cell">Верхний предел значений (все значения - меньше указанного).</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>maxInclusive</dfn></td>
+            <td class="table__cell">Максимальное значение.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>maxLength</dfn></td>
+            <td class="table__cell">Целочисленное число единиц максимальной длины.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>minExclusive</dfn></td>
+            <td class="table__cell">Нижний предел значений (все значения - больше указанного).</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>minInclusive</dfn></td>
+            <td class="table__cell">Минимальное значение.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>minLength</dfn></td>
+            <td class="table__cell">Целочисленное число единиц минимальной длины.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>pattern</dfn></td>
+            <td class="table__cell">Литеральный шаблон, которому должны соответствовать значения.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>totalDigits</dfn></td>
+            <td class="table__cell">Значение с определенным максимальным числом десятичных цифр.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>whiteSpace</dfn></td>
+            <td class="table__cell">Одно из предопределенных значений: preserve, replace или collapse</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table">
+        <caption>Значения аспекта&nbsp;<dfn>whiteSpace</dfn></caption>
+        <tbody>
+          <tr class="table__row">
+            <th class="table__cell">Значение</th>
+            <th class="table__cell">Описание</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>preserve</dfn></td>
+            <td class="table__cell">Никакая нормализация не выполняется.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>replace</dfn></td>
+            <td class="table__cell">Все #x9 (tab), #xA (line feed) and #xD (carriage return) заменяются на #x20
+              (пробел).</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><dfn>collapse</dfn></td>
+            <td class="table__cell">После replace-обработки все внутренние цепочки #x20 разрушаются до одного пробела, а
+              окружающие
+              пробелы удаляются.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Аспекты могут быть указаны только однажды в определении типа,
+        кроме&nbsp;<dfn>enumeration</dfn>&nbsp;и&nbsp;<dfn>pattern</dfn>&nbsp;- они могут иметь многократные вхождения и
+        группируются.</p>
+      <h3>Именованный тип данных</h3>
+      <p>В языке XSD, в отличие от тех двух, с которыми вы познакомились раньше, существует концепция именованных типов.
+        Например, при создании определения, можно присвоить этому определению имя, чтобы повторно использовать его в
+        схеме XSD. Вы можете создать определение простого типа&nbsp;<dfn>simpleType</dfn>&nbsp;и назвать его,
+        например,&nbsp;<dfn>txt15pre</dfn>. В результате вы получите именованное ограничение. После этого вы сможете
+        применять это ограничение и к другим элементам в схеме. Это особенно полезно, когда в определении применяются
+        аспекты ограничения типа данных, чтобы не повторять их каждый раз в других определениях. Например,
+        элемент&nbsp;<dfn>simpleType</dfn>&nbsp;может быть связан с элементом&nbsp;<dfn>Фамилия</dfn>&nbsp;и
+        атрибутом&nbsp;<dfn>Телефон</dfn>&nbsp;для объявления содержания этих элемента и значения атрибута как строковых
+        данных:</p>
+      <pre class="code">&lt;xsd:simpleType name="txt15pre"&gt;
+    &nbsp;  &lt;xsd:restriction base="xsd:string"&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:maxLength value="15"/&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:whiteSpace value="preserve"/&gt;
+    &nbsp;  &lt;/xsd:restriction&gt;
+    &lt;/xsd:simpleType&gt;
+    &lt;xsd:element name="Фамилия" type="txt15pre"/&gt;
+    &lt;xsd:attribute name="Телефон" type="txt15pre" use="required"/&gt;</pre>
+      <p>Обратили внимание на ключевое слово&nbsp;<dfn>required</dfn>&nbsp;в объявлении атрибута? Как и в предыдущих
+        схемах, оно все так же означает обязательность использования объявленного атрибута. Другими предопределенными
+        значениями атрибута&nbsp;<dfn>use</dfn>&nbsp;элемента схемы&nbsp;<dfn>xsd:attribute</dfn>могут быть ключевые
+        слова&nbsp;<dfn>optional</dfn>&nbsp;и&nbsp;<dfn>prohibited</dfn>. Если первое из них означает необязательность
+        использования, то второе запрещает использование объявленного атрибута. Такая необходимость возникает в случае
+        локального объявления ранее определенной группы атрибутов элементом схемы&nbsp;<dfn>xsd:attributeGroup</dfn>,
+        например:</p>
+      <pre class="code">&lt;xsd:attributeGroup name="Связь"&gt;
+    &nbsp;  &lt;xsd:attribute name="Телефон" type="txt15pre"/&gt;
+    &nbsp;  &lt;xsd:attribute name="Факс" type="txt15pre"/&gt;
+    &lt;/xsd:attributeGroup&gt;</pre>
+      <p>далее в контексте определения элемента сложного типа мы делаем ограничение на применение атрибутов этой группы:
+      </p>
+      <pre class="code">&lt;xsd:complexType name="Клиент"&gt;
+    &nbsp;  &lt;xsd:complexContent&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:restriction base="xsd:Связь"&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;xsd:attribute name="Телефон" use="required"/&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;xsd:attribute name="Факс" use="prohibited"/&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;/xsd:restriction&gt;
+    &nbsp;  &lt;/xsd:complexContent&gt;
+    &lt;/xsd:complexType&gt;</pre>
+      <h3>Сложные типы данных</h3>
+      <p><dfn>Модель содержания</dfn>&nbsp;элемента сложного типа - формальное описание структуры и допустимого
+        содержания
+        элемента, которое используется для проверки правильности XML документа. Модели содержания Схемы предоставляют
+        больший контроль структуры элементов, чем модели содержания DTD. Кроме того, модели содержания схемы позволяют
+        проверять правильность смешанного содержания.</p>
+      <p>Модель содержания может ограничивать документ до некоторого набора элементных типов и атрибутов, описывать и
+        поддерживать связи между этими различными компонентами и уникально обозначать отдельные элементы. Свободное
+        использование модели содержания позволяет разработчикам изменять структурную информацию.</p>
+      <p>Перечень объявлений дочерних элементов приводится в структуре группирующих
+        XSD-элементов&nbsp;<strong>choice</strong>,&nbsp;<strong>sequence</strong>, и&nbsp;<strong>all</strong>.</p>
+      <p>Элемент&nbsp;<dfn>xsd:choice</dfn>&nbsp;позволяет только одному из элементов, содержащихся в группе
+        присутствовать в составе элемента. Элемент&nbsp;<dfn>xsd:sequence</dfn>&nbsp;требует появления элементов группы
+        в точно установленной последовательности в составе элемента.&nbsp;<dfn>xsd:all</dfn>&nbsp;элемент позволяет
+        элементам в группе быть (или не быть) в любом порядке в составе элемента.</p>
+      <p>Элемент&nbsp;<dfn>xsd:group</dfn>&nbsp;используется для четкого определения группы и для ссылки к именованной
+        группе. Вы можете использовать модель группы, чтобы определить набор элементов, которые могут быть повторены в
+        документе. Это полезно для формирования определения комплексного типа. Именованную модель группы можно далее
+        определить,
+        используя&nbsp;<dfn>&lt;xsd:sequence&gt;</dfn>,&nbsp;<dfn>&lt;xsd:choice&gt;</dfn>&nbsp;или&nbsp;<dfn>&lt;xsd:all&gt;</dfn>&nbsp;дочерние
+        элементы. Именованные группы должны определяться в корне схемы. При необходимости многократного использования
+        перечня элементов, определенного в группе, не надо каждый раз писать этот перечень - достаточно дать ссылку на
+        именованную группу&nbsp;<dfn>&lt;xsd:group ref="имя_группы"&gt;</dfn></p>
+      <h3>Определение элемента сложного типа</h3>
+      <p>Определения сложных типов создаются с использованием элемента&nbsp;<dfn>complexType</dfn>, его атрибутов и
+        любых
+        допустимых аспектов. Обычно, сложные типы будут содержать набор элементных объявлений, объявлений атрибутов и
+        элементных ссылок.</p>
+      <pre class="code">&lt;xsd:element name="имя_элемента" type="xsd:тип_данных"&gt;
+    &lt;xsd:complexType&gt;
+    &nbsp;  &lt;xsd:sequence&gt;
+    &nbsp; &nbsp;  &lt;xsd:element name="имя_элемента" type="xsd:тип_данных"/&gt;
+    &nbsp;  &lt;/xsd:sequence&gt;
+    &nbsp;  &lt;xsd:attribute name="имя_атрибута" type="xsd:тип_данных"/&gt;
+    &lt;/xsd:complexType&gt;
+    &lt;/xsd:element&gt;</pre>
+      <h3>Листинг 1. Пример XSD-схемы "Картотека.xsd"</h3>
+      <pre class="code">&lt;xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+    &nbsp;  &lt;xsd:element name="Заказчики"&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:complexType&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;xsd:sequence maxOccurs="unbounded"&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;xsd:element name="Заказчик"&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;xsd:complexType&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;xsd:sequence&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;xsd:element name="Компания"&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;xsd:complexType&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;xsd:attribute name="телефон"
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  type="xsd:string" use="required"/&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;/xsd:complexType&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;/xsd:element&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;/xsd:sequence&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;/xsd:complexType&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;/xsd:element&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &lt;/xsd:sequence&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;/xsd:complexType&gt;
+    &nbsp;  &lt;/xsd:element&gt;
+    &lt;/xsd:schema&gt;</pre>
+      <h2>Задание на лабораторную работу</h2>
+      <p>Необходимо для XML документа, созданого в первой лабораторной работе, определить его струткуру с помощью XSD.
+        Осуществить проверку соответсвия документа описанию его структуры.</p>
+      <h2>W3C парсеры для XML.</h2>
+      <p>Проблемой при валидации (проверка правилоьности XML документа согласно схеме) является тот факт, что
+        соответствие
+        документов их схемам некоторые броузеры не проверяют. В связи с этим возникает необходимость использовать
+        возможности DOM (Document Object Model - см. лаб.раб. №5) для проверки правильности. Функция валидации так или
+        иначе присутствует в любом парсере. Ее необходимо правильно вызвать. Проверить соответствие XDR схеме в ОС
+        Windows несколько легче, поскольку XML парсер от Microsoft является частью операционной системы. Достаточно
+        воспользоваться Java скриптом для проверке (как в прошлой лабораторной работе).</p>
+      <p>XSD является стандартом, поддерживаемым и развиваемым консорциумом W3C. В рамках этой поддержки<a
+          target="_blank" href="http://www.apache.org/">The Apache Software Foundation</a>&nbsp;создала набор ПО,
+        представляющего
+        собой парсеры и другое обеспечение для&nbsp;<a target="_blank" href="http://xml.apache.org/">работы с XML</a>.
+        Одним из таких
+        известных парсеров является&nbsp;<a target="_blank" href="http://xerces.apache.org/">Xerces</a>. Он существует в
+        виде отдельного ПО, реализованного на С++ или Java. Чтобы не ограничивать Вас в выборе инструментальной среды и
+        ОС, будем использовать Java реализацию ввиду ее кроссплатформенности и простоты использования.</p>
+      <p><strong>Замечание</strong>. Для запуска Java приложения необходимо, чтобы на компьютере была установлена Java
+        машина от Sun. Желательно с Java SDK.</p>
+      <p>Предположим у нас есть XML документ&nbsp;<a target="_blank"
+          href="https://bdpx.github.io/xml/lab3/sonnet.xml">SONNET.XML</a></p>
+      <pre class="code">&lt;?xml version="1.0"?&gt;
+    &lt;sonnet
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="sonnet.xsd"
+    type="Shakespearean"&gt;
+    &lt;author&gt;
+    &nbsp;  &lt;lastName&gt;Shakespeare&lt;/lastName&gt;
+    &nbsp;  &lt;firstName&gt;William&lt;/firstName&gt;
+    &nbsp;  &lt;nationality&gt;British&lt;/nationality&gt;
+    &nbsp;  &lt;yearOfBirth&gt;1564&lt;/yearOfBirth&gt;
+    &nbsp;  &lt;yearOfDeath&gt;1616&lt;/yearOfDeath&gt;
+    &lt;/author&gt;
+    &lt;title&gt;Sonnet 130&lt;/title&gt;
+    &lt;lines&gt;
+    &nbsp;  &lt;line&gt;My mistress' eyes are nothing like the sun,&lt;/line&gt;
+    &nbsp;  &lt;line&gt;Coral is far more red than her lips red.&lt;/line&gt;
+    &nbsp;  &lt;line&gt;If snow be white, why then her breasts are dun,&lt;/line&gt;
+    &nbsp;  &lt;line&gt;If hairs be wires, black wires grow on her head.&lt;/line&gt;
+    &nbsp;  &lt;line&gt;I have seen roses damasked, red and white,&lt;/line&gt;
+    &nbsp;  &lt;line&gt;But no such roses see I in her cheeks.&lt;/line&gt;
+    &nbsp;  &lt;line&gt;And in some perfumes is there more delight&lt;/line&gt;
+    &nbsp;  &lt;line&gt;Than in the breath that from my mistress reeks.&lt;/line&gt;
+    &nbsp;  &lt;line&gt;I love to hear her speak, yet well I know&lt;/line&gt;
+    &nbsp;  &lt;line&gt;That music hath a far more pleasing sound.&lt;/line&gt;
+    &nbsp;  &lt;line&gt;I grant I never saw a goddess go,&lt;/line&gt;
+    &nbsp;  &lt;line&gt;My mistress when she walks, treads on the ground.&lt;/line&gt;
+    &nbsp;  &lt;line&gt;And yet, by Heaven, I think my love as rare&lt;/line&gt;
+    &nbsp;  &lt;line&gt;As any she belied with false compare.&lt;/line&gt;
+    &lt;/lines&gt;
+    &lt;/sonnet&gt;</pre>
+      <p>И есть соответсвенно схема&nbsp;<a target="_blank"
+          href="https://bdpx.github.io/xml/lab3/sonnet.xsd">SONNET.XSD</a></p>
+      <pre class="code">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+    &lt;xsd:element name="sonnet"&gt;
+    &nbsp;  &lt;xsd:complexType&gt;
+    &nbsp; &nbsp;  &lt;xsd:sequence&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:element ref="author"/&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:element ref="title" minOccurs="0"/&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:element ref="lines"/&gt;
+    &nbsp; &nbsp;  &lt;/xsd:sequence&gt;
+    &nbsp; &nbsp;  &lt;xsd:attribute name="type" type="sonnetType"
+    &nbsp; &nbsp; &nbsp;  default="Shakespearean"/&gt;
+    &nbsp;  &lt;/xsd:complexType&gt;
+    &lt;/xsd:element&gt;
+    &lt;xsd:simpleType name="sonnetType"&gt;
+    &nbsp;  &lt;xsd:restriction base="xsd:string"&gt;
+    &nbsp; &nbsp;  &lt;xsd:enumeration value="Petrarchan"/&gt;
+    &nbsp; &nbsp;  &lt;xsd:enumeration value="Shakespearean"/&gt;
+    &nbsp;  &lt;/xsd:restriction&gt;
+    &lt;/xsd:simpleType&gt;
+    &lt;xsd:element name="author"&gt;
+    &nbsp;  &lt;xsd:complexType&gt;
+    &nbsp; &nbsp;  &lt;xsd:sequence&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:element ref="lastName"/&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:element ref="firstName"/&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:element ref="nationality"/&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:element ref="yearOfBirth" minOccurs="0"/&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:element ref="yearOfDeath" minOccurs="0"/&gt;
+    &nbsp; &nbsp;  &lt;/xsd:sequence&gt;
+     &nbsp;  &lt;/xsd:complexType&gt;
+    &lt;/xsd:element&gt;
+    &lt;xsd:element name="lastName" type="xsd:string"/&gt;
+    &lt;xsd:element name="firstName" type="xsd:string"/&gt;
+    &lt;xsd:element name="nationality" type="xsd:string"/&gt;
+    &lt;xsd:element name="yearOfBirth" type="xsd:string"/&gt;
+    &lt;xsd:element name="yearOfDeath" type="xsd:string"/&gt;
+    &lt;xsd:element name="title" type="xsd:string"/&gt;
+    &lt;xsd:element name="lines"&gt;
+    &nbsp;  &lt;xsd:complexType&gt;
+    &nbsp; &nbsp;  &lt;xsd:sequence&gt;
+    &nbsp; &nbsp; &nbsp;  &lt;xsd:element ref="line" minOccurs="14" maxOccurs="14"/&gt;
+    &nbsp; &nbsp;  &lt;/xsd:sequence&gt;
+    &nbsp;  &lt;/xsd:complexType&gt;
+    &lt;/xsd:element&gt;
+    &lt;xsd:element name="line" type="xsd:string"/&gt;
+    &lt;/xsd:schema&gt;</pre>
+      <p>Готовый DomValidator для проверки правильности XML документа на Java можно скачать&nbsp;<a target="_blank"
+          href="https://bdpx.github.io/xml/dist/DomValidator.java">здесь</a>.</p>
+      <p>Скомпилировать DOMValidator можно коммандой:</p>
+      <p><code class="code code--inline">javac domvalidator.java</code></p>
+      <p>Проверить правильность SONNET.XML относительно схемы SONNET.XSD (должна находится в том же каталоге) можно
+        коммандой</p>
+      <p><code class="code code--inline">java DomValidator sonnet.xml xsd</code></p>
+      <p>И при необходимости сам Xerces можно скачать&nbsp;<a target="_blank"
+          href="https://bdpx.github.io/xml/dist/xerces-j.rar">отсюда</a>&nbsp;или с&nbsp;<a target="_blank"
+          href="http://xerces.apache.org/">официального сайта</a>.</p>
+      <button type="button" class="button"><a class="button__link" href="xml2.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="xml4.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Динамически загружаемые библиотеки</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+        </uL>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1 class="content__title">Лабораторная работа. Динамически загружаемые библиотеки</h1>
+      <p><strong>Цель работы</strong></p>
+      <p>Изучить связывание процесса с динамически загружаемыми библиотеками на этапе загрузки и на этапе выполнения.
+      </p>
+      <p><strong>Список используемых системных вызовов</strong></p>
+      <p>LoadLibrary, FreeLibrary, FreeLibraryAndExitThread, GetModuleHandle, GetProcAddress, DllMain.</p>
+      <p><strong>Методические указания</strong></p>
+      <p>Динамически загружаемые библиотеки (DLL) связываются с программами и между собой с помощью специальных таблиц
+        экспорта и импорта, находящихся внутри файлов библиотек и программ. Просмотреть содержимое этих таблиц можно
+        с помощью утилиты&nbsp;dumpbin.exe. Ниже приведены примеры использования этой утилиты для
+        библиотеки&nbsp;kernel32.dll:</p>
+      <pre class="code">dumpbin.exe kernel32.dll \exports &gt; kernel32.exports</pre>
+      <pre class="code">dumpbin.exe kernel32.dll \imports &gt; kernel32.imports</pre>
+      <p>Таблица импорта содержит запрашиваемые ресурсы, таблица экспорта&nbsp;&ndash; предоставляемые ресурсы
+        библиотеки.</p>
+      <p>Для создания динамически загружаемой библиотеки необходимо указать при создании тип
+        проекта&nbsp;&ndash;&nbsp;DLL. У&nbsp;DLL&nbsp;отсутствует функция&nbsp;WinMain. Вместо нее используется
+        функция&nbsp;DllMain, вызываемая в четырех случаях:</p>
+      <ol>
+        <li>при загрузке библиотеки процессом (отображении в виртуальное адресное пространство процесса);</li>
+        <li>при создании новой нити;</li>
+        <li>при завершении созданной нити;</li>
+        <li>при завершении процесса или при выгрузке библиотеки.</li>
+      </ol>
+      <p>Любую функцию, переменную или класс библиотеки можно сделать экспортируемыми, т.е. подключаемыми извне с
+        помощью таблицы экспорта. Чтобы адрес ресурса был помещен в таблицу экспорта, необходимо указать
+        непосредственно перед определением ресурса ключевые слова&nbsp;__declspec(dllexport). Примеры
+        экспортирования ресурсов:</p>
+      <pre class="code">__declspec(dllexport)&nbsp;int&nbsp;i;</pre>
+      <pre class="code">__declspec(dllexport)&nbsp;void&nbsp;func();</pre>
+      <pre class="code">class __declspec(dllexport) Class;</pre>
+      <p>DLL&nbsp;могут загружаться процессом при старте программы (динамическое связывание) или явно с помощью
+        функции&nbsp;LoadLibrary. После компиляции библиотеки компоновщик создает два файла для каждой динамически
+        загружаемой библиотеки&nbsp;&ndash; с расширениями .lib&nbsp;и .dll. Файл с расширением .lib&nbsp;необходимо
+        подключить при компоновке программы, использующей динамическое связывание. Это делается в опциях проекта для
+        компоновщика &laquo;additionaldependencies&raquo;. Программа может импортировать ресурсы из&nbsp;DLL&nbsp;с
+        помощью ключевых слов&nbsp;__declspec(dllimport). Примеры импортирования ресурсов:</p>
+      <pre class="code">__declspec(&nbsp;dllimport&nbsp;)&nbsp;int&nbsp;i;</pre>
+      <pre class="code">__declspec(dllimport)&nbsp;void&nbsp;func();</pre>
+      <pre class="code">class&nbsp;__declspec(dllimport)&nbsp;Class;</pre>
+      <p>При запуске программы файл библиотеки с расширением .dll&nbsp;должен находиться в одном каталоге с файлом
+        программы или быть доступен по путям поиска.</p>
+      <p>Второй способ загрузки динамической библиотеки основывается на вызове функции&nbsp;LoadLibrary. В
+        параметре&nbsp;<em>lpFileName</em>&nbsp;явно указывается путь до файла библиотеки. Результатом вызова этой
+        функции является загрузка библиотеки в виртуальное адресное пространство процесса. Процессу становится
+        доступен дескриптор (HMODULE) библиотеки. Для получения адреса ресурса, находящегося в библиотеке,
+        необходимо вызвать функцию&nbsp;GetProcAddress. Параметр&nbsp;<em>lpProcName</em>&nbsp;должен содержать
+        указатель на верное имя ресурса. Следует отметить, что имя ресурса в таблице экспорта отличается от имени
+        ресурса, определенного в библиотеке. Его следует получать с помощью утилиты&nbsp;dumpbin.exe.</p>
+      <p>Для выгрузки&nbsp;DLL&nbsp;из виртуального адресного пространства процесса используется
+        функция&nbsp;FreeLibrary. В параметре&nbsp;<em>hModule</em>&nbsp;следует указать дескриптор библиотеки,
+        полученный с помощью функции&nbsp;LoadLibrary.</p>
+      <p><strong>Задания</strong></p>
+      <p>Необходимо разработать программу состоящую из головной программы и двух динамически загружаемых библиотек. Одна
+        библиотека должна загружаться с использованием динамического связывания, а другая&nbsp;&ndash; с
+        использованием функции&nbsp;LoadLibrary.&nbsp;</p>
+      <p><strong>Листинг программы.</strong></p>
+      <p><strong>laba6.cpp</strong></p>
+      <pre class="code">laba6.cpp
+#include
+#include
+#include
+#include
+
+using namespace std;
+
+#include "laba3_1.h"
+typedef  void (WINAPI *cFunc)();
+
+void PrepareStatic();
+
+void main()
+{
+
+      //явный вызов динамической библиотеки
+      printf("\nWork functoin from dll.dll!!!");
+
+//***************************************************************
+      HINSTANCE hModule=NULL;
+      hModule=::LoadLibrary("dll.dll");
+      if (hModule!=NULL)
+      {
+            cFunc Schet = (cFunc)::GetProcAddress((HMODULE)hModule,"Schet");
+            if (Schet!=NULL)
+            {
+                  Schet();
+            }
+            else cout &lt;&lt; "Error Load function" &lt;&lt; endl;
+            ::FreeLibrary(hModule);
+      }
+      else cout &lt;&lt; "error load Dll" &lt;&lt; endl;
+
+      PrepareStatic();
+      Schet();
+
+      getch();
+}
+
+void PrepareStatic()
+{
+#pragma comment(lib, "dll.lib")
+}</pre>
+      <p><strong>laba3_1.h</strong></p>
+      <pre class="code">#ifndef&nbsp;_DLLTEST_H_
+#define&nbsp;_DLLTEST_H_
+#include&nbsp;&lt;iostream&gt;
+#include&nbsp;&lt;stdio.h&gt;
+#include&nbsp;&lt;windows.h&gt;
+extern&nbsp;"C"&nbsp;__declspec(dllexport)&nbsp;void&nbsp;Schet();
+#endif</pre>
+      <p><strong>laba3.h</strong></p>
+      <pre class="code">#ifndef _DLLTEST_H_
+#define _DLLTEST_H_
+#include&nbsp;&lt;iostream&gt;
+#include&nbsp;&lt;stdio.h&gt;
+#include&nbsp;&lt;windows.h&gt;
+extern "C" __declspec(dllexport) void Schet();
+#endif
+</pre>
+      <p><strong>laba3.cpp</strong></p>
+      <pre class="code">extern "C" __declspec(dllexport) void Schet()
+{
+      HANDLE hFile;
+      OVERLAPPED over;
+      DWORD dByte,dwError;
+      int iByteToRead=1;
+      BOOL bResult;
+      int iWord=0,tek=0,pred=0,iBreak=0,iBegin=1,iEnd=1;
+	  //новое слово - tek=1,pted=0;
+
+      over.Offset=0;
+      over.OffsetHigh=0;
+
+      char cBuffer[1];
+      // Создаём событие для контроля за асинхронным чтением
+      over.hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
+      if(over.hEvent==NULL)
+      {
+            printf("\nError create event!!!");
+            exit(0);
+            // Ошибка создания события &hellip;
+      }
+
+      hFile=CreateFile("test.txt",GENERIC_READ,FILE_SHARE_READ,
+	  NULL,OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OVERLAPPED,NULL);
+      if(hFile==INVALID_HANDLE_VALUE)
+      {
+            printf("\nError opening file!!!");
+            exit(0);
+      }
+      while(1)
+      {
+            bResult = ReadFile(hFile,cBuffer,iByteToRead,&amp;dByte,&amp;over);
+            // если возникает проблема или асинхронная операция
+            // все еще ожидает обработки ...
+
+            if (!bResult)
+            {
+                  // решаем что делать с кодом ошибки
+                  switch (dwError = GetLastError())
+                  {
+                  case ERROR_HANDLE_EOF:
+                        {
+                             // мы достигли конца файла
+                             // в течение вызова к ReadFile
+                             iBreak=1;
+                             break;
+                        }
+
+                  case ERROR_IO_PENDING:
+                        {
+                             // асинхронный ввод-вывод все еще происходит
+
+                             // сделаем кое-что пока он идет
+                             //    GoDoSomethingElse() ;
+                             over.Offset++;
+
+                             pred=tek;
+                             if(cBuffer[0]==' '|| cBuffer[0]=='\x0D'
+							 || cBuffer[0]=='\n')tek=0;
+                             else tek=1;
+                             if(tek==1 &amp;&amp; pred==0)iWord++;
+                             // проверим результат работы асинхронного чтения
+                             bResult = GetOverlappedResult(hFile, &amp;over,    &amp;dByte, FALSE);
+
+                             // если возникла проблема ...
+                             if (!bResult)
+                             {
+                                   // решаем что делать с кодом ошибки
+                                   switch (dwError = GetLastError())
+                                   {
+                                   case ERROR_HANDLE_EOF:
+                                         {
+                                               // мы достигли конца файла
+                                               // в ходе асинхронной
+                                               // операции
+                                               iBreak=1;
+                                               break;
+                                         }
+                                   default:
+                                         {
+                                               printf("\nError work to file!!!");
+                                               iBreak=1;
+                                               break;
+					// решаем что делать с другими случаями ошибок
+                                         }
+                                   }// конец процедуры switch (dwError = GetLastError())
+                             }
+                             break;
+                        } // конец процедуры case
+                  default:
+                        {
+                             printf("\nError work to file!!!");
+                             iBreak=1;
+                             break;      // решаем что делать с другими случаями ошибок
+                        }
+
+                  } // конец процедуры switch (dwError = GetLastError())
+            } // конец процедуры if
+            if(iBreak==1)break;
+            over.Offset++;
+            pred=tek;
+            if(cBuffer[0]==' ' || cBuffer[0]=='\x0D' || cBuffer[0]=='\n')tek=0;
+            else tek=1;
+            if(tek==1 &amp;&amp; pred==0)iWord++;
+
+
+      }
+      printf("\nIn text %d words!!!\n", iWord);
+
+}
+</pre>
+      <p><strong>Вывод:</strong>&nbsp;изучили связывание процесса с динамически загружаемыми библиотеками на этапе
+        загрузки и на этапе выполнения.</p>
+      <button type="button" class="button"><a class="button__link"
+          href="osnovnye_metody_vnedreniya_i_analiza_funkcionirovaniya_programmnogo_obespecheniya1.html">Предыдущая
+          лабораторная работа</a></button>
+      <button type="button" class="button"><a class="button__link"
+          href="zagruzka_i_ustanovka_programmnogo_obespecheniya2.html">Следующая
+          лабораторная работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

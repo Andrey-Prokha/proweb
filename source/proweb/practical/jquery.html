@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>jQuery лабораторные работы</h1>
+      <p><strong>Цель:</strong> научиться использовать библиотеку jQuery.</p>
+      <p><strong>jQuery</strong> &mdash; библиотека, которая позволяет делать код короче, а также позволяет внутри
+        страницы настроить код, который бы !!! срабатывал как триггер (предопределенный набор действий, который
+        выполняется автоматически при наступлении связанного с ним события, если этот код описываем в области
+        &lt;head&gt;...&lt;/head&gt;).&lt;/p</p>
+      <ul>
+        <li>JQuery библиотека содержит следующий функционал:операции с HTML/DOM (манипулирование компонентами HTML/DOM)
+        </li>
+        <li>операции с CSS-селекторами</li>
+        <li>HTML-обработчики событий&nbsp;</li>
+        <li>Эффекты анимации</li>
+        <li>AJAX</li>
+        <li>Utilities</li>
+      </ul>
+      <p>JQuery упрощает работу с JavaScript, а также вызовы AJAX и DOM-манипуляции. Есть много фреймворков JavaScript,
+        но
+        JQuery, является самым популярным и используемым за счет своей расширяемости.</p>
+      <h3>Начало работы с библиотекой</h3>
+      <ul>
+        <li>Библиотеку jQuery можно скачать с сайта http://jquery.com, а можно вставить в документ, используя известные
+          интернет-адреса: По адресу
+          <pre class="code">http://code.jquery.com/jquery-latest.js &amp;ndash;</pre> доступна всегда последняя версия.
+        </li>
+        <li>С Google: https://developers.google.com/speed/libraries/devguide?hl=ru#jquery можно загрузить любую из не
+          слишком старых версий. Синтаксис такой:
+          <pre class="code">src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"</pre> где 1.8.3
+          &amp;mdash;
+          версия, причём можно указать её приблизительно: 1.8 означает последнюю версию вида 1.8.*, а 1 &amp;mdash;
+          последнюю версию вида 1.*. Файл jquery.min.js обозначает сжатый код, а jquery.js &amp;mdash; несжатый, для
+          удобства отладки.
+        </li>
+        <li>Либо с Microsoft CDN:
+          <pre class="code">src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"</pre>
+        </li>
+      </ul>
+      <p>Пример подключения ниже (Использовать один из вариантов подключения библиотеки!):</p>
+      <pre class="code">&lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;!--если выбираем библиотеку от Microsoft CDN --&gt;
+  &lt;script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"&gt;&lt;/script&gt;
+  &lt;!--если выбираем библиотеку от Google --&gt;
+  &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;!--третий вариант --&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;&lt;/p</pre>
+      <h3>jQuery синтаксис</h3>
+      <p>Базовая команда для библиотеки вяглядит как: $(селектор).action(), где</p>
+      <ul>
+        <li>$ - предписание использовать jQuery;</li>
+        <li>(селектор) - это "запрос или элементы поиска" в HTML элементах страницы;</li>
+        <li>action() - это действия, которые должны быть выполнены над найденными элементами (это те элементы, которые
+          удовлетворяют условиям селектора).</li>
+      </ul>
+      <p>Например: $(this).hide() &ndash; скрывает текущий элемент (где this &ndash; это указатель на текущий элемент,
+        позволяет делать код универсальным за счет того, что не надо писать здесь имя или id элемента, над которым будет
+        производится действие hide() ). $("p").hide() &ndash; скрывает все</p>
+      <p>элементы на странице. $(".test").hide() &ndash; скрывает все элементы на странице, которые ассоциированы с
+        классом "test". $("#test").hide() &ndash; скрывает все элементы на странице, у которых id="test".</p>
+      <h3>Событие Ready у объекта страницы Document</h3>
+      <p>Вы, заметите, что в большинстве примеров jQuery-методы находятся внутри события документа Ready():</p>
+      <pre class="code">$(document).ready(function(){
+  // jQuery-методы размещаем здесь...
+  });</pre>
+      <p>Это необходимо для предотвращения любых срабатываний JQuery-кода, прежде чем документ не закончит полную
+        загрузку.</p>
+      <p>Это хорошая практика, чтобы дождаться, пока документ будет полностью загружен и готов до работы с ним. Это
+        также
+        позволяет вам сформировать свой JavaScript код в головной части, прежде чем тело документа.</p>
+      <h3>jQuery селекторы</h3>
+      <p>jQuery селекторы позволяют вам делать выборку (поиск) и манипулировать с элементами HTML. Селекторы по сути это
+        набор условных обозначений и правил для выборки и манипулирования (в конце лабораторной в приложении дан большой
+        список примеров селекторов).</p>
+      <p>С jQuery селекторами вы можете найти элементы страницы, основанные на идентификаторе id, классах (class), типах
+        (type), атрибутах (attribute), значениях атрибутов (value) и др. Также они базируются и на CSS Selectors, в
+        дополнении вы можете создать свой селектор. Все типы селекторов в jQuery начинаются с указания $ и парных
+        скобок:&nbsp;$( )</p>
+      <p><strong>Например</strong>, в следующем коде при нажатии на кнопку выполняется поиск на странице всех элементов,
+        обозначенных тегом, и все эти элементы скрываются на странице (срабатывает метод hide( ) ):</p>
+      <pre
+        class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> $("p").hide();<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;h2&gt;This is a heading&lt;/h2&gt;<br />&lt;p&gt;This is a paragraph.&lt;/p&gt;<br />&lt;p&gt;This is another paragraph.&lt;/p&gt;<br />&lt;button&gt;Click me&lt;/button&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;</pre>
+      <p>Обратите внимание на то, что селектор в $( )указывается в кавычках а не в &lt; &gt;</p>
+      <p><strong>Задание 1:</strong> Выполнить пример, проверить работу метода hile ( ). Попробовать заменить библиотеку
+        jquery-latest.js на другие две, описанные выше, сравнить результаты работы</p>
+      <p><strong>Пояснения к скрипту:</strong></p>
+      <p>&lt;script&gt;<br />//в строке ниже в качестве селектора использован весь объект &ndash;документ,</p>
+      <p>//при этом будет срабатывать jquery-запрос, как только наступит событие полной готовности</p>
+      <p>//страницы к работе с пользователем и запустится метод ready(), // при срабатывании которого будет создана
+        следующая функция</p>
+      <p>$(document).ready(function () {</p>
+      <p>//созданная функция в свою очередь будет jquery-запросом, который ищет все элементы типа</p>
+      <p>//button &ndash; кнопка, и с их методами click связывает (ассоциирует) действие в виде функции,</p>
+      <p>$("button").click(function () {</p>
+      <p>// которая выполнит jquery-запрос, который для всех найденных элементов внутри тега выполнит метод hide(), т.е.
+        скроет их со страницы</p>
+      <p>$("p").hide();</p>
+      <p>//далее закрываем внутреннюю функцию</p>
+      <p>});</p>
+      <p>//далее закрываем внешнюю функцию</p>
+      <p>});</p>
+      <p>&lt;/script&gt;</p>
+      <p>В таком исполнении скрипт, помещенный в заголовок страницы внутрь метода объект document.ready( ) работает как
+        триггер, т.е. автоматически срабатывает при наступлении определенного события на странице. В примере &ndash; это
+        событие click( ) кнопки. А так как в методе hide( ) нет никакого описания другого кода, то он выполняет те
+        действия, для которых он изначально создан, а именно скрывает объект.</p>
+      <h3>Селектор #id</h3>
+      <p>Селектор jQuery #id использует id атрибут в HTML-тегах, чтобы найти определенный элемент.</p>
+      <p>Id должен быть уникальным внутри всей страницы, если вы хотите найти с его помощью конкретный уникальный
+        элемент.
+      </p>
+      <p>Чтобы найти элемент с помощью id, то перед названием искомого идентификатора ставится знак #, например:
+        $("#test")</p>
+      <p>В примере ниже, при нажатии на кнопку ищется элемент с идентификатором test и скрывается со страницы.</p>
+      <pre class="code">&gt;&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> $("#test").hide();<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;h2&gt;This is a heading 2&lt;/h2&gt;<br />&lt;p&gt;This is a paragraph.&lt;/p&gt;<br />&lt;p id="test"&gt;This is another paragraph.&lt;/p&gt;<br />&lt;button&gt;Click me&lt;/button&gt;<br />&lt;/body&gt;
+  </pre>
+      <p>Задание 2: Выполнить пример, проанализировать отличие его от примера в задании 1.</p>
+      <p>Ниже приведен пример, в котором работают две кнопки: одна &ndash; скрывает элемент с id=&rdquo;test&rdquo;,
+        вторая &ndash; отображает этот элемент (используется метод show( ) ). Обратите внимание, чтобы распараллелить
+        код по двум кнопкам, для каждой из них тоже были определены id, по которым определяется какую функцию запускать.
+      </p>
+      <pre
+        class="code">&gt;&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("#but1").click(function () {<br /> $("#test").hide();<br /> });<br /> $("#but2").click(function () {<br /> $("#test").show();<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;h2&gt;This is a heading 2&lt;/h2&gt;<br />&lt;p&gt;This is a paragraph.&lt;/p&gt;<br />&lt;p id="test"&gt;This is another paragraph.&lt;/p&gt;<br />&lt;button id="but1"&gt;Click me&lt;/button&gt;<br />&lt;button id="but2"&gt;Click me for show&lt;/button&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;</pre>
+      <p><strong>Задание3:</strong> Выполнить пример, проанализировать отличие его от примера в задании 2.</p>
+      <h3>.class селектор</h3>
+      <p>Селектор jQuery class находит элементы определенного класса. Для поиска элементов определенного класса
+        указывается перед названием точка, например: $(".test")</p>
+      <p>В примере ниже при нажатии на кнопку элементы с классом="test" будут скрыты:</p>
+      <pre
+        class="code">&gt;&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> $(".test").hide();<br /> });<br />});<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;h2 class="test"&gt;This is a heading&lt;/h2&gt;<br />&lt;p class="test"&gt;This is a paragraph.&lt;/p&gt;<br />&lt;p&gt;This is another paragraph.&lt;/p&gt;<br />&lt;button&gt;Click me&lt;/button&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;</pre>
+      <p><strong>Задание 4</strong>: Выполнить пример, проанализировать отличие его от примера в задании 3.</p>
+      <h3>Индивидуальное задание 1:</h3>
+      <p><strong>Вариант 1:</strong> в исходный файл Experiments.html добавить в начало две кнопки: одну-для скрытия
+        элементов, другую &ndash; для отображения скрытых элементов. Настроить методы click( ) кнопок, так чтобы они то
+        скрывали, то отображали нечетные элементы с классом MsoNormal.</p>
+      <p><strong>Вариант 2:</strong> в исходный файл Experiments.html добавить в начало две кнопки: одну-для скрытия
+        элементов, другую &ndash; для отображения скрытых элементов. Настроить методы click( ) кнопок, так чтобы они то
+        скрывали, то отображали четные элементы типа.</p>
+      <p><strong>Вариант 3:</strong> в исходный файл Experiments.html добавить в начало две кнопки: одну-для скрытия
+        элементов, другую &ndash; для отображения скрытых элементов. Настроить методы click( ) кнопок, так чтобы они то
+        скрывали, то отображали элементы с атрибутом href.</p>
+      <p><strong>Вариант 4:</strong> в исходный файл Experiments.html добавить в начало две кнопки: одну-для скрытия
+        элементов, другую &ndash; для отображения скрытых элементов. Настроить методы click( ) кнопок, так чтобы они то
+        скрывали, то отображали элементы, у которых атрибут align равен значению center.</p>
+      <h3>jQuery-методы событий</h3>
+      <p>Ниже представлены общие с технологией DOM события:</p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell"><strong>События мыши </strong></td>
+            <td class="table__cell"><strong>События клавиатуры </strong></td>
+            <td class="table__cell"><strong>События формы </strong></td>
+            <td class="table__cell"><strong>События документа/окна</strong></td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">click</td>
+            <td class="table__cell">keypress</td>
+            <td class="table__cell">submit</td>
+            <td class="table__cell">load</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">dblclick</td>
+            <td class="table__cell">keydown</td>
+            <td class="table__cell">change</td>
+            <td class="table__cell">resize</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">mouseenter</td>
+            <td class="table__cell">keyup</td>
+            <td class="table__cell">focus</td>
+            <td class="table__cell">scroll</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">mouseleave</td>
+            <td class="table__cell">&nbsp;</td>
+            <td class="table__cell">blur</td>
+            <td class="table__cell">unload</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>jQuery-синтаксис для методой событий</h3>
+      <p>В jQuery, большинство DOM-событий имеют эквивалентный jQuery-метод. Чтобы назначить событие нажатия мышкой на
+        все
+        элементы</p>
+      <p>на странице, вы можете написать: $("p").click();</p>
+      <p>Следующий шаг &ndash; это определение того, что будет происходить, когда наступит указанное событие.</p>
+      <p>Вы должны определить функцию для события: $("p").click(function(){ // описание действий в функции });</p>
+      <h3>Часто используемые методы JQuery</h3>
+      <p><strong>$(document).ready()</strong> метод позволяет вам выполнить функцию, когда документ полностью загружен.
+      </p>
+      <p><strong>click( )</strong> Эта функция выполняется, когда пользователь нажимает на HTML элемент</p>
+      <p>В примере событие click( ) активируется на элементах, скрывая текущий элемент:</p>
+      <pre class="code">
+  &lt;!DOCTYPE html&gt;<br/>&lt;html&gt;<br/>&lt;head&gt;<br/>&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br/>&lt;/script&gt;<br/>&lt;script&gt;<br/> $(document).ready(function () {<br/> $("p").click(function () {<br/> $(this).hide();<br/> });<br/> });<br/>&lt;/script&gt;<br/>&lt;/head&gt;<br/>&lt;body&gt;<br/>&lt;p&gt;If you click on me, I will
+  disappear.&lt;/p&gt;<br/>&lt;p&gt;Click me away!&lt;/p&gt;<br/>&lt;p&gt;Click me too!&lt;/p&gt;<br/>&lt;/body&gt;<br/>&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 5:</strong> Выполнить пример, проверить работу.</p>
+      <p>Обратите внимание! $(this).hide();//указатель this позволяет выполнять действие //с текущим активированным
+        элементом</p>
+      <p><strong>dblclick( )</strong> Срабатывает, когда пользователь двойным щелчком нажимает на HTML-элемент:</p>
+      <pre class="code">&gt;&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("p").dblclick(function () {<br /> $(this).hide();<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;p&gt;If you double-click on me, I will disappear.&lt;/p&gt;<br />&lt;p&gt;Click me away!&lt;/p&gt;<br />&lt;p&gt;Click me too!&lt;/p&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 6:</strong> Выполнить пример, проверить работу.</p>
+      <p><strong>mouseenter()</strong> Выполняется, когда указатель мыши наводится на HTML-элемент:</p>
+      <pre class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("#p1").mouseenter(function () {<br /> alert("You entered p1!");<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;p id="p1"&gt;Enter this paragraph.&lt;/p&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 7</strong>: Выполнить пример, проверить работу.</p>
+      <p><strong>&nbsp;blur()</strong> Выполняется, когда поле формы теряет фокус</p>
+      <pre class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("input").focus(function () {<br /> $(this).css("background-color", "#cccccc");<br /> });<br /> $("input").blur(function () {<br /> $(this).css("background-color", "#ffffff");<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />Name: &lt;input type="text" name="fullname"&gt;&lt;br&gt;<br />Email: &lt;input type="text" name="email"&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 8</strong>: Выполнить пример, проверить работу. Проверить как работает focus() и blur(), а
+        также
+        разобраться с настройкой стилей через .css("свойство", "значение").</p>
+      <p><strong>hide() и show()</strong></p>
+      <p>С jQuery вы можете скрывать и отражать HTML-элементы.&nbsp;Также возможно настроить время затухания и
+        появления.
+      </p>
+      <p>Синтаксис:</p>
+      <pre class="code">$(selector).hide(speed);</pre>
+      <pre class="code">$(selector).show(speed);</pre>
+      <p>или</p>
+      <pre class="code">$(selector).hide(speed,callback);</pre>
+      <pre class="code">$(selector).show(speed,callback);</pre>
+      <p>Необязательный параметр скорости определяет скорость скрытия / показа, и может принимать следующие значения:
+        "slow", "fast" или в миллисекундах.</p>
+      <p>Следующий пример демонстрирует параметр скорости скрытия элемента:</p>
+      <pre class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> $("p").hide(1000);<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;button&gt;Hide&lt;/button&gt;<br />&lt;p&gt;This is a paragraph with little content.&lt;/p&gt;<br />&lt;p&gt;This is another small paragraph.&lt;/p&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 9</strong>: Выполнить пример, проверить работу.</p>
+      <p><strong>toggle()</strong> С помощью метода можно переключать выполнение методов hide() и show(). Также можно
+        настроить и скорость срабатывания.</p>
+      <p>Синтаксис:</p>
+      <pre class="code">$(selector).toggle(speed);</pre>
+      <pre class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> $("p").toggle();<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;button&gt;Toggle&lt;/button&gt;<br />&lt;p&gt;This is a paragraph with little content.&lt;/p&gt;<br />&lt;p&gt;This is another small paragraph.&lt;/p&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 10</strong>: Выполнить пример, проверить работу.</p>
+      <h3>Индивидуальное задание 2:</h3>
+      <p><strong>Вариант 1:</strong> в исходный файл Experiments2.html добавить обработку события &laquo;наведение мышки
+        на элемент&raquo;. Если этот элемент относится к таблице (в теге <img alt="" />), то при наведении на него
+        курсора, он должен скрываться.</p>
+      <p><strong>Вариант 2</strong>: в исходный файл Experiments2.html добавить обработку события &laquo;двойной щелчок
+        мышки по элементу&raquo;. Для элемента с атрибутом align="center" нужно настроить исчезновение/появление
+        элемента.</p>
+      <p><strong>Вариант 3:</strong> в исходный файл Experiments2.html добавить обработку события &laquo;изменение
+        размера
+        окна&raquo;. При срабатывании этого метода скрыть с документа все элемента со ссылками (href).</p>
+      <p><strong>Вариант 4</strong>: в исходный файл Experiments2.html добавить элемент формы &laquo;поле ввода&raquo;,
+        настроить для него обработку keypress, а именно случайным образом менять цвет этого поля (свойство
+        background-color).</p>
+      <h3>Fading методы</h3>
+      <p>С JQuery вы можете исключать и включать видимость элементов.</p>
+      <p>Набор методов:</p>
+      <ul>
+        <li>fadeIn()</li>
+        <li>fadeOut()</li>
+        <li>fadeToggle()</li>
+        <li>fadeTo()</li>
+      </ul>
+      <p><strong>fadeIn()</strong> используется, чтобы реализовать проявление в скрытых элементах (например, элемент
+        скрытый).</p>
+      <p>Можно также использовать настройку скорости срабатывания.</p>
+      <pre class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> $("#div1").fadeIn();<br /> $("#div2").fadeIn("slow");<br /> $("#div3").fadeIn(3000);<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;p&gt;Demonstrate fadeIn() with different parameters.&lt;/p&gt;<br />&lt;button&gt;Click to fade in boxes&lt;/button&gt;<br />&lt;br&gt;&lt;br&gt;<br />&lt;div id="div1" style="width:80px;height:80px;display:none;backgroundcolor:red;"&gt;&lt;/div&gt;&lt;br&gt;<br />&lt;div id="div2" style="width:80px;height:80px;display:none;backgroundcolor:green;"&gt;&lt;/div&gt;&lt;br&gt;<br />&lt;div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"&gt;&lt;/div&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 11:</strong> Выполнить пример, проверить работу. Разобраться с настройками элементов, обратите
+        внимание на свойство display:none , которое при загрузке странице позволяет не отражать.</p>
+      <p><strong>fadeOut()</strong> используется, чтобы реализовать скрытие элементов из зоны видимости</p>
+      <pre class="code">&gt;&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> $("#div1").fadeOut();<br /> $("#div2").fadeOut("slow");<br /> $("#div3").fadeOut(3000);<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;p&gt;Demonstrate fadeOut() with different parameters.&lt;/p&gt;<br />&lt;button&gt;Click to fade out boxes&lt;/button&gt;<br />&lt;br&gt;&lt;br&gt;<br />&lt;div id="div1" style="width:80px;height:80px;background-color:red;"&gt;&lt;/div&gt;&lt;br&gt;<br />&lt;div id="div2" style="width:80px;height:80px;background-color:green;"&gt;&lt;/div&gt;&lt;br&gt;<br />&lt;div id="div3" style="width:80px;height:80px;background-color:blue;"&gt;&lt;/div&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 12</strong>: Выполнить пример, проверить работу. Обратите внимание на отсутствие свойства
+        display:none , поэтому настройки элементов сначала отражаются.</p>
+      <h3>Индивидуальное задание 3:</h3>
+      <p><strong>Вариант 1</strong>: создать файл Individual_3.html, добавить два рисунка, невидимые при загрузке
+        страницы, и две кнопки. При нажатии на одну кнопку должно в цикле срабатывать проявление первой картинки и
+        исчезновение второй картинки со скоростью 2000, а затем наоборот, при нажатии на вторую кнопку обе картинки
+        должны появиться и прекратить мигание.</p>
+      <p><strong>Вариант 2:</strong> создать файл Individual_3.html, добавить пять областей div с id &ldquo;div1&rdquo;,
+        &ldquo;div2&rdquo;,&hellip;,&ldquo;div5&rdquo;, в которые поместить тексты, невидимые при загрузке страницы, и
+        две кнопки. При нажатии на одну кнопку должно определяться случайное число от 1 до 5. В зависимости от этого
+        числа должна проявиться соответствующая область div со скоростью 3000. При нажатии на вторую кнопку все области
+        div снова скрываются.</p>
+      <p><strong>Вариант 3:</strong> создать файл Individual_3.html, добавить 10 параграфов (&lt;p&gt;) с каким-либо
+        текстом, невидимые при загрузке страницы, и кнопку. При нажатии на кнопку должно в цикле срабатывать проявление
+        четных параграфов и исчезновение нечетных со скоростью 2000, а затем наоборот.</p>
+      <p><strong>Вариант 4:</strong> создать файл Individual_3.html, добавить пять областей div 40х40 пикселей с id
+        &ldquo;div1&rdquo;, &ldquo;div2&rdquo;,&hellip;,&ldquo;div5&rdquo;, раскрашенные в разные цвета, невидимые при
+        загрузке страницы, и кнопку. При нажатии на кнопку должно в цикле срабатывать волнообразное проявление областей
+        div слево-направо, а затем наоборот, исчезновение. Цикл работает до тех пор, пока не закрыта страница.</p>
+      <h3>Sliding методы</h3>
+      <p>Реализацию движения по принципу слайдов можно выполнять с помощью методов:</p>
+      <ul>
+        <li>slideDown()</li>
+        <li>slideUp()</li>
+        <li>slideToggle()</li>
+      </ul>
+      <p><strong>slideDown()</strong> Используется для скольжения элемента вниз.</p>
+      <p>Синтаксис:</p>
+      <pre class="code">$(selector).slideDown(speed);</pre>
+      <p>Необязательный параметр скорости определяет скорость скольжения, и может принимать следующие значения: "slow",
+        "fast" или в миллисекундах.</p>
+      <p>В следующем примере показан простой вариант использования метода, он перемещает элемент влево, пока он не
+        достиг
+        значения свойства left=250px:</p>
+      <pre class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery-latest.js"&gt;<br />&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> $("div").animate({ left: '250px' });<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;button&gt;Start Animation&lt;/button&gt;<br />&lt;p&gt;By default, all HTML elements have a static position, and cannot be moved. To<br />manipulate the position, remember to first set the CSS position property of the element<br />to relative, fixed, or absolute!&lt;/p&gt;<br />&lt;div style="background:#98bf21;height:100px;width:100px;position:absolute;"&gt;<br />&lt;/div&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 14:</strong> Выполнить пример, проверить работу. Разобраться с элементом &lt;div&gt;.</p>
+      <p>С прочими примерами анимации можно познакомиться на <a target="_blank"
+          href="http://www.w3schools.com/jquery/jquery_animate.asp">http://www.w3schools.com/jquery/jquery_animate.asp</a>
+      </p>
+      <h3>Перебор результатов поиска</h3>
+      <p>Результатом поиска является jQuery-объект. Он похож на массив: в нём есть нумерованные элементы и length (длина
+        массива), но методы у него совсем другие.</p>
+      <p>jQuery-объект также называют &laquo;jQuery-коллекцией&raquo;, &laquo;элементами, обёрнутыми в jQuery&raquo; и
+        пр.
+        Используем jQuery, чтобы выбрать все элементы по селектору li&gt; a и перебрать их</p>
+      <pre class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery.js"&gt;&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> var links = $('li&gt; a');<br /> // перебор результатов<br /> for (var i = 0; i &lt; links.length; i++) {<br /> alert(links[i].href);<br /> }<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;ul&gt;<br /> &lt;li&gt;&lt;a href="http://jquery.com"&gt;jQuery&lt;/a&gt;&lt;/li&gt;<br /> &lt;li&gt;&lt;a href="http://jqueryui.com"&gt;jQuery UI&lt;/a&gt;&lt;/li&gt;<br /> &lt;li&gt;&lt;a href="http://blog.jquery.com"&gt;jQuery Blog&lt;/a&gt;&lt;/li&gt;<br />&lt;/ul&gt;<br />&lt;button&gt;Start query&lt;/button&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 15:</strong> Выполнить пример, проверить работу. Разобраться, как организована работа с
+        переменной links и работа с ней в цикле.</p>
+      <h3>Контекст поиска</h3>
+      <p>А что, если контекст поиска содержит много элементов? Например, как будет работать запрос $('a', 'li'), есле в
+        документе много?</p>
+      <p>Если в контексте много элементов, то поиск будет произведён в каждом из них. А затем результаты будут
+        объединены.
+      </p>
+      <p>Повторы элементов при этом отфильтровываются, то есть два раза один и тот же элемент в результате не появится.
+      </p>
+      <p>Например, найдём $('a', 'li') в многоуровневом списке:</p>
+      <pre class="code">&lt;!DOCTYPE HTML&gt;<br />&lt;html&gt;<br />&lt;body&gt;<br />&lt;script src="http://code.jquery.com/jquery.js"&gt;&lt;/script&gt;<br />&lt;ul&gt;<br /> &lt;li&gt;<br /> &lt;a href="http://jquery.com"&gt;jQuery&lt;/a&gt;<br /> &lt;ul&gt;<br /> &lt;li&gt;&lt;a href="http://blog.jquery.com"&gt;jQuery Blog&lt;/a&gt;&lt;/li&gt;<br /> &lt;/ul&gt;<br /> &lt;/li&gt;<br /> &lt;li&gt;&lt;a href="http://sizzlejs.com"&gt;Sizzle&lt;/a&gt;&lt;/li&gt;<br />&lt;/ul&gt;<br />&lt;script&gt;<br /> var links = $('a', 'li');<br /> for (var i = 0; i &lt; links.length; i++) {<br /> alert(i + ": " + links[i].href); // 3 ссылки по очереди<br /> }<br />&lt;/script&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 16:</strong> Выполнить пример, проверить работу. Разобраться, как организована работа jQuery,
+        когда скрипт размещается в теле страницы (нет объявления функций и привязок к методам).&nbsp;</p>
+      <p>!!!Обратите внимание, что здесь jQuery-запрос идет в теле документа без привязки к событию, поэтому работает в
+        режиме немедленного запуска (а не срабатывания по принципу триггера на событие в загруженном документе).</p>
+      <h3>&nbsp;Метод each()</h3>
+      <p>Для более удобного перебора у jQuery-коллекции есть метод each. Его синтаксис похож на forEach массива:</p>
+      <pre class="code">.each( function(index, item) )</pre>
+      <p>Он выполняет для каждого элемента коллекции перед точкой функцию-аргумент, и передаёт ей номер index и
+        очередной
+        элемент item.</p>
+      <p>Используем его вместо for, чтобы перебрать коллекцию найденных ссылок:</p>
+      <pre class="code">$('li a').each(function(i, a) {
+  alert( i + ": " + a.href);
+  });</pre>
+      <p>У .each есть важная возможность, которой нет в forEach: возврат false из функции прекращает перебор.</p>
+      <p>Например:</p>
+      <pre class="code">&lt;!DOCTYPE HTML&gt;<br />&lt;html&gt;<br />&lt;body&gt;<br />&lt;script src="http://code.jquery.com/jquery.js"&gt;&lt;/script&gt;<br />&lt;a href="http://wikipedia.ru"&gt;Википедия&lt;/a&gt;<br />&lt;ul&gt;<br /> &lt;li&gt;&lt;a href="http://jquery.com"&gt;jQuery&lt;/a&gt;&lt;/li&gt;<br /> &lt;li&gt;&lt;a href="http://sizzlejs.com"&gt;Sizzle&lt;/a&gt;&lt;/li&gt;<br /> &lt;li&gt;&lt;a href="http://blog.jquery.com"&gt;jQuery Blog&lt;/li&gt;<br />&lt;/ul&gt;<br />&lt;script&gt;<br /> var links = $('li a'); // найти все ссылки на странице внутри LI<br /> links.each(function (i, a) {<br /> alert(i + ': ' + a.innerHTML);<br /> if (i == 1) return false; // стоп на элементе коллекции с индексом 1<br /> });<br />&lt;/script&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 17:</strong> Выполнить пример, проверить работу. Разобраться, как организована работа метода
+        each( ).</p>
+      <h3>Получение контента с помощью text(), html(), and val()</h3>
+      <p>Три основных, но полных jQuery метода для манипулирования данными технологии DOM:&nbsp;</p>
+      <ul>
+        <li>text() - Задает или возвращает текстовое содержимое выбранных элементов.</li>
+        <li>html() - Задает или возвращает содержание отдельных элементов (включая HTML markup).&nbsp;</li>
+        <li>val() - Задает или возвращает значение поля формы.</li>
+      </ul>
+      <p>В следующем примере показано, как получить контент с помощью text() и html() методов:</p>
+      <pre class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery.js"&gt;&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("#btn1").click(function () {<br /> alert("Text: " + $("#test").text());<br /> });<br /> $("#btn2").click(function () {<br /> alert("HTML: " + $("#test").html());<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;p id="test"&gt;This is some &lt;b&gt;bold&lt;/b&gt; text in a paragraph.&lt;/p&gt;<br />&lt;button id="btn1"&gt;Show Text&lt;/button&gt;<br />&lt;button id="btn2"&gt;Show HTML&lt;/button&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 18:</strong> Выполнить пример, проверить работу. Разобраться, как организована работа метода
+        text() и html().</p>
+      <p>В следующем примере показано, как получить значение поля ввода с помощью метода VAL():</p>
+      <pre class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery.js"&gt;&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> alert("Value: " + $("#test").val());<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;p&gt;Name: &lt;input type="text" id="test" value="Mickey Mouse"&gt;&lt;/p&gt;<br />&lt;button&gt;Show Value&lt;/button&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 19:</strong> Выполнить пример, проверить работу. Разобраться, как организована работа метода
+        val().</p>
+      <h3>&nbsp;Получение значений атрибутов с помощью attr()</h3>
+      <p>В следующем примере показано, как получить значение атрибута HREF из ссылки:</p>
+      <pre class="code">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&lt;script src="http://code.jquery.com/jquery.js"&gt;&lt;/script&gt;<br />&lt;script&gt;<br /> $(document).ready(function () {<br /> $("button").click(function () {<br /> alert($("#w3s").attr("href"));<br /> });<br /> });<br />&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;p&gt;&lt;a href="http://www.w3schools.com" id="w3s"&gt;W3Schools.com&lt;/a&gt;&lt;/p&gt;<br />&lt;button&gt;Show href Value&lt;/button&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+  </pre>
+      <p><strong>Задание 20:</strong> Выполнить пример, проверить работу. Разобраться, как организована работа метода
+        attr(). Определите, значения каких еще атрибутов можно так получить.</p>
+      <h3>Индивидуальное задание 4:</h3>
+      <p><strong> Вариант 1:</strong> создать файл Individual_4.html, добавить сверху кнопку, а затем пять параграфов с
+        каким-либо текстом и между каждым параграфом по маленькому рисунку. При нажатии на кнопку среди всех найденных
+        параграфов для 3-го и 5-го изменить положение &ndash; сместить его на 100 пт влево относительно текущего
+        положения. При нажатии на любую из картинок должно происходить движение текущей вниз на 30 пт.</p>
+      <p><strong>Вариант 2:</strong> создать файл Individual_4.html, добавить сверху кнопку, а затем 6 маленьких
+        рисунков
+        одинакового размера, один под другим. При нажатии на кнопку среди всех найденных рисунков для четных выполнить
+        эффект слайд-шоу &ndash; заезд/скрытие рисунка под соответствующим ему верхним рисунком со скоростью
+        &laquo;slow&raquo;.</p>
+      <p><strong>Вариант 3:</strong> создать файл Individual_4.html, добавить сверху кнопку, а затем 6 параграфов с
+        каким-либо текстом, один под другим. При нажатии на кнопку среди всех найденных рисунков для нечетных выполнить
+        извлечение текста и присвоение этого текста соответствующему нижнему/четному параграфу и сместить нечетные
+        элементы на 40 пт влево.</p>
+      <p><strong>Вариант 4:</strong> создать файл Individual_4.html, добавить сверху кнопку, а затем 6 маленьких
+        рисунков
+        одинакового размера, один под другим. При нажатии на кнопку среди всех найденных рисунков для нечетных выполнить
+        эффект слайд-шоу &ndash; заезд/скрытие рисунка под соответствующим ему нижним рисунком со скоростью
+        &laquo;slow&raquo;.</p>
+      <h3>Получение конкретного элемента</h3>
+      <p>Даже если элемент найден только один, всё равно результатом будет jQuery-коллекция.</p>
+      <p>Для получения одного элемента из jQuery-коллекции есть несколько способов:</p>
+      <ol>
+        <li>
+          <p>Метод get(индекс), работает так же, как прямой доступ:</p>
+          <pre class="code">alert( $('body').get(0) ); // BODY</pre>
+          <p>Если элемента с таким номером нет &mdash; вызов get возвратит undefined.</p>
+        </li>
+        <li>
+          <p>Метод eq(индекс) возвращает коллекцию из одного элемента &mdash; с данным номером.&nbsp;</p>
+          <p>Он отличается от метода get(индекс) и прямого обращения по индексу тем, что возвращает именно
+            jQuery-коллекцию с одним элементом, а не сам элемент.</p>
+          <pre class="code">// DOM-элемент для первой ссылки&nbsp;
+  $('a').get(0);&nbsp;
+  // jQuery-объект из одного элемента: первой ссылки
+  $('a').eq(0);</pre>
+        </li>
+      </ol>
+      <p>Во втором случае вызов eq создаёт новую jQuery-коллекцию, добавляет в нее нулевой элемент и возвращает. Это
+        удобно, если мы хотим дальше работать с этим элементом, используя методы jQuery. Если элемента с таким номером
+        нет &mdash; eq возвратит пустую коллекцию.</p>
+      <button type="button" class="button"><a class="button__link" href="ajax.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="cms1.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

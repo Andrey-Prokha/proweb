@@ -1,0 +1,1611 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Описание языка</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1 class="content__title">JavaScript</h1>
+      <p><strong>JavaScript</strong> - предназначен для написания сценариев для активных
+        HTML-страниц. Язык JavaScript не имеет никакого отношения к языку <b>Java</b>.
+        Java разработан фирмой SUN. JavaScript - фирмой Netscape Communication Corporation.
+        Первоначальное название - <b>LiveScript</b>. После завоевания языком Java
+        всемирной известности LiveScript из коммерческих соображений переименовали
+        в JavaScript.</p>
+      <p>JavaScript не предназначен для создания автономных приложений.
+        Программа на JavaScript встраивается непосредственно в исходный текст
+        HTML-документа и интерпретируется брaузером по мере загрузки
+        этого документа. С помощью JavaScript можно динамически изменять текст
+        загружаемого HTML-документа и реагировать на события, связанные с действиями
+        посетителя или изменениями состоятия документа или окна.</p>
+      <p>Важная особенность JavaScript - объектная ориентированность.
+        Программисту доступны многочисленные объекты, такие, как документы,
+        гиперссылки, формы, фреймы и т.д. Объекты характеризуются описательной
+        информацией (свойствами) и возможными действиями (методами).</p>
+      <h2>Тег &lt;script&gt;</h2>
+      <p>Сценарий JavaScript встраивается в HTML-документ с помощью тега <strong>&lt;script&gt;</strong>.</p>
+      <h4>Пример</h4>
+      <pre class="code">&lt;!DOCTYPE HTML&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;/>head&gt;
+&lt;>body&gt;
+&lt;>h1&gt;Начнем?&lt;/>h1&gt;
+&lt;>script&gt;&lt;!--
+    document.write("Привет!");
+//--&gt;&lt;/>script&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+      <p>Текст сценария оформляется как комментарий, чтобы не было проблем у
+        посетителей, брaузеры которых не понимают <strong>JavaScript</strong>. Кроме того к символам,
+        завершающим комментарий добавляется еще два символа "<b>/</b>",
+        т.к. некоторые браузеры рассматривает строку,
+        состоящую только из символов "<b>--&gt;</b>", как ошибочную.</p>
+      <p>В первом примере для объекта с именем <b>document</b> вызывается метод
+        <b>write</b>. В качестве параметра ему передается текстовая строка
+        "Привет!". Строка закрывается символом "<b>;</b>", которым отделяются
+        друг от друга все операторы JavaScript.
+      </p>
+      <p>Объект <b>document</b> – это HTML-документ, загруженный в окно
+        брaузера. Метод <b>write</b> записывает в тело HTML-документа
+        строку "Привет!". При этом документ будет выгдядеть так, как будто эта строка
+        находится в нем на месте сценария.</p>
+
+      <p>Для указания что скрипт вынесен в отдельный файл используется следующий код:</p>
+      <pre class="code">&lt;>script src="/js.js"&gt;&lt;/>script&gt;</pre>
+      <p>Для ускорения загрузки страницы можно разрешить браузеру загружать скрипты паралельно с остальным кодом.
+        Для указания паралельной неблокирующей загрузки скриптов используется атрибут <code
+          class="code code--inline">async="async"</code>
+        или<code class="code code--inline"> defer="defer"</code>:</p>
+      <pre class="code">&lt;>script src="/js.js" async="async"&gt;&lt;/>script&gt;</pre>
+
+      <pre class="code">&lt;>script src="/js.js" defer="defer"&gt;&lt;/>script&gt;</pre>
+
+      <p>В обоих случаях скрипты, помеченные как async или defer, начинают незамедлительно скачиваться, не вызывая при
+        этом остановок парсера,
+        причем оба скрипта поддерживают onload обработчик, позволяющий вызвать те или иные события, когда скрипт будет
+        загружен.
+        Каждый скрипт, помеченный <b>async</b>, будет выполнен в тот момент, когда для это появится возможность после
+        его полной загрузки,
+        но до того как будет выброшено событие о загрузке window. Это означает, что такие скрипты скорее всего будут
+        выполнены не в том порядке, в котором они указаны на странице.
+        А вот наличие <b>defer</b> скриптов гарантирует, что как они указаны, так они и будут загружаться.
+        Их выполнение начнется после завершения работы парсера, но до появления события DOMContentLoaded.</p>
+      <p>Будьте внимательны и осторожны при неблокирующей загрузке, т.к. использовать функции из такого js-файла можно
+        только после полной загрузки DOM-модели и всех скриптов.
+        Т.к. браузер, если это позволит сервер, будет кешировать загружаемые внешние файлы, то при первом вызове функции
+        будут доступны только после полной загрузки,
+        а при обновлении страницы, т.к. браузер возьмет файл из кеша - сразу. И отлавить такую ошибку будет непросто.
+      </p>
+
+      <p>Можно сокращать написание:</p>
+      <pre class="code">&lt;>script src="/js.js" async&gt;&lt;/>script&gt;</pre>
+
+      <p>Имейте в виду, что JavaScript <u>различает строчные и прописные буквы</u>.
+        Кроме того символ дефиса в JavaScript распознается как
+        минус, т.е. если фон объекта в HTML-документе задается через свойство
+        <b>background-color</b>, то в JavaScript - через <b>backgroundColor</b>.
+      </p>
+      <h4>Пример</h4>
+
+      <p>Цвет фона объекта меняется с белого на красный
+        при наведении на объект мыши:</p>
+      <pre class="code">&lt;>img src="attachment.png" style="border:none;float:right;margin-left:5px;"
+     OnMouseOver="this.style.backgroundColor='red';"
+     OnMouseOut="this.style.backgroundColor='white';" /&gt;</pre>
+
+      <h2>Переменные в JavaScript</h2>
+      <p>Имя переменной не должно совпадать с зарезервированными ключевыми словами
+        JavaScript: abstract, boolean, break, byte, case, catch, char, class, const, continue, default,
+        do, double, else, extends, false, final, finally, float, for, function, goto, if, implements, import,
+        in, instanseof, int, interface, long, native, new, null, package, private, protected, public,
+        return, short, static, super, sinchronized, switch, this, throw, throws, transient, true, try,
+        typeof, var, void, wich.</p>
+      <p>Все переменные в JavaScript объявляются с помощью ключевого слова <strong>var</strong>.
+        При объявлении тип переменной не указывается. Этот тип присваивается переменной
+        только тогда, когда ей присваивается какое-либо значение. </p>
+      <p>Например:</p>
+      <pre class="code">    var a;
+    var a=13, A=22, b="Строка";
+</pre>
+      <p>Типы данных:</p>
+      <ul>
+        <li>Числа.</li>
+        <li>Логические значения. Могут принимать значение true и false.</li>
+        <li>Строки. Последовательность символов, заключенная в одинарные или в двойные кавычки.
+          Строка, ограниченная одинарными кавычками может содержать двойные кавычки, а строка,
+          ограниченная двойными кавычками, может содержать одинарные кавычки.</li>
+      </ul>
+      <p>Например:</p>
+      <pre class="code">var str1=’Не говорите мне: ”Прощай! ”’;
+var str2=”Не говорите мне: ’Прощай!’”;</pre>
+      <p>Для определения типа переменной можно использовать <b>typeof</b>,
+      <p>Например:</p>
+      </p>
+      <pre class="code">var a = 5
+document.write(typeof a) // "number"
+var b = 'test'
+document.write( typeof(b) ) // "string"</pre>
+      <p><code class="code code--inline">document.write</code> - используется для вывода результата в текущей поток
+        вывода браузера.</p>
+      <p>Для проверки существования переменной можно использовать одну из следующих конструкций:</p>
+      <pre class="code">if (typeof(var) == "undefined") { ... }</pre>
+      <p>В современном javascript лучше писать:</p>
+      <pre class="code">if ('var' in window) { ... }</pre>
+      <p>Использовать просто if(var) нельзя, так как доступ к неопределенной переменной вызовет ошибку.
+        В некоторых источниках рекомендуют использовать if(window.var), но так проверять тоже нельзя, т.к. переменная
+        может быть, но иметь значение false.
+      </p>
+
+      <p>Число преобразуется в строку автоматически. Например:</p>
+      <pre class="code">document.write(”145+263=”+(145+263));</pre>
+      <p>В строку можно вставить специальные символы:</p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">\’</td>
+            <td class="table__cell">Одинарная кавычка</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">\”</td>
+            <td class="table__cell">Двойная кавычка</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">\\</td>
+            <td class="table__cell">Обратная косая черта</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">\n</td>
+            <td class="table__cell">Переход на новую строку</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">\r</td>
+            <td class="table__cell">Возврат каретки</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">\t</td>
+            <td class="table__cell">Табуляция</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Например:</p>
+      <pre class="code">alert(”черный\tblack\t#000000\nбелый\twhite\t#FFFFFF”);</pre>
+
+      <p>Для преобразования строк в числа используют специальные функции <b>parseInt</b> и <b>parseFloat</b>.</p>
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;!DOCTYPE HTML&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;/>head&gt;
+&lt;>body&gt;
+&lt;>h1&gt;Пример преобразования типов&lt;/>h1&gt;
+&lt;>script&gt;&lt;!--
+    var Buf="";
+    Buf=100+"&amp;nbsp;- число сто&lt;br&gt;";
+    Buf+=(parseInt("50")+50)+"&amp;nbsp;- число сто&lt;br&gt;";
+    document.write(Buf);
+//--&gt;&lt;/>script&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+      <h5>Примеры использования простейших преобразований типов:</h5>
+      <pre class="code">var myVar   = "3.14159",
+    str     = ""+ myVar,//  в string
+    int     = ~~myVar,  //  в integer
+    float   = 1*myVar,  //  во float
+    bool    = !!myVar,  //  в boolean - все непустые строки и числа кроме 0 будут true
+    array   = [myVar];  //  в array</pre>
+
+      <p>Конвертирование в даты (new Date(myVar)) и регулярные выражения (new RegExp(myVar)) нужно делать
+        с использованием конструкторов. Для создания регулярных выражений используйте структуру:
+        <code class="code code--inline">/регулярное_выражение/флаги</code>.
+      </p>
+
+      <h2>Операторы языка JavaScript</h2>
+
+      <p>Операторы JavaScript напоминают общеизвестные операторы языка С++.</p>
+
+      <h3>Унарные операторы</h3>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">-</td>
+            <td class="table__cell">Изменение знака на противоположный</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">!</td>
+            <td class="table__cell">Дополнение. Используется для реверсирования значения логических переменных</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">++</td>
+            <td class="table__cell">Увеличение значения переменной. Может применяться и как префикс, и как суффикс</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">--</td>
+            <td class="table__cell">Уменьшение значения переменной. Может применяться и как префикс, и как суффикс</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Бинарные операторы</h3>
+
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">-</td>
+            <td class="table__cell">Вычитание </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">+</td>
+            <td class="table__cell">Сложение </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">*</td>
+            <td class="table__cell">Умножение </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">/</td>
+            <td class="table__cell">Деление </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">%</td>
+            <td class="table__cell">Остаток от деления </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Операторы для работы с отдельными битами</h3>
+
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">&amp;</td>
+            <td class="table__cell">И </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">|</td>
+            <td class="table__cell">ИЛИ </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">^</td>
+            <td class="table__cell">ИСКЛЮЧАЮЩЕЕ ИЛИ </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">~</td>
+            <td class="table__cell">НЕ </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Операторы сдвига</h3>
+
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">&gt;&gt;</td>
+            <td class="table__cell">Сдвиг вправо </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&lt;&lt;</td>
+            <td class="table__cell">Сдвиг влево </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&gt;&gt;&gt;</td>
+            <td class="table__cell">Сдвиг вправо с заполнением освобождаемых разрядов нулями </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Операторы отношения</h3>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">&gt;</td>
+            <td class="table__cell">Больше </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&gt;=</td>
+            <td class="table__cell">Больше или равно </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&lt;</td>
+            <td class="table__cell">Меньше </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&lt;=</td>
+            <td class="table__cell">Меньше или равно </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">==</td>
+            <td class="table__cell">Равно </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">!=</td>
+            <td class="table__cell">Не равно </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>В условных операторах также применяются логические операторы:
+        || (ИЛИ) и &amp;&amp; (И).</p>
+
+      <h3>Оператор присваивания и его комбинации</h3>
+
+      <p>Допускается комбинирование оператора присваивания с другими, как и в языке С. </p>
+
+      <p></p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">=</td>
+            <td class="table__cell">Присваивание </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">+=</td>
+            <td class="table__cell">Сложение или слияние строк (n=n+7; аналог. n+=7;) </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">–=</td>
+            <td class="table__cell">Вычитание (n=n-7; аналог. n-=7;) </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">*=</td>
+            <td class="table__cell">Умножение </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">/=</td>
+            <td class="table__cell">Деление </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&gt;&gt;=</td>
+            <td class="table__cell">Сдвиг вправо </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&lt;&lt;=</td>
+            <td class="table__cell">Сдвиг влево </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&gt;&gt;&gt;=</td>
+            <td class="table__cell">Сдвиг вправо с заполнением освобождаемых разрядов нулями </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&amp;=</td>
+            <td class="table__cell">И </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">|=</td>
+            <td class="table__cell">ИЛИ </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">^=</td>
+            <td class="table__cell">ИСКЛЮЧАЮЩЕЕ ИЛИ </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Условные операторы</h3>
+
+      <p>В языке JavaScript два условных оператора: <b>if-else</b> и <b>?:</b>.</p>
+
+      <h4>Пример оператора <strong>if-else</strong></h4>
+      <pre class="code">if(Vol&lt;>2)
+{
+    b=true;
+    ss="w002.htm";
+}
+else if(Vol&gt;100)
+{
+    b=true;
+    ss="w100.htm";
+}</pre>
+
+      <h4>Пример "скрипт приветствия (по времени суток)"</h4>
+      <pre class="code">&lt;script&gt;<span class="xml">&lt;!--
+    var h=(new Date()).getHours();
+    if (h &lt; 6) document.write("Доброй ночи!");
+    if (h &gt; 5 &amp;&amp; h &lt; 12) document.write("С добрым утром!");
+    if (h &gt; 11 &amp;&amp; h &lt; 18) document.write("Добрый день!");
+    if (h &gt; 17 &amp;&amp; h &lt; 24) document. write("Добрый вечер!");
+    //--&gt;
+&lt;/>script&gt;</pre>
+
+      <h4>Пример оператора ?:</h4>
+      <pre class="code">b = (Vol&lt;>2 || Vol&gt;100) ? true:false;</pre>
+
+      <h4>Пример оператора switch - case:</h4>
+      <pre class="code">switch(variable) {
+    case value_1: {
+        //блок операторов_1
+        break;
+    }
+    case value_2: {
+        //блок операторов_2
+        break;
+    }
+    case value_n: {
+        //блок операторов_n
+        break;
+    }
+    default: {
+        //блок операторов по умолчанию
+    }
+}</pre>
+
+      <h3>Операторы цикла</h3>
+
+      <p>В языке JavaScript три оператора цикла:
+        <b>for</b>, <b>for-in</b>, <b>while</b>.
+      </p>
+
+      <h4>Пример оператора <strong>for</strong></h4>
+      <pre class="code">for(i=0; i&lt;>n; i++)
+{
+    text+=" ";
+}</pre>
+
+      <h4>Пример оператора <strong>for-in</strong></h4>
+      <pre class="code">var sprops="&lt;>H2&gt;Свойства объекта window&lt;/>H2&gt;"
+for(props in window)
+    sprops+="&lt;>b&gt;" + props + "&lt;/>b&gt;" + ":" + window[props].toLocaleString().substr(0,90) + "&lt;>br&gt;";
+document.write(sprops);</pre>
+      <h4>Пример использования оператора <strong>while</strong>, <b>continue</b>, <b>break</b></h4>
+      <pre class="code">&lt;>script&gt;
+var i=0;
+var n=10;
+var text='';
+while(i&lt;n)
+{
+    text+=", "+i;
+    i++;
+    if(i&lt;5)continue;
+    text+=", ! ";
+    if(i&gt;8)break;
+}
+document.write(text);
+&lt;/>script&gt;</pre>
+      <p>Кроме этих операторов в организации цикла могут участвовать еще два
+        оператора: <b>break</b> (выход из цикла) и
+        <b>continue</b> (переход на следующий шаг).
+      </p>
+      <h3>Прочие операторы</h3>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">.</td>
+            <td class="table__cell">Доступ к полю объекта. ( document.write(Buf); ) </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">[ ]</td>
+            <td class="table__cell">Индексирование массива ( dim[i] ) </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">( )</td>
+            <td class="table__cell">Изменение порядка вычислений или передача параметров функции </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">,</td>
+            <td class="table__cell">Разделение выражений в многократном вычислении </td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>Пример оператора "запятая"</h4>
+      <pre class="code">for(i=0; i&lt;>n; i++, j++)</pre>
+
+      <h4>Неявное преобразование типов</h4>
+      Будьте внимательны при использовании неявного преобразований типов.
+      <pre class="code">// Все эти сравнения выдадут 'true'!
+console.log(false == '0');
+console.log(null == undefined);
+console.log(" \t\r\n" == 0);
+console.log('' == 0);
+
+// И эти тоже!
+if ({}) // ...
+if ([]) // ...
+
+// а вот с NaN картина ещё интереснее:
+console.log(NaN == NaN);    // false
+console.log(NaN === NaN);   // false
+console.log(isNaN(NaN));    // true</pre>
+
+      <h2>Встроенные функции JavaScript</h2>
+
+      <h2>Функции JavaScript</h2>
+
+      <p>Все функции JavaScript рекомендуется помещать в контейнер
+        &lt;HEAD&gt;...&lt;/HEAD&gt;. Тем самым вы обеспечите их
+        гарантированную доступность при обработке HTML-документа.</p>
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;>html&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv=Content-Type content="text/html; charset=utf-8"&gt;
+    &lt;>script&gt;&lt;!--
+        function >ItR(a)
+        {
+            var o = document.getElementById(a);
+            o.style.backgroundColor="red";
+        }
+        function >ItW(a)
+        {
+            var o = document.getElementById(a);
+            o.style.backgroundColor="white";
+        }
+        //--&gt;
+    &lt;/>script&gt;
+&lt;/>head&gt;
+&lt;>body&gt;
+&lt;>H2&gt;Изменение фона при наведении &lt;/>H2&gt;
+&lt;>img id="Ba" src="ba.gif" border="0" OnMouseOver="ItR('Ba')" OnMouseOut="ItW('Ba')"&gt;
+&lt;>img id="Be" src="be.gif" border="0" OnMouseOver="ItR('Be')" OnMouseOut="ItW('Be')"&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+      <h2>Объекты JavaScript</h2>
+
+      <p>Язык JavaScript является объектно-ориентированным. Объекты JavaScript представляют собой
+        наборы свойств и методов. Можно сказать, что свойства объектов - это данные,
+        связанные с объектом, а методы - функции для обработки данных объекта.</p>
+      <p>В языке JavaScript имеется три вида объектов: встроенные объекты,
+        объекты брaузера и объекты, создаваемые программистом.
+      </p>
+      <p>JavaScript поддерживает следующий набор встроенных объектов: <b>Array</b>,
+        <b>Boolean</b>, <b>Date</b>, <b>Global</b>, <b>Function</b>, <b>Math</b>,
+        <b>Number</b>, <b>String</b>.
+      </p>
+
+      <h2>Встроенный объект Array. Массивы в JavaScript</h2>
+
+      <p>Массив в JavaScript является экземпляром встроенного объекта <b>Array</b>.
+        Нумерация элементов в массиве начинается с нуля. Создать массив можно
+        следующими способами:</p>
+      <pre class="code">var a1 = new Array();
+var a2 = new Array(3); // создает массив длиной 10
+var a3 = new Array('раз','два','три');
+var b1 = []
+var b2 = [3] // создает массив из одного эллемента со значением 3
+var b3 = ["a", 1, true]</pre>
+
+      <p><b>a1</b> - массив, в котором нет ни одного элемента.</p>
+      <p><b>a2</b> - массив из трех элементов с неопределенным (undefined) значением.</p>
+      <p><b>a3</b> - массив, заданный списком своих элементов.</p>
+      <p>Число элементов в массиве можно изменить, просто задав значение
+        соответствующего элемента:</p>
+      <pre class="code">a3[5]='шесть';</pre>
+      <p>Типы данных элементов массива в JavaScript могут быть различными:
+      </p>
+      <pre class="code">a3[3]=4; a3[4]=5; a3[7]=false;</pre>
+      <p>Разумеется, необходимо предусмотреть корректную работу с массивом, содержащим
+        элементы с разными типами данных.</p>
+      <p>Для создания многомерного массива каждому элементу массива нужно
+        присвоить другой массив:</p>
+      <pre class="code">var myArray = new Array(2);
+for (i=0; i&lt;3; i++){myArray[i] = new Array(2);}</pre>
+      <p>Так можно создать массив, состоящий из трех строк и трех столбцов.</p>
+
+      <p>Это все числовые массивы. Также существуют и ассоциативные массивы:</p>
+      <pre class="code">var a=new Array()
+a['top']='Верх'
+a['bottom']='Низ'
+//а потом обращатся:
+var c=a['top']</pre>
+
+      <h3>Свойства объекта Array</h3>
+      <ul>
+        <li><b>length</b>. Число элементов массива.
+        </li>
+      </ul>
+      <pre class="code">var c = new Array('раз','два','три',4,5);
+document.write('Число элементов массива c: '+c.length+'\nc='+c);</pre>
+
+      <h3>Методы объекта Array</h3>
+      <ul>
+        <li><b>push( )</b>. добавляюет значение с конца массива</li>
+        <li><b>pop( )</b>. вынимает значение с конца массива</li>
+        <li><b>shift( )</b>. добавляюет значение с начала массива</li>
+        <li><b>unshift ( )</b>. вынимает значение с начала массива. shift/unshift обычно приводят к перенумерации всего
+          массива.
+          shift сдвигает все элементы на единицу влево, а unshift - вправо.
+          Поэтому на больших массивах эти методы работают медленнее, чем push/pop.</li>
+
+        <li><b>concat( )</b>. Слияние двух массивов. Через параметр передается имя
+          второго массива: <code class="code code--inline">c=a.concat(b);</code><br>
+          Здесь элементы массива <code class="code code--inline">b</code> добавляются к элементам массива <code
+            class="code code--inline">a</code>.
+          Чтобы преобразовать строку в массив используется метод <b>split</b> объекта String:
+          <pre class="code">// строка для преобразования
+    var str = '1 2 3 4 5 6 7 8 9 10';
+    // преобразуем в массив
+    var arr = str.split(' ');
+    // Переменная arr будет содержать элементы [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // пример 2
+    var arr2 = str.split(' ', 3);
+    // Переменная arr2 будет содержать элементы [1, 2, 3]</pre>
+
+        </li>
+        <li><b>reverse( )</b>. Меняет порядок элементов массива на обратный.
+
+        </li>
+        <li><b>slice(begin[, end])</b>. Возвращает подмассив с индексами begin…end.
+          При этом элемент массива с конечным индексом в результат не войдет. Следует
+          помнить, что индексы отсчитываются от нуля.
+        </li>
+        <li><b>splice(index, deleteCount[, element1,…, elementN])</b>
+          Удалить deleteCount элементов, начиная с index, и вставить на их место element1…elementN</li>
+        <li><b>sort( fn )</b>. Сортирует массив. Если функция не передана, то все элементы сортируются как строки.
+          Вместо 0,6,18,24,25, он сортирует 0,18,24,25,6. Для сотрировки числового массива используйте следущий
+          вариант:
+          <pre class="code">var a=[15,7,100,50];
+a.sort(function(a,b){return a-b;});
+alert(a.join()); // Выведет 7,15,50,100</pre>
+
+        </li>
+        <li><b>toString( )</b> - преобразует элементы массива в строку, используя в качестве символа-разделителя
+          запятую.</li>
+        <li><b>indexOf(искомый_элемент, индекс)</b>, <b>lastIndexOf(искомый_элемент, индекс)</b> - возвращает индекс
+          элемента, значение которого равно значению, переданному методу в качестве аргумента.
+          Первый аргумент метода указывает значение элемента, индекс которого нужно найти, второй аргумент
+          (необязательный), указывает индекс с которого будет начинаться поиск. Если одинаковых вхождений несколько,
+          выбирается наименьший (первый) индекс. Если элемент с искомым значением не найден, метод вернет -1. Внутри
+          метода для поиска используется строгое сравнение ( === )
+          lastIndexOf() - ищет с конца.
+          <pre class="code">var a = [1,2,3,3,4,5,3];
+a.indexOf(3);    //вернет 2
+a.indexOf(3,4);  //вернет 6
+a.indexOf(35);   //вернет -1: нет элемента с таким значением
+a.lastIndexOf(3);  //вернет 7</pre>
+        </li>
+        <li><b>forEach(callback, thisArg)</b> - callback-функция, которую метод forEach() будет вызывать для каждого
+          элемента массива, должна иметь три параметра:
+          первый параметр принимает в качестве аргумента - значение элемента массива, второй - индекс элемента, и
+          третий - сам массив.
+          Однако, если нужно использовать только значения элементов массива, можно написать функцию только с одним
+          параметром.
+          Второй аргумент - thisArg (необязательный) будет передан в качестве значения this
+          <pre class="code">var arr = [2,3,4];
+
+function >foo(value) {
+    var sum = value * this;
+    return document.write(sum + "&lt;br&gt;");
+}
+
+arr.forEach(foo, 5); //второй аргумент будет передан в качестве значения this
+
+//пример с тремя параметрами
+var a = [17,22,13];
+
+a.forEach(function(el, idx, a) {
+        document.write('a['+idx+'] = '+el+' в ['+a+'] &lt;br&gt;');
+    });</pre>
+        </li>
+        <li><b>filter(callback, thisObject)</b> - возвращает новый массив, который будет содержать только те элементы
+          массива, для которых вызов функции callback возвратит true.
+          <pre class="code">function >isBig(element, index, array) {  //возвращает числа, которые больше или равны 10
+    return (element &gt;= 10); //если значение элемента больше или равно 10 - выражение вернет true
+}
+var filtered = [11, 3, 7, 50, 25].filter(isBig);  //filtered[11, 50, 25]</pre>
+        </li>
+        <li><b>map(callback)</b> - возвращает новый массив, который будет состоять из результатов вызова функции
+          callback(item, idx, ar) для каждого элемента массива.
+          <pre class="code">var a = [5, 6, 7];
+
+    var b = a.map(function(item, idx, arr) {
+    return item * item; }); // b = [25, 36, 49]</pre>
+        </li>
+
+        <li><b>every(callback)</b> - возвращает true, если для всех элементов массива указанная функция, используемая
+          для их проверки, вернет true.</li>
+        <li><b>some(callback)</b> - возвращает true, если во время проверки в указанной функции один или несколько
+          элементов вернут true.</li>
+
+        <li><b>reduce(callback, initialValue)</b>, <b>reduceRight(callback, initialValue)</b> - применяет указанную
+          функцию (callback) в отношении сразу двух значений в массиве, перебирая элементы слева направо, сохраняя при
+          этом промежуточный результат.
+          Аргументы функции callback: (previousValue, currentItem, index, array)<br>
+          previousValue - возвращаемый результат callback функции (он же промежуточный результат)<br>
+          currentItem - текущий элемент массива (элементы перебираются по очереди слева-направо)<br>
+          index - индекс текущего элемента<br>
+          array - обрабатываемый массив<br>
+          initialValue (инициализирующее значение) - объект, используемый в качестве первого аргумента первого вызова
+          функции callback. Проще говоря, значение previousValue при первом вызове равно initialValue. Если
+          initialValue нет, то оно равно первому элементу массива, а перебор начинается со второго</li>
+
+      </ul>
+
+      <p><b>delete</b> - Удалить элемент ассоциативного массива,
+      <p>Например:</p>
+      </p>
+      <pre class="code">var arr = [];
+// присваиваем значения
+arr['first'] = 'Первое значение';
+arr['second'] = 'Второе значение';
+arr['third'] = 'Третье значение';
+// удаляем элемент с ключом second
+delete arr['second'];</pre>
+
+      <p>Для обхода ассоциативного массива используется следующий цикл:</p>
+      <pre class="code">for (var x in ar_list) //выведем на экран все элементы
+document.write(x+' : '+ar_list[x] + "&lt;br&gt;");</pre>
+
+      <h2>Встроенный объект Date</h2>
+
+      <p>С помощью методов встроенного объекта <b>Date</b> можно выполнять
+        различные действия с часами компьютера. Для использования большинства методов
+        объекта Date необходимо создать экземпляр этого объекта:</p>
+      <pre class="code">var today = new Date();</pre>
+
+      <h3>Методы объекта Date</h3>
+      <ul>
+        <li><b>getYear</b>. Возвращает год:<br>
+          <code class="code code--inline">var nYear = today.getYear();</code>
+        </li>
+        <li><b>getMonth</b>. Возвращает номер месяца:<br>
+          <code class="code code--inline">var nMonth = today.getMonth();</code>
+          Имейте в виду, что январь - это 0, февраль - 1 и т.д.
+        </li>
+        <li><b>getDate</b>. Возвращает значение календарной даты в диапазоне от 1 до 31:<br>
+          <code class="code code--inline">var nDate = today.getDate();</code>
+        </li>
+        <li><b>getDay</b>. Возвращает номер дня недели (для воскресенья - 0,
+          для понедельника - 1 и т.д.):<br>
+          <code class="code code--inline">var nDay = today.getDay();</code>
+        </li>
+        <li><b>getHours</b>. Возвращает количество часов, прошедших после полуночи:<br>
+          <code class="code code--inline">var nHours = today.getHours();</code>
+        </li>
+        <li><b>getMinutes</b>. Возвращает количество минут, прошедших с начала часа:<br>
+          <code class="code code--inline">var nMinutes = today.getMinutes();</code>
+        </li>
+        <li><b>getSeconds</b>. Возвращает количество секунд, прошедших с начала минуты:<br>
+          <code class="code code--inline">var nSeconds = today.getSeconds();</code>
+        </li>
+        <li><b>getTime</b>. Возвращает количество миллисекунд, прошедших с
+          00 часов 00 минут 1 января 1970 года:<br>
+          <code class="code code--inline">var nMillisec = today.getTime();</code>
+        </li>
+        <li><b>getTimeZoneOffset</b>.
+          Возвращает смещение локального времени относительно времени по Гринвичу в
+          миллисекундах:<br>
+          <code class="code code--inline">var nOffsetMillisec = today.getTimeZoneOffset();</code>
+        </li>
+        <li><b>parse</b>. Возвращает количество миллисекунд, прошедших с
+          00 часов 00 минут 1 января 1970 года по время, указанное в параметре функции.
+          Для вызова этого метода можно просто сослаться на имя класса <code class="code code--inline">Date</code>,
+          а создавать объект класса Date не надо:<br>
+          <code class="code code--inline">var nMS = Date.parse(prm);</code><br>
+          Параметр <code class="code code--inline">prm</code> может принимать значения: локальные дата и время <code
+            class="code code--inline">("21
+Apr 2001 18:00:00");</code> дата и время по Гринвичу
+          <code class="code code--inline">("21 Apr 2001 14:00:00 GMT");</code> дата и время по Гринвичу cо
+          смещением <code class="code code--inline">("21 Apr 2001 18:00:00 GMT+0400")</code>.
+        </li>
+        <li><b>UTC</b>. Преобразовывает дату, заданную параметрами метода,
+          в количество миллисекунд, прошедших с 00 часов 00 минут 1 января 1970 года.
+          Для вызова этого метода, так же как и метода <b>parse</b>
+          можно просто сослаться на имя класса Date:<br>
+          <code class="code code--inline">var nMSec = Date.UTC(year, month, date, hours, min, sec, ms);</code><br>
+          Имейте в виду, что январь - это 0, февраль - 1 и т.д.
+        </li>
+        <li><b>setYear</b>. Устанавливает год в объекте класса Date:<br>
+          <code class="code code--inline">today.setYear(nYear);</code>
+        </li>
+        <li><b>setMonth</b>. Устанавливает номер месяца:<br>
+          <code class="code code--inline">today.setMonth(nMonth);</code>
+        </li>
+        <li><b>setDate</b>. Устанавливает значение календарной даты в диапазоне от 1 до 31:<br>
+          <code class="code code--inline">today.setDate(nDate);</code>
+        </li>
+        <li><b>setDay</b>. Устанавливает номер дня недели (для воскресенья - 0, для понедельника - 1 и
+          т.д.):<br>
+          <code class="code code--inline">today.setDay(nDay);</code>
+        </li>
+        <li><b>setHours</b>. Устанавливает количество часов, прошедших после полуночи:<br>
+          <code class="code code--inline">today.setHours(nHours);</code>
+        </li>
+        <li><b>setMinutes</b>. Устанавливает количество минут, прошедших с начала часа:<br>
+          <code class="code code--inline">today.setMinutes(nMinutes);</code>
+        </li>
+        <li><b>setSeconds</b>. Устанавливает количество секунд, прошедших с начала минуты:<br>
+          <code class="code code--inline">today.setSeconds(nSeconds);</code>
+        </li>
+        <li><b>setTime</b>. Устанавливает дату, соответствующую количеству миллисекунд, прошедших с 00
+          часов 00 минут 1 января 1970 года:<br>
+          <code class="code code--inline">var nMillisec = today.setTime();</code>
+        </li>
+        <li><b>toGMTString</b>. Преобразует дату в строку, записанную в стандартном формате времени по
+          Гринвичу: <br><code class="code code--inline">"Sat, 21 Apr 2001 14:00:00 GMT"</code>
+        </li>
+        <li><b>toLocaleString</b>. Преобразует дату в строку, записанную в стандартном формате локального времени:
+          <br><code class="code code--inline">"04/16/2001 18:00:00"</code>.
+        </li>
+      </ul>
+
+      <h2>Объекты брaузера</h2>
+
+      <p>Объекты брaузера являются тем интерфейсом, с
+        помощью которого сценарий JavaScript
+        взаимодействует с посетителем и HTML-документом,
+        загруженным в окно брaузера, а также с самим брaузером. Обращаясь к свойствам и
+        методам этих объектов, можно выполнять различные операции над окном брaузера,
+        загруженным в это окно HTML-документом,
+        а также над отдельными объектами, размещенными в HTML-документе.</p>
+      <p>Практически в любом сценарии JavaScript необходимы такие объекты, как
+        окно - <b>window</b> и документ - <b>document</b>.</p>
+
+      <h3>Свойства объекта window</h3>
+      <ul>
+        <li><b>name</b>. Имя окна, указанное при его открытии методом open,
+          а также в атрибуте <code class="code code--inline">TARGET</code> тега <code
+            class="code code--inline">&lt;A&gt;</code> или в атрибуте <code class="code code--inline">NAME</code>
+          тега <code class="code code--inline">&lt;FORM&gt;</code>.
+        </li>
+        <li><b>self</b>, <b>window</b>. Синонимы имени окна. Относятся к текущему окну.
+        </li>
+        <li><b>top</b>. Синоним имени окна. Относится к окну верхнего уровня.
+        </li>
+        <li><b>parent</b>. Синоним имени окна. Относится к окну, содержащему набор
+          фреймов.
+        </li>
+        <li><b>frames</b>. Массив всех фреймов данного окна.
+        </li>
+        <li><b>length</b>. Количество фреймов в родительском окне.
+        </li>
+        <li><b>status</b>. Текущее сообщение, отображаемое в строке состояния окна
+          брaузера.
+        </li>
+      </ul>
+
+      <h3>Методы объекта window</h3>
+      <ul>
+        <li><b>alert</b>. Отображение диалоговой панели <b>Alert</b> с сообщением
+          и кнопкой <b>OK</b>. Через параметр передается сообщение, отображаемое в
+          диалоговой панели. После вызова этого метода выполнение сценария задерживается
+          до тех пор, пока посетитель не нажмет кнопку OK, расположенную в
+          диалоговой панели.</li>
+      </ul>
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;>html&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;/>head&gt;
+&lt;>body&gt;
+&lt;>script type="text/javascript"&gt;
+    alert("Рад видеть Вас на моем сайте! Пошли дальше?");
+&lt;/>script&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+      </p>
+      <ul>
+        <li><b>confirm</b>. Отображение диалоговой панели Confirm с кнопками
+          <b>OK</b> и <b>Отмена</b>. В зависимости от того, какая кнопка будет нажата,
+          метод возвращает соответственно значение <code class="code code--inline">true</code> или <code
+            class="code code--inline">false</code>.
+        </li>
+      </ul>
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;>html&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;/>head&gt;
+&lt;>body&gt;
+&lt;>script&gt;<span class="undefined">
+    &lt;!--
+    if(confirm("Рад видеть Вас на моем сайте! Пошли
+        дальше?"))
+            {document.write("Пошли!");}
+    else
+    {document.write("Не хочешь - не надо... ");}
+    //--&gt;
+&lt;/>script&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+      <br></p>
+      <ul>
+        <li><b>prompt</b>. Отображение диалоговой панели <b>Prompt</b> с полем ввода и кнопками <b>OK</b>
+          и <b>Отмена</b>. В зависимости от того, какая кнопка будет нажата, метод
+          возвращает соответственно введенную строку или значение <code class="code code--inline">null</code>. Метод
+          имеет два параметра. Первый
+          - сообщение над полем ввода. Второй (необязательный) - начальное значение
+          строки ввода.
+        </li>
+      </ul>
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;>html&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;/>head&gt;
+&lt;>body&gt;
+&lt;>script&gt;&lt;!--
+    var yourName=prompt("Как Вас зовут?", "Маша");
+    if(yourName=="Маша")
+        {document.write("Угадал!");}
+    else
+        {document.write("Не угадал. Вас зовут " + yourName);}
+    //--&gt;
+&lt;/>script&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+      </p>
+      <ul>
+        <li>
+          <b>open</b>. Открытие окна. Метод имеет три параметра. Первый задает URL HTML-документа,
+          предназначенного для загрузки в новое окно. Второй определяет имя окна для
+          использования в атрибуте <code class="code code--inline">TARGET</code> тега <code
+            class="code code--inline">&lt;A&gt;</code> или в атрибуте <code class="code code--inline">NAME</code>
+          тега &lt;FORM&gt;. Третий
+          (необязательный) задает в виде текстовой строки параметры, определяющие внешний
+          вид открываемого окна.
+        </li>
+      </ul>
+
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">toolbar</td>
+            <td class="table__cell">Отображение стандартной инструментальной линейки<br><em>[=yes|no] | [=1|0]</em></td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">location</td>
+            <td class="table__cell">Отображение поля ввода адреса документа<br><em>[=yes|no] | [=1|0]</em></td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">status</td>
+            <td class="table__cell">Отображение строки состояния<br><em>[=yes|no] | [=1|0]</em></td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">menubar</td>
+            <td class="table__cell">Отображение линейки меню<br><em>[=yes|no] | [=1|0]</em></td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">scrollbars</td>
+            <td class="table__cell">Отображение полос прокрутки<br><em>[=yes|no] | [=1|0]</em></td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">resizable</td>
+            <td class="table__cell">Изменение размеров нового окна<br><em>[=yes|no] | [=1|0]</em></td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">width</td>
+            <td class="table__cell">Ширина окна в пикселах </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">height</td>
+            <td class="table__cell">Высота окна в пикселах </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fullscreen</td>
+            <td class="table__cell">Полноэкранный режим</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">copyhistory</td>
+            <td class="table__cell">Сохранение истории загрузки документов в данное окно<br><em>[=yes|no] | [=1|0]</em>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">directories</td>
+            <td class="table__cell">Наличие в данном окне кнопок групп новостей<br><em>[=yes|no] | [=1|0]</em></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;>html&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv=Content-Type content="text/html; charset=utf-8"&gt;
+&lt;/>head&gt;
+&lt;>body
+    lang=RU&gt;
+&lt;>script
+    language="JavaScript"&gt;
+    &lt;!--
+    var
+        newWindow=open("ann.htm","","toolbar=no,menubar=no,width=300,height=200")
+    //--&gt;
+&lt;/>script&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+      <br></p>
+      <ul>
+        <li><b>close</b>. Закрытие созданного или основного окна: <br>
+          <code class="code code--inline">newWindow.close();</code><br>
+          Текущее окно брaузера можно закрыть одним из следующих способов:<br>
+          <code class="code code--inline">window.close(); self.close();</code>
+        </li>
+        <li><b>setTimeout</b>. Установка таймера. Применяется для ограничения времени ввода пароля,
+          создания бегущих строк и всевозможных анимационных эффектов. Метод имеет два параметра.
+          Первый задает выражение JavaScript, которое запускается по прошествии времени,
+          указанного вторым параметром в миллисекундах. Заданное выражение запускается один раз.</li>
+      </ul>
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;>html&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;/>head&gt;
+&lt;>body&gt;
+&lt;>H3&gt;Через 2 секунды Иоганн Себастьян Бах сменит Людвига ван Бетховена.&lt;/>H3&gt;
+&lt;>img id="B_B" src="be.gif"&gt;
+&lt;>script&gt;&lt;!--
+function >change(){
+    document.getElementById("B_B").src="ba.gif";
+}
+setTimeout("change()", 2000);
+//--&gt;
+&lt;/>script&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+      </p>
+      <ul>
+        <li><b>clearTimeout</b>. Сброс таймера. Для останова таймера метод <b>setTimeout</b>
+          нужно вызвать с возвратом идентификатора, т.е. <br>
+          <code class="code code--inline">idTimer=setTimeout("change()", 2000);</code><br>
+          а затем этот идентификатор передать методу <b>clearTimeout</b>
+          в качестве параметра: <br>
+          <code class="code code--inline">clearTimeout(idTimer);</code>
+        </li>
+      </ul>
+
+      <br>
+
+      <ul>
+        <li><b>setInterval(prm1,prm2)</b>. Установка периодического таймера. Метод имеет два параметра.
+          задает выражение JavaScript, которое периодически запускается по прошествии времени, указанного вторым
+          параметром в миллисекундах.</li>
+        <li><b>clearInterval(prm)</b>. Сброс таймера, установленного методом setInterval.
+          Для сброса таймера метод setInterval нужно вызвать с возвратом идентификатора, т.е.
+          <code class="code code--inline">idTimer=setInterval(”change()”, 2000);</code> а затем этот идентификатор
+          передать методу
+          clearTimeout в качестве параметра: <code class="code code--inline">clearInterval(idTimer);</code>
+        </li>
+      </ul>
+
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;>html&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;/>head&gt;
+&lt;>body&gt;
+&lt;>H3&gt;Через 2 секунды Иоганн Себастьян Бах сменит Людвига ван Бетховена.&lt;/>H3&gt;
+&lt;>img id="B_B" src="be.gif"&gt;
+&lt;>script&gt;&lt;!--
+    var a="be";
+    function >change(){
+        a=(a=="be"?"ba":"be");
+        document.getElementById("B_B").src=a+".gif";
+    }
+    setInterval("change()", 2000);
+    //--&gt;
+&lt;/>script&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+      </p>
+      <ul>
+        <li><b>blur( )</b>. При вызове метода окно теряет фокус.
+        </li>
+      </ul>
+      <ul>
+        <li><b>focus( )</b>. При вызове метода окно получает фокус.
+        </li>
+      </ul>
+      <ul>
+        <li><b>MoveTo(x,y)</b>. Перемещает окно в точку с координатами.
+        </li>
+        <li><b>MoveBy(x,y)</b>. Перемещает окно на <code class="code code--inline">x</code> пикселей по горизонтали
+          вправо
+          и на <code class="code code--inline">y</code> пикселей вниз.
+        </li>
+      </ul>
+      <ul>
+        <li><b>ResizeTo(x,y)</b>. Изменяет размер окна на указанные.
+        </li>
+        <li><b>ResizeBy(x,y)</b>. Увеличивает или уменьшает размер окна на заданное количество пикселей.
+        </li>
+      </ul>
+      <ul>
+        <li><b>print( )</b>. Печать документа. Вызывает окно выбора параметров печати.
+        </li>
+      </ul>
+      <ul>
+        <li><b>scroll(x,y), ScrollTo(x,y)</b>. Прокручивает окно так, что точка с кординатами <code
+            class="code code--inline">x,y</code>
+          становится левой верхней точкой окна.
+        </li>
+        <li><b>ScrollBy(x,y)</b>. Прокручивает окно на <code class="code code--inline">x,y</code> пикселей.
+        </li>
+      </ul>
+      <ul>
+        <li><b>stop( )</b>. Прекращает загрузку документа в окно браузера.
+        </li>
+      </ul>
+
+      <h3>Свойства объекта document</h3>
+
+      <ul>
+        <li><b>URL</b>. Полный URL документа.
+        </li>
+        <li><b>location</b>. Полный URL документа.
+        </li>
+        <li><b>referrer</b>. URL вызывающего документа.
+        </li>
+        <li><b>title</b>. Заголовок документа, определенный тегом <code class="code code--inline">&lt;TITLE&gt;</code>.
+        </li>
+        <li><b>bgColor</b>. Цвет фона документа.
+        </li>
+        <li><b>fgColor</b>. Цвет текста.
+        </li>
+        <li><b>linkColor</b>. Цвет cсылок.
+        </li>
+        <li><b>alinkColor</b>. Цвет выбранных cсылок.
+        </li>
+        <li><b>vlinkColor</b>. Цвет посещенных cсылок.
+        </li>
+        <li><b>links</b>. Массив всех cсылок в документе.
+        </li>
+        <li><b>anchors</b>. Массив локальных меток. Применяется для организации
+          ссылок внутри документа.
+        </li>
+        <li><b>applets</b>. Массив аплетов Java.
+        </li>
+        <li><b>forms</b>. Массив форм в виде объектов.
+        </li>
+        <li><b>images</b>. Массив растровых изображений.
+        </li>
+        <li><b>embeds</b>. Массив объектов plug-in.
+        </li>
+        <li><b>lastModified</b>. Дата последнего изменения документа.
+        </li>
+        <li><b>cookie</b>. Значение cookie для текущего документа.</li>
+      </ul>
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;>html&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv=Content-Type
+          content="text/html; charset=utf-8"&gt;
+    &lt;>script type="text/javascript"&gt;
+        &lt;!--
+        document.bgColor="FFFF00";
+        document.fgColor="800080";
+        document.linkColor="000000";
+        document.alinkColor="FF0000";
+        document.vlinkColor="0000FF";
+        //--&gt;
+    &lt;/>script&gt;
+&lt;/>head&gt;
+&lt;>body lang=RU&gt;
+&lt;>H2&gt;Изменение
+    цвета фона, текста и ссылок&lt;/>H2&gt;
+&lt;>a href="be.htm"&gt;&lt;>img
+        src="be.gif" align="bottom"&gt;Кто это?&lt;/>a&gt;&lt;>br&gt;
+&lt;>a href="ba.htm"&gt;&lt;>img
+        src="ba.gif" align="bottom"&gt;Кто это?&lt;/>a&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+      </p>
+      <p>Объект document может содержать в
+        себе другие объекты, доступные как свойства:
+      </p>
+      <ul>
+        <li><b>anchor</b>. Локальная метка, определенная тегом <code class="code code--inline">&lt;A&gt;</code>.
+        </li>
+        <li><b>form</b>. Форма, определенная тегом <code class="code code--inline">&lt;FORM&gt;</code>.
+        </li>
+        <li><b>history</b>. Список посещенных URL.
+        </li>
+        <li><b>link</b>. Текст или изображение, играющие роль гипертекстовой ссылки,
+          созданной тегом <code class="code code--inline">&lt;A&gt;</code>, в котором дополнительно заданы обработчики
+          событий
+          <code class="code code--inline">onClick</code> и <code class="code code--inline">onMouseOver</code>.
+        </li>
+      </ul>
+
+      <h3>Методы объекта document</h3>
+
+      <ul>
+        <li><b>сlear</b>. Удаление содержимого документа из окна просмотра.
+        </li>
+        <li><b>write</b>. Запись в документ произвольной HTML-конструкции.
+        </li>
+        <li><b>writeln</b>. Аналогичен <b>write</b>, но с добавлением символа перевода строки
+          в конец строки.
+        </li>
+        <li><b>open</b>. Открытие выходного потока для записи в HTML-документ данных
+          типа MIME при помощи методов <b>write</b> и <b>writeln</b>.
+        </li>
+        <li><b>close</b>. Закрытие потока данных, открытого методом <b>open</b>.
+          В окне будут отображены все изменения содержимого документа, сделанные
+          сценарием после открытия потока.</li>
+        <li><b>getElementById(a)</b> Получить объект по его ID</li>
+        <li><b>getElementsByTagName(tag)</b> Получить массив объектов по имени тега</li>
+      </ul>
+
+      <h3>Ссылки в документе</h3>
+
+      <p>Для каждой ссылки, размещенной в HTML-документе,
+        создается отдельный объект. Все такие объекты находятся в объекте <code
+          class="code code--inline">document</code>
+        как элементы массива <code class="code code--inline">links</code>. Анализируя эти элементы,
+        сценарий JavaScript может определить свойства каждой ссылки в HTML-документе:
+      </p>
+      <ul>
+        <li><b>length</b>. Количество ссылок в HTML-документе,
+          т.е. количество элементов в массиве <code class="code code--inline">links</code>.
+        </li>
+        <li><b>hash</b>. Имя локальной ссылки, если она определена в URL.
+        </li>
+        <li><b>host</b>. Имя узла и порт, указанные в URL.
+        </li>
+        <li><b>hostname</b>. Имя узла и доменное имя узла сети. Если доменное имя
+          недоступно, вместо него указывается адрес IP.
+        </li>
+        <li><b>href</b>. Полный URL.
+        </li>
+        <li><b>pathname</b>. Путь к объекту, указанный в URL.
+        </li>
+        <li><b>port</b>. Номер порта, использумого для передачи данных с сервером,
+          указанным в ссылке.
+        </li>
+        <li><b>protocol</b>. Строка названия протокола передачи данных
+          (включающая символ "двоеточие"), указанного в ссылке.
+        </li>
+        <li><b>search</b>. Строка запроса, указанная в URL после символа "?".
+        </li>
+        <li><b>target</b>. Имя окна, куда будет загружен документ при выполнении ссылки.
+          Это может быть имя существующего окна фрейма, определенного тегом
+          <code class="code code--inline">&lt;FRAMESET&gt;</code>, или одно из зарезервированных имен - <b>_top</b>,
+          <b>_parent</b>, <b>_self</b>, <b>_blank</b>.
+        </li>
+      </ul>
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;>html&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;/>head&gt;
+&lt;>body&gt;
+&lt;>P&gt;&lt;>A HREF="http://kdg.HtmlWeb.ru/"
+      TARGET="_top"&gt;Моя страница&lt;/>A&gt;
+&lt;>P&gt;&lt;>A HREF="http://www.dstu.edu.ru/"&gt;Здесь учился&lt;/>A&gt;
+&lt;>P&gt;&lt;>A HREF="http://www.tnk-ug.ru/"&gt;Здесь работаю&lt;/>A&gt;
+&lt;>HR&gt;
+&lt;>H1&gt;Свойства ссылок&lt;/>H1&gt;
+&lt;>script type="text/javascript"&gt;
+    &lt;!--
+    // Цикл по всем ссылкам
+    for(i=0; i&lt;document.links.length; i++)
+    {
+// Разделительная линия
+        document.write("&lt;HR&gt;");
+// Текст ссылки, выделенный жирным шрифтом
+        var Txt=document.links[i] + "&lt;br&gt;";
+        document.write(Txt.bold());
+// Все свойства ссылки
+        document.write("host: ".italics() + document.links[i].host +
+            "&lt;br&gt;");
+        document.write("hostname: ".italics() +
+            document.links[i].hostname + "&lt;br&gt;");
+        document.write("href: ".italics() + document.links[i].href +
+            "&lt;br&gt;");
+        document.write("pathname: ".italics() +
+            document.links[i].pathname + "&lt;br&gt;");
+        document.write("port: ".italics() + document.links[i].port +
+            "&lt;br&gt;");
+        document.write("search: ".italics() + document.links[i].search
+            + "&lt;br&gt;");
+        document.write("target: ".italics() + document.links[i].target
+            + "&lt;br&gt;");
+    }
+    //--&gt;
+&lt;/>script&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+
+      </p>
+      <h2>Объект navigator</h2>
+      <p>Информация о текущем браузере пользователя. Позволяет динамически подстроить отображение страницы в зависимости
+        от браузера.
+        Например, для мобильного телефона увеличить шрифт и перераспределить блоки с информацией.</p>
+
+      <h2>Изменение содержимого страницы</h2>
+      <p>Одной из часто встречающихся при разработке веб-приложений задач, является возможность добавления или удаления
+        элементов страницы.
+        Свойство <b>innerHTML</b> для любого элемента веб-страницы возвращает строку, содержащую HTML-код, заключенный
+        между открывающим и закрывающим тегами элемента.
+        Свойство <b>outerHTML</b> - аналогичное свойству innerHTML, но содержит весь HTML-код, включая внешние
+        открывающий и закрывающий теги элемента.
+        innerHTML может использоваться для замены содержимого элемента после формирования страницы в отличие от
+        document.write:
+      </p>
+      <pre class="code">&lt;>script&gt;
+    function >addText(id,txt){
+        document.getElementById(id).innerHTML+=document.getElementById(txt).value + '&lt;br /&gt;';
+    }
+&lt;/>script&gt;
+&lt;>div id="str"&gt;&lt;/>div&gt;
+&lt;>form&gt;
+    &lt;>input id="text" type="text" value="" placeholder="Введите текст" /&gt;
+    &lt;>input type="button" onclick="addText('str','text')" value="Нажми меня" /&gt;
+&lt;/>form&gt;</pre>
+      <p>Аналогично можно изменять содержимое страницы используя DOM-модель html-документа:</p>
+      <pre class="code">&lt;>script&gt;
+    function >addText2(id,txt){
+        var str=document.getElementById(txt).value;
+        var o=document.getElementById(id);
+        o.appendChild(document.createTextNode(str));
+        o.appendChild(document.createElement('br'));
+    }
+&lt;/>script&gt;
+    &lt;>div id="str2"&gt;&lt;/>div&gt;
+&lt;>form&gt;
+    &lt;>input id="text2" type="text" value="" placeholder="Введите текст" /&gt;
+    &lt;>input type="button" onclick="addText2('str2','text2')" value="Нажми меня" /&gt;
+&lt;/>form&gt;
+&lt;/>div&gt;</pre>
+
+      <ul>
+        <li><b>appendChild</b> - добавляет детёныша внутрь объекта</li>
+        <li><b>createTextNode</b> - создает текстовый элемент</li>
+        <li><b>createElement</b> - создает тег</li>
+      </ul>
+
+      <h2>Cookie</h2>
+
+      <p><b>Cookie</b> - это свойство HTML-документа. Представляет собой набор строковых параметров,
+        каждый из которых имеет имя и значение. Сценарий JavaScript может создавать cookie для
+        HTML-документа, определяя в нем произвольное количество параметров и задавая для них
+        произвольные значения. После создания такой набор параметров становится принадлежностью данного
+        конкретного HTML-документа и может быть проанализирован, изменен или удален
+        сценарием JavaScript.
+      </p>
+      <h3>Создание cookie</h3>
+
+      <p>В сценарии JavaScript cookie создается с помощью свойства <b>document.cookie</b>.
+        Пары имя-значение не могут содержать пробелов, запятых и точек с запятыми. Поэтому все эти
+        символы должны быть заменены на соответствующие escape-последовательности. JavaScript имеет
+        две функции, обрабатывающие escape-последовательности:
+        <b>encodeURIComponent</b> и <b>decodeURIComponent</b>.
+      </p>
+      <p>Пара имя-значение является единственным необходимым параметром при создании cookie.
+        Указание только пары имя-значение создает cookie, который сохраняется только на протяжении
+        текущего сеанса брaузера. При создании cookie можно задать дату его автоматического удаления.
+        В этой паре надо указать имя <b>expires</b> и значение в стандартном формате времени по Гринвичу
+        (GMT). Простейшим способом преобразования в формат GMT является использование одного из методов
+        встроенного класса Date: <b>toGMTString</b>. Кроме этого, создавая cookie, можно указать также
+        путь (<b>path</b>), домен (<b>domain</b>) и информацию безопасности(<b>secure</b>). Извлечь эту информацию
+        нельзя.
+
+      </p>
+      <h3>Удаление cookie</h3>
+
+      <p>Самый простой способ удаления cookie - установить для него такое время автоматического
+        удаления, которое уже прошло.
+
+      </p>
+      <h3>Практическое применение cookie</h3>
+
+      <ul>
+        <li>Индивидуальная настройки параметров Web-страниц.
+        </li>
+        <li>Хранение товара, выбранного посетителем виртуального
+          магазина. Можно выбрать товары на разных страницах, а потом сделать общий
+          заказ.
+        </li>
+        <li>Хранение текущего состояния сетевой игры.</li>
+      </ul>
+
+      <h4>Пример</h4>
+      <pre class="code">&lt;>html&gt;
+&lt;>head&gt;
+    &lt;>meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;/>head&gt;
+&lt;>body&gt;
+&lt;>script type="text/javascript"&gt;
+    &lt;!--
+    function >parseCookie() {
+        // Разделение cookie.
+        var cookieList = document.cookie.split(";");
+        // Массив для каждого cookie в cookieList.
+        var cookieArray = new Array();
+        for (var i = 0; i &lt; cookieList.length; i++) {
+            // Разделение пар имя-значение.
+            var name = cookieList[i].split("=");
+            // Декодирование и добавление в cookie-массив.
+            cookieArray[decodeURIComponent(name[0].trim())] = decodeURIComponent(name[1].trim());
+        }
+        return cookieArray;
+    }
+    function >setCookie(visits) {
+        /* Счетчик числа посещений и
+         определение срока хранения в 1 год. */
+        var expireDate = new Date();
+
+        // Установка даты автоматического удаления.
+        expireDate.setYear(expireDate.getYear() + 1);
+        // Сохранение числа посещений.
+        document.cookie = "visits=" + encodeURIComponent(visits) +
+            "; expires=" + encodeURIComponent(expireDate.toGMTString()) + ";";
+    }
+    if ("" == document.cookie) {
+        // Инициализация cookie.
+        setCookie(1);
+        document.write("&lt;H3&gt;Поздравляю Вас с первым посещением моего сайта.&lt;/H3&gt;");
+    }
+    else {
+        // Анализ cookie.
+        var cookies = parseCookie();
+        // Вывод приветствия, числа посещений и увеличение числа посещений на 1.
+        document.write("&lt;H3&gt;Рад снова видеть Вас на моем сайте! Число Ваших посещений - " +cookies['visits'] + " !&lt;/H3&gt;");
+        // Обновление cookie.
+        setCookie(isNaN(cookies['visits'])? 1 : (++cookies['visits']));
+    }
+    //--&gt;
+&lt;/>script&gt;
+&lt;/>body&gt;
+&lt;/>html&gt;</pre>
+
+      </p>
+      <p>Данные cookie позволяют собирать определенную статистическую информацию
+        о посетителе, поэтому некоторые пользователи могут настраивать брaузеры на ограничение или
+        полное отключение возможности работы с cookie.
+
+      </p>
+      <h2>Перехват и обработка событий</h2>
+      <p>Старая схема перехвата события не подразумевала, что у события может быть несколько обработчиков:</p>
+      <pre class="code">// Присвоить функцию свойству onload объекта Window.
+// Функция - обработчик события: она вызывается, когда документ будет загружен
+window.onload = function() {
+// Отыскать элемент &lt;form&gt;
+    var elt = document.getElementById("shipping_address");
+
+    // Зарегистрировать обработчик события, который будет вызываться
+    // непосредственно перед отправкой формы
+    elt.onsubmit = function() { return validate(this); }
+}</pre>
+
+      <p>Новая схема перехвата и обработки событий:</p>
+      <pre class="code">&lt;>button id="mybutton"&gt;Щелкните меня!&lt;/>button&gt;
+&lt;>script&gt;
+    var b = document.getElementById("mybutton");
+    b.onclick = function() {
+        alert("Спасибо, что щелкнули на мне!");
+    };
+
+    b.addEventListener("click", function() {alert('Еще раз спасибо!')}, false);
+&lt;/>script&gt;</pre>
+
+      <p>Вызов метода <b>addEventListener</b>() со строкой «click» в первом аргументе никак не влияет на значение
+        свойства
+        onclick.
+        Во фрагменте, приведенном выше, щелчок на кнопке приведет к выводу двух диалоговых окон alert().
+        Но важнее то, что метод addEventListener() можно вызвать несколько раз и зарегистрировать с его помощью
+        несколько
+        функций-обработчиков для одного и того же типа события в том же самом объекте. При появлении события в объекте
+        будут вызваны все обработчики,
+        зарегистрированные для этого типа события, в порядке их регистрации.</p>
+      <p>Многократный вызов метода addEventListener() для одного и того же объекта с теми же самыми аргументами не дает
+        никакого
+        эффекта - функция-обработчик регистрируется только один раз и повторные вызовы не влияют на порядок вызова
+        обработчиков.</p>
+      <p>Парным к методу addEventListener() является метод <b>removeEventListener</b>(), который принимает те же три
+        аргумента, но не добавляет,
+        а удаляет функцию-обработчик из объекта. Это часто бывает удобно, когда необходимо зарегистрировать временный
+        обработчик события,
+        а затем удалить его в какой-то момент.</p>
+      <p>Internet Explorer версии ниже IE9 не поддерживает методы addEventListener() и removeEventListener()</p>
+      <p>При вызове обработчика событий ему передается объект события в виде единственного аргумента.
+        Свойства объекта события содержат дополнительную информацию о событии.
+        Свойство type, например, определяет тип возникшего события.
+        В IE версии 8 и ниже обработчикам событий, зарегистрированным установкой свойства, объект события при вызове не
+        передается.
+        Вместо этого объект события сохраняется в глобальной переменной window.event.
+        Для переносимости обработчики событий можно оформлять, как показано ниже, чтобы они использовали переменную
+        window.event при вызове без аргумента:</p>
+      <pre class="code">function >handler(event) {
+    event = event || window.event;
+    // Здесь находится реализация обработчика
+}</pre>
+
+      <p>Объект события передается обработчикам событий, зарегистрированным с помощью метода attachEvent(), но они также
+        могут использовать переменную window.event</p>
+
+
+      <p>Для <b>отмены возникшего события</b> и прекращения его всплытия используйте:</p>
+      <pre class="code">if(e &amp;&amp; e.stopPropagation){e.stopPropagation();e.preventDefault();}       // для DOM-совместимых браузеров
+else if(window.event)window.event.cancelBubble=true; //для IE</pre>
+      <button type="button" class="button"><a class="button__link" href="rabota_s_grafikoy.html">Предыдущая
+          лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="xml1.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

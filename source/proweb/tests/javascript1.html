@@ -1,0 +1,550 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript тест №1</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+  <script src="../../js/md5.js"></script>
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Тест №1 по JavaScript </h1>
+      <form class="test test--javascript1">
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            1. Можно ли инициировать DOM-событие из javascript?
+            Например, сэмулировать клик мышкой на элементе, чтобы javascript-код кликнул за пользователя.
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer1" value="js111">
+            <span class="test__text">Да, можно</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer1" value="js112">
+            <span class="test__text">Нет, нельзя</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer1" value="js113">
+            <span class="test__text">В некоторых браузерах можно</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            2. Какие из этих тегов соответствуют стандарту HTML (sсript) ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer2" value="js121">
+            <span class="test__text">&lt;script&gt;</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer2" value="js122">
+            <span class="test__text">&lt;script type="text/javascript"&gt;</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer2" value="js123">
+            <span class="test__text">&lt;script language="javascript"&gt;</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer2" value="js124">
+            <span class="test__text">&lt;script language="javascript"
+              type="text/javascript"&gt;</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            3. Какой оператор из этих - выполняет не только математические операции?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer3" value="js131">
+            <span class="test__text">*</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer3" value="js132">
+            <span class="test__text">/</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer3" value="js133">
+            <span class="test__text">+</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer3" value="js134">
+            <span class="test__text">-</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            4. Что из этого - не событие мыши ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer4" value="js141">
+            <span class="test__text">onmousescroll</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer4" value="js142">
+            <span class="test__text">onclick</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer4" value="js143">
+            <span class="test__text">onmouseover</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer4" value="js144">
+            <span class="test__text">onmousemove</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer4" value="js145">
+            <span class="test__text">onmousewheel</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            5. Какие конструкции для циклов есть в javascript?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer5" value="js151">
+            <span class="test__text">Только две: for и while</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer5" value="js152">
+            <span class="test__text">Только одна: for</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer5" value="js153">
+            <span class="test__text">Три: for, while и do...while.</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            6. В каком случае из перечисленных событие не попадет на обработку javascript?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer6" value="js161">
+            <span class="test__text">Если в момент его наступления обрабатывается другое событие</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer6" value="js162">
+            <span class="test__text">Если страничка просматривается локально, т.е offline</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer6" value="js163">
+            <span class="test__text">Только если javascript отключен</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            7. Что делает код:
+            <br>break me;
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer7" value="js171">
+            <span class="test__text">Ломает интерпретатор javascript</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer7" value="js172">
+            <span class="test__text">Выходит из текущего блока цикла или switch на метку "me"</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer7" value="js173">
+            <span class="test__text">Выдает ошибку</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer7" value="js174">
+            <span class="test__text">В разных браузерах по-разному</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            8. Какое событие не вызывается кликом мыши ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer8" value="js181">
+            <span class="test__text">onfocus</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer8" value="js182">
+            <span class="test__text">onclick</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer8" value="js183">
+            <span class="test__text">onkeydown</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer8" value="js184">
+            <span class="test__text">onmousedown</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            9. Какой из этих вариантов задает массив из элементов "a", "b" ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer9" value="js191">
+            <span class="test__text">var a = new Array("a","b")</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer9" value="js192">
+            <span class="test__text">var a = { "a", "b" }</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer9" value="js193">
+            <span class="test__text">var a = ( "a", "b" )</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            10. Сколько параметров можно передать функции ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer10" value="js1101">
+            <span class="test__text">Ровно столько, сколько указано в
+              определении функции</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer10" value="js1102">
+            <span class="test__text">Сколько указано в определении функции
+              или меньше</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer10" value="js1103">
+            <span class="test__text">Сколько указано в определении функции
+              или больше</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer10" value="js1104">
+            <span class="test__text">Любое количество</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            11. Верно ли следующее утверждение:
+            Любое содержимое тэга script нужно обязательно заключать в специальную секцию &lt;![CDATA[...]]&gt;, чтобы
+            документ соответствовал стандарту XHTML 1.0 ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer11" value="js1111">
+            <span class="test__text">Да</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer11" value="js1112">
+            <span class="test__text">Нет</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            12. Верно ли следующее утверждение:
+            <br><cite>Содержимое тэга script нужно заключать в комментарии &lt;!-- .. --&gt;, чтобы браузеры, которые не
+              поддерживают javascript, работали корректно</cite>&nbsp;?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer12" value="js1121">
+            <span class="test__text">Да</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer12" value="js1122">
+            <span class="test__text">Нет</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            13. Какие из этих вызовов корректно бросят исключение ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer13" value="js1131">
+            <span class="test__text">throw "Ошибка"</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer13" value="js1132">
+            <span class="test__text">throw new Error("Ошибка")</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer13" value="js1133">
+            <span class="test__text">throw { message: "Ошибка" }</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer13" value="js1134">
+            <span class="test__text">throw Error("Ошибка")</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer13" value="js1135">
+            <span class="test__text">Все</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            14. Какие варианты правильно объявляют переменную для f, возвращающей сумму двух аргументов ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer14" value="js1141">
+            <span class="test__text">var f = function(a,b) { return a+b }</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer14" value="js1142">
+            <span class="test__text">var f = new Function('a,b', 'return
+              a+b')</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer14" value="js1143">
+            <span class="test__text">var f = new Function('a', 'b', 'return
+              a+b')</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer14" value="js1144">
+            <span class="test__text">Все.</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            15. Где в документе может располагаться тэг script по стандарту HTML ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer15" value="js1151">
+            <span class="test__text">Только в HEAD</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer15" value="js1152">
+            <span class="test__text">Только в BODY</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer15" value="js1153">
+            <span class="test__text">В HEAD или в BODY</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer15" value="js1154">
+            <span class="test__text">Где угодно, главное чтоб был</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            16. Как правильно вывести приветствие через 5 секунд после запуска скрипта ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer16" value="js1161">
+            <span class="test__text">sleep(5); alert("Привет!");</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer16" value="js1162">
+            <span class="test__text">sleep(5000); alert("Привет!");</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer16" value="js1163">
+            <span class="test__text">setTimeout('alert("Привет!")', 5000);</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer16" value="js1164">
+            <span class="test__text">setTimeout(function()
+              {alert("Привет!")}, 5);</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            17. Что такое ECMAScript??
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer17" value="js1171">
+            <span class="test__text">Новый язык программирования</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer17" value="js1172">
+            <span class="test__text">Переработанная реализация Javascript</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer17" value="js1173">
+            <span class="test__text">Спецификация языка Javascript</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            18. Можно ли через javascript подключить внешний js-файл, отсутствующий на странице?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer18" value="js1181">
+            <span class="test__text">Да, но только один раз</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer18" value="js1182">
+            <span class="test__text">Да, но только до загрузки страницы</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer18" value="js1183">
+            <span class="test__text">Да, сколько угодно файлов когда угодно</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            19. Можно ли в скрипте перевести посетителя на другую страницу сайта?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer19" value="js1191">
+            <span class="test__text">Да, куда угодно</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer19" value="js1192">
+            <span class="test__text">Да, но только в рамках текущего сайта</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer19" value="js1193">
+            <span class="test__text">Нет, нельзя</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            20. Какие обработчики событий сработают при клике на div?
+            <br>div.onclick = function() { alert(1) }
+            <br>div.onclick = function() { alert(2) }
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer20" value="js1201">
+            <span class="test__text">Только первый</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer20" value="js1202">
+            <span class="test__text">Только второй</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer20" value="js1203">
+            <span class="test__text">Первый, затем второй</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            21. a = new Array(1,2,3)
+            <br>b = new Array(1,2,3)
+            <br>Правда ли что a == b ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer21" value="js1211">
+            <span class="test__text">Правда</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer21" value="js1212">
+            <span class="test__text">Неправда</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer21" value="js1213">
+            <span class="test__text">Зависит от множества случайных
+              обстоятельств..</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            22. Есть ли какая-нибудь разница между этими двумя определениями функции ?
+            <br>function f(a,b) { return a+b }
+            <br>var f = function(a,b) { return a+b }
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer22" value="js1221">
+            <span class="test__text">Да, есть</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer22" value="js1222">
+            <span class="test__text">Нет, вообще без разницы</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <button type="button" class="button button--test"><a class="button__link">Завершить</a></button>
+      </form>
+      <section class="test__result">
+      </section>
+
+      <button type="button" class="button button--disabled" disabled><a class="button__link">Предыдущий
+          тест</a></button>
+      <button type="button" class="button"><a class="button__link" href="javascript2.html">Следующий тест</a></button>
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+  <script src="../../js/test.js"></script>
+
+</body>
+
+</html>

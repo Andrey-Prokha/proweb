@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Разбор XML файлов</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Использование XML Paser Functions при работе с шаблонами.</h1>
+
+      <p>Мы рассмотрим разделение данных и кода на основыве на языке XML.
+      </p>
+      <p>Рассмотрим следующую задачу: У нас есть много клиентов, и практически каждый из них,
+        желает видеть на своем сайте гостевую книгу. Каждый раз изменять исходный текст гостевой книги нам уже
+        поднадоело.
+        И речи уже не идет о том, что ошибку, которую мы нашли, устанавливая гостевую книгу в
+        восемнадцатый раз пришлось рукам исправлять её на предыдущих семнадцати сайтах.
+
+      </p>
+      <p><strong>Данные:</strong></p>
+
+      <p>Для того, чтобы избежать подобной проблемы, необходимо данные отделить от кода.
+        Нам бы хотелось чтобы внешний вид гостевой книги хранился в отдельном файле, динамические данные (записи)
+        хранились в базе данных, а код в отдельном каталоге.
+      </p>
+      <p>Так, мы могли бы быстро исправить допущенную ошибку простой заменой старого кода на новый, при это сохранилось
+        бы
+        оригинальное оформление.
+      </p>
+      <p>Опишем шаблон гостевой книги с помощью XML следующим образом:
+      </p>
+      <pre class="code">&lt;?xml version="1.0" encoding="windows-1251"?&gt;
+
+  &lt;guestbook&gt;
+  &lt;include url="../top.html" /&gt;
+
+  &lt;![CDATA[
+  &lt;H3&gt;Гостевая книга - место для трепа&lt;/H3&gt;
+  &lt;table width=100% cellspacing=5&gt;&lt;tr&gt;&lt;td&gt;
+  &lt;br&gt;&lt;center&gt;
+  ]]&gt;
+
+  &lt;record&gt;&lt;![CDATA[
+  &lt;table cellpadding=7 cellspacing=0 bgcolor=#F0F8F8 width=95%&gt;
+  &lt;tr bgcolor=#E0F0F0&gt;&lt;td&gt;__NAME__
+      (&lt;a href=mailto:__EMAIL__&gt;__EMAIL__&lt;/a&gt;)&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;__COMMENT__
+  &lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;br&gt;
+  ]]&gt;&lt;/record&gt;
+
+  &lt;![CDATA[
+  &lt;br&gt;
+  &lt;center&gt;&lt;BR&gt;&lt;font face=Verdana size=2&gt;
+  &lt;A href=/add/&gt;Добавить запись (Add record)&lt;/A&gt;
+  &lt;/font&gt;&lt;/center&gt;
+  &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+  ]]&gt;
+
+  &lt;include url="../bottom.htm /&gt;
+
+  &lt;/guestbook&gt;
+  </pre>
+      <p>Каждый шаблон состоит их основной секции &lt;guestbook&gt;&lt;/guestbook&gt; внутрь которой может помещаться
+        секция &lt;records&gt;&lt;/record&gt; описывающая одну запись в гостевой книге.
+      </p>
+      <p>Кроме того, там может находится одиночный тег &lt;include /&gt;, не место которого будет вставлен документ
+        описанный с помощью свойства url, например:
+      </p>
+      <pre class="code">&lt;include url="../bottom.htm /&gt;
+  </pre>
+      <p>Ниже приведена сокращения схема описанного документа:
+      </p>
+      <pre class="code">&lt;?xml version="1.0" encoding="windows-1251"?&gt;
+
+  &lt;guestbook&gt;
+    &lt;include url="../top.html" /&gt;
+    &lt;record&gt;
+      тело одной записи
+    &lt;/record&gt;
+  &lt;include url="../bottom.htm /&gt;
+  &lt;/guestbook&gt;
+  </pre>
+
+      <p><strong>Код:</strong></p>
+      <p>Осталось малость - написать программу, которая превратит описанный выше шаблон в HTML документ,
+        содержащий как внешнее оформление, так и динамически изменяемые данные (записи в гостевой книге)
+      </p>
+      <p>Для обработки шаблона мы будем использовать <a href="http://php.net" target="_blank">XML
+          Parser functions</a>.
+        Это расширение PHP предоставляет доступ к функциям библиотеки <a href="http://www.jclark.com"
+          target="_blank">Expat</a>,
+        автором которой является Джеймс Кларк (James Clark). Библиотека Expat написана на языке C и предназначенная для
+        разбора
+        XML документов основанного на событиях. Она не проверят XML документ на ошибки и не работает с объектой моделью
+        XML документа,
+        так как это делают некоторые другие библиотеки (например <a href="http://grinninglizard.com"
+          target="_blank">tinyXML</a>)
+      </p>
+      <p>C версии PHP 4 XML Parser functions поддерживаются по умолчанию.
+      </p>
+      <p>Перейдем непосредственно к написанию программы - обработчика шаблона.
+      </p>
+      <p>Сначала считаем шаблон в переменную $xmldata:
+      </p>
+      <pre class="code">&lt;?
+  $xmldata=implode("",file("template.xml"));
+  // Ассоциативный массив - хранит данные, соответствующие тегам.
+  $TMPL=Array();
+  // Обрабатываемый тег
+  $ce="";
+  /*
+
+  ...
+
+  пропущено подключение к серверу MySql
+
+  ...
+
+  */
+
+  $result=mysql_query("SELECT * FROM guestbook_database");
+  </pre>
+      <p>В переменную $html мы будет выводить результат работы нашего скрипта. В самом конце мы сделаем просто print
+        $html;
+      </p>
+      <pre class="code">$html="";
+  </pre>
+      <p>Создаем объект обработчик XML документа
+      </p>
+      <pre class="code">$xml_parser = xml_parser_create()</a>;
+  </pre>
+      <p>Задаем ему опции и обработчики. Функция startElement() будет вызываться, когда в XML документе встретится
+        открывающийся тег. Функция endElement()
+        будет вызываться, когда будет встречен закрывающий тег. Для данных (то, что внутри тега) будет вызываться
+        функция characterData()
+      </p>
+      <pre class="code">xml_parser_set_option</a>($xml_parser, XML_OPTION_CASE_FOLDING, true);
+  xml_set_element_handler</a>($xml_parser, "startElement", "endElement");
+  xml_set_character_data_handler</a>($xml_parser, "characterData");
+  </pre>
+      <p>Вызовем обработчик XML документа
+      </p>
+      <pre class="code">if (!xml_parse($xml_parser, $xmldata)) {
+      $error=sprintf("Ошибка в шаблоне: %s at line %d",
+             xml_error_string</a>(xml_get_error_code($xml_parser)),
+             xml_get_current_line_number</a>($xml_parser));
+      die();
+      }
+
+  xml_parser_free</a>($xml_parser);
+  </pre>
+      <p>Вывод данных</p>
+      <pre class="code">print $html;
+  </pre>
+
+      <p>Теперь рассмотрим основную часть - это три функции-обработчика:
+      </p>
+      <ul>
+        <li>startElement()</a>
+        </li>
+        <li>endElement()</a>
+        </li>
+        <li>characterData()</a>
+        </li>
+      </ul>
+
+      <p>В глобальной переменной $ce запомним название обрабатываемого тега, чтобы в обработчике characterData() знать к
+        какому элементу массива $TMPL дописывать содержимое.
+      </p>
+      <pre class="code"><b>function startElement($parser, $name, $attrs) {</b>
+      GLOBAL $ce,$TMPL,$html;
+
+      switch ($name) {
+          case "INCLUDE":
+              $html.=@implode("",@file($attrs["URL"]));
+              break;
+          }
+      $TMPL[$name]="";
+      $ce=$name;
+      }
+
+  <b>function endElement($parser, $name) {</b>
+      GLOBAL $ce,$TMPL,$result,$html;
+
+      switch ($name) {
+          case "RECORD":
+              while ($D=mysql_fetch_array($result)) {
+                  $t=$TMPL["RECORD"];
+                  $t=str_replace("__NAME__",$D["name"],$t);
+                  $t=str_replace("__EMAIL__",$D["email"],$t);
+                  $t=str_replace("__COMMENT__",$D["comment"],$t);
+                  $html.=$t;
+                  }
+              break;
+          }
+      $ce="";
+      }
+
+  <b>function characterData($parser, $data)</b> {
+      GLOBAL $ce,$TMPL,$html;
+
+      switch ($ce) {
+          case "RECORD":
+              $TMPL[$ce].=$data;
+              break;
+          default:
+              $html.=$data;
+          }
+      }
+  </pre>
+      <button type="button" class="button"><a class="button__link" href="xml2.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="ajax1.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

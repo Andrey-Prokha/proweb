@@ -1,0 +1,1000 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHP .htaccess</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">.htaccess PHP</h1>
+      <p><strong>.htaccess</strong> (с точкой в начале имени) - это файл-конфигуратор Apache-серверов,
+        который дает возможность конфигурировать
+        работу сервера в отдельных директориях (папках), не предоставляя доступа к главному конфигурационному файлу
+        (apache/conf/httpd.conf).
+        Например, устанавливать права доступа к файлам в директории, менять названия индексных файлов, самостоятельно
+        обрабатывать ошибки Apache, перенаправляя посетителей на специальные страницы ошибок.
+        <strong>.htaccess</strong> представляет собой обычный текстовый документ, расширение которого htaccess.
+        Данный файл обычно находится в корне сайта, однако Вы можете создавать и дополнительные
+        .htaccess-файлы для различных директорий Вашего сайта.
+      </p>
+      <p><strong>Mod_rewrite</strong> - модуль, используемый веб-серверами для преобразования URL'ов.
+      </p>
+      <p>Если вы хотите вести логи всех операций, выполненных с помощью mod_rewrite, можно активировать это с помощью
+        следующей записи в httpd.conf:</p>
+      <pre class="code">RewriteLog /usr/local/apache/logs/mod_rewrite.log
+  RewriteLogLevel 1</pre>
+
+      <h2>Директивы модуля Mod_rewrite</h2>
+
+      <ul>
+        <li>RewriteBase</li>
+        <li>RewriteCond</li>
+        <li>RewriteEngine</li>
+        <li>RewriteLock</li>
+        <li>RewriteLog</li>
+        <li>RewriteLogLevel</li>
+        <li>RewriteMap</li>
+        <li>RewriteOptions</li>
+        <li>RewriteRule
+        </li>
+      </ul>
+
+      <h4>Наиболее часто используемые параметры</h4>
+      <p>%{REQUEST_URI} Строка запроса (без доменного имени, и GET параметров), пример "/server/htaccess/"</p>
+      <p>%{HTTP_HOST} Доменное имя, например "max22.ru"</p>
+      <p>%{QUERY_STRING} Строка GET параметров</p>
+
+
+      <h2>Варианты реализации Редиректа с помощью файла .htaccess</h2>
+
+      <ol>
+        <li> Простой редирект:
+          <pre class="code">Redirect 301 / http://www.domainname.ru/</pre>
+          или
+          <pre class="code">redirect /secret http://www.site.ru/nosecret</pre>
+          или
+          <pre class="code"># с использованием регулярного выражения
+  RedirectMatch 301 .* http://www.site.ru/?from=htmlweb.ru</pre>
+          Ставится в файле <strong>.htaccess</strong> или <strong>httpd.conf</strong> для Apache.
+          Первый "/" означает, что всё с верхнего уровня сайта, включая все подкаталоги,
+          будет переадресовано (не забывайте поставить последний "/").
+          Если Вы хотите переадресовать только страницу, сохранив PR старой страницы, можно сделать так:
+          <p>
+            Redirect 301 /old/old.htm http://www.you.ru/new.htm где:
+            /old/old.htm - путь и имя старой страницы
+            http://www.you.com/new.htm - новый путь и новое имя перемещенной страницы
+
+          </p>
+        </li>
+        <li> Редирект на любую страницу по ip пользователя или при запросе конкретной страницы (а также по маске имени).
+          Если у пользователя ip 192.152.37.125, то он будет перенаправлен на страницу user.php:
+          <pre class="code">SetEnvIf REMOTE_ADDR 192.152.37.125 REDIR="redir"
+  RewriteCond %{REDIR} redir
+  RewriteRule ^/$ /user.php</pre>
+
+        </li>
+        <li> Редирект при запросе определённых файлов. Если запрашиваются файлы, расширение которых не указано в файле
+          .htaccess (gif и jpg), то следует перенаправление:
+
+          <pre class="code">RewriteEngine On
+  RewriteRule !.(gif|jpg)$ index.php</pre>
+
+        </li>
+        <li> Использование mod_rewrite:
+          <pre class="code">Options +FollowSymLinks
+  RewriteEngine on
+  RewriteCond %{HTTP_HOST} ^yourdomain\.ru
+  RewriteRule ^(.*)$ http://www.yourdomain.ru/$1 [R=permanent,L]</pre>
+
+        </li>
+        <li> Редирект с регулярным выражением:
+          <pre
+            class="code-wrapper">RedirectMatch 301 (.*) http://www.yourdomain.ru$1 Прописывается в файле .htaccess.</pre>
+
+          (.*) <strong>RedirectMatch</strong> фактически соответствует регулярным образцам выражения после доменного
+          имени.
+          Таким образом, нельзя выполнить соответствие образца на ^/yourdomain.ru. Однако, можно преобразовать
+          страницы с использованием .html расширения к файлам того же самого названия, но с .php расширением:
+          <pre class="code">RedirectMatch 301 (.*)\.html$ http://www.yourdomain.ru$1.php</pre>
+          Если необходимо сделать различное перенаправление для отдельных страниц, можно использовать следующее:
+          <pre class="code">RedirectMatch Permanent ^/html/resources.html$ http://www.newdomain.com/resources.php
+  RedirectMatch Permanent ^/html/other_page.html$ http://www.newdomain.com/other_page.php
+  RedirectMatch Permanent ^/(.*)$ http://www.newdomain.com/</pre>
+          "<strong>RedirectMatch Permanent</strong>" - это эквивалент "RedirectMatch 301", строка с "*(Wildcard)"
+          должна быть последней в этом списке.
+
+        </li>
+        <li>
+          <h4>Создание удобо читаемых URL</h4>
+          Чтобы преобразовать, например, www.site.ru/product.php?id=123 в www.site.ru/product/123 следующим образом:
+          <pre class="code">RewriteEngine on
+  RewriteRule ^product/([^/\.]+)/?$ product.php?id=$1 [L] </pre>
+          В следующем примере преобразуем www.site.ru/script.php?product=123 в www.site.ru/cat/product/123/:
+          <pre class="code">RewriteRule cat/(.*)/(.*)/$ /script.php?$1=$2</pre>
+
+        </li>
+        <li> Редирект на PHP:
+          <pre class="code">header("HTTP/1.1 301 Moved Permanently");
+      header("Location: http://www.newdomain.ru/newdir/newpage.htm");
+      exit();</pre>
+          Естественно, надо создать страницу, при обращении к которой и будет происходить Редирект,
+          и разместить её на сервере. И лучше укажите HTTP/1.1 (а не HTTP/1.0 или HTTP/0.9,
+          которые не поддерживают виртуальный хостинг)
+        </li>
+        <li> Редирект всех файлов в папке на один файл.
+          Например вы больше не нуждаетесь в разделе сайта Super discount и хотите перенаправить
+          все запросы к папке /superdiscount на один файл /hot-offers.php. Для этого добавляем в .htaccess следующий
+          код.
+
+          <pre class="code">RewriteRule ^superdiscount(.*)$ /hot-offers.php [L,R=301]</pre>
+
+        </li>
+        <li>Редирект всей папки кроме одного файла
+          В следующем примере все файлы из папки /superdiscount будут редиректится на на файл /hot-offers.php,
+          КРОМЕ файла /superdiscount/my-ebook.html котоый должен редиректится на /hot-to-make-million.html
+
+          <pre class="code">RewriteRule ^superdiscount/my-ebook.html /hot-to-make-million.html [L,R=301]
+  RewriteRule ^superdiscount(.*)$ /hot-offers.php [L,R=301]</pre>
+
+        </li>
+        <li>Редирект динамического URL на новый файл.
+          Данный вариант пригодится если вы хотите редиректить динамический URL с параметрами на новый статический
+          файл.
+
+          <pre class="code">RewriteRule ^article.jsp?id=(.*)$ /latestnews.htm [L,R=301]</pre>
+
+          То есть теперь, запрос к файлу вида http://www.kass.ws/article.jsp?id=8632 и/или
+          http://www.kass.ws/article.jsp?id=1245
+          будет отправлен на файл http://www.kass.ws/latestnews.htm.
+
+        </li>
+        <li>
+          <h4>Массовый редирект новых файлов.</h4>
+          Тепепь перейдем к самому сложному моменту, когда вам надо редиректить массу URL-ов, например после смены
+          вашей CMS.
+          Тут сразу возникает ряд проблем. Во-первых, внесение всех изменившихся адресов в .htaccess файл займет очень
+          много времени,
+          да и само по себе занятие малоприятное. Во-вторых, слишком много записей в .htaccess файле будут тормозить
+          Apache сервера.
+          И в третьих, при внесении такого количества информации высока вероятность, что вы где то ошибетесь.
+          По этому, самый лучший выход, это нанять програмиста который вам напишет динамический редирект.
+
+          Нижеприведенный пример написан на PHP, но так же может быть выполнен на любом языке.
+          Предположим вы перешли на новую систему ссылок на вашем сайте и все файлы оканчивающиеся
+          на старый id должны быть средирекчены. Сначала создаем в базе таблицу, которая содержит старый id и
+          новый URL для редиректа.
+
+          old_id INT
+          new_url VARCHAR (255)
+
+          Далее пишем код который свяжет ваши старые id с новыми URL-ами
+          После этого, добавляем следующую строчку в .htaccess:
+
+          <pre class="code">RewriteRule ^/product-(.*)_([0-9]+).php /redirectold.php?productid=$2 </pre>
+
+          затем создаем PHP файл redirectold.php, который будет поддерживать 301 редирект:
+
+          <pre class="code">&lt;?php
+  function getRedirectUrl($productid) {
+  // Connect to the database
+  $dServer = "localhost";
+  $dDb = "mydbname";
+  $dUser = "mydb_user";
+  $dPass = "password";
+
+  $s = @mysql_connect($dServer, $dUser, $dPass)
+  or die("Couldn't connect to database server");
+
+  @mysql_select_db($dDb, $s)
+  or die("Couldn't connect to database");
+
+  $query = "SELECT new_url FROM redirects WHERE old_id = ". $productid;
+  mysql_query($query);
+  $result = mysql_query($query);
+  $hasRecords = mysql_num_rows($result) == 0 ? false : true;
+  if (!$hasRecords) {
+  $ret = 'http://www.yoursite.com/';
+  } else {
+  while($row = mysql_fetch_array($result))
+  {
+  $ret = 'http://www.yoursite.com/'. $row["new_url"];
+  }
+  }
+  mysql_close($s);
+  return $ret;
+  }
+
+  $productid = $_GET["productid"];
+  $url = getRedirectUrl($productid);
+
+  header("HTTP/1.1 301 Moved Permanently");
+  header("Location: $url");
+  exit();
+  ?&gt;</pre>
+
+          <p>Теперь все запросы к вашим старым URL-ам будут вызывать redirectold.php,
+            который найдет новый URL и вернет 301 ответ с вашей новой ссылкой.</p>
+
+          <h2>Редиректы в зависимости от времени</h2>
+
+          <p>Когда нужно применять уловки типа содержания зависящего от времени масса
+            вебмастеров все ещё используют CGI скрипты которые производят редиректы на специальные страницы.
+            Как это может быть сделано через mod_rewrite?</p>
+          Есть много переменных названных TIME_xxx для условий редиректа.
+          В связке со специальными лексикографическими образцами для сравнения &lt;STRING, &gt;STRING
+          и =STRING мы можем производить редиректы зависящие от времени:
+
+          <pre class="code">    RewriteEngine on
+      RewriteCond   %{TIME_HOUR}%{TIME_MIN} &gt;0700
+      RewriteCond   %{TIME_HOUR}%{TIME_MIN} &lt;1900
+      RewriteRule   ^foo\.html$             foo.day.html
+      RewriteRule   ^foo\.html$             foo.night.html </pre>
+          <p>Это выдает содержимое foo.day.html при запросе URL foo.html с 07:00 до 19:00 а в оставшееся время
+            содержимое foo.night.html.</p>
+
+        </li>
+        <li>Убираем у всех запросов в начале <b>"WWW."</b>
+          <pre class="code">RewriteEngine on    # оглашаем, что хотим использовать mod_rewrite
+  RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+  RewriteRule ^/?(.*) http://%1/$1 [L,R=permanent] </pre>
+          <p>Проверяем доменное имя, если оно начинается с www, то сработает правило: "все, на http://%1/$1". Здесь %1
+            это наш домен без www (взят из условия), а $1 это адрес (взят из самого правила).</p>
+
+        </li>
+        <li>Убираем у всех запросов в конце index.php. Переадресуем на страницу без index.php
+          <p>Поисковые системы плохо относятся к дубрям страниц. Чтобы этого избежать нужно удалить(склеить) страницы
+            вида http://ваш_домен/ и http://ваш_домен/index.php</p>
+          <pre class="code">RewriteCond %{THE_REQUEST} ^.*/index.php
+  RewriteRule ^(.*)index.php$ http://%{HTTP_HOST}/$1 [R=301,L]</pre>
+
+        </li>
+        <li>Меняем расширение <b>.html</b> на <b>.php</b>
+          Иногда бывает так, что у Вас статичный веб-сайт, а Вам необходимо, чтобы на нем срабатывал какой-нибудь
+          php-скрипт.
+          Для этого Вам необходимо сказать серверу, чтобы он обрабатывал эту страницу как php-файл.
+          <pre class="code">AddHandler application/x-httpd-php .html</pre>
+          Этот прием можно использовать и для других расширений файлов:
+          <pre class="code">AddHandler application/x-httpd-php .xml
+  AddHandler application/x-httpd-php .asp</pre>
+        </li>
+      </ol>
+
+      <h3>Запрещение доступа в конкретную директорию</h3>
+
+      <ol>
+        <li>для всех ко всем файлам в директории:
+          <pre class="code">deny from all</pre>
+
+        </li>
+        <li>к конкретному файлу:
+          <pre class="code">&lt;Files secret.php&gt;
+  deny from all
+  &lt;/Files&gt;</pre>
+
+        </li>
+        <li>по ip пользователя:
+          <pre class="code">order deny,allow
+  deny from all
+  allow from 192.152.37.125</pre>
+          Доступ в данную директорию будет разрешён только пользователю с ip 192.152.37.125.
+
+          <p>А если хотите наоборот, запретить отдельным ip пользователям доступ к вашему сайту, то пропишем следующие
+            строчки:
+          </p>
+          <pre class="code">&lt;Limit GET POST PUT&gt;
+      order allow,deny
+      allow from all
+      deny from 192.152.37.125
+      deny from 123.456.177
+  &lt;/LIMIT&gt;</pre>
+
+        </li>
+        <li>Директива Options -Indexes - запрет на отображение содержимого каталога при отсутствии индексного файла
+          Иногда нужно сделать так, чтобы в случае отсутствия в каталоге файла, который показывается по умолчанию, не
+          выдавался список файлов в каталоге.
+          Тогда можно добавить в .htaccess такую строчку :
+          <pre class="code">Options -Indexes</pre>
+          В этом случае вместо списка файлов в каталоге посетитель получит HTTP ошибку
+          403 - access forbidden.
+        </li>
+        <li>Запретить доступ к файлам с несколькими типа расширений</li>
+
+        <pre class="code">&lt;Files ~ "\.(inc|conf|cfg)$"&gt;
+      deny from all
+  &lt;/Files&gt;</pre>
+        <p>
+          Запрещен доступ к файлам с расширением *.inc, *.conf и *.cfg. Хотя директива, по умолчанию,
+          не работает с регулярными выражениями, но их можно включить поставив символ тильды(~) в опциях директивы.
+          Синтаксис следующий:</p>
+        [тильда] [пробел] [далее_все_без_пробелов]
+
+        Чтобы блокировать этот доступ, запишем следующее:
+        <pre class="code">RewriteRule ^.htaccess$ - [F]</pre>
+        Это правило переводится так:
+
+        Если кто-то пробует обращаться к файлу .htaccess, система должна
+        произвести код ошибки 'HTTP response of 403' или '403 Forbidden - You
+        don't have permission to access /.htaccess on this server'.
+
+        <p>Конструкция ^.htaccess$ в этом регулярном выражении означает:
+
+          <b>^</b> - якорь начала строки
+          <b>$</b> - якорь конца строки
+          <b>.</b> - в регулярных выражениях точка '.' обозначает мета-символ и должна
+          быть защищена обратным слэшем (backslash), если Вы все-таки хотите
+          использовать именно фактическую точку.
+
+        </p>
+        <p>Имя файла должно быть расположено точно между начальным и конечным
+          якорем. Это будет гарантировать то, что только это определенное имя
+          файла и никакое другое, сгенерирует код ошибки.
+
+          <b>[F]</b> - специальный 'запрещающий' флажок (forbidden).
+          <b>[NC]</b> - не учитывать регистр букв.
+          <b>[OR]</b> - означает 'или следующее условие'.
+
+
+        </p>
+      </ol>
+
+      <h3>Определение кодировки</h3>
+
+      <h4>Определение кодировки, в которой сервер "отдает" файлы</h4>
+      <pre class="code">AddDefaultCharset windows-1251</pre>
+      <p>варианты: <b>KOI8-R</b>, <b>UTF-8</b>, <b>Windows-1251</b></p>
+
+      <h4>Определение кодировки на загружаемые файлы</h4>
+      <pre class="code">CharsetSourceEnc windows-1251 </pre>
+
+      <h3>Установка пароля на директорию с помощью .htaccess</h3>
+
+      <p>Для установки пароля на директорию можно воспользоваться системой базовой авторизации,
+        предусмотренной в веб-сервере Apache. Создаем в каталоге, к которому хотим ограничить доступ по паролю,
+        файл .htaccess с такими директивами:</p>
+
+      <pre class="code">AuthType Basic
+  AuthName "Some Name"
+  AuthUserFile /www/some_login/www/htdocs/some_dir/.htpasswd
+  require valid-user</pre>
+
+      <p>Путь /www/some_login/www/htdocs/some_dir/.htpasswd обозначает полный путь к файлу паролей на диске нашего
+        сервера.
+        Если, например, вы поместите файл .htpasswd (в нем будут пароли) в домашний каталог, куда вы попадаете,
+        зайдя на сервер по FTP, то путь к этому файлу будет иметь вид /www/some_login/www/htdocs/some_dir/.htpasswd,
+        где some_login - Ваш логин.</p>
+      <p>В директиве AuthUserFile указываем абсолютный путь к файлу с логинами/паролями, который мы создадим чуть позже.
+        Если вы создаете файл .htaccess на своем компьютере, а не сразу на сервере используя текстовый редактор,
+        обратите особое внимание на то, что .htaccess должен передаваться по FTP строго в текстовом (ASCII) режиме.</p>
+      <p>
+        Создаем файл паролей. Файл с паролями должен содержать строки вида login:password.
+        Пароль должен быть зашифрован с использованием алгоритма MD5. Один из способов создать такой файл -
+        воспользоваться программой, входящей в поставку Apache - htpasswd
+        (на нашем сервере она находится в каталоге /usr/local/apache/bin, полный путь - /usr/local/apache/bin/htpasswd).
+      </p>
+      <p>
+        Рассмотрим, как создать файл паролей в unix shell прямо на сервере. Зайдем в shell и будем выполнять следующие
+        команды:
+      </p>
+      <pre class="code">htpasswd -mbc .htpasswd user1 7B1safkir</pre>
+      <p>- создаем новый файл .htpasswd, в который добавляем запись для пользователя user1 с паролем,
+        указанным в командной строке.</p>
+      <pre class="code">htpasswd .htpasswd user2</pre>
+      <p>- добавляем в уже существующий файл .htpasswd пользователя user2,</p>
+      <p>а пароль вводим вручную в ответ на соответствующий запрос программы.</p>
+      <p>
+        После окончания заведения всех логинов файл нужно загрузить на сервер.
+      </p>
+
+      <h3>Задаем собственные страницы ошибок</h3>
+      <p>Задать собственную страницу ошибок можно следующим образом:</p>
+      <pre class="code">ErrorDocument 404 http://www.site.ru/404.php</pre>
+      <p>IE игнорирует страницы размером меньше 512 байт.</p>
+
+      <h3>Индексация директорий и поддиректорий</h3>
+      <p>Чтобы избежать индексации поисковыми системами директорий и поддиректорий,
+        необходимо прописать такую строку, к примеру:</p>
+      <pre class="code">DirectoryIndex index.php</pre>
+      <p>Эта директива задает файл, который будет вызван при обращении к директории без указания имени файла.</p>
+      <p>Можно указать несколько индексных страниц. При запросе каталога они будут искаться в том порядке,
+        в котором перечислены в директиве DirectoryIndex. Если не будет найден файл index.html,
+        то будет произведен поиск файла index.php и т.д.
+      </p>
+      <pre class="code">DirectoryIndex index.html index.php index.shtml</pre>
+      <p>Лично я предпочитаю переадресовывать с пустых директорий либо на главную страницу сайта,
+        либо на какую-либо другую подходящую страницу. Например, директорию www.site.ru/pic/
+        можно переадресовать на www.site.ru.
+
+      </p>
+      <h3>Защита изображений от скачивания</h3>
+      <p>Очень часто бывает, что веб-мастера нагло копируют контент с Вашего сайта вместе с рисунками,
+        причем рисунки подгружаются с Вашего же сервера. Это создает лишний трафик, что, зачастую,
+        приводит к ряду проблем. Как же защититься от таких веб-мастеров и не помешать
+        поисковым роботам индексировать изображения? Все просто:</p>
+      <pre class="code">RewriteEngine on
+  RewriteCond %{HTTP_REFERER} .
+  RewriteCond %{HTTP_REFERER} !^http://([^.]+\.)?site\. [NC]
+  RewriteCond %{HTTP_REFERER} !google\. [NC]
+  RewriteCond %{HTTP_REFERER} !search\?q=cache [NC]
+  RewriteCond %{HTTP_REFERER} !msn\. [NC]
+  RewriteCond %{HTTP_REFERER} !yahoo\. [NC]
+  RewriteCond %{REQUEST_URI} !^/hotlinker\.gif$
+  RewriteRule \.(gif|jpg|png)$ /hotlinker.gif [NC,L]</pre>
+      <p>hotlinker.gif - изображение, которое будет отображаться, вместо истинных изображений.
+        Рекомендую в этом изображении отобразить Ваш логотип и ссылку на Ваш сайт.</p>
+
+      <p>Еще один варинат запрета доступа к картинкам с неразрешенных сайтов:
+      </p>
+      <pre class="code">SetEnvIfNoCase Referer "^$" local_ref=1
+  SetEnvIfNoCase Referer "^http://(www\.)?htmlweb\.ru" local_ref=1
+  SetEnvIfNoCase Referer "^http://(www\.)?images\.yandex\.ru" local_ref=1
+  SetEnvIfNoCase Referer "^http://(www\.)?hghltd\.yandex\.com" local_ref=1
+  &lt;FilesMatch ".(jpg|gif|png)"&gt;
+   Order Allow,Deny
+   Allow from env=local_ref
+  &lt;/FilesMatch&gt;</pre>
+
+      <p>Поисковые машини и разного рода сканеры создают коллосальный трафик на вашем сайте.
+        Нижеприведенный блок кода позволит запретить доступ ботам на сайт.
+
+      </p>
+      <pre class="code">RewriteCond %{HTTP_USER_AGENT} (Googlebot|Slurp|spider|Twiceler|heritrix|
+    Combine|appie|boitho|e-SocietyRobot|Exabot|Nutch|OmniExplorer|
+    MJ12bot|ZyBorg/1|Ask\ Jeeves|AskJeeves|ActiveTouristBot|
+    JemmaTheTourist| agadine3|BecomeBot|Clustered-Search-Bot|
+    MSIECrawler|freefind|galaxy|genieknows|INGRID|grub-client|
+    MojeekBot|NaverBot|NetNose-Crawler|OnetSzukaj|PrassoSunner|
+    Asterias\ Crawler|T-H-U-N-D-E-R-S-T-O-N-E|GeorgeTheTouristBot|
+    VoilaBot|Vagabondo|fantomBro wser|stealthBrowser|cloakBrowser|
+    fantomCrew\ Browser|Girafabot|Indy\ Library|Intelliseek|Zealbot|
+    Windows\ 95|^Mozilla/4\.05\ \[en\]$|^Mozilla/4\.0$) [NC]
+  RewriteRule ^(.*)$ - [F]
+  #
+  RewriteCond %{HTTP_USER_AGENT} ^Mozilla.* [NC,OR]
+  RewriteCond %{HTTP_USER_AGENT} ^Opera.* [NC,OR]
+  RewriteCond %{HTTP_USER_AGENT} ^Firefox.* [NC,OR]
+  RewriteCond %{HTTP_USER_AGENT} ^Netscape.* [NC]
+  RewriteRule ^(.*)$ - [L]
+  RewriteRule ^(.*)$ - [F]</pre>
+
+      <h3>Отслеживание обращений к файлу robots.txt</h3>
+      <p>Чтобы иметь больше информации о посещении поисковиков, полезно иметь подробную информацио об обращении к файлу
+        robots.txt
+        Для того, чтобы оганизовать это, в '.htaccess' должны быть следующие записи:</p>
+      <pre class="code">  RewriteEngine on
+    Options +FollowSymlinks
+    RewriteBase /
+    RewriteRule ^robots.txt$ /robot.php?%{REQUEST_URI}</pre>
+      <p>Теперь при запросе файла 'robots.txt' наш RewriteRule переадресует
+        посетителя (робота) к обрабатывающему запросы скрипту robot.php. Кроме
+        того, переменная передается скрипту, которая будет обработана в
+        соответствии с вашими нуждами. 'REQUEST_URI' определяет имя
+        запрашиваемого файла. В данном примере это - 'robots.txt'. Скрипт
+        прочтет содержание 'robots.txt' и отправит его web-браузеру или роботу
+        поискового сервера. Таким образом, мы можем считать хиты посетителей и
+        вести лог-файлы.</p>
+
+      <h3>PHPSESSID</h3>
+      <p>Для отключения добавления PHPSESSID к URL вставьте в начало index.php:
+      </p>
+      <pre class="code">ini_set("session.use_trans_sid", 0);</pre>
+      <p>Либо в .htaccess пропишите:
+      </p>
+      <pre class="code">php_flag session.use_trans_sid Off</pre>
+
+      </p>
+      <h2>Директивы кеширования</h2>
+      <p>Кэширование для всех типов файлов по времени доступа</p>
+
+      <pre class="code">ExpiresActive on
+  ExpiresDefault "access plus 600 seconds"</pre>
+
+      <p>Кэширование для всех типов файлов по времени изменения</p>
+      <pre class="code">ExpiresActive on
+  ExpiresDefault "modification plus 600 seconds"</pre>
+      <p>Кэширование для определённых типов файлов</p>
+      <pre class="code">ExpiresByType text/css "modification plus 600 seconds"
+  ExpiresByType image/jpeg "modification plus 600 seconds"
+  ExpiresByType image/gif "modification plus 600 seconds"
+  ExpiresByType image/x-ico "modification plus 600 seconds"
+  ExpiresByType image/png "modification plus 600 seconds"</pre>
+
+      <h3>Запрет кеширования с помощью сервера Apache</h3>
+      <p>Откройте файл конфигурации сервера Apache <b>httpd.conf</b> и раскомментируйте следующие строчки:</p>
+      <pre class="code">LoadModule expires_module modules/mod_expires.so
+  LoadModule headers_module modules/mod_headers.so
+  ...
+  AddModule mod_expires.c
+  AddModule mod_headers.c</pre>
+      <p>Впишите в .htaccess следующее:</p>
+      <pre class="code"># Запрещение кеширования в этой папке
+  # Необходимо включение модулей
+  # mod_headers.c и mod_expires.c
+  #
+  # Заголовок Cache-Control
+  &lt;IfModule mod_headers.c&gt;
+  Header append Cache-Control "no-store, no-cache, must-revalidate"
+  &lt;/IfModule&gt;
+
+  # Заголовок Expires
+  &lt;IfModule mod_expires.c&gt;
+  ExpiresActive On
+  ExpiresDefault "now"
+  &lt;/IfModule&gt;</pre>
+      <p>Необходимые заголовки будут передаваться автоматически, и специально их писать в PHP уже не нужно - кэш уже
+        выключен!</p>
+
+      <h3>Кеширование с помощью файла .htaccess</h3>
+      <pre class="code"># Разрешение кеширования в этой папке
+  # Необходимо включение модулей
+  # mod_headers.c и mod_expires.c
+  #
+  &lt;IfModule mod_expires.c&gt;
+  ExpiresActive on
+  #ExpiresDefault "access plus 1 hours"
+  #ExpiresDefault "access plus 10 years"
+  ExpiresDefault                          "access plus 1 month"
+  ExpiresByType text/cache-manifest       "access plus 0 seconds"
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/xml                  "access plus 0 seconds"
+  ExpiresByType application/xml           "access plus 0 seconds"
+  ExpiresByType application/json          "access plus 0 seconds"
+  ExpiresByType application/rss+xml       "access plus 1 month"
+  ExpiresByType image/x-icon              "access plus 1 week"
+  ExpiresByType image/gif                 "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/jpg                 "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType video/ogg                 "access plus 1 year"
+  ExpiresByType audio/ogg                 "access plus 1 year"
+  ExpiresByType audio/mp3                 "access plus 1 year"
+  ExpiresByType video/mp4                 "access plus 1 year"
+  ExpiresByType video/webm                "access plus 1 year"
+  ExpiresByType text/x-component          "access plus 1 month"
+  ExpiresByType font/truetype             "access plus 1 year"
+  ExpiresByType font/opentype             "access plus 1 year"
+  ExpiresByType application/x-font-woff   "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 month"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+  ExpiresByType text/css                  "access plus 2 months"
+  ExpiresByType application/javascript    "access plus 2 months"
+  ExpiresByType text/javascript           "access plus 2 months"
+  &lt;IfModule mod_headers.c&gt;
+  Header append Cache-Control "public"
+  &lt;/IfModule&gt;
+  &lt;/IfModule&gt;</pre>
+
+      <h3>Кеширование javascript файлов с помощью файла .htaccess</h3>
+      <pre class="code">&lt;FilesMatch .*\.js$&gt;
+      ExpiresDefault "access plus 3 days"
+  &lt;/FilesMatch&gt;</pre>
+      <p>Будьте осторожны при кешировании, т.к. при изменении файла, пользователь может получить новый вариант только
+        через 3 дня!</p>
+
+      <h3>Как заставить html-страницы обрабатывать php-код?</h3>
+      <p>Пропишите в своем файле .htaccess следующие строки:</p>
+      <pre class="code">RemoveHandler .php .htm .html
+  AddHandler application/x-httpd-php .php .htm .html</pre>
+
+      <h2>Поиск страниц больше чем в одном каталоге</h2>
+
+      <p>Иногда необходимо позволить веб-серверу искать страницы больше чем в одном каталоге.</p>
+      <pre class="code">RewriteEngine on
+
+  #   во-первых попытаемся найти это в указанном месте/...
+  #   ...и если нашли то заканчиваем поиск:
+  RewriteCond         /your/docroot/dir1/%{REQUEST_FILENAME}  -f
+  RewriteRule  ^(.+)  /your/docroot/dir1/$1  [L]
+
+  #   во-вторых - попытаемся найти это в pub/...
+  #   ...и если нашли то заканчиваем поиск:
+  RewriteCond         /your/docroot/dir2/%{REQUEST_FILENAME}  -f
+  RewriteRule  ^(.+)  /your/docroot/dir2/$1  [L]
+
+  #   иначе продолжаем для других директив
+  RewriteRule   ^(.+)  -  [PT]</pre>
+
+      <h2>Виртуальные хосты пользователей</h2>
+
+      <p>Если Вы хотите предоставлять адреса www.subdomain.domain.ru для страниц пользователей,
+        Вы можете использовать следующий набор правил для преобразования http://www.subdomain.domain.ru/path во
+        внутренний путь /home/subdomain/path:</p>
+
+      <pre class="code">RewriteEngine on
+  RewriteCond   %{HTTP_HOST}                 ^www\.[^.]+\.ru$
+  RewriteRule   ^(.+)                        %{HTTP_HOST}$1          [C]
+  RewriteRule   ^www\.([^.]+)\.ru(.*) /home/$1$2 </pre>
+
+      <h2>Повреждаются файлы при загрузке на сервер</h2>
+      <p>Если при передаче файлов через формы (при указанном enctype="multipart/form-data") бинарные данные
+        повреждаются,
+        пропишите в /cgi-bin/.htaccess директиву:</p>
+      <pre class="code">CharsetRecodeMultipartForms Off.</pre>
+
+      </p>
+      <h3>Главная страница без дублирования</h3>
+
+      <p>Обычно код главной страницы физически расположен в файле index.html или index.php, но сайт должен открываться
+        по
+        любому из запросов:
+        yoursite.ru, yoursite.ru/index.html, www.yoursite.ru и www.yoursite.ru/index.html. Но для поисковых систем это
+        четыре разных URL!
+        Если не настроить .htaccess верно, поисковик добавит в свой индекс четыре одинаковых страницы. Это признак
+        некачественного сайта.
+        Избежать этой проблемы можно с помощью такого кода в .htaccess:</p>
+      <pre class="code">Options +FollowSymLinks
+  RewriteEngine on
+  RewriteCond %{HTTP_HOST} ^yoursite.ru
+  RewriteRule (.*) http://www.yoursite.ru/$1 [R=301,L]
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+  RewriteRule ^index\.html$ http://www.yoursite.ru/ [R=301,L]</pre>
+      <p>Все страницы-дубли будут склеены редиректом с кодом 301 с главной страницей – http://www.yoursite.ru/.</p>
+
+
+      <h3>Дубли страниц без слэша в конце URL</h3>
+
+      <p>Чтобы предотвратить ситуацию с индексированием страниц www.yoursite.ru/about и www.yoursite.ru/about/ как
+        разных,
+        ставим следущий код:</p>
+      <p>Со страниц без слэша будет установлен редирект на «слэшевые».</p>
+      <pre class="code">RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !(.*)/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]</pre>
+
+      <h3>Сохранение(загрузка) файлов вместо открытия</h3>
+
+      <p>Многие видели, как при попытке скачать архив с расширением .rar браузер открывает его в виде простого текста из
+        мешанины символов.
+        Это значит, что на сервере сайта не настроено принудительное сохранение типов файлов, которые не должны
+        открываться в браузере.</p>
+      <pre class="code">AddType application/octet-stream .rar .doc .mov .avi .pdf .xls .mp4</pre>
+
+      <h3>Сжатие отправляемых страниц</h3>
+      <pre class="code">SetOutputFilter DEFLATE
+  Header unset ETag
+  FileETag None</pre>
+
+      <h3>Принудительная постановка замыкающего слеша</h3>
+      <p>Следующий код всегда будет добавлять слеш в адрес URL вашего сайта, что хорошо помогает в области SEO сайта.
+      </p>
+      <pre class="code">RewriteCond %{REQUEST_URI} /+[^\.]+$
+  RewriteRule ^(.+[^/])$ %{REQUEST_URI}/ [R=301,L]</pre>
+
+
+
+      <h3>Междоменное использование шрифтов для FireFox</h3>
+      <p>При использовании встроенных шрифтов Firefox не позволяет брать их с внешних сайтов.
+        Следующий код для файла .htaccess позволит обойти данное ограничение.</p>
+      <pre class="code">&lt;FilesMatch "\.(ttf|otf|eot|woff)$"&gt;
+  &lt;IfModule mod_headers.c&gt;
+  #Замените yourdomain.com на адрес вашего блога
+  Header set Access-Control-Allow-Origin "http://yourdomain.com"
+  &lt;/IfModule&gt;
+  &lt;/FilesMatch&gt;</pre>
+
+      <h3>Выполнять PHP в файлах JavaScript</h3>
+      <p>При разработке кода JavaScript иногда требуется использовать PHP в файлах .js,
+        например, для получения данных из базы данных.</p>
+      <pre class="code">AddType application/x-httpd-php .js
+  AddHandler x-httpd-php5 .js
+
+  &lt;FilesMatch "\.(js|php)$"&gt;
+  SetHandler application/x-httpd-php
+  &lt;/FilesMatch&gt;</pre>
+
+      <h3>Разложить файлы robots.txt, sitemap.xml и т.п. в папки доменов</h3>
+      <pre class="code"># Если есть запрашиваемый файл из корня сайта, в папке домена, то перенаправляем его туда
+  RewriteCond         %{DOCUMENT_ROOT}/domain/%{HTTP_HOST}/root%{REQUEST_URI} -f
+  RewriteRule ^(.*)$  /domain/%{HTTP_HOST}/root/$1  [L]</pre>
+
+      <h3>Блокируем User Agents через .htaccess</h3>
+      <p>Если вы столкнулись с проблемой, что какие-то типы User Agent нагружают ваш сервер ненужными запросами, то от
+        них
+        можно избавиться добавив в .htaccess следующие строчки:</p>
+      <pre class="code">SetEnvIfNoCase User-Agent "^Black Hole" bad_bot
+  SetEnvIfNoCase User-Agent "^Titan" bad_bot
+  SetEnvIfNoCase User-Agent "^WebStripper" bad_bot
+  SetEnvIfNoCase User-Agent "^NetMechanic" bad_bot
+  SetEnvIfNoCase User-Agent "^CherryPicker" bad_bot
+  SetEnvIfNoCase User-Agent "^EmailCollector" bad_bot
+  SetEnvIfNoCase User-Agent "^EmailSiphon" bad_bot
+  SetEnvIfNoCase User-Agent "^WebBandit" bad_bot
+  SetEnvIfNoCase User-Agent "^EmailWolf" bad_bot
+  SetEnvIfNoCase User-Agent "^ExtractorPro" bad_bot
+  SetEnvIfNoCase User-Agent "^CopyRightCheck" bad_bot
+  SetEnvIfNoCase User-Agent "^Crescent" bad_bot
+  SetEnvIfNoCase User-Agent "^Wget" bad_bot
+  SetEnvIfNoCase User-Agent "^SiteSnagger" bad_bot
+  SetEnvIfNoCase User-Agent "^ProWebWalker" bad_bot
+  SetEnvIfNoCase User-Agent "^CheeseBot" bad_bot
+  SetEnvIfNoCase User-Agent "^Teleport" bad_bot
+  SetEnvIfNoCase User-Agent "^TeleportPro" bad_bot
+  SetEnvIfNoCase User-Agent "^MIIxpc" bad_bot
+  SetEnvIfNoCase User-Agent "^Telesoft" bad_bot
+  SetEnvIfNoCase User-Agent "^Website Quester" bad_bot
+  SetEnvIfNoCase User-Agent "^WebZip" bad_bot
+  SetEnvIfNoCase User-Agent "^moget/2.1" bad_bot
+  SetEnvIfNoCase User-Agent "^WebZip/4.0" bad_bot
+  SetEnvIfNoCase User-Agent "^WebSauger" bad_bot
+  SetEnvIfNoCase User-Agent "^WebCopier" bad_bot
+  SetEnvIfNoCase User-Agent "^NetAnts" bad_bot
+  SetEnvIfNoCase User-Agent "^Mister PiX" bad_bot
+  SetEnvIfNoCase User-Agent "^WebAuto" bad_bot
+  SetEnvIfNoCase User-Agent "^TheNomad" bad_bot
+  SetEnvIfNoCase User-Agent "^WWW-Collector-E" bad_bot
+  SetEnvIfNoCase User-Agent "^RMA" bad_bot
+  SetEnvIfNoCase User-Agent "^libWeb/clsHTTP" bad_bot
+  SetEnvIfNoCase User-Agent "^asterias" bad_bot
+  SetEnvIfNoCase User-Agent "^httplib" bad_bot
+  SetEnvIfNoCase User-Agent "^turingos" bad_bot
+  SetEnvIfNoCase User-Agent "^spanner" bad_bot
+  SetEnvIfNoCase User-Agent "^InfoNaviRobot" bad_bot
+  SetEnvIfNoCase User-Agent "^Harvest/1.5" bad_bot
+  SetEnvIfNoCase User-Agent "^Bullseye/1.0" bad_bot
+  SetEnvIfNoCase User-Agent "^Mozilla/4.0 (compatible; BullsEye; Windows 95)" bad_bot
+  SetEnvIfNoCase User-Agent "^Crescent Internet ToolPak HTTP OLE Control v.1.0" bad_bot
+  SetEnvIfNoCase User-Agent "^CherryPickerSE/1.0" bad_bot
+  SetEnvIfNoCase User-Agent "^CherryPicker /1.0" bad_bot
+  SetEnvIfNoCase User-Agent "^WebBandit/3.50" bad_bot
+  SetEnvIfNoCase User-Agent "^NICErsPRO" bad_bot
+  SetEnvIfNoCase User-Agent "^Microsoft URL Control - 5.01.4511" bad_bot
+  SetEnvIfNoCase User-Agent "^DittoSpyder" bad_bot
+  SetEnvIfNoCase User-Agent "^Foobot" bad_bot
+  SetEnvIfNoCase User-Agent "^WebmasterWorldForumBot" bad_bot
+  SetEnvIfNoCase User-Agent "^SpankBot" bad_bot
+  SetEnvIfNoCase User-Agent "^BotALot" bad_bot
+  SetEnvIfNoCase User-Agent "^lwp-trivial/1.34" bad_bot
+  SetEnvIfNoCase User-Agent "^lwp-trivial" bad_bot
+  SetEnvIfNoCase User-Agent "^Wget/1.6" bad_bot
+  SetEnvIfNoCase User-Agent "^BunnySlippers" bad_bot
+  SetEnvIfNoCase User-Agent "^Microsoft URL Control - 6.00.8169" bad_bot
+  SetEnvIfNoCase User-Agent "^URLy Warning" bad_bot
+  SetEnvIfNoCase User-Agent "^Wget/1.5.3" bad_bot
+  SetEnvIfNoCase User-Agent "^LinkWalker" bad_bot
+  SetEnvIfNoCase User-Agent "^cosmos" bad_bot
+  SetEnvIfNoCase User-Agent "^moget" bad_bot
+  SetEnvIfNoCase User-Agent "^hloader" bad_bot
+  SetEnvIfNoCase User-Agent "^humanlinks" bad_bot
+  SetEnvIfNoCase User-Agent "^LinkextractorPro" bad_bot
+  SetEnvIfNoCase User-Agent "^Offline Explorer" bad_bot
+  SetEnvIfNoCase User-Agent "^Mata Hari" bad_bot
+  SetEnvIfNoCase User-Agent "^LexiBot" bad_bot
+  SetEnvIfNoCase User-Agent "^Web Image Collector" bad_bot
+  SetEnvIfNoCase User-Agent "^The Intraformant" bad_bot
+  SetEnvIfNoCase User-Agent "^True_Robot/1.0" bad_bot
+  SetEnvIfNoCase User-Agent "^True_Robot" bad_bot
+  SetEnvIfNoCase User-Agent "^BlowFish/1.0" bad_bot
+  SetEnvIfNoCase User-Agent "^JennyBot" bad_bot
+  SetEnvIfNoCase User-Agent "^MIIxpc/4.2" bad_bot
+  SetEnvIfNoCase User-Agent "^BuiltBotTough" bad_bot
+  SetEnvIfNoCase User-Agent "^ProPowerBot/2.14" bad_bot
+  SetEnvIfNoCase User-Agent "^BackDoorBot/1.0" bad_bot
+  SetEnvIfNoCase User-Agent "^toCrawl/UrlDispatcher" bad_bot
+  SetEnvIfNoCase User-Agent "^WebEnhancer" bad_bot
+  SetEnvIfNoCase User-Agent "^TightTwatBot" bad_bot
+  SetEnvIfNoCase User-Agent "^suzuran" bad_bot
+  SetEnvIfNoCase User-Agent "^VCI WebViewer VCI WebViewer Win32" bad_bot
+  SetEnvIfNoCase User-Agent "^VCI" bad_bot
+  SetEnvIfNoCase User-Agent "^Szukacz/1.4" bad_bot
+  SetEnvIfNoCase User-Agent "^QueryN Metasearch" bad_bot
+  SetEnvIfNoCase User-Agent "^Openfind data gathere" bad_bot
+  SetEnvIfNoCase User-Agent "^Openfind" bad_bot
+  SetEnvIfNoCase User-Agent "^Xenu's Link Sleuth 1.1c" bad_bot
+  SetEnvIfNoCase User-Agent "^Xenu's" bad_bot
+  SetEnvIfNoCase User-Agent "^Zeus" bad_bot
+  SetEnvIfNoCase User-Agent "^RepoMonkey Bait &amp; Tackle/v1.01" bad_bot
+  SetEnvIfNoCase User-Agent "^RepoMonkey" bad_bot
+  SetEnvIfNoCase User-Agent "^Zeus 32297 Webster Pro V2.9 Win32" bad_bot
+  SetEnvIfNoCase User-Agent "^Webster Pro" bad_bot
+  SetEnvIfNoCase User-Agent "^EroCrawler" bad_bot
+  SetEnvIfNoCase User-Agent "^LinkScan/8.1a Unix" bad_bot
+  SetEnvIfNoCase User-Agent "^Keyword Density/0.9" bad_bot
+  SetEnvIfNoCase User-Agent "^Kenjin Spider" bad_bot
+  SetEnvIfNoCase User-Agent "^Cegbfeieh" bad_bot
+
+  &lt;limit get="" post="" head=""&gt;
+  Order Allow,Deny
+  Allow from all
+  Deny from env=bad_bot
+  &lt;/limit&gt;</pre>
+
+      <h3>Переадресация по языку</h3>
+      <pre class="code">RewriteEngine on
+  RewriteCond %{HTTP:Accept-Language} (ru) [NC]
+  RewriteRule .* КУДА [L]</pre>
+
+      <h3>Защита картинок от скачивания по ссылкам на других сайтах</h3>
+      <p>Включая переходы без REFERER, т.е. когда адрес указывают в строке браузера.</p>
+      <pre class="code">RewriteEngine on
+  RewriteCond %{HTTP_REFERER} !^$
+  RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yourdomain.com [NC]
+  RewriteRule \.(jpg|jpeg|png|gif)$ КУДА_ПОСЛАТЬ [NC,R,L]</pre>
+
+      <p>Только по сссылкам на чужих сайтах:</p>
+      <pre class="code">RewriteEngine on
+  RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yourdomain.com [NC]
+  RewriteRule \.(jpg|jpeg|png|gif)$ КУДА_ПОСЛАТЬ [NC,R,L]</pre>
+
+      <h3>Блокировать пользователей с определенным рефером</h3>
+      <p>Если вы не хотите, чтобы пользователи переходя с определенных сайтов попадали на ваш, вы можете это запретить.
+      </p>
+      <pre class="code">RewriteEngine on
+  RewriteCond %{HTTP_REFERER} bannedurl1.com [NC,OR]
+  RewriteCond %{HTTP_REFERER} bannedurl2.com [NC,OR]
+  RewriteRule .* - [F]</pre>
+      <p>bannedurl1.com и bannedurl2.com — примеры запрещенных сайтов.</p>
+
+      <h3>Ограничение размера файла загрузки в PHP, максимального размера запроса и максимального времени выполнения
+        скрипта</h3>
+
+      <p>Объем загружаемого файла:</p>
+      <pre class="code">php_value upload_max_filesize 15M</pre>
+
+      <p>Максимальный размер запроса для загрузки в PHP:</p>
+      <pre class="code">php_value post_max_size 10M</pre>
+
+      <p>Время выполнения скрипта:</p>
+      <pre class="code">php_value max_execution_time 240</pre>
+
+      <p>Время для скрипта на разбор введенных данных:</p>
+      <pre class="code">php_value max_input_time 180</pre>
+
+
+      <h3>Указываем для IE режим вывода</h3>
+      <p>Установка заголовка X-UA-Compatible:</p>
+      <pre class="code">Header set X-UA-Compatible "IE=Edge"</pre>
+
+      <h3>Установка Vary: Accept-Encoding</h3>
+      <p>Для поисковой оптимизации, и уменьшения времени загрузки страницы, Google рекомендует установить заголовок
+        Vary:
+        Accept-Encoding</p>
+      <p>Заголовок ответа HTTP/1.1 Vary позволяет серверу указать, что закэшированный ресурс может использоваться без
+        проверки только,
+        если указанные в Vary заголовки совпадают с заголовками запроса. Значения: Accept-Encoding, Host, User-Agent,
+        Accept-Language.</p>
+      <pre class="code">&lt;IfModule mod_headers.c&gt;
+  &lt;FilesMatch "\.(js|css|xml|gz|html)$"&gt;
+     Header append Vary: Accept-Encoding
+  &lt;/FilesMatch&gt;
+  &lt;/IfModule&gt;</pre>
+
+      <h3>Общий файл картинки для всех доменов(глобальные алиасы)</h3>
+      <pre class="code">Alias /javascripts /usr/share/javascript/
+  <span class="xml">&lt;Directory "/usr/share/javascript/"&gt;
+  Options FollowSymLinks MultiViews
+  &lt;/Directory&gt;</pre>
+
+      <p>Положите общий файл, например, icon.png в директорию /usr/share/javascript/
+        В файл /etc/javascript-common/javascript-common.conf и добавьте строку:</p>
+      <pre class="code">Alias /apple-touch-icon-precomposed.png /usr/share/javascript/icon.png</pre>
+
+      <h3>При загрузке .doc, .docx файлы открываются в браузере с непонятной кодировкой</h3>
+      <p>Если у вас открываются .doc, .docx файлы в браузере с непонятной кодировкой и вы хотите чтобы при левом клике
+        файл сохранялся, а не открывался, то вам необходимо прописать в .htaccess:</p>
+      <pre class="code">AddType application/force-download doc
+  AddType application/force-download docx
+  AddType application/force-download xls
+  AddType application/force-download xlsx </pre>
+
+      <h3>Перенаправление на безопасное соединение https</h3>
+      <p>Если вы используете https и хотите, чтобы все пользователи перенаправлялись на него, то вам поможет следующий
+        код:</p>
+      <pre class="code">RewriteEngine On
+  RewriteCond %{HTTPS} !on
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}</pre>
+
+      <h3>Доступ если установлена cookie с помощью htaccess</h3>
+      <p>Если Ваш логин на сайте admin и он устанавливается в куку с именем login Вы можеле легко закрыть доступ
+        посторонним в любую директорию.
+        Для этого создайте в этой директории(папке) файл .htaccess со следующим содержимым:</p>
+      <pre class="code">RewriteEngine On
+  RewriteCond %{HTTP_COOKIE} !login=admin [NC]
+  RewriteRule .* http://%{HTTP_HOST}/ [L,R=301]</pre>
+      <p>По этому же принципу можно закрывать сайт на профилактические работы для всех кроме админа.</p>
+
+      <h3>Доступ к заголовкам «If-Modified-Since» и «If-None-Match» для реализации http 304 ответа</h3>
+      <p>Если PHP не установлен как модуль Apache, то для доступа к заголовкам «If-Modified-Since» и «If-None-Match»
+        необходимо в корневом каталоге веб-сайта поместить файл .htaccess следующего содержания:</p>
+      <pre class="code">RewriteEngine On
+  RewriteRule .* — [E=HTTP_IF_MODIFIED_SINCE:%{HTTP:If-Modified-Since}]
+  RewriteRule .* — [E=HTTP_IF_NONE_MATCH:%{HTTP:If-None-Match}]</pre>
+      <p>После этого, необходимые заголовки будут доступны как $_SERVER['HTTP_IF_MODIFIED_SINCE'] и
+        $_SERVER['HTTP_IF_NONE_MATCH'].</p>
+      <p>Следует заметить, что заголовки «If-Modified-Since» и «If-None-Match» не отправляются браузером, если в
+        предыдущих запросах
+        к данной странице он не получал в ответе веб-сервера заголовок «Last-Modified».
+        Кроме того, при использовании в веб-приложении сессий с установками по умолчанию, указанные заголовки также не
+        будут присылаться браузером.
+        Для того чтобы избежать такого поведения браузера,
+        необходимо перед запуском сессии выполнять функцию session_cache_limiter, передавая в качестве аргумента
+        параметр 'private_no_expire':</p>
+      <pre class="code">session_cache_limiter('private_no_expire');
+  session_start();</pre>
+
+      <h3>Пред и пост обработка с помощью .htaccess</h3>
+      <pre class="code"># Запуск перед запрашиваемым файлом
+  php_value auto_prepend_file "/dir/header.php"
+
+  # Запуск после запрашиваемого файла
+  php_value auto_append_file "/dir/footer.php"</pre>
+      <button type="button" class="button"><a class="button__link" href="php13.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="rabota_s_grafikoy.html">Следующая
+          лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery AJAX</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Создание AJAX запросов в jQuery </h1>
+      <p>С помощью JavaScript Вы можете создавать асинхронные запросы и отправлять их на сервер.</p>
+      <p>Использование асинхронных запросов позволяет значительно ускорить загрузку страниц, так как в этом случае
+        обновляться будет только
+        та часть страницы, которая содержит новые данные, а не страница целиком. </p>
+      <p>Техника использования асинхронных запросов называется <b>AJAX</b> - <b>A</b>synchronous <b>J</b>avaScript
+        <b>A</b>nd <b>X</b>ML (Асинхронный JavaScript и XML).
+      </p>
+      <p>Создание AJAX запросов на "чистом" JavaScript имеет несколько недостатков:</p>
+      <ul>
+        <li>Код даже самого простого AJAX запроса получается достаточно громоздким и сложным для
+          понимания без специального ознакомления. </li>
+        <li>Необходимо добавлять дополнительный код для поддержки старых версий браузеров.</li>
+      </ul>
+      <p>AJAX запрос созданный с помощью jQuery занимает всего одну строчку кода, и уже оптимизирован для использования
+        и с новыми и старыми версиями браузеров.</p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+   $("селектор").load(url,данные,функция)
+   </pre>
+
+      <p><b>селектор</b> выбирает элемент, в котором будет отображен результат запроса.</p>
+      <p><b>url</b> адрес файла, который будет запрошен у сервера с помощью AJAX.</p>
+      <p><b>данные</b> которые будут переданы запрошенному файлу. Если Вы хотите запросить файл, при
+        этом не передавать никаких данных, оставьте данный параметр пустым. </p>
+      <p><b>функция</b> имя функции, которая будет вызвана после выполнения запроса.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+
+      $("#but1").click(function(){
+         $("#par1").load("testfile.txt");
+      })
+
+   });
+   </pre>
+
+      <p>Теперь приведем пример запроса, который пересылает данные.</p>
+      <p> В примере ниже мы пересылаем скрипту add.php переменную x со значением 4 и переменную
+        y со значением 5 скрипт в свою очередь принимает эти переменные, производит их сложение и отправляет результат
+        обратно.</p>
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+
+      $("#but1").click(function(){
+         $("#par1").load("add.php","x=4&amp;y=5");
+      })
+
+   });
+   </pre>
+
+      <h2>Сопровождающие функции </h2>
+      <p>Сопровождающие функции позволяют выполнять различный код в зависимости от состояния выполнения AJAX запроса.
+      </p>
+      <p>Метод <b>ajaxSend()</b> выполняет переданный в него код во время отправления AJAX запроса. </p>
+      <p>Метод <b>ajaxComplete</b> выполняет переданный в него код после завершения выполнения AJAX запроса (<i>при этом
+          неважно произошла ошибка или нет</i>). </p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+
+      $("#par1").ajaxSend(function(){
+         $("#img1").css("display","block");
+      })
+      $("#par1").ajaxComplete(function(){
+         $("#img1").css("display","none");
+      })
+      $("#but1").click(function(){
+         $("#par1").load("add.php","x=10&amp;y=100");
+      })
+
+   });
+   </pre>
+
+      <p>Метод <b>ajaxSuccess</b> выполняет переданный в него код, если выполнение AJAX запроса завершается успешно.
+      </p>
+      <p>Метод <b>ajaxError</b> выполняет переданный в него код, если выполнение AJAX запроса завершается с ошибкой.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+
+      $("#par1").ajaxSend(function(){
+         $("#img1").css("display","block");
+      });
+      $("#par1").ajaxComplete(function(){
+         $("#img1").css("display","none");
+      });
+      $("#par1").ajaxError(function(){
+         alert("Выполнение AJAX запроса завершено с ошибкой.\nПроверьте Ваш запрос
+   на наличие ошибок и попробуйте отправить его еще раз.");
+      });
+      $("#par1").ajaxSuccess(function(){
+         alert("AJAX запрос успешно выполнен!");
+      });
+      $("#but1").click(function(){
+         $("#par1").load("add.php","x=10&amp;y=100");
+      });
+      $("#but2").click(function(){
+         $("#par1").load("abb.php","x=10&amp;y=100");
+      });
+
+   });
+   </pre>
+
+      <p>Методы <b>ajaxStart</b> и <b>ajaxStop</b> используются для сопровождения группы AJAX запросов.</p>
+      <p>Метод <b>ajaxStart</b> выполняет переданный в него код при отправлении первого запроса из группы. </p>
+      <p>Метод <b>ajaxStop</b> выполняет переданный в него код при завершении последнего запроса из группы. </p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+
+      $("#par1").ajaxStart(function(){
+         $("#wrap").css("display","block");
+      });
+      $("#par1").ajaxStop(function(){
+         $("#wrap").css("display","none");
+      });
+      $("#but1").click(function(){
+         $("#par1").load("add.php","x=5&amp;=10");
+         $("#par1").load("add.php","x=10&amp;y=100");
+         $("#par1").load("testfile.txt");
+         $("#par1").load("add.php","x=45&amp;y=32");
+      });
+
+   });
+   </pre>
+
+      <h2>Низкоуровневые AJAX запросы</h2>
+      <p>Высокоуровневые методы создания AJAX запросов (т.е. методы которые были разобраны ранее в данной главе)
+        подходят
+        для создания большей части запросов,
+        но иногда их функциональности становится недостаточно.</p>
+      <p>Низкоуровневые AJAX запросы предоставляют более широкую функциональность, но более сложны в использовании.</p>
+      <p><b>Синтаксис высокоуровневого AJAX запроса:</b></p>
+      <pre class="code">
+   $("#par1").load("add.php","x=4&amp;y=5")
+   </pre>
+
+      <p><b>Синтаксис аналогичного низкоуровневого AJAX запроса:</b></p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $("#but1").click(function(){
+      $.ajax({url:"add.php",
+         data:"x=4&amp;y=5",
+         success:function(result){
+            $("#par1").html(result)}
+      });
+   });
+   </pre>
+      <button type="button" class="button"><a class="button__link" href="jquery6.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="jquery8.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

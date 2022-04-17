@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Навигация на AJAX</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1 class="content__title">Навигация на AJAX-сайте</h1>
+
+      <p>При загрузке страниц по технологии Ajax возникает проблема, заключающаяся в том,
+        что адрес реально загруженной страницы не соответствует адресу, указанному в адресной строке браузера.
+        Таким образом если пользователь захочет добавить страницу в закладки, он добавит совершенно не ту страницу,
+        которую собирался, т.е. добавлена будет первая страница сайта, через которую пользователь вошел на сайт.
+        Кроме этого кнопки навигации вперед и назад работать не будут, т.к. браузер понятия не имеет о том,
+        когда вы поменяли содержимое страницы.</p>
+      <p>Для решения этой задачи нужно фиксировать события, выполняемые JavaScript`ом, в истории браузера.</p>
+      <p>Разделим задачу на две подзадачи:</p>
+
+      <p>а. Кнопки Back и Forward должны работать как положено.</p>
+
+      <p>б. Пользователи должны иметь ссылку на текущую страницу, вне зависимости от того,
+        сколько переходов по сайту было совершено. Если пользователь зашел на страницу А и перешел на страницу Б,
+        он должен иметь ссылку на текущую страницу Б.</p>
+
+      <p>Для начала решим вторую задачу:</p>
+
+      <p>Просто в лоб менять url в браузере не получится - произойдет переход.
+        Обойти это не получится. Единственная часть URL, которая может быть изменена без перехода - это якорь.
+        При каждом переходе будем менять якорь страницы.</p>
+
+      <p>Т.е. если человек находится на странице /about/ и переходит на /shop/,
+        то url должен стать примерно таким: /about/#url=/shop/.
+        Теперь пользователь может копировать ссылку из адресной строки и посылать ее друзьям.</p>
+
+      <p>В заголовок страницы (страниц) добавляем JS, который проверяет URL загружаемой страницы и,
+        если в ней есть наш якорь, то осуществляем редирект на нее. Выглядит это примерно так:</p>
+      <pre class="code">&lt;script type= "text/javascript"&gt;
+    &lt;!--
+  if(document.location.hash &amp;&amp; document.location.hash.indexOf('url=') &gt; -1)
+    document.location = new String(document.location.hash).replace('#url=','');
+  
+  --&gt;
+   &lt;/ script&gt;</pre>
+      <p>При этом код должен быть в заголовке страницы (между и ) и не должен выноситься
+        в .js-файл - тогда переход будет осуществляться до того как начнется прорисовка страницы.</p>
+
+      <p>Теперь пользователь, открывая в браузере страницу /about/#url=/shop/ будет перебрасываться на /shop/,
+        т.е. задача б решена.</p>
+
+      <p>Теперь займемся основной задачей.</p>
+
+      <p>Основная сложность заключается в том, что браузеры по разному отрабатывают движение по history.
+        Если FireFox и Opera воспринимают изменение якоря как отдельное событие в history,
+        то IE их в упор не замечает. Также прибавляет хлопот практически не управляемый объект history.</p>
+
+      <p>FireFox и Opera:</p>
+
+      <p>При нажатии на Back / Forvard в адресной строке либо меняется якорь либо осуществляется переход
+        на прошлую страницу. Если переход, то никаких действий не требуется, если же меняется якорь,
+        нужно это изменение отловить и переправить посетителя на нужную страницу.</p>
+
+      <p>В JS создаем глобальную переменную, в которую при открытии страницы и каждом ajax-переходе
+        пишем текущий url (с якорем).</p>
+
+      <p>Добавляем таймер (setInterval(...)), который через каждую секунду проверяет соответствие
+        этой переменной фактическому URL в браузере. Если не соответствует, осуществляем переход на тот,
+        что указан в браузере.</p>
+
+      <p>Internet Explorer:</p>
+
+      <p>При нажатии Back/Forward происходит переход на предыдущую страницу, все изменения якоря игнорируются.
+        Нам нужно заставить IE отработать все изменения якоря как отдельные переходы. Для этого:</p>
+
+      <p>В JS (или в PHP - не суть) проверяем браузер пользователя и, если это IE, добавляем скрытый IFRAME.</p>
+
+      <p>В папку /myajax/ кладем .htaccess, который перенаправляет все запросы несуществующих страниц
+        на файл-обработчик. .htaccess должен содержать примерно следующее:</p>
+      <pre class="code">RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule (.*) index.php?qs=$1 [QSA]</pre>
+      <p>Если mod_rewrite или .htaccess не доступны, можно реализовать аналогичную логику при помощи страницы 404.</p>
+
+      <p>При загрузке страницы, а также при каждом ajax-переходе в iframe загружаем URL вида:
+        /myajax/наш_урл (т. е при переходе пользователя на страницу /about/ будет /myajax/about/).
+        Это позволяет нам фиксировать переходы для IE. Кроме того, при нажатии Back переход осуществится
+        не в основном документе, а в iframe.
+        В файле /myajax/index.php нам нужно создать JS-код, который при загрузке страницы будет проверять,
+        соответствует ли его URL (за исключением /myajax/) тому что загружено в основном окне браузера.
+        Если нет - осуществить переход. Реализация может выглядеть примерно так:</p>
+      <pre class="code"> &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+   &lt; html&gt; &lt; head&gt;
+   &lt; script  >language= "JavaScript"  >type= "text/javascript"&gt; >
+  &lt;!--
+  function  historyGo class="params">() {
+   if(window.parent) {
+   var parentUrl =  '';
+   var newUrl =  '&lt; ?=str_replace("/myajax/", "", $_SERVER["REQUEST_URI"]);?&gt;';
+   var parentLoc = window.parent.location;
+   if(parentLoc.hash &amp;&amp; parentLoc.hash.indexOf( 'url=')&gt;- 1) {
+      var sss =  new String(parentLoc);
+     parentUrl =  new String(sss.substr(sss.indexOf( 'url=')+ 4));
+  } else {
+     parentUrl =  new String(parentLoc.href.replace( 'http://'+parentLoc.hostname,  ''));
+  }
+  parentUrl = parentUrl.replace( '/myajax/',  '');
+   if(parentUrl != newUrl) {
+      if(window.parent.document.changePage) {
+     window.parent.document.changePage(newUrl);
+  } else
+     window.parent.location.href = newUrl;
+  }
+  }
+  }
+   //--&gt;
+   &lt;/ script&gt;
+   &lt;/ head&gt; &lt; body  >onload= "historyGo()"&gt;&amp;nbsp; &lt;/ body&gt; &lt;/ html&gt;</pre>
+      <p>Основные задачи решены. Остались нерешенными переходы по отправке форм и в сложных фреймовых структурах.</p>
+      <button type="button" class="button"><a class="button__link" href="ajax7.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="jquery1.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

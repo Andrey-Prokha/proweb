@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Настройка управления питанием. Оптимизация использования процессора</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+
+  <div class="page-wrapper">
+
+    <header class="header">
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+        </uL>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1 class="content__title">Настройка управления питанием. Оптимизация использования процессора.</h1>
+      <h2>Настройка схемы управления питанием по умолчанию</h2>
+      <p>Используйте следующие инструкции, чтобы настроить схему управления питанием по умолчанию в процессе
+        развертывания
+        Windows&nbsp;8 или Windows Server&reg; 2012. Схемы управления питанием также называют&nbsp;<em>планами
+          управления питанием</em></p>
+      <p><strong>Настройка схемы управления питанием по умолчанию</strong></p>
+      <ol>
+        <li>
+          <p>На обслуживающем компьютере откройте командную строку с повышенными привилегиями.</p>
+        </li>
+        <li>
+          <p>Чтобы использовать схему управления питанием с другого компьютера, импортируйте ее.</p>
+          <p>Например, чтобы импортировать схему управления питанием &laquo;Схема для улицы&raquo;, в командной строке
+            введите:</p>
+          <pre class="code">powercfg -IMPORT C:\OutdoorPlan.pow</pre>
+        </li>
+        <li>
+          <p>Чтобы узнать идентификаторы GUID всех схем управления питанием на компьютере, введите:</p>
+          <pre class="code">powercfg -LIST</pre>
+          <p>Отобразится список доступных схем управления питанием. В следующих примерах эти схемы
+            обозначены&nbsp;<em>guidPlan1</em>&nbsp;и&nbsp;<em>guidPlan2</em>.</p>
+          <pre class="code">Existing Power Schemes (* Active)
+    -----------------------------------
+    Power Scheme GUID: {guidPlan1}  (Balanced) *
+    Power Scheme GUID: {guidPlan2}  (Power saver)</pre>
+        </li>
+        <li>
+          <p>Обратите внимание на GUID рядом со схемами управления питанием, которые вы хотите изменить.</p>
+        </li>
+        <li>
+          <p>Настройте схему управления питанием, которая будет использоваться как текущая схема управления питанием
+            по умолчанию. Например, вы можете использовать следующую команду:</p>
+          <pre class="code">powercfg -SETACTIVE {guidPlan2}</pre>
+          <p>где&nbsp;<em>guidPlan2</em>&nbsp;&mdash; название схемы управления питанием.</p>
+          <p>Эту команду можно запустить с помощью пользовательской команды в файле ответов или в командной строке с
+            повышенными привилегиями в режиме аудита.</p>
+        </li>
+      </ol>
+      <p><strong>Подтверждение схемы управления питанием по умолчанию</strong></p>
+      <ol>
+        <li>
+          <p>Нажмите кнопку&nbsp;<strong>Пуск</strong>&nbsp;и выберите&nbsp;<strong>Панель управления</strong>.</p>
+        </li>
+        <li>
+          <p>Щелкните&nbsp;<strong>Оборудование и звук</strong>, а затем
+            выберите&nbsp;<strong>Электропитание</strong>.</p>
+          <p>Откроется окно&nbsp;<strong>Электропитание</strong>, и появится схемы управления питанием.</p>
+        </li>
+        <li>
+          <p>Просмотрите каждую схему.</p>
+        </li>
+        <li>
+          <p>Убедитесь, что в качестве текущей схемы управления питанием выбрана нужная схема. Текущая схема
+            управления питанием отмечена звездочкой (*).</p>
+        </li>
+      </ol>
+      <h2>Оптимизация работы процессора: утилита CPU Control</h2>
+      <p>В данной публикации пойдет речь еще об одном стороннем инструменте оптимизации работы многоядерных процессоров
+        &ndash; бесплатной программе&nbsp;<strong>CPU Control</strong>. "Еще" &ndash; потому, что автор уже касался этой
+        темы, смотрите&nbsp;заметку&nbsp;об&nbsp;ICEAffinity. Детище немецкого разработчика Маттиаса Коча (<em>Matthias
+          Koch</em>), русифицированная утилита&nbsp;<strong>CPU Control&nbsp;</strong>будет особенно интересна
+        начинающим компьютерным пользователям из-за наличия многопрофильного авторежима оптимизации, но обо
+        всем&nbsp;&ndash; по порядку.</p>
+      <p><strong>"Зачем это надо и что я буду с этого иметь?"</strong></p>
+      <p>Данный вопрос был затронут в озвученной статье, поэтому дефрагментирую сказанное до пары абзацев:</p>
+      <ul>
+        <li>Некоторые приложения не поддерживают многоядерный режим, поэтому для корректной работы необходимо вручную
+          выделить им отдельное процессорное ядро. Другой "проблемный" вариант&nbsp;&ndash; материнская плата
+          асинхронно инициализирует ядра. В обоих случаях требуется оперативное вмешательство пользователя.</li>
+      </ul>
+      <ul>
+        <li>По умолчанию, Windows присваивает всем запускаемым процессам равный приоритет в пользовании процессорных
+          мощностей. Что не совсем правильно в случае запуска ресурсоемких приложений, например, когда вашему
+          любимому&nbsp;Call of Duty&nbsp;"мешает" антивирус вкупе с дюжиной другого "второстепенного"
+          ПО.&nbsp;<strong>CPU Control&nbsp;</strong>поможет пропорционально разнести процессы по ядрам, что напрямую
+          скажется на общей производительности системы.</li>
+      </ul>
+      <div>
+        <p>Утилита поддерживает двух- и четырехъядерные процессоры, но, по отзывам, корректно работает и на 6&ndash;8
+          ядрах.</p>
+      </div>
+      <p><strong>Оптимизируем</strong></p>
+      <p><strong>1.</strong>&nbsp;Для начала необходимо скачать утилиту &nbsp;Никаких "хитростей" в установке нет,
+        поэтому
+        последовательно жмем "<em>Next</em>" ("<em>Далее</em>") до полной инсталляции. Кстати, программа не "сорит" в
+        реестре, т.е. портативна и носима на съемных накопителях.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya11_pic1.png"
+          alt="">
+      </figure>
+      <p><strong>2.</strong>&nbsp;После запуска первым делом кликаем на "<em>Options</em>" ("<em>Опции</em>") и
+        русифицируем&nbsp;<strong>CPU Control&nbsp;</strong>через "<em>Languages</em>" ("<em>Языки</em>")
+        &rarr;&nbsp;"<em>Russion</em>". Далее, в соответствии со следующим скриншотом, ставим галочки напротив
+        "<em>Автозапуск с Windows</em>", "<em>Минимизировать</em>" и "<em>4 ядра</em>" (для четырех и более ядер).
+        Понятно, что если ЦП двухъядерный, активировать "4 ядра" без надобности.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya11_pic2.png"
+          alt="">
+      </figure>
+      <p><strong>3.</strong>&nbsp;Закрыв "Опции", в главном окне приложения видим&nbsp;<strong>5</strong>&nbsp;режимов
+        контроля работы ЦП: "<em>Авто</em>", "<em>Ручной</em>", "<em>CPU1</em>" (все процессы выполняются на 1-ом ядре),
+        "<em>CPU2</em>" (все процессы выполняются на 2-ом ядре) и "<em>Отключено</em>" (без оптимизации). Последние три
+        режима нам не интересны, поэтому сосредоточимся на первых двух.</p>
+      <p>Для начинающих пользователей&nbsp;автор рекомендует просто выбрать режим "<em><strong>Авто</strong></em>" и,
+        закрыв окно, проверить для будущих загрузок Windows, чтобы&nbsp;<strong>CPU Control&nbsp;</strong>был в списке
+        автозагружаемых приложений (!). Это легко сделать, например, через&nbsp;Revo Uninstaller&nbsp;любой версии,
+        смотрите в панели меню "<em>Инструменты</em>" &rarr;&nbsp;"<em>Менеджер автозапуска</em>" (при необходимости
+        добавить приложение кликаем апплет "<em>Добавить</em>").</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya11_pic3.png"
+          alt="">
+      </figure>
+      <p><strong>4.</strong>&nbsp;Для любителей "покопаться"&nbsp;эта простенькая утилита дает шанс "развернуться": в
+        авторежиме имеется&nbsp;<strong>9</strong>&nbsp;базовых профилей-вариаций распределения процессов по ядрам
+        (скриншот ниже). При наличии времени и открытом на вкладке "<em>Быстродействие</em>" Диспетчере
+        задач&nbsp;("<em>Ctrl</em>&nbsp;+&nbsp;<em>Alt</em>&nbsp;+&nbsp;<em>Del</em>"), для мониторинга результатов,
+        можно выбрать оптимальный профиль под свою систему.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya11_pic4.png"
+          alt="">
+      </figure>
+      <p><strong>5.</strong>&nbsp;Самые "продвинутые" пользователи, желающие
+        добиться&nbsp;<em>максимальных</em>&nbsp;результатов в деле повышения производительности системы данным
+        способом, наверняка заинтересуются режимом "<em><strong>Ручной</strong></em>". В &nbsp;этом режиме вы
+        самостоятельно распределяете процессы по ядрам или группам ядер. Все просто: выделяете процесс(-ы) и через
+        правую клавишу мыши "вешаете" на нужное ядро или комбинацию ядер. Например, при выборе "<em>CPU1</em>" процесс
+        будет "висеть" на первом ядре, при выборе "<em>CPU3+4</em>" &ndash; на третьем и четвертом ядрах и т.д.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/lectures/zagruzka_i_ustanovka_programmnogo_obespecheniya11_pic5.png"
+          alt="">
+      </figure>
+      <p>Вот&nbsp;хороший вариант ранжирования&nbsp;для 4-ядерного ПК: системные процессы оставьте 1-ому ядру, самые
+        ресурсоемкие приложения (типа Photoshop) "распылите" между всеми ядрами (вариант как на последнем скриншоте), а
+        "середнячков" типа антивирусного сканера отдайте в руки комбинации на 2 ядра, скажем,
+        "<em>CPU3+4</em>".&nbsp;Диспетчер задач Windows&nbsp;поможет сделать правильный выбор. Для удобства мониторинга,
+        при открытой в Диспетчере вкладке "<em>Быстродействие</em>", проверьте, чтобы была активирована функция "<em>По
+          графику на каждый ЦП</em>" (см. "<em>Вид</em>" &rarr;&nbsp;"<em>Загрузка ЦП</em>" &rarr;&nbsp;искомое
+        "<em>По графику на каждый ЦП</em>").</p>
+      <button type="button" class="button"><a class="button__link"
+          href="zagruzka_i_ustanovka_programmnogo_obespecheniya10.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link"
+          href="zagruzka_i_ustanovka_programmnogo_obespecheniya12.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

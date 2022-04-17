@@ -1,0 +1,615 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHP MySQL</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Связь с базами данных MySQL</h1>
+      <p>СУБД <strong>MySQL</strong> - одна из множества баз данных, поддерживаемых в PHP.
+        Система MySQL распространяется бесплатно и обладает достаточной мощностью
+        для решения реальных задач.</p>
+
+      <h2>Краткое введение в MySQL</h2>
+      <p><strong>SQL</strong> - это аббревиатура от слов <i>Structured Query Language</i>, что
+        означает структурированный язык запросов. Этот язык является стандартным
+        средством для доступа к различным базам данных.
+      </p>
+      <p>Система MySQL представляет собой сервер, к которому могут подключаться
+        пользователи удаленных компьютеров.
+      </p>
+      <p>Для работы с базами данных удобно пользоваться средством, входящее
+        в комплект Web-разработчика: Denwer
+        phpMyAdmin.
+        Здесь можно создать новую базу данных, создать новую таблицу в выбранной
+        базе данных, заполнить таблицу данными, а также добавлять, удалять и
+        редактировать данные.
+      </p>
+      <p>В MySQL определены три базовых типа данных: числовой, дата и время и
+        строчный. Каждая из этих категорий подразделяется на множество типов.
+        Основные из них:
+      </p>
+      <p></p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <th>Тип</th>
+            <th>Описание</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">INT</td>
+            <td class="table__cell">Целое число
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">TINYINT</td>
+            <td class="table__cell">Маленькое целое число (-127 до 128 или от 0 до 255)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">FLOAT</td>
+            <td class="table__cell">Вещественное число с плавающей точкой
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">DATE</td>
+            <td class="table__cell">Дата. Отображается в виде ГГГГ-ММ-ДД
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">TIME</td>
+            <td class="table__cell">Время. Отображается в виде ЧЧ:ММ:СС
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">DATETIME</td>
+            <td class="table__cell">Дата и время. Отображается в виде ГГГГ-ММ-ДДЧЧ:ММ:СС
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">YEAR[(2|4)]</td>
+            <td class="table__cell">Год. Можно определить двух- или четырехциферный формат
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">CHAR(M)</td>
+            <td class="table__cell">Строка фиксированной длины М (M&lt;=255)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">VARCHAR(M)</td>
+            <td class="table__cell">Строка произвольной длины до М (M&lt;=255)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">TEXT</td>
+            <td class="table__cell">Длинные текстовые фрагменты (&lt;=65535)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">BLOB</td>
+            <td class="table__cell">Большие двоичные объекты (изображения, звуки)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p></p>
+      <p>Каждый столбец после своего типа данных содержит и другие спецификаторы:
+      </p>
+      <p></p>
+      <table class="table">
+        <colgroup>
+          <col>
+        </colgroup>
+        <tbody>
+          <tr class="table__row">
+            <th>Тип</th>
+            <th>Описание</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">NOT NULL</td>
+            <td class="table__cell">Все строки таблицы должны иметь значение в этом атрибуте.
+              Если не указано, поле может быть пустым (NULL)</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">AUTO_INCREMENT</td>
+            <td class="table__cell">
+              Специальная возможность MySQL, которую можно задействовать в
+              числовых столбцах. Если при вставке строк в таблицу оставлять такое поле пустым,
+              MySQL автоматически генерирует уникальное значение идентификатора. Это значение
+              будет на единицу больше максимального значения, уже существующего в столбце. В
+              каждой таблице может быть не больше одного такого поля. Столбцы с
+              AUTO_INCREMENT должны быть проиндексированными</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">PRIMARY KEY</td>
+            <td class="table__cell">Столбец является первичным
+              ключом для таблицы. Данные в этом столбце должны быть уникальными.
+              MySQL автоматически индексирует этот столбец</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">UNSIGNED</td>
+            <td class="table__cell">После целочисленного типа означает, что его значение
+              может быть либо положительным, либо нулевым</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">COMMENT</td>
+            <td class="table__cell">Название столбца таблицы</td>
+          </tr>
+        </tbody>
+      </table>
+      <p></p>
+      <p><strong>Создание новой базы данных MySQL</strong> осуществляется при помощи SQL-команды <b>CREATE DATABASE</b>.
+      </p>
+      <pre class="code">CREATE DATABASE IF NOT EXISTS `base`
+    DEFAULT CHARACTER SET cp1251 COLLATE cp1251_bin</pre>
+      <p><strong>Создание новой таблицы</strong> осуществляется при помощи SQL-команды <b>CREATE TABLE</b>.
+        Например, таблица books для книжного магазина будет содержать пять полей:
+        ISBN, автор, название, цена и количество экземпляров:
+      </p>
+      <pre class="code">CREATE TABLE books (ISBN CHAR(13) NOT NULL,
+                      PRIMARY KEY (ISBN),
+                      author VARCHAR(30),
+                      title VARCHAR(60),
+                      price FLOAT(4,2),
+                      quantity TINYINT UNSIGNED);</pre>
+      <p>Чтобы избежать сообщения об ошибке, если таблица уже есть необходимо изменить первую строчку, добавив фразу "IF
+        NOT EXISTS":</p>
+      <pre class="code">CREATE TABLE IF NOT EXISTS books ...</pre>
+      <p>Для создания <b>автообновляемого поля</b> с текущей датой типа TIMESTAMP или DATETIME используйте следующую
+        конструкцию:</p>
+      <pre class="code">CREATE TABLE t1 (
+  ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  dt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  );</pre>
+      <p><strong>Добавление</strong> данных в эту таблицу осуществляется при помощи SQL-команды
+        <b>INSERT</b>. Например:
+      </p>
+      <pre class="code">INSERT INTO books ( ISBN, author, title, price, quantity )
+             VALUES ('5-8459-0184-7', 'Зандстра Мэт',
+                     'Освой самостоятельно PHP4 за 24 часа', '129', '5');</pre>
+      <p>Для извлечения данных из таблицы служит оператор <b>SELECT</b>.
+        Он извлекает данные из базы, выбирая строки, которые отвечают
+        заданному критерию поиска. Оператор SELECT сопровождает немалое
+        количество опций и вариантов использования.
+      </p>
+      <p>Символ * означает, что необходимы все поля. Например:
+      </p>
+      <pre class="code">SELECT * FROM books;</pre>
+      <p>Для получения доступа только к некоторому полю следует указать его имя в
+        инструкции SELECT. Например:
+      </p>
+      <pre class="code">SELECT author, title, price FROM books;</pre>
+      <p>Чтобы получить доступ к подмножеству строк в таблице, следует указать
+        критерий выбора, который устанавливает конструкция <b>WHERE</b>. Например,
+        чтобы выбрать имеющиеся в наличии недорогие книги о PHP, надо составить запрос:
+      </p>
+      <pre class="code">SELECT * FROM books WHERE
+    price &lt; 200 AND title LIKE '%PHP%' AND quantity != 0;</pre>
+      <p>% Соответствует любому количеству символов, даже нулевых</p>
+      <p>_ Соответствует ровно одному символу</p>
+      <p>Для того, чтобы строки, извлеченные по запросу, перечислялись в определенном
+        порядке, используется конструкция <b>ORDER BY</b>. Например:
+      </p>
+      <pre class="code">SELECT * FROM books ORDER BY price;</pre>
+      <p>По умолчанию <strong>порядок</strong> <strong>сортировки</strong> идет по возрастанию. Изменить порядок
+        сортировки на обратный можно с помощью ключевого слова <b>DESC</b>:
+      </p>
+      <pre class="code">SELECT * FROM books ORDER BY price DESC;</pre>
+      <p><strong>Сортировать</strong> можно и по нескольким столбцам. Вместо названий столбцов
+        можно использовать их порядковые номера:
+      </p>
+      <pre class="code">SELECT * FROM books ORDER BY 4, 2, 3;</pre>
+      <p>Для изменения ранее записанных в таблицу значений нужно воспользоваться
+        командой <b>UPDATE</b>. Например, цену всех книг повысили на 10%:
+      </p>
+      <pre class="code">UPDATE books SET price = price * 1.1;</pre>
+      <p>Конструкция WHERE ограничит работу UPDATE определенным
+        строками. Например:
+      </p>
+      <pre class="code">UPDATE books SET price = price * 1.05 WHERE price &lt;= 250;</pre>
+      <p>Для удаления строк из базы данных используется оператор <b>DELETE</b>.
+        Ненужные строки указываются при помощи конструкции WHERE. Например,
+        какие-то книги проданы:
+      </p>
+      <pre class="code">DELETE FROM books WHERE quantity = 0;</pre>
+      <p>Если нужно удалить все записи</p>
+      <pre class="code">TRUNCATE TABLE table_name</pre>
+      <p>Для полного удаления таблицы используется:</p>
+      <pre class="code">DROP TABLE table_name</pre>
+
+      <h2>Связь PHP с базой данных MySQL</h2>
+      <p>Поработав с phpMyAdmin над созданием
+        базы данных, можно приступить к подключению этой базы данных к внешнему Web-интерфейсу.
+      </p>
+      <p>Чтобы получить доступ к базе данных из Web, используя PHP, надо сделать
+        следующие основные шаги:
+      </p>
+      <ul>
+        <li>Подключение к серверу MySQL.
+        </li>
+        <li>Выбор базы данных.
+        </li>
+        <li>Выполнение запроса к базе данных:
+          <ul>
+            <li><strong>добавление</strong>;
+            </li>
+            <li><strong>удаление</strong>;
+            </li>
+            <li><strong>изменение</strong>;
+            </li>
+            <li><strong>поиск</strong>;
+            </li>
+            <li><strong>сортировка</strong>.
+            </li>
+          </ul>
+        </li>
+        <li>Получение результата запроса.
+        </li>
+        <li>Отсоединение от базы данных.
+        </li>
+      </ul>
+      <p>Для подключения к серверу базы данных в PHP есть функция
+        <b>mysql_connect( )</b>. Ее аргументы: имя компьютера, имя пользователя и пароль.
+        Эти аргументы можно опустить. По умолчанию имя компьютера = localhost,
+        тогда имя пользователя и пароль не требуется. Если PHP используется в сочетании
+        с сервером Apache, то можно воспользоваться функцией <b>mysql_pconnect()</a></b>.
+        В этом случае соединение с сервером не исчезает после завершения работы
+        программы или вызова функции <b>mysql_close()</a></b>.
+        Функции <b>mysql_connect()</a></b> и <b>mysql_pconnect()</a></b> возвращают
+        идентификатор подключения, если все прошло успешно. Например:
+      </p>
+      <pre class="code">$link = mysql_pconnect ();
+  if ( !$link ) die ("Невозможно подключение к MySQL");
+  </pre>
+      <p>После того, как соединение с сервером MySQL установлено, нужно выбрать
+        базу данных. Для этого используется функция <b>mysql_select_db()</a></b>.
+        Ее аргумент: имя базы данных. Функция возвращает true, если указанная
+        база данных существует и доступ к ней возможен. Например:
+      </p>
+      <pre class="code">$db = "sample";
+  mysql_select_db ( $db ) or die ("Невозможно открыть $db");
+  </pre>
+      <p>Для добавления, удаления, изменения и выбора данных нужно сконструировать и
+        выполнить запрос SQL. Для этого в языке PHP существует функция
+        <b>mysql_query()</a></b>. Ее аргумент: строка с запросом.
+        Функция возвращает идентификатор запроса.
+      </p>
+      <h4>Пример 1</h4>
+
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+  &lt;title&gt;Добавление записи в таблицу&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+  $db = "sample";
+  $link = mysql_pconnect ();
+  if ( !$link )
+     die ("Невозможно подключение к MySQL");
+  mysql_select_db ( $db ) or die ("Невозможно открыть $db");
+  $query = "INSERT INTO books
+            VALUES ('966-7393-80-1', 'Аллен Вайк',
+            'PHP. Справочник', '213', '4')";
+  mysql_query ( $query );
+  mysql_close ( $link );
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+
+      <p>При каждом выполнении примера 1 в таблицу будет добавляться новая запись,
+        содержащая одни и те же данные. Разумеется имеет смысл добавлять в базу данные,
+        введенные пользователем.
+      </p>
+      <p>В примере 2.1 приведена HTML-форма для добавления новых книг в базу данных.
+
+      </p>
+      <h4>Пример 2.1</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;HTML-форма добавления новых книг&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form aсtion="insert_book.php" method="post"&gt;
+      &lt;table&gt;
+          &lt;tr&gt;&lt;td&gt;ISBN&lt;/td&gt;&lt;td&gt;&lt;input name="isbn" maxlength=13 size=13&gt;&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;Автор&lt;/td&gt;&lt;td&gt;&lt;input name="author" maxlength=30 size=30&gt;&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;Название&lt;/td&gt;&lt;td&gt;&lt;input name="title" maxlength=60 size=30&gt;&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;Цена&lt;/td&gt;&lt;td&gt;&lt;input name="price" maxlength=7 size=7&gt;&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;Количество&lt;/td&gt;&lt;td&gt;&lt;input name="quantity" maxlength=3 size=3&gt;&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td colspan=2&gt;&lt;input type="submit" value="Ввод"&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;/table&gt;
+  &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <p>Результаты заполнения этой формы передаются в insert_book.php.
+
+      </p>
+      <h4>Пример 2.2</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Программа добавления новых книг (файл insert_book.php)&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+  if (!isset($_POST['isbn']) || !isset($_POST['author']) ||
+      !isset($_POST['title']) || !isset($_POST['price']) ||
+      !isset($_POST['quantity'])){
+          die ("Не все данные введены.&lt;br&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;            Пожалуйста, вернитесь назад и закончите ввод");
+  }
+  $isbn   = trim ( $_POST['isbn'] );
+  $author = trim ( $_POST['author'] );
+  $title  = trim ( $_POST['title'] ) ;
+  $isbn   = addslashes ( $isbn );
+  $author = addslashes ( $author );
+  $title  = addslashes ( $title ) ;
+  $db = "sample";
+  $link = mysql_connect();
+  if ( !$link ) die ("Невозможно подключение к MySQL");
+  mysql_select_db ( $db ) or die ("Невозможно открыть $db");
+  $query = "INSERT INTO books VALUES ('"
+      .$isbn."', '".$author."', '".$title."', '"
+      .floatval($_POST['price'])."', '".intval($_POST['quantity'])."')";
+  $result = mysql_query ( $query );
+  if ($result) echo "Книга добавлена в базу данных.";
+  mysql_close ( $link );
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+      <p>В примере 2.2 введенные строковые данные обработаны функцией
+        <b>addslashes()</a></b>. Эта функция добавляет обратные слеши перед одинарными
+        кавычками ('), двойными кавычками ("), обратным слешем (\) и null-байтом.
+        Дело в том, что по требованиям систаксиса запросов баз данных такие символы
+        дожны заключаться в кавычки.
+      </p>
+      <p>Для определения количества записей в результате запроса используется
+        функция <b>mysql_num_rows()</a></b>.
+      </p>
+      <p>Все записи результата запроса можно просмотреть в цикле.
+        Перед этим с помощью функции <b>mysql_fetch_[]</a></b> для каждой записи
+        получают ассоциативный массив.
+      </p>
+      <p>В примере 3.1 приведена HTML-форма для поиска определенных книг в базе данных.
+      </p>
+      <h4>Пример 3.1</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;HTML-форма поиска книг&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form aсtion="search_book.php" method="post"&gt;
+      Ищем по:&lt;br&gt;
+      &lt;select name="searchtype" size=3&gt;
+          &lt;option value="author" selected&gt;Автору
+          &lt;option value="title"&gt;Названию
+          &lt;option value="isbn"&gt;ISBN
+      &lt;/select&gt; &lt;br&gt;
+      Что ищем:&lt;br&gt; &lt;input name="searchterm"&gt; &lt;br&gt;
+      &lt;input type=submit value="Поиск"&gt;
+  &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+      <p>Результаты заполнения этой формы передаются в search_book.php.
+      </p>
+      <h4>Пример 3.2</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Программа поиска книг (файл search_book.php)&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+  $searchterm = trim ( $_POST['searchterm'] );
+  if (!$searchterm)
+      die ("Не все данные введены.&lt;br&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;Пожалуйста, вернитесь назад и закончите ввод");
+  $searchterm = addslashes ($searchterm);
+  $link = mysql_pconnect ();
+  if ( !$link ) die ("Невозможно подключение к MySQL");
+  $db = "sample";
+  mysql_select_db ( $db ) or die ("Невозможно открыть $db");
+  $query = "SELECT * FROM books WHERE "
+      .$_POST['searchtype']." like '%".$searchterm."%'";
+  $result = mysql_query ( $query );
+  $n = mysql_num_rows ( $result );
+  for ( $i=0; $i&lt;$n; $i++ )
+  {
+      $row = mysql_fetch_array($result);
+      echo "&lt;p&gt;&lt;b&gt;".($i+1). $row['title']. "&lt;/b&gt;&lt;br&gt;";
+      echo "Автор: ".$row['author']."&lt;br&gt;";
+      echo "ISBN: ".$row['ISBN']."&lt;br&gt;";
+      echo "Цена: ".$row['price']."&lt;br&gt;";
+      echo "Количество: ".$row['quantity']."&lt;/p&gt;";
+  }
+  if ( $n == 0 ) echo "Ничего не можем предложить. Извините";
+  mysql_close ( $link );
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <h4>Альтернативный вариант</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Программа поиска книг (файл search_book.php)&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?
+  $searchterm=trim ( $_POST['searchterm'] );
+  if (!$searchterm)
+      die ("Не все данные введены.&lt;br&gt;Пожалуйста, вернитесь назад и закончите ввод");
+  $searchterm = addslashes ($searchterm);
+  mysql_connect() or  die ("Невозможно подключение к MySQL");
+  mysql_select_db ( "sample" ) or die ("Невозможно открыть  БД");
+  $result = mysql_query ( "SELECT * FROM books WHERE ".$_POST['searchtype']." like '%".$searchterm."%'" );
+  $i=1;
+  while($row = mysql_fetch_array($result))
+  {
+     echo "&lt;p&gt;&lt;b&gt;".($i++) . $row['title']."&lt;/b&gt;&lt;br&gt;";
+     echo "Автор: ".$row['author']."&lt;br&gt;";
+     echo "ISBN: ".$row['ISBN']."&lt;br&gt;";
+     echo "Цена: ".$row['price']."&lt;br&gt;";
+     echo "Количество: ".$row['quantity']."&lt;/p&gt;";
+  }
+  if ( $i == 1 ) echo "Ничего не можем предложить. Извините";
+  mysql_close( );
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <p>Итак, как работает архитектура Web-баз данных:
+      </p>
+      <ol>
+        <li>Web-браузер пользователя выдает HTTP-запрос определенной Web-страницы.
+          Например, пользователь, используя HTML-форму, ищет все книги о PHP. Страница
+          обработки формы называется search_book.php.
+        </li>
+        <li>Web-сервер принимает запрос на search_book.php, извлекает этот файл и
+          передает на обработку механизму PHP.
+        </li>
+        <li>PHP выполняет соединение с MySQL-сервером и отправляет запрос.
+        </li>
+        <li>Сервер принимает запрос к базе данных, обрабатывает его и отправляет
+          результат (список книг) обратно механизму PHP.
+        </li>
+        <li>Механизм PHP завершает выполнение сценария,
+          форматирует результат запроса в HTML. После этого результат в виде
+          HTML возвращается Web-серверу.
+        </li>
+        <li>Web-сервер пересылает HTML в браузер, и пользователь имеет возможность
+          просмотреть запрошенный список книг.
+        </li>
+      </ol>
+
+
+      <h3>Использование механизма транзакций</h3>
+      <p>Использование механизма транзакция на примере как передать деньги от одного человека другому</p>
+      <pre class="code">if(
+      mysql_query ("BEGIN") &amp;&amp;
+      mysql_query ("UPDATE money SET amt = amt - 6 WHERE name = 'Eve'") &amp;&amp;
+      mysql_query ("UPDATE money SET amt = amt + 6 WHERE name = 'Ida'") &amp;&amp;
+      mysql_query ("COMMIT")
+  ){
+      echo "Успешно";
+  }else{
+      mysql_query ("ROLLBACK");
+      echo "Не успешно";
+  }</pre>
+
+
+      <h3>SELECT … FOR UPDATE</h3>
+      <p>Если Вы запускаете несколько процессов, которые делают select запрос к одной и той же таблице, то они могут
+        выбрать одну и ту же запись одновременно.</p>
+      <p>Чтобы избежать вышеупомянутой ситуации необходимо выполнить не просто SELECT запрос, а его расширенную версию,
+        о
+        которой многие и не подозревают: SELECT … FOR UPDATE.</p>
+
+      <p>Таким образом, при выполнении данного запроса, все затронутые записи в базе данных будут заблокированы до
+        завершения сеанса работы с БД или до момента обновления данных записей.
+        Другой скрипт не сможет выбрать заблокированные записи до тех пор, пока не наступит одно из упомянутых условий.
+      </p>
+
+      <p>Однако не всё так просто. Вам нужно выполнить ещё несколько условий. Во-первых, ваша таблица должна быть
+        создана
+        на основе архитектуры InnoDB.
+        В противном случае блокировка просто не будет срабатывать. Во-вторых, перед выполнением выборки необходимо
+        отключить авто-коммит запроса.
+        Т.е. другими словами автоматическое выполнение запроса. После того как вы укажите UPDATE запрос,
+        необходимо будет ещё раз обратиться к базе и закоммитить изменения с помощью команды COMMIT:</p>
+      <pre class="code">mysql_query("SET autocommit = 0");
+  $result = mysql_query("SELECT * FROM table WHERE locked = 0 LIMIT 1 FOR UPDATE");
+
+  $row = mysql_fetch_assoc($result);
+
+  mysql_query("UPDATE table SET locked = 1 WHERE id = 1;");
+  mysql_query("COMMIT;");</pre>
+      <p>Представьте что у нас есть 2 записи в таблице. Мы запускаем два параллельных скрипта с данным содержанием.
+        В результате, первый процесс, который сможет достучаться до базы сделает выборку записи и сразу же заменит
+        значение в поле locked на 1.
+        В результате второй скрипт проигнорирует первую запись. В данном случае, даже если скрипты достучались бы до БД
+        одновременно,
+        второй скрипт всё равно не смог бы выбрать первую запись, т.к. при выборке первым процессом она будет
+        заблокирована.</p>
+      <button type="button" class="button"><a class="button__link" href="php8.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="php10.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Движение и перетаскивание</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>JavaScript Движение и перетаскивание</h1>
+      <p><em>Цель работы:</em>&nbsp;изучить методы создания сценариев для автоматического движения объектов по заданной
+        траектории и для перетаскивания объектов мышкой.</p>
+      <h3>Движение</h3>
+      <p>Для управления движением объекта используются:</p>
+      <ul>
+        <li>метод&nbsp;<em>имя процесса= setInterval(выражение,период)</em>&nbsp;объекта window, запускающий процесс
+          циклического выполнения выражения (функции);</li>
+        <li>метод&nbsp;<em>clearInterval(имя процесса)</em>&nbsp;объекта window, останавливающий процесс.</li>
+      </ul>
+      <p>Методом&nbsp;<em>setInterval(выражение, период)</em>&nbsp;запускается процесс, состоящий в циклическом
+        выполнении
+        заданного в первом параметре выражения с периодом, заданным во втором параметре. Процесс останавливается
+        методом&nbsp;<em>clearInterval(имя процесса)</em>. В качестве выражения обычно используется функция. Скрипт,
+        задающий движение фотографии по диагонали экрана, приведён в примере 5.1.</p>
+      <p><strong>Пример 5.1</strong></p>
+      <pre class="code">&lt;HTML&gt;&nbsp;
+  &lt;HEAD&gt;&lt;TITLE&gt;Движение фотографии&lt;/TITLE&gt;&nbsp;
+  &lt;/HEAD&gt;&nbsp;
+  &lt;BODY &gt;&nbsp;
+  &lt;BUTTON ID="B1" onclick=Start_stop()&nbsp;
+  STYLE="position:absolute; left:300;top:5"&gt;&nbsp;
+  Запустить&lt;/button&gt;&nbsp;
+  &lt;IMG ID="lv" src="LV.jpg"&nbsp;
+  STYLE="position:absolute;top:0;left:20"&gt;&nbsp;
+  &lt;/BODY&gt;&nbsp;
+  &lt;SCRIPT&gt;&nbsp;
+  dx=8;&nbsp;
+  dy=3&nbsp;
+  st=false //остановить процесс&nbsp;
+  function Start_stop()&nbsp;
+  { if(st)&nbsp;
+  &nbsp; { window.clearInterval(proc) //остановиться&nbsp;
+  &nbsp; &nbsp; st=false //заменить надпись на кнопке с именем В1&nbsp;
+  &nbsp; &nbsp; document.all.B1.innerHTML="Запустить"&nbsp;
+  &nbsp; }&nbsp;
+  &nbsp; else //двигаться (запустить процесс с именем proc)&nbsp;
+  &nbsp; { proc=window.setInterval("move()",100)
+  st=true&nbsp;
+  //заменить надпись на кнопке с именем В1&nbsp;
+  document.all.B1.innerHTML="Стоп"&nbsp; }&nbsp;
+  }&nbsp;
+  function move()&nbsp;
+  { //ордината верхнего края фотографии (переведено
+  //в тип INTEGER)&nbsp;
+  var y=parseInt(document.all.lv.style.top)&nbsp;
+  //абсцисса левого края фотографии&nbsp;
+  var x=parseInt(document.all.lv.style.left)&nbsp;
+  document.all.lv.style.top=y+dy //Перемещение по OY&nbsp;
+  document.all.lv.style.left=x+dx //Перемещение по OX
+  }&nbsp;
+  &lt;/script&gt;&nbsp;
+  &lt;/HTML&gt;</pre>
+      <p>В исходном состоянии фотография находится в верхнем левом углу экрана. Для запуска и остановки движения служит
+        кнопка. Надпись на кнопке меняется. Если фотография неподвижна,то на кнопке написано&nbsp;<em>Запустить</em>,
+        при движении &ndash;<em>Стоп</em>.</p>
+      <p>В браузере Internet Explorer надпись на кнопке можно изменить с помощью свойства innerText:</p>
+      <pre class="code">document.all.B1.innerText="Запустить"&nbsp;
+  document.all.B1.innerText= "Стоп"</pre>
+      <p>Браузер Mozilla Firefox не поддерживает свойство innerText, поэтому в примере использовано свойство innerHTML,
+        поддерживаемое обоими браузерами. При нажатии кнопки выполняется функция Start_stop, служащая для запуска или
+        остановки процесса proc. Если proc запущен, то через каждые 100 мсек вызывается функция move, перемещающая
+        фотографию на 8 пикселей вправо и на 3 вниз.</p>
+      <p><strong>Задача 5.1</strong>. Напишите сценарий перемещения цветного квадрата по кругу. Траекторию удобно
+        описывать параметрическими уравнениями:</p>
+      <pre class="code">y=R*sin(t) ,&nbsp;
+  где: R&ndash; радиус круга, 0 &lt;= t &lt;= 2</pre>
+      <p>Квадратом может служить контейнер&nbsp;<em>&lt;DIV&gt; &hellip;&lt;/div&gt;</em>&nbsp;с цветным фоном.</p>
+      <h3>Перетаскивание</h3>
+      <p>В сценариях для перетаскивания какого-либо предмета по окну браузера используется
+        событие&nbsp;<em>onmousemove</em>. Рассмотрим два варианта сценария, в которых используется
+        событие&nbsp;<em>onmousemove</em>. В обоих сценариях пользователь может мышкой передвигать фотографию по всему
+        окну браузера. Первый вариант сценария (пример 5.2) применим только в браузере Internet Explorer. Второй вариант
+        (пример 5.3) правильно выполняется в браузерах Internet Explorer 6.0 и MozillaFirefox 2.0, но он сложнее для
+        понимания.</p>
+      <p><strong>Пример 5.2.</strong></p>
+      <pre class="code">&lt;HTML&gt;&nbsp;
+  &lt;HEAD&gt;&lt;TITLE&gt;ПЕРЕМЕЩЕНИЕ ИЗОБРАЖЕНИЯ МЫШКОЙ&nbsp;
+  &lt;/TITLE&gt; &lt;/HEAD&gt;&nbsp;
+  &lt;BODY id="body1" STYLE="font-size:12pt"&gt;&nbsp;
+  &lt; H2 align= "center"style= "color:#ff00ff"&gt;&nbsp;
+  Перетаскивание фотографии мышкой&lt;/h2&gt;&nbsp;
+  &lt;P align= "center"&gt;&nbsp;
+  Фотография начинает двигаться при попадании на неё курсора мышки&lt;BR&gt; При захвате и перемещении фотографии не нажимайте кнопки мышки.&lt;BR&gt; Для прекращения движения щёлкните левой кнопкой мышки&lt;/p&gt;&nbsp;
+  &lt;P align= right&gt; Примечание. Страница правильно отображается тольков браузере &lt;i&gt;InternetExplorer 6.0&lt;/i&gt;&lt;/p&gt; &lt;img id= "IM1" src= "LV.jpg"" STYLE= "position:absolute;top:200;left:10"&gt;&nbsp;
+  &lt;/BODY&gt;&nbsp;
+  &lt;SCRIPT&gt; flag= false //запрет на перемещения&nbsp;
+  // Функция запускается припересечении&nbsp;
+  // курсором мышки границы изображения&nbsp;
+  function IM1.onmouseover()&nbsp;
+  {flag= true }&nbsp;
+  // Перетаскивание разрешено //&nbsp;
+  function IM1.onmousemove()&nbsp;
+  { if (flag)&nbsp;
+  &nbsp;{ //пересчёткоординатизображения
+  document.all.IM1.style.top= event.clientY-170&nbsp;
+  document.all.IM1.style.left=event.clientX-120&nbsp;}&nbsp;
+  }//запрет на перемещения. Запускается при отпускании кнопки мышки&nbsp;
+  function IM1.onclick()&nbsp;
+  {flag=false }&nbsp;
+  &lt;/SCRIPT&gt;&nbsp;
+  &lt;SCRIPT language="JavaScript" src="ProvBrows.js"&gt;&nbsp;
+  &lt;/script&gt;&nbsp;
+  &lt;/HTML&gt;</pre>
+      <p>В примере 5.2 попадание курсора мышки на фотографию служит сигналом к началу перемещения. При дальнейшем
+        перемещении курсора мышки фотография передвигается вместе с ним.Пользователь при перемещении фотографии не
+        должен нажимать на кнопки мышки,так как нажатие на левую кнопку остановит движение и курсор можно будет убрать с
+        фотографии. Нажатие правой кнопки кроме прекращения движения вызывает всплытие меню.</p>
+      <p>В сценарии используются три функции:</p>
+      <ul>
+        <li><em>IM1.onmouseover()</em>&nbsp;для запуска процесса перетаскивания;</li>
+        <li><em>IM1.onmousemove</em>&nbsp;для перетаскивания;</li>
+        <li><em>IM1.onclick()</em>&nbsp;для прекращения перетаскивания.</li>
+      </ul>
+      <p>Все три функции имеют специальные имена. IM1.onmouseоver() означает, что эта функция выполняется, когда на
+        объекте с&nbsp;<em>ID=IM1</em>&nbsp;происходит событие onmouseоver(). Для функций со специальным именами не
+        нужны операторы вызова.</p>
+      <p>Функция IM1.onmousemove() выполняется циклически в течение всего времени нахождения курсора мышки в площади
+        фотографии. Так как частота выполнения функции не бесконечная, то при резком движении мышкой можно сорвать
+        курсор с фотографии и прекратить перетаскивание, но такое завершение процесса неудобно. Для управления процессом
+        перетаскивания предназначена логическая переменная flag. Если щёлкнуть кнопкой мышки по фотографии, то
+        выполнится функция IM1.onclick(), переменная flag примет значение false и функция IM1.onmousemove() прекратит
+        менять координаты фотографии. Можно будет убрать курсор с фотографии. Если снова хотя бы коснуться курсором
+        фотографии, то выполнится функция IM1.onmouseover(), переменная flag примет значении true и перетаскивание
+        возобновится.</p>
+      <p>Во втором варианте сценария (пример5.3) неиспользуются функции со специальными именами.</p>
+      <p><strong>Пример 5.3</strong></p>
+      <pre class="code">&lt;html&gt;&nbsp;
+  &lt;head&gt;&lt;title&gt;Перетаскивание&lt;/title&gt;&lt;/head&gt;&nbsp;
+  &lt;body onload= "init()"&gt;&nbsp;
+  &lt;h2 align= "center" style="color:#ff00ff"&gt;&nbsp;
+  Перетаскиваниеквадрата мышкой&lt;/h2&gt; &lt;h3&gt;align="center"&gt;&nbsp;
+  Установите курсор внутри красногоквадрата, нажмите левую кнопку&nbsp;
+  мышки и тащите квадрат.&lt;BR&gt; Для освобождения квадрата&nbsp;
+  от захвата отпустите кнопку мышки&lt;/h3&gt;&nbsp;
+  &lt;P align= right&gt; Примечание. Страница правильно&nbsp;
+  отображается в браузерах &lt;i&gt;Mozilla Firefox 2.0&lt;/i&gt;&nbsp;
+  и &lt;i&gt;Internet Explorer 6.0 &lt;/i&gt; &lt;/p&gt;&nbsp;
+  &lt;DIV id= 'kv' style=&nbsp;
+  "position:absolute;left:10;top:10;width:50;height:50;background-color:red"&gt;&nbsp;
+  &lt;/div&gt;&nbsp;
+  &lt;/body&gt;&nbsp;
+  &lt;SCRIPT&gt;&nbsp;
+  flag= false; //Связывание событий с функциями&nbsp;
+  function init()&nbsp;
+  { &nbsp; //Если мышка двигается то выполняется ф-ция dragIt
+  document.all.kv.onmousemove= dragIt&nbsp;
+  //Если кнопка мышки отпускается, то - ф-ция osvobodi&nbsp;
+  document.all.kv.onmouseup= osvobodi&nbsp;
+  document.all.kv.onmousedown=zachvat
+  }&nbsp;
+  function dragIt(evt)&nbsp;
+  { &nbsp; Параметр evt создаётся самим браузером
+  sobytie=(evt) ? evt :(window.event) ?window.event : "";&nbsp;
+  if(flag)&nbsp;
+  { &nbsp; document.all.kv.style.top=sobytie.clientY-25;&nbsp;
+  &nbsp; &nbsp; document.all.kv.style.left=sobytie.clientX-25; &lt;&nbsp; }&nbsp;
+  }&nbsp;
+  function osvobodi()&nbsp;
+  { &nbsp; flag=false;//устанавливается запрет на перетаскивание&nbsp;
+  }&nbsp;
+  function zachvat()&nbsp;
+  { flag=true;//Перетаскивание разрешается&nbsp;
+  }&nbsp;
+  &lt;/SCRIPT&gt;&nbsp;
+  &lt;/html&gt;</pre>
+      <p>В отличие от первого варианта во втором явно вызывается одна функция. Строка</p>
+      <p>&lt;bodyonload ="init()"&gt;</p>
+      <p>предписывает при загрузке HTML-документа вызвать функцию init(). В результате выполнения функции init()
+        события,
+        происходящие с объектом, имеющим идентификатор kv, будут вызывать выполнение функций dragIt, osvobodi и zachvat.
+        Объект kv &ndash; это контейнер &lt;DIV&gt;, задающий красный квадрат, перетаскиваемый мышкой.</p>
+      <p>Функция zachvat(), разрешающая начать перетаскивание, выполняется при нажатии кнопки мышки на квадрате, то есть
+        когда происходит событие onmousedown. Функция osvobodi() выполняется при отпускании кнопки мышки (событие
+        onmouseup) и запрещает перетаскивание.</p>
+      <p>Функция dragIt(evt) связана с событием onmousemove и поэтому циклически выполняется в течение всего времени
+        нахождения курсора мышки на фотографии. Параметр evt &ndash; это объект события, созданный в ответ на действие
+        пользователя. В Internet Explorer объект события имеет обозначение window.event или просто event. В Mozilla
+        Firefox объект события обозначается как evt. Для совместимости обоих случаев служит условный оператор</p>
+      <p>sobytie = (evt) ? evt : window.event;</p>
+      <p>или в более привычной форме</p>
+      <pre class="code">if(evt) sobytie=evt&nbsp;else sobytie=window.event</pre>
+      <p><strong>Задача 5.2</strong>. Измените последний пример так, чтобы красный квадрат можно было перемещать внутри
+        серого квадрата размером 500х500 пикселей.</p>
+      <button type="button" class="button"><a class="button__link" href="javascript4.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="javascript6.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

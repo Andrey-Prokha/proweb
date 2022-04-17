@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Совместимость браузеров</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>JavaScript Совместимость браузеров</h1>
+      <p><em>Цель работы</em>: освоить приёмы создания таких страниц, которые можно было бы просматривать браузерами
+        разных типов.</p>
+      <p>Для разработчиков веб-сайтов было бы идеальным строгое соблюдение стандарта W3C DOM во всех типах и версиях
+        браузеров. К сожалению, даже в самых последних версиях браузеров стандарт объектной модели поддерживается не
+        полностью. В объектные модели браузеров вводятся объекты, события, свойства и методы, отсутствующие в стандарте.
+        Поэтому создание страниц, правильно отображаемых браузерами разных типов, представляет собой очень сложную
+        задачу. В самом простом случае сайт тщательно отлаживается только на браузере одного типа и одной версии, а
+        пользователи всех других браузеров при открытии сайта получают предупреждение об отсутствии гарантий правильного
+        отображения сайта. Такой подход вполне приемлем для информационной системы, используемой одной организацией,
+        например, банком, имеющим свою сеть Интранет.</p>
+      <h3>Свойства браузеров и объект Navigator</h3>
+      <p>Данные о браузере хранит объект navigator. Чтобы вывести в окно браузера свойство appName (имя браузера), можно
+        написать такой оператор:</p>
+      <pre class="code">document.getElementById("P1").innerHTML= "appName = " + window.navigator.appName&nbsp;
+  //P1 &ndash; ID контейнера, в который будет выведено имя браузера</pre>
+      <p>Если страница предназначена для выполнения только одним браузером, то можно при её загрузке проверять имя
+        браузера (appName). Если браузер не подходит, то нужно предупредить пользователя о том, какой браузер необходим
+        для просмотра этой страницы.</p>
+      <p><strong>Задача 6.1</strong>. Напишите сценарий, выводящий в окно браузера следующие свойства объекта navigator:
+      </p>
+      <ul>
+        <li>appName,</li>
+        <li>appCodeName,</li>
+        <li>appVersion ,</li>
+        <li>userAgent,</li>
+        <li>browserLanguage,</li>
+        <li>cookieEnabled.</li>
+      </ul>
+      <p>Выполните этот сценарий во всех браузерах, установленных на вашем компьютере. Внимательно изучите полученные
+        значения свойств объекта navigator.</p>
+      <p><strong>Задача 6.2</strong>. Напишите сценарий, который определяет имя браузера. Если загрузка произошла в
+        любом
+        браузере кроме Internet Explorer, то пользователь должен быть предупреждён о том, что страница правильно
+        отображается только в браузере Internet Explorer. Поместите написанный сценарий в отдельный файл с расширением
+        js. Скопируйте в свой каталог пример 2.3, который правильно отображается только в браузере Internet Explorer.
+        Вставьте в скопированный пример тег &lt;SCRIPT ... &gt; для загрузки файла со скриптом. Проверьте пример в
+        браузерах Internet Explorer и Mozilla.</p>
+      <h3>Способы преодоления несовместимости браузеров</h3>
+      <p>Способов создания сценариев, правильно выполняющихся во всех существующих браузерах, нет. Рассмотрим некоторые
+        различия объектных моделей, используемых в браузерах Internet Explorer и Mozilla, и типовые приёмы учёта этих
+        различий. Браузер Mozilla не поддерживает свойство innerText, поэтому для совместимости следует использовать
+        более универсальное свойство innerHTML. В браузерах Internet Explorer и Mozilla используются разные модели
+        события. В Internet Explorer объект event доступен как свойство объекта window (window.event). Объект window
+        указывать не обязательно. Схема доступа к элементу, на котором произошло событие, выглядит так :</p>
+      <pre class="code">&lt;BODY onclick=cl_b()&gt;&nbsp;
+  .......
+  .......&nbsp;
+  &lt;script&gt;
+  .......
+  ......&nbsp;
+  function cl_b()&nbsp;
+  { event.srcElement.style.background='AAAAFF'&nbsp;
+  .......
+  .......</pre>
+      <p>В приведённом примере меняется цвет фона того элемента, по которому щёлкнули мышкой. Эта схема доступа
+        использована в примере 2.3.</p>
+      <p>В браузере Mozilla объект event передаётся в качестве параметра в функцию, обрабатывающую событие (пример 6.1).
+        Вместо свойства srcElement для хранения объекта, с которым произошло событие, используется свойство target.
+        Модель HTML-документа в стандарте W3C DOM строится в виде дерева, состоящего из узлов (node). Преимущественно
+        используются узлы двух типов &ndash; узлы элементов и текстовые узлы. Узел элемента соответствует элементу
+        документа, а текстовый узел &ndash; тексту, введённому между тегами элемента. Узел, содержащий другие узлы,
+        называется родительским (parentNode). В родительском узле содержатся дочерние узлы. Текстовый узел всегда
+        дочерний.</p>
+      <p><strong>Пример 6.1.</strong></p>
+      <pre class="code">&lt;HTML&gt;&nbsp;
+  &lt;HEAD&gt;&nbsp;
+  &lt;meta http-equiv="Content-Type" content="text/html; charset=windows-1251"&gt;&nbsp;
+  &lt;SCRIPT language="JavaScript" src="ProvBrowsMaz.js"&gt;&nbsp;
+  &lt;SCRIPT&gt;&nbsp;
+  function colorch(col,evt)&nbsp;
+  { evt.target.style.color=col; }&nbsp;
+  function cl_b(evt)&nbsp;
+  { var elem = (evt.target.nodeType== 3)? evt.target.parentNode : evt.target;
+  if(elem.style.background.substring(0,6)=='yellow')&nbsp;
+  { elem.style.background='#AAAAFF'; }&nbsp;
+  else {elem.style.background='yellow';}}&nbsp;
+  &lt;/script&gt;&nbsp;
+  &lt;/HEAD&gt;&nbsp;
+  &lt;BODY onclick=cl_b(event) style="height:600px"&gt;&nbsp;
+  &lt;P onmouseover="colorch('red',event)"&nbsp;
+  onmouseout= "colorch('green',event)" ALIGN = 'CENTER'&nbsp;
+  style = 'color:green'&gt;&nbsp;
+  ТЕКСТ, МЕНЯЮЩИЙ СВОЙ ЦВЕТ &lt;/P&gt;&nbsp;
+  &lt;P&gt;При наведении и снятии курсора заголовок меняет свойцвет.&lt;BR&gt;&nbsp;
+  Щелчок по любому объекту меняет его цвет&lt;/p&gt; &lt;&nbsp;
+  DIV style = "position :absolute;top:200;left:300;width:200;height:100; background-color:green;color:red"&gt; &lt;b&gt;Контейнер&lt;/b&gt;&nbsp;
+  DIV&lt;/div&gt; &lt;/BODY&gt;&lt;/HTML&gt;</pre>
+      <p>В примере 6.1 в функцию cl_b() передаётся только объект event, а в функцию colorch() &ndash; два параметра.
+        Параметр event должен быть в списке параметров последним. Текстовый узел имеет свойство nodeType= 3. В примере
+        меняется цвет фона родительского узла, содержащего текстовый узел.</p>
+      <p>Пример 6.1 легко переделать так,что он будет правильно выполняться в браузерах обоих типов (пример6.2).
+        Изменения
+        нужно внести только в сценарий. Для настройки на браузер служит функция brows(evt).</p>
+      <p><strong>Пример 6.2.</strong></p>
+      <pre class="code">&lt;HTML&gt;&nbsp;
+  &lt;HEAD&gt;&lt;TITLE&gt;Internet Explorer и Mozilla&lt;/TITLE&gt;&nbsp;
+  &lt;meta http-equiv="Content-Type" content="text/html; charset=windows-1251"&gt;&nbsp;
+  &lt;SCRIPT&gt;&nbsp;
+  functioncolorch(col,evt)&nbsp;
+  { e=brows(evt)&nbsp;
+  &nbsp; e.style.color=col;&nbsp;
+  }&nbsp;
+  function cl_b(evt)&nbsp;
+  { elem=brows(evt)&nbsp;
+  &nbsp; varx="";&nbsp;
+  &nbsp; x=elem.style.background&nbsp;
+  &nbsp; if(x.substring(0,6) == 'yellow')&nbsp;
+  &nbsp; { elem.style.background = '#AAAAFF'; }&nbsp;
+  &nbsp; else&nbsp;
+  &nbsp; { elem.style.background = 'yellow';}&nbsp;
+  }&nbsp;
+  function brows(evt)//Настройка на браузер&nbsp;
+  { evt=(evt) ? evt:window.event;&nbsp;
+  &nbsp; if(evt.target)&nbsp;
+  &nbsp; { elem =(evt.target.nodeType ==3) ?&nbsp;
+  &nbsp; evt.target.parentNode :evt.target;&nbsp;
+  &nbsp; }&nbsp;
+  &nbsp; else elem= evt.srcElement;&nbsp;
+  &nbsp; return elem;&nbsp;
+  }&nbsp;
+  &lt;/script&gt;&nbsp;
+  &lt;/HEAD&gt;&nbsp;
+  &lt;BODY onclick=cl_b(event) style="height:600px"&gt;&nbsp;
+  &lt;P onmouseover="colorch('red',event)" onmouseout="colorch('green',event)"&nbsp;
+  ALIGN= 'CENTER'style='color:green'&gt;&nbsp;
+  ТЕКСТ, МЕНЯЮЩИЙ СВОЙ ЦВЕТ&nbsp;
+  &lt;/P&gt;&lt;P&gt;При наведении и снятии курсора заголовок меняет свой&nbsp;
+  &nbsp; цвет.&lt;BR&gt;&nbsp;
+  Щелчок по любому объекту меняет его цвет&lt;/p&gt;&nbsp;
+  &lt;DIV style= "position:absolute;top:200;left:300;width:200;&nbsp;
+  height:100;background-color:green;color:red"&gt;&nbsp;
+  &lt;b&gt;Контейнер&lt;/b&gt;DIV&lt;/div&gt;&nbsp;
+  &lt;/BODY&gt;&nbsp;
+  &lt;/HTML&gt;</pre>
+      <p><strong>Задача 6.3</strong>. Измените примеры 2.3, 2.4 и 3.1 так, чтобы они правильно выполнялись не только в
+        Internet Explorer, но и в Mozilla.</p>
+      <button type="button" class="button"><a class="button__link" href="javascript5.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="javascript7.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

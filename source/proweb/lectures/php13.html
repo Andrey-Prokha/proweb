@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHP Оптимизация</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Ускорение PHP-программ</h1>
+
+      <p>Как без особых усилий заставить <strong>PHP</strong>-код работать на порядок
+        <strong>быстрее</strong> ? Перед тем как задаваться вопросами кеширования и
+        масштабирования стоит попробовать оптимизировать код. Есть ряд несложных правил:
+      </p>
+      <ul>
+        <li><strong>Выносите функции и вычисления из циклов.</strong> Такое:
+          <pre class="code">$ar=array(1,2,2,3,4,4);
+  for($i=0;$i&lt;count($ar);$i++){
+      $a=12342+sqrt($b)/12123+$i;
+  }</pre>
+          Замените на
+          <pre class="code">$ar=array(1,2,2,3,4,4);
+  $e=12342+sqrt($b)/12123;
+  $c=count($ar);
+  for($i=0;$i&lt;$c;$i++){
+      $a=$e+$i;
+  }</pre>
+          Альтернативный вариант:
+          <pre class="code">for($i=count($ar)-1;$i&gt;=0;$i--){
+
+  }</pre>
+        </li>
+        <li><strong>Выносите переменные из строк.</strong> Примерно так:<em> <strong>
+              &lt;?php $x="test=".$test; ?&gt;</strong> </em>, это на 25-40% быстрее.</li>
+        <li><strong>Имена переменных должны быть короче 7 символов.</strong> Это
+          быстрее на 15%.</li>
+        <li><strong>В массивах не стоит обращаться к элементам по имени и без
+            кавычек.</strong> Особенно в многомерных. Сэкономите 40%.</li>
+        <li>А если <strong>обращение к элементу массива вынести из строки</strong>
+          <em>(как в пункте 1)</em>, то можно сэкономить ещё 25-30%.
+        </li>
+        <li><strong>Используйте Perl-ориентированные регулярные выражения. </strong>
+          Или хотя бы сравнивайте их с POSIX-аналогами по скорости выполнения.
+          Скорость может отличаться до 200% на разных запросах.</li>
+        <li><strong>SizeOf()</a> быстрее Count()</a></strong>, а в циклах sizeof лучше
+          вообще заменить на переменную, for и while практически не отличимы, <strong>
+            для перебора простых индексных массивов нужно использовать for или while</strong>,
+          а <strong>для ассоциативных массивов - foreach</strong>. Плюс 30% при
+          соблюдении.</li>
+        <li>Для чтения файла <strong>file()</a> быстрее, чем fopen()</a>+цикл</strong>.
+          Ускорение до 40%.</li>
+      </ul>
+
+      <h2>Еще про оптимизацию....</h2>
+      <p>При вставке кусков PHP-кода в HTML страницы всегда используйте полные открывающие и закрывающие скобки &lt;?php
+        и
+        ?&gt;!
+        Это обезопасит Вас от вариаций настройки php.ini short_open_tag на разных серверах и возможно сэкономит много
+        времени
+        при переносе или загрузке проектов на разные сервера.
+
+      </p>
+      <p>Старайтесь использовать функцию вывода echo</a> вместо
+        printf</a> и sprintf</a> там где возможно.
+        Нет надобности использовать эти функции , так как они выполняются медленней потому,
+        что созданы для интерпретации и вывода строки с ее обработкой, подстановкой значений,
+        в отформатированном виде. О чем и говорит буква f в конце названия этих 2-х функций.
+
+      </p>
+      <p>Плохо:
+      </p>
+      <pre class="code">sprintf('мама');
+  printf('папа');</pre>
+
+      <p>Хорошо:
+      </p>
+      <pre class="code">echo 'мама';
+  echo 'папа';</pre>
+
+      <p>По тем же причинам используйте одинарные кавычки там где это возможно и пользуйтесь оператором "." для склейки
+        строк,
+        вместо прямой подстановки переменный в строку, заключенную в кавычки.
+
+      </p>
+      <p>Лучший вариант(самый быстрый)
+
+      </p>
+      <pre class="code">echo 'Вес равен: '.$weight;</pre>
+
+      <p>Худший вариант(медленный):
+
+      </p>
+      <pre class="code">echo "Вес равен: $weight";</pre>
+
+      <p>Если Вам нужно проверить не равно ли возвращенное значение функции нулю
+        (а функция сама по себе возвращает только положительные или только отрицательные значения),
+        то лучше использовать оператор сравнения. Он выполняется быстрей, нежели конкретное сравнение значений.
+
+      </p>
+      <p>Плохо:
+
+      </p>
+      <pre class="code">$i = 0;
+  if ($i != 0)
+   {
+       //Не равно
+   }
+  else
+   {
+       //Равно
+   }</pre>
+
+      <p>Хорошо:
+
+      </p>
+      <pre class="code">$i = 0;
+  if ($i &gt; 0)
+   {
+       //Не равно
+   }
+   else
+   {
+       //Равно
+   }</pre>
+
+      <p>Нужно также учитывать, что если строка принимает только пустое значения,
+        либо пользовательские строковые данные, то вместо сравнения строки со строкой,
+        для выявления ее пустоты, так же можно использовать сравнение с нулем, которые выполнится быстрее.</p>
+
+      <p>Для проверки строки на пустоту используйте функцию trim($str)</a>;
+        Она не только проверит заполнена ли строка,
+        но также обрежет несущественные символы - пробелы (табуляции, white-spaces) и вернет положительное значение,
+        в случае если в строке ей действительно какие то значимые символы.
+
+      </p>
+      <p>Плохо:
+
+      </p>
+      <pre class="code">if ($str != '')
+   {
+       //обработка строки
+   }</pre>
+
+      <p>Надо:
+
+      </p>
+      <pre class="code">if (trim($str))
+   {
+       //обработка строки
+   }</pre>
+
+      <p>Для получения данных из форм методом Get и Post лучше использовать следующий минимальный набор самописных
+        функций:
+
+      </p>
+      <pre class="code">GetParam ($array, $value, $default = '')
+   {
+       return (isset($array[$value])) ? $array[$value] : $default;
+   }
+
+  GetParamSafe ($array, $value, $default = '')
+   {
+       return (isset($array[$value])) ? addslashes($array[$value]) : $default;
+   }</pre>
+
+      <p>Функция GetParam($_POST, 'myvar', 'empty') к примеру коректно получит данные из $_POST['myvar'],
+        и в случае если $_POST переменная не существует вернет значение по умолчанию, без всяких Waring и Notice.
+        Фунция GetParamSafe($_POST, 'myvar', 'empty') делает ту же операцию, только возвращает экранированную
+        переменную.
+        Для защиты от SQL инъекций к примеру. А данная конструкция позволяет получить целочисленное число из $_POST.
+
+      </p>
+      <pre class="code">intval(GetParam($_POST, 'myvar', 'empty')):</pre>
+
+      <p>В случае если в массиве $_POST лежало совсем не число функия вернет 0;
+
+      </p>
+      <p>Для простого сравнения строк не используйте preg_match()</a> или preg_match_all()</a>.
+        Используйте strstr()</a> и strpos()</a>.
+
+      </p>
+      <p>При получении строк из базы данных (MySQL к примеру) старайтесь использовать функцию mysql_fetch_object</a>.
+        К примеру при изменении кода запроса с
+
+      </p>
+      <pre class="code">$query = "SELECT field7, field3 FROM mytable WHERE id = 5"</pre>
+      <p>на</p>
+      <pre class="code">$query = "SELECT * FROM mytable WHERE id = 5"</pre>
+
+      <p>код вывода строки полученной из этих запросов</p>
+
+      <pre class="code">$row = mysql_fetch_array(mysql_query($query));
+  echo $row[0].'--&gt;'.$row[1]; //перестанет работать, в то время, как</pre>
+
+      <pre class="code">$row = mysql_fetch_object(mysql_query($query));
+  echo $row-&gt;field7.'--&gt;'.$row-&gt;field3; // останется работоспособным.</pre>
+
+      <p>При использовании сессий для авторизации на сайте, храните в сессии хотя бы IP-адрес, с которого был совершен
+        вход.
+        Так же проверяйте IP входа с текущим IP адресом каждый раз при выполнении закрытого скрипта.
+        Например если злоумышленнику удастся украсть название сессии, то войти он в закрытую часть уже не сможет.
+        Потому что в общем случае у него будет другой IP-адрес.
+
+      </p>
+      <p>При формировании больших запросов вставки данных в БД через insert все строчки старайтесь поместить в один-три
+        insert'а.
+        Выполнение каждой строчки отдельно не только загрузит сервер БД, но и задержит работу Вашего скрипта.
+
+      </p>
+      <p>В случае если необходимо в разных местах (разных классах) одной системы использовать одни и те же сложно
+        вычисляемые
+        данные (например которые достаются из БД через запрос с последющей обработкой строк),
+        старайтесь их вычислять единожды, хранить глобально для всей системы и передавать в класс(скрипт) один раз,
+        непосредственно при создании класса (подключении скрипта)
+
+      </p>
+      <p>При больших нагрузках на Web-сервер задумайтесь над использованием стандартных решений для включения
+        кэша(кэш-технологии).
+        Например бесплатный PHP класс JCache_Lite_Function.
+
+      </p>
+      <p>При проектировании/разработке больших систем отдавайте предпочтение Объектно-Ориентированному программированию
+        с использование шаблонов проектирования. Наиболее частые шаблоны: MVC, PageController, BodyHandler, Fabric...
+      </p>
+      <button type="button" class="button"><a class="button__link" href="php12.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="php14.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

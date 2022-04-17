@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript События</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>JavaScript События</h1>
+      <p><em>Цель работы</em>&nbsp;&ndash; научиться использовать имеющиеся в модели документа события для внесения
+        изменений в страницу.</p>
+      <p>Наиболее часто в сценариях используется рассмотренное выше событие&nbsp;<em>onclick</em>. Для того чтобы
+        обратить
+        внимание пользователя на определённый элемент HTML-документа, можно менять свойства этого элемент при попадании
+        на
+        него курсора мышки, а при снятии курсора восстанавливать прежние значения свойств. Например, можно менять цвет
+        или
+        размер элемента. Попадание курсора мышки на элемент фиксируется событием&nbsp;<em>onMouseOver</em>. Парное для
+        него событие&nbsp;<em>onMouseOut</em>&nbsp;происходит при снятии курсора мышки с элемента.</p>
+      <p>Другая пара событий&nbsp;<em>onMouseDown</em>&nbsp;и&nbsp;<em>OnMouseUp</em>&nbsp;происходит при нажатии и
+        отпускании левой кнопки мышки. Эту пару событий удобно применять для изменения свойств элементов или замены
+        элементов на время удержания кнопки мышки нажатой.</p>
+      <h3>Реакция на событие в отдельном элементе</h3>
+      <p>Так как в объектной модели объекты могут быть вложены друг в друга, то событие, происходящее в дочернем
+        объекте,
+        одновременно происходит и в родительском объекте. JavaScript предоставляет различные способы локализации влияния
+        события на иерархию объектов. Простейшей способ локализации (пример 2.1) заключается в размещении сценария в
+        теге,
+        на который должно воздействовать событие.</p>
+      <p><strong>Пример 2.1.</strong></p>
+      <pre class="code">&lt;HTML&gt;
+   &lt;BODY&gt;
+   &lt;P align=right ID='alfa'
+   onMouseOver="document.all.alfa.align='center'
+   "onMouseOut="this.align='left'"&gt;
+   События onMouseOver и onMouseOut &lt;/p&gt;
+   &lt;/body&gt;
+   &lt;/html&gt;</pre>
+      <p>Страница в примере 2.1 состоит из одной строки, заключённой в контейнер&nbsp;<em>&lt;P&gt;
+          &hellip;&lt;/p&gt;.</em>&nbsp;В объектной модели страницы событие, происходящее с объектом&nbsp;<em>P</em>,
+        происходит также и с родительским объектом BODY. Чтобы локализовать реакцию на событие только пределами строки,
+        то
+        есть объекта&nbsp;<em>P</em>, сценарий реакции на события помещен в тег&nbsp;<em>&lt;P &gt;.</em></p>
+      <p>В результате исполнения сценария изменяется положение текста на строке. Первоначально строка прижата к правому
+        краю окна. При попадании на неё курсора она выравнивается по центру, а после снятия курсора прижимается к левому
+        краю окна. Для обращения к объекту используется коллекция&nbsp;<em>all</em>, которая правильно воспринимается
+        браузерами Internet Explorer 6.0 и Mozilla Firefox 2.0 . Ключевое слово<em>&nbsp;this</em>&nbsp;означает ссылку
+        на
+        текущий объект.</p>
+      <p>Если при наступлении события нужно произвести много действий, то удобно сценарий написать в виде функции и
+        поместить её отдельно от элемента в специально предназначенный для сценариев контейнер&nbsp;<em>&lt;SCRIPT&gt;
+          &hellip;&lt;/script&gt;.</em>&nbsp;В примере 2.2 каждое из
+        событий&nbsp;<em>onMouseOver</em>&nbsp;и&nbsp;<em>onMouseOut</em>&nbsp;вызывает два действия: выравнивание и
+        изменение цвета текста в строке.</p>
+      <p><strong>Пример 2.2</strong></p>
+      <pre class="code">&lt;HTML&gt;
+   &lt;P
+   align=right ID='alfa' onMouseOver="M_Over()"
+   onMouseOut="M_Out()"&gt;
+   Событие
+   onMouseOver&lt;/p&gt;
+   &lt;SCRIPT&gt;
+   function M_Over()
+   {
+   document.all.alfa.align='center'
+   &nbsp;
+   document.all.alfa.style.color='FF00FF'
+   }
+   function M_Out()
+   {
+   document.all.alfa.align='left'
+   &nbsp;
+   document.all.alfa.style.color='0000FF'
+   }
+   &lt;/script&gt;
+   &lt;/html&gt; </pre>
+      <p><strong>Задача 2.1.</strong>&nbsp;Напишите HTML-документ, отображающийся в окне браузера в виде следующих
+        четырёх
+        строк:</p>
+      <ul>
+        <li>Пять событий с мышкой</li>
+        <li>Щёлкните по мне мышкой</li>
+        <li>На этом тексте нажмите, подержите и отпустите левую кнопку мышки</li>
+        <li>Медленно проведите курсором мышки по этой надписи</li>
+      </ul>
+      <p>Первая строка &ndash; заголовок страницы. Вторая строка меняется при щелчке мышкой следующим образом:</p>
+      <ul>
+        <li>шрифт увеличивается до 48pt;</li>
+        <li>цвет шрифта меняется на белый;</li>
+        <li>цвет фона меняется на голубой.</li>
+      </ul>
+      <p>Повторный щелчок мышкой возвращает вторую строку к первоначальному виду.</p>
+      <p>Фон третьей строки меняется, когда курсор мышки находится на ней и нажимается или отпускается левая кнопка
+        мышки.
+        При нажатии фон становится зелёным, а при отпускании &ndash; жёлтым.</p>
+      <p>При попадании курсора мышки на четвёртую строку её фон становится красным, а при снятии &ndash; голубым.</p>
+      <h3>Фиксация события в родительском элементе</h3>
+      <p>Если реакцию на какое-либо событие требуют несколько элементов, расположенных на странице, то можно вызвать
+        функцию для обработки этого события только в родительском элементе. В функции определяется, на каком элементе
+        произошло событие, и выполняются соответствующие действия. Удобство такого подхода состоит в том, что весь
+        алгоритм преобразований находится в одном месте, а недостаток &ndash; в сложности самой функции. Рассмотрим
+        сценарий (пример 2.3), в котором для изменения свойств любого из трёх объектов, находящихся в окне браузера
+        служит
+        одна функция.</p>
+      <p><strong>Пример 2.3</strong></p>
+      <pre class="code">&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Реакция на событие&lt;/TITLE&gt;
+   &lt;meta http-equiv="Content-Type" content="text/html; charset=windows-1251"&gt;
+   &lt;STYLE&gt;H1 {color:FF00FF}
+       #k1{position:absolute; left:50;top:200;width:300; height:100;background-color:blue}
+      #k2{position:relative; left:50;top:25; width:200; height:50;background-color:yellow}
+   &lt;/STYLE&gt;
+   &lt;/HEAD&gt;
+   &lt;BODY ID="B" onclick="rodEl(event)"&gt;
+    &lt;H1 ID="HH" &gt;ЦВЕТ  &lt;/H1&gt;
+    &lt;DIV ID="k1" &gt;
+     &lt;DIV ID="k2" &gt;&lt;/div&gt;
+    &lt;/div&gt;
+   &lt;SCRIPT&gt;
+   /*	Функция запускается при щелчке мышкой по любой точке документа */
+   flag=0;
+   function rodEl(evt)
+   {  var e = evt || window.event;  //e -это объект event
+      var elem = e.target || e.srcElement; //elem - элемент (объект),
+                                     // на котором произошло событие
+      id1=elem.id
+      z1=document.getElementById(id1)
+    switch(id1)
+    { case "k1": //Изменение цвета внешнего прямоугольника
+         z=z1.style.backgroundColor
+         if(z!="red")z="red"
+         else z="green"
+         z1.style.backgroundColor=z
+         break
+      case "k2": 	//Изменение цвета внутреннего прямоугольника
+         z=z1.style.backgroundColor
+         if(z!='rgb(0, 255, 255)'){z='rgb(0, 255, 255)'}
+         else{z='rgb(0, 255, 0)'}
+         z1.style.backgroundColor=z
+         break
+      case "B": //Изменение цвета заднего плана документа
+         z=z1.style.backgroundColor
+         if(z!='rgb(190, 190, 190)'){z='rgb(190, 190, 190)'}
+         else {z='rgb(0, 190, 190)'}
+         z1.style.backgroundColor=z
+         break
+      case "HH": //Изменение цвета слова "Цвет"
+         if(flag==0)
+         {  document.getElementById(id1).style.color='rgb(170,0,170)';
+            flag=1;
+         }
+         else
+         {   document.getElementById(id1).style.color='rgb(0,255,170)';
+             flag=0;
+         }
+    }
+   }
+
+   &lt;/SCRIPT&gt;
+   &lt;/BODY&gt;
+   &lt;/HTML&gt;</pre>
+      <p>В примере 2.3 родительским по отношению к элементу&nbsp;<em>H1</em>&nbsp;и двум
+        элементам&nbsp;<em>DIV</em>&nbsp;является элемент&nbsp;<em>BODY</em>. Поэтому в
+        теге&nbsp;<em>&lt;BODY&gt;</em>&nbsp;вызывается функция&nbsp;<em>rodEl()</em>, служащая для обработки
+        события&nbsp;<em>onclick</em>.</p>
+      <p>В момент наступления события вся информация о нём запоминается в объекте&nbsp;<em>event</em>. Этот объект по
+        разному описывается в стандарте W3C и в браузере&nbsp;<em>Internet Explorer</em>. Новые версии&nbsp;<em>Internet
+          Explorer</em>&nbsp;поддерживают и стандарт W3C.</p>
+      <p>В стандарте W3C объект&nbsp;<em>event</em>&nbsp;передаётся в функцию в качестве параметра, а для обращения к
+        объекту, на котором произошло событие, служит свойство&nbsp;<em>event.target</em>.</p>
+      <p>В&nbsp;<em>Internet Explorer</em>&nbsp;объект&nbsp;<em>window.event</em>&nbsp;- глобальный и поэтому передавать
+        его в функцию в виде параметра не нужно. Для обращения к объекту, на котором произошло событие,
+        в&nbsp;<em>Internet Explorer</em>&nbsp;служит свойство&nbsp;<em>window.event.srcElement</em></p>
+      <p>В примере 2.3 первые две строчки тела функции&nbsp;<em>rodEl()</em>служат для кроссплатформенного (в любом
+        браузере) обращения к объекту, на котором произошло событие.</p>
+      <p>В в следующих строках функции&nbsp;<em>rodEl()</em>&nbsp;сначала определяется&nbsp;<em>Id</em>&nbsp;элемента,
+        по
+        которому пользователь щёлкнул мышкой, а затем с помощью оператора&nbsp;<em>Switch</em>&nbsp;делается переход к
+        изменению свойств указанного элемента.</p>
+      <p><strong>Задача 2.2.</strong>&nbsp;Создайте страницу с изображением и подписью под ним. При щелчке по подписи,
+        она
+        должна менять свой цвет. Щелчок по изображению должен вызывать замену изображения и подписи. Функция для
+        обработки
+        события должна вызываться из родительского по отношению к изображению и подписи объекта.</p>
+      <h3>Предотвращение всплывания события. Свойство cancelBubble</h3>
+      <p>В примере 2.3 рассматривалась простая страница с небольшим количеством элементов, но даже в таком простом
+        случае
+        функция реакции на событие получилась сложной. Проще для каждого элемента написать свою функцию обработки
+        события,
+        а распространение события вверх по дереву иерархической структуры от "детей" к "родителям" (в этом случае
+        говорят
+        о всплывании события) блокировать с помощь специально для этого предназначенного
+        свойства&nbsp;<em>cancelBubble</em>&nbsp;объекта event. Изменим пример 2.3 так, чтобы для реакции на щелчок по
+        каждому из четырёх элементов страницы служила своя функция:</p>
+      <p><strong>Пример 2.4</strong></p>
+      <p>&nbsp;</p>
+      <pre class="code">&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Реакция на событие&lt;/TITLE&gt;
+   &lt;meta http-equiv="Content-Type" content="text/html; charset=windows-1251"&gt;
+   &lt;STYLE&gt;H1 {color:#ff00ff}
+       #k1{position:absolute; left:50;top:200;
+         width:300; height:100;background-color:blue}
+       #k2{position:relative; left:50;top:25;
+          width:200; height:50;background-color:yellow}
+   &lt;/STYLE&gt;&lt;/HEAD&gt;
+   &lt;BODY ID="B" bgcolor="AAAAAA" onclick="rodEl()" style="height:600px"&gt;
+     &lt;H1 ID="HH" onclick="H_l()"&gt;ЦВЕТ&lt;/H1&gt;
+     &lt;DIV ID="k1" onclick="D_l()"&gt;
+       &lt;DIV ID="k2" style="background-color:yellow" onclick="D_2(this)"&gt;&lt;/div&gt;
+     &lt;/div&gt;
+   &lt;/BODY&gt;
+   &lt;SCRIPT&gt;
+   /*	Функция запускается при щелчке мышкой по
+     любой точке документа */
+   function rodEl()
+   {  //Изменение цвета заднего плана документа
+   var  z=document.all.B.bgColor
+     if(z!="#777777"){z="#777777"}
+     else{z="AAAAAA"}
+       document.all.B.bgColor =z
+   }
+   function D_l()
+    { 	//Изменение цвета внешнего прямоугольника
+
+     var  z=document.all.k1.style.backgroundColor
+     if(z!="red") z="red"
+     else z="green"
+     document.all.k1.style.backgroundColor=z
+   }
+   /*function D_2()
+   {	//Изменение цвета внутреннего прямоугольника
+       var z=document.all.k2.style.backgroundColor
+      if(z=="#ff00ff" || z=='rgb(255, 0, 255)'){z="#00ffff"}
+     else{z="ff00ff"}
+     document.all.k2.style.backgroundColor=z
+   }*/
+   function D_2(thi)
+   {	//Изменение цвета внутреннего прямоугольника
+       var z=thi.style.backgroundColor
+      if(z=="#ff00ff" || z=='rgb(255, 0, 255)'){z="#00ffff"}
+     else{z="ff00ff"}
+     thi.style.backgroundColor=z
+   }
+   function H_l()
+   {	//Изменение цвета слова "Цвет"
+       var z=document.all.HH.style.color
+       //alert("1. z="+document.all.HH.style.color)
+       if(z=="#aa00aa" || z=='rgb(170, 0, 170)')
+     {	z="#00ffff"
+     //alert("2. z="+z)
+     }
+     else{z="#aa00aa"}
+     document.all.HH.style.color=z
+   }
+   &lt;/SCRIPT&gt;&lt;/HTML&gt;</pre>
+      <p>Скопируйте в свой каталог и просмотрите пример 2.4 в браузере Internet Explorer. Щёлкните по
+        слову&nbsp;<em>ЦВЕТ</em>. Изменится не только цвет слова, но и цвет фона документа, так как после щелчка сначала
+        выполнится функция H_1(), а затем событие всплывёт к родительскому элементу BODY и выполнится функция rodE1().
+        При
+        щелчке по внутреннему прямоугольнику будут меняться цвета обоих прямоугольников и фона документа. Щелчок по
+        внешнему прямоугольнику изменит цвет этого прямоугольника и цвет фона документа.</p>
+      <p><strong>Задача 2.3.</strong>&nbsp;Чтобы предотвратить всплывание события в примере 2.4, вставьте в начало всех
+        функций, кроме первой, оператор</p>
+      <pre class="code">window.event.cancelBubble=true</pre>
+      <button type="button" class="button"><a class="button__link" href="javascript1.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="javascript3.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Взаимодействия</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Методы взаимодействия jQuery UI</h1>
+      <p>С помощью методов взаимодействия Вы можете создавать элементы, которые можно перетаскивать мышкой, которые
+        могут
+        изменять
+        размер, которые можно сортировать и которые можно выделять мышкой. </p>
+      <h2>Перетаскиваемые элементы</h2>
+      <p>С помощью метода <b>draggable</b> Вы можете сделать выбранный элемент перетаскиваемым.</p>
+      <p><b>Синтаксис</b></p>
+
+      <pre class="code">
+   $("селектор").draggable({опция1:значение1, опцияN:значениеN})
+   </pre>
+
+      <p>С помощью опций, которые передаются методу draggable Вы можете настраивать дополнительные аспекты поведения
+        перетаскиваемых элементов.</p>
+      <p>Всем перетаскиваемым элементам назначается класс <b>ui-draggable</b> и дополнительно класс
+        <b>ui-draggable-dragging</b> во время перетаскивания.
+      </p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function() {
+      $("div").draggable();
+   });
+   </pre>
+
+      <p>С помощью опции <b>axis</b> Вы можете определить направление оси, по которой можно перетаскивать элемент.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function() {
+      $("#drag1").draggable({axis:"x"});
+      $("#drag2").draggable({axis:"y"});
+   });
+   </pre>
+
+      <p>С помощью опции <b>cursor</b> Вы можете задать вид, который будет принимать указатель мыши во время
+        перетаскивания
+        элемента.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function() {
+      $("#drag1").draggable({cursor:"move"});
+      $("#drag2").draggable({cursor:"help"});
+   });
+   </pre>
+
+      <p>С помощью опции <b>helper</b> Вы можете определить вид элемента-помощника.
+        Элемент-помощник отображается во время перетаскивания элемента.
+        По умолчанию во время перетаскивания отображается сам перетаскиваемый элемент. </p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function() {
+      $("#drag1").draggable({helper:"clone"});
+      $("#drag2").draggable({helper:function(event){return $("&lt;div&gt;Я элемент
+      помощник.&lt;/div&gt;")}});
+   });
+   </pre>
+
+      <p>Опция <b>revert</b> определяет будет ли элемент возвращаться на изначальную позицию после завершения
+        перетаскивания.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function() {
+      $("#drag1").draggable({revert:true});
+   });
+   </pre>
+      <h2>Области для перетаскиваемых элементов</h2>
+      <p>С помощью метода <b>droppable</b> Вы можете определить область, в которую можно переместить перетаскиваемый
+        элемент.</p>
+      <p><b>Синтаксис</b></p>
+
+      <pre class="code">
+   $("селектор").droppable({опция1:значение1, опцияN:значениеN})
+   </pre>
+
+      <p>С помощью опций, которые передаются методу droppable Вы можете настраивать дополнительные аспекты поведения
+        области для перетаскиваемых элементов.</p>
+      <p>Код функции переданный, в опции <b>drop</b> выполнится, когда перетаскиваемый элемент будет перетащен в область
+        и
+        отпущен. </p>
+      <p>Код функции переданный, в опции <b>over</b> выполнится, когда перетаскиваемый элемент будет заведен в границы
+        области.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+      $("#drag1").draggable({stack:"#drop1"});
+      $("#drop1").droppable({
+         over:function(){
+            $("#drag1").css("background-color","#d7fa99");
+            $("#drop1").css("background-color","#d7fa99");
+         },
+         drop:function(){
+            $("#drag1").css("display","none");
+            $("#drop1").css("background-color","#c4f66f");
+            $("#drop1").html("Перемещение завершено успешно.");
+            alert("Вы перетащили элемент с id=drag1 в область с id=drop1.");
+         }
+      });
+   });
+   </pre>
+
+      <p>С помощью опции <b>accept</b> Вы можете указать элементы, которые будут приниматься областью.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+      $("#drag1").draggable({stack:"#drop1"});
+      $("#drag2").draggable({stack:"#drop1",revert:true});
+      $("#drop1").droppable({
+         accept:"#drag1",
+         over:function(){
+            $("#drag1").css("background-color","#d7fa99");
+            $("#drop1").css("background-color","#d7fa99");
+         },
+         drop:function(){
+            $("#drag1").css("display","none");
+            $("#drop1").css("background-color","#c4f66f");
+            $("#drop1").html("Перемещение завершено успешно.");
+         }
+      });
+   });
+   </pre>
+
+      <h2>Растягиваемые элементы</h2>
+      <p>С помощью метода <b>resizable</b> Вы можете сделать элементы растягиваемыми.</p>
+      <p><b>Синтаксис</b></p>
+
+      <pre class="code">
+   $("селектор").resizable({опция1:значение1, опцияN:значениеN})
+   </pre>
+
+      <p>С помощью опций, которые передаются методу resizable Вы можете настраивать дополнительные аспекты поведения
+        растягиваемых элементов.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+      $("#resize1").resizable();
+   });
+   </pre>
+
+      <p>Если опция <b>animate</b> имеет значение true размер элемента будет изменятся анимировано.</p>
+      <p>С помощью опции <b>helper</b> Вы можете задать вид помощника, с помощью которого пользователь будет узнавать о
+        текущем размере окна во время растягивания.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+      $("#resize1").resizable({animate:true,helper:"ui-state-highlight"});
+   });
+   </pre>
+
+      <h2>Выделяемые элементы</h2>
+      <p>С помощью метода <b>selectable</b> Вы можете превратить группу элементов в список выбора.</p>
+      <p><b>Синтаксис</b></p>
+
+      <pre class="code">
+   $("селектор").selectable({опция1:значение1, опцияN:значениеN})
+   </pre>
+
+      <p>С помощью опций, которые передаются методу selectable Вы можете настраивать дополнительные аспекты поведения
+        выделяемых элементов.</p>
+      <p>С помощью классов <b>.ui-selecting</b> и <b>.ui-selected</b> Вы можете настроить оформление выбираемых и
+        выбранных
+        элементы.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+      $("#select1").selectable();
+   });
+   </pre>
+
+      <h2>Сортируемые элементы</h2>
+      <p>С помощью метода <b>sortable</b> Вы можете сделать элементы списка сортируемыми.</p>
+      <p><b>Синтаксис</b></p>
+
+      <pre class="code">
+   $("селектор").sortable({опция1:значение1, опцияN:значениеN})
+   </pre>
+
+      <p>С помощью опций, которые передаются методу sortable Вы можете настраивать дополнительные аспекты поведения
+        сортируемых списков.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+      $("#sort1").sortable();
+   });
+   </pre>
+
+      <p>Вы можете связать два сортируемых списка. Элементы одного связанного списка можно перемещать в другой связанный
+        список.</p>
+      <p>Для того, чтобы воспользоваться этой возможностью необходимо задать связываемым спискам одинаковый класс и
+        указать
+        его в опции <b>connectWith</b>.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+      $("#sort1,#sort2").sortable({connectWith:".connect"});
+   });
+   </pre>
+      <button type="button" class="button"><a class="button__link" href="jquery9.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="jquery11.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

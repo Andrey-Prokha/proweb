@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery Селекторы</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Команды jQuery</h1>
+      <p>Код jQuery как и код JavaScript состоит из последовательно идущих <b>команд</b>. Команды являются основной
+        структурной единицей jQuery.</p>
+      <p><b>Стандартный синтаксис jQuery команд</b>:</p>
+      <pre class="code">$(селектор).метод();</pre>
+
+      <ol>
+        <li><b>Знак $</b> сообщает, что символы идущие после него являются jQuery кодом;</li>
+        <li><b>Селектор</b> позволяет выбрать элемент на странице;</li>
+        <li><b>Метод</b> задает действие, которое необходимо совершить над выбранным элементом. Методы в jQuery
+          разделяются на следующие группы:
+          <ul>
+            <li>Методы для манипулирования DOM;</li>
+            <li>Методы для оформления элементов;</li>
+            <li>Методы для создания AJAX запросов;</li>
+            <li>Методы для создания эффектов;</li>
+            <li>Методы для привязки обработчиков событий.</li>
+          </ul>
+        </li>
+      </ol>
+      <h2>Символ $ </h2>
+      <p>jQuery можно комбинировать с обычным JavaScript. </p>
+      <p>Если строка начинается с $ - это jQuery, если $ вначале строки отсутствует - это строка JavaScript кода.</p>
+
+      <p> Пример </p>
+      <pre class="code">function start() {
+   //Скроем абзац с id="hid" с помощью jQuery
+      $("p#hid").hide();
+   //Изменим содержимое абзаца с id="change"
+      document.getElementById("change").innerHTML = "Данное содержимое было изменено с помощью JavaScript."
+   }
+   </pre>
+      <p>Некоторые JavaScript библиотеки тоже используют $ для обозначения своего кода. Для того, чтобы избежать
+        конфликта
+        имен между ними в jQuery предусмотрена команда <b>noConflict()</b>.
+        С помощью команды noConflict() Вы можете заменить знак $ на любой другой.</p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">var произвольное_имя=jQuery.noConflict();</pre>
+
+      <p> Пример </p>
+      <pre class="code">
+   //Изменим стандартный символ $ на nsign
+   var nsign=jQuery.noConflict();
+   //Изменим цвет абзаца используя nsign вместо $
+   nsign(document).ready(function(){
+
+      nsign("p").css("color","green");
+
+   });
+   </pre>
+
+      <h2>Селекторы jQuery</h2>
+      <p>С помощью селекторов Вы можете выбирать элементы на странице для применения к ним определенных действий.</p>
+      <p>Ниже располагается таблица с различными примерами использования селекторов для выбора желаемых элементов:
+      </p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <th>Пример</th>
+            <th>Результат </th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$("p")
+              </b></td>
+            <td class="table__cell">Будут выбраны все элементы p, которые находятся на странице.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$(".par")
+              </b></td>
+            <td class="table__cell">Будут выбраны все элементы на странице с class="par".</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$("#par")
+              </b></td>
+            <td class="table__cell">Будет выбран первый элемент на странице с id="par".</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$(this)</b></td>
+            <td class="table__cell">Позволяет выбрать текущий HTML элемент. Щелкните на $(this) слева, чтобы
+              посмотреть пример использования
+              данного селектора в онлайн редакторе.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$("p.par")</b></td>
+            <td class="table__cell">Будут выбраны все элементы p на странице с class="par".</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$("p#par")</b></td>
+            <td class="table__cell">Будут выбраны все элементы p на странице с id="par".</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$(".par,.header,#heat")</b></td>
+            <td class="table__cell">Будут выбраны все элементы на странице со значениями атрибутов class="par",
+              class="header" и id='heat'.
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$("[src]")</b></td>
+            <td class="table__cell">Будут выбраны все элементы на странице, имеющие атрибут src.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$("[src='значение']")</b></td>
+            <td class="table__cell">Будут выбраны все элементы со значениям атрибута src="значение".</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$("[src$='.gif']")</b></td>
+            <td class="table__cell">Будут выбраны все элементы со значениями атрибута src заканчивающимися на
+              .gif.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$("div#wrap .par1")</b></td>
+            <td class="table__cell">Будут выбраны все элементы с class=par1, которые находятся внутри элементов
+              div с id=wrap.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$(":input")</b></td>
+            <td class="table__cell">Будут выбраны все input элементы на странице.</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell"><b>$(":тип")</b></td>
+            <td class="table__cell">Будут выбраны все input элементы с &lt;input type='тип' /&gt;. Например
+              :button выберет все &lt;input
+              type='button' /&gt;
+              элементы, :text выберет все &lt;input type='text' /&gt; элементы и т.д.</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <p> Пример </p>
+      <pre class="code">
+   $(document).ready(function(){
+
+   //Установим размер шрифта всех абзацев равным 20 пикселям
+      $("p").css("fontSize","20px");
+   //Изменим на зеленый цвет шрифта элемента с id=el2
+      $("#el2").css("color","green");
+   //Изменим на красный цвет шрифта элемента с class=el3
+      $(".el3").css("color","red");
+   //Сделаем жирным шрифт элементов с id=el2 и class=el3
+      $("#el2,.el3").css("fontWeight","bold");
+   //Изменим на синий цвет текста кнопки
+      $(":input").css("color","blue");
+   //Установим размер шрифта всех элементов имеющих атрибут href равным 20 пикселям
+      $("[href]").css("fontSize","20px");
+   //Изменим на зеленый цвет ссылки на www.wisdomweb.ru
+      $("[href='http://www.wisdomweb.ru/']").css("color","green");
+
+   });
+   </pre>
+
+      <h2>Предотвращение преждевременного выполнения кода </h2>
+      <p>Из учебника по JavaScript Вы наверно помните, что выполнение кода до полной загрузки документа часто
+        приводит к
+        ошибкам.</p>
+      <p>Дело в том, что скрипт может обратится к еще не загруженному содержимому, а это всегда приводит к ошибкам
+        или
+        неожиданным результатам.</p>
+      <p>Для того, чтобы избежать этого мы часто помещали код в функцию, которая начинала выполнение только после
+        полной
+        загрузки документа. </p>
+      <p><b>Предотвращение преждевременного выполнения кода в JavaScript:</b></p>
+
+      <pre class="code">
+   &lt;html&gt;
+   &lt;head&gt;
+   &lt;script type="text/javascript"&gt;
+   function start()
+   {
+      Код который будет выполнен после полной загрузки документа
+   }
+   &lt;/script&gt;
+   &lt;/head&gt;
+   &lt;body onload="start()"&gt;
+   &lt;/body&gt;
+   &lt;/html&gt;
+   </pre>
+
+      <p>В jQuery можно избавиться от преждевременного выполнения кода следующими способами: </p>
+      <p><b>Предотвращение преждевременного выполнения кода в jQuery:</b></p>
+
+      <pre class="code">
+   &lt;script type="text/javascript"&gt;
+   //Первый способ:
+   $(document).ready(function(){
+      Код который будет выполнен после полной загрузки документа
+   });
+
+   //Второй способ:
+   $().ready(function(){
+      Код который будет выполнен после полной загрузки документа
+   });
+
+   //Третий способ:
+   $(function(){
+      Код который будет выполнен после полной загрузки документа
+   });
+   &lt;/script&gt;
+   </pre>
+
+      <p>Существует еще один альтернативный способ также помогающий избежать преждевременное выполнение JavaScript и
+        jQuery
+        кода и позволяющий также ускорить загрузку страниц .</p>
+
+      <p>Необходимо помещать код в самый конец тела документа (т.е. перед &lt;/body&gt;) в данном случае
+        интерпретатор
+        JavaScript встроенный в браузер начнет разбирать код
+        только <b>после загрузки</b> документа. В предыдущем же способе загрузка скриптов происходит <b>одновременно
+          с
+          загрузкой</b> документа, а выполняется этот код
+        после загрузки документа.</p>
+
+      <pre class="code">
+   &lt;body&gt;
+   &lt;p&gt;Содержимое тела документа&lt;/p&gt;
+   &lt;div&gt;Содержимое тела документа&lt;/div&gt;
+
+   &lt;script type="text/javascript"&gt;
+     Код который будет выполнен после полной загрузки документа
+   &lt;/script&gt;
+   &lt;/body&gt;
+   </pre>
+
+      <h2>Цепочки команд в jQuery</h2>
+      <p>Для того, чтобы сократить размер кода Вы можете соединять команды jQuery в цепочки.</p>
+      <p>Команды в цепочке будут выполняться поочередно слева направо.</p>
+
+      <pre class="code">
+   &lt;script type="text/javascript"&gt;
+   //Код без сокращения
+   $("p").css("color","green");
+   $("p").css("font-size","30px");
+   //Сокращенный код
+   $("p").css("color","green").css("font-size","30px");
+   &lt;/script&gt;
+   </pre>
+      <button type="button" class="button"><a class="button__link" href="jquery1.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="jquery3.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

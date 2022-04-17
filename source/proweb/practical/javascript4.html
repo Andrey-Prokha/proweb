@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Изображения и рисование</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>JavaScript Изображения и рисование</h1>
+      <p><em>Цель работы:</em>&nbsp;исследовать методы динамического размещения изображений на странице и научиться
+        создавать рисунки с помощь сценария.</p>
+      <h3>Предварительная загрузка изображений</h3>
+      <p>Изображения, размещаемые на сайтах, должны удовлетворять двум противоречащим друг другу требованиям. Они должны
+        иметь высокое качество и быстро загружаться, но чем выше качество изображения, тем больше занимаемый
+        изображением
+        объём памяти и тем медленнее оно загружается. Задача построения изображения, имеющего приемлемые объём и
+        качество,
+        решается с помощь графических пакетов прикладных программ, например, Photoshop с подключённым к нему пакетом
+        ImageReady.</p>
+      <p>Средствами JavaScript можно сначала загрузить несколько изображений в кэш, а затем выводить их по одному на
+        экран
+        по команде пользователя. Такой приём основан на психологии пользователя Интернета. Опытным путём доказано, что
+        человек не замечает паузы между моментами посылки запроса и получением ответа, если эта пауза не больше четырёх
+        секунд. Пользователь привык ждать несколько десятков секунд, пока загрузится выбранная им страница, а при работе
+        с
+        уже загруженной страницей болезненно реагирует на возникающие паузы.</p>
+      <p>Для загрузки изображения в память без отображения его на экране служит объект Image, которому не соответствует
+        ни
+        один элемент HTML-документа. Создаётся и используется объект Image так:</p>
+      <pre class="code">var risunok = new Image(ширина, высота) //создание объекта&nbsp;
+   risunok.src = "pict.jpg" //загрузка pict.jpg в память&nbsp;
+   document.images[0].src = risunok.src //отображение на экране</pre>
+      <p><strong>Задача 4.1</strong>. Создайте страницу (рис. 2), на которой пользователь может просматривать
+        фотографии,
+        выбирая их названия из поля со списком (тег &lt;SELECT&gt;).</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/javascript4_pic1.jpg" alt="">
+        Рис. 2
+      </figure>
+      <p>Указания. Используйте ассоциативный массив, элементами которого будут объекты Image, то есть фотографии, а
+        ключами
+        &ndash; значения атрибута VALUE тега &lt;SELECT&gt;. Создание массива и одного элемента делается так:</p>
+      <pre class="code">var photo= new Array()&nbsp;
+   photo["les"] = new Image(400,550);//элемент массива - объект&nbsp;
+   photo["les"].src = "les.jpg";//свойство объекта - имя файла с рисунком</pre>
+      <p>Вызов функции, служащей для появления в окне браузера выбранной фотография, производится при щелчке мышкой по
+        элементу списка.Это событие называется onchange. В качестве параметра функции передаётся объект SELECT:</p>
+      <pre class="code">&lt;SELECT onchange= "prosm(this)"&gt;&nbsp;
+   &lt;option value="les"&gt;Лес</pre>
+      <p>Функция, правильно воспринимаемая браузерами Internet Explorer и Mozilla, состоит из трёх строк:</p>
+      <pre class="code">function prosm(list)&nbsp;
+   {d = list.options[list.selectedIndex].value //d ="les"&nbsp;
+   document.fot.src = photo[d].src; //fot &ndash; имя тега IMG }</pre>
+      <p>Файлы с фотографиями предоставит преподаватель.</p>
+      <h3>Рисование</h3>
+      <p>В JavaScript изображение можно построить тремя способами:</p>
+      <ol>
+        <li>по принципу мозаики, используя в качестве элемента маленькую картинку или окрашенный элемент &lt;div&gt;
+          (минимальный размер элемента мозаики - один пиксель);</li>
+        <li>средствами языка SVG (от англ. Scalable Vector Graphics &mdash; масштабируемая векторная графика);</li>
+        <li>с помощью элемента canvas языка HTML5.</li>
+      </ol>
+      <p>Кроме того, отрезок вертикальной прямой можно изобразить с помощью тега &lt;DIV&gt;, задав ширину и высоту
+        контейнера равными толщине и длине линии соответственно. Горизонтальный отрезок строится с помощью тега
+        &lt;DIV&gt; и вложенного в него тега &lt;HR&gt;.</p>
+      <p>Идея рисования первым способом кривой, описанной аналитически, состоит в следующем:</p>
+      <ul>
+        <li>создаётся картинка размером 1 пиксель, залитая чёрным или каким-то другим цветом,</li>
+        <li>эта картинка размножается по заданной траектории.</li>
+      </ul>
+      <p>Вместо картинки можно использовать элемент &lt;DIV&gt;.</p>
+      <p>В примере 4.1 описанными методами строятся четыре прямых.</p>
+      <p><strong>Пример 4.1</strong></p>
+      <pre class="code">&lt;HTML&gt;
+   &lt;HEAD&gt;
+   &lt;TITLE&gt;Прямые линии&lt;/TITLE&gt;
+   &lt;script&gt;
+   line(100,100,400,400,3)
+   line(100,400,400,100,10)
+   function line(x1,y1,x2,y2,n)
+   {  var xstr=""
+      var xstr0=
+      '&lt;IMG SRC="Tochka.bmp" WIDTH='+n+' HEIGHT='+n+
+      ' STYLE="position:absolute;'
+      var k=(y2-y1)/(x2-x1)
+      x=x1
+      while (x&lt;=x2)
+      {  xstr+=xstr0+'top:'+(k*(x-x1)+y1)+';left:'+x+'"&gt;';
+         x++
+      }
+      document.write(xstr)
+   }
+   &lt;/script&gt;
+   &lt;/HEAD&gt;
+   &lt;BODY&gt;
+   &lt;/div&gt;
+   &lt;div  style="font-size:20pt;padding-left:50"&gt;
+   &lt;B&gt;Рисование прямых линий&lt;/b&gt;&lt;/div&gt;
+   &lt;DIV id="dd" STYLE="position:absolute;top:250;left:100;
+   width:300;height:1;"&gt;&lt;hr noshade&gt;&lt;/div&gt;
+   &lt;div ID="kv" STYLE="position:absolute;top:100;left:250;
+   width:1;HEIGHT:300;background-color:#ff0099"&gt;&lt;/div&gt;
+   &lt;/BODY&gt;&lt;/HTML&gt;</pre>
+      <p>Все прямые пересекаются в одной точке (рис. 3). Горизонтальная и вертикальная прямые построены без
+        использования
+        скрипта. Наклонных прямые построены с помощью функции line(x1,y1,x2,y2,n), где x1, y1 &ndash; координаты начала
+        отрезка прямой, x2, y2 &ndash; координаты конца, n &ndash; толщина линии.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/javascript4_pic2.jpg" alt="">
+        Рис. 3
+      </figure>
+      <p><strong>Задача 4.2</strong>. Создайте страницу (рис. 4) , на которой строится эллипс с задаваемыми
+        пользователем
+        размерами большой и малой полуосей. Эллипс нужно построить всеми&nbsp;тремя указанными выше способами.</p>
+      <p>Указания. Для построения эллипса первым способом удобно использовать его параметрические уравнения:</p>
+      <pre
+        class="code-wrapper">x = a* cos(t); y = b*sin(t),&nbsp;<br />где: a, b &ndash; полуоси, 0 &lt;= t &lt;= 2&pi;</pre>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/javascript4_pic3.jpg" alt="">
+        Рис. 4
+      </figure>
+      <button type="button" class="button"><a class="button__link" href="javascript3.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="javascript5.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

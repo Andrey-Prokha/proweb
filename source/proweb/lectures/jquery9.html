@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Введение</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">jQuery UI </h1>
+      <p><b>jQuery UI</b> представляет собой группу плагинов jQuery облегчающих создание интерфейса веб-приложений.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function(){
+
+   $("#drag").draggable();
+   $("#sortable").sortable();
+   $("#sortable").disableSelection();
+   $("#datepicker").datepicker({ monthNames:
+      ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август",
+      "Сентябрь","Октябрь","Ноябрь","Декабрь"],
+      dayNamesMin: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]});
+
+});
+</pre>
+
+      <h2>Подключение jQuery UI</h2>
+      <p>Для того, чтобы воспользоваться возможностями плагинов jQuery UI их необходимо вначале подключить к странице,
+        на
+        которой они будут использоваться.</p>
+      <p>Существуют два варианта подключения jQuery UI:</p>
+      <ol>
+        <li>Локальное подключение</a>. Данный способ требует скачивание специального файла с официального сайта;</li>
+        <li>Удаленное подключение</a>. Данный способ не требует скачивание файла, а вместо этого использует его удаленно
+          (<i>данная услуга предоставляется компанией Google</i>).</li>
+      </ol>
+      <h2>Локальное подключение jQuery UI</h2>
+      <p>На официальном сайте Вы можете или скачать стандартную
+        комплектацию jQuery UI или собрать свою собственную.
+      </p>
+      <p>Стандартная комплектация jQuery UI включает в себя все
+        существующие плагины и имеет стандартную тему оформления. Для того, чтобы скачать стандартную комплектацию
+        просто перейдите на <a href='http://jqueryui.com/download' target="_blank">сайт jQuery UI</a> и
+        нажмите кнопку <b>Download</b>.</p>
+
+
+      <p>Если Вы хотите собрать собственную комплектацию jQuery UI Вам
+        необходимо перейти на <a href='http://jqueryui.com/download' target="_blank">сайт jQuery UI</a>
+        и выполнить шаги перечисленные ниже (<i>пропустите эти шаги если Вы скачали стандартную комплектацию</i>):</p>
+      <h4>Шаг 1: Выбрать необходимые компоненты</h4>
+      <p>По умолчанию в файл для скачивания включены все существующие плагины. Если какие-то из них не нужны Вы можете
+        убрать галочку напротив их названия
+        и сократить тем самым размер итогового файла.</p>
+
+      <p><b>Обратите внимание:</b> размер файла библиотеки влияет на скорость загрузки страницы, поэтому меньший размер
+        всегда предпочтителен.</p>
+
+      <h4>Шаг 2: Выбрать оформление </h4>
+      <p>Выберите одну из стандартных тем оформления плагинов jQuery UI в поле Theme или создайте свою тему с помощью <a
+          href='http://jqueryui.com/themeroller/' target="_blank">themeroller'а.</a>
+
+      <h4>Шаг 3: Выбрать версию </h4>
+      <p>Выберите версию jQuery UI в поле Version.</p>
+      <p><b>Обратите внимание:</b> рекомендуем всегда выбирать последнюю доступную версию т.к. как более новые версии
+        всегда содержат интересные нововведения.</p>
+      <h4>Шаг 4: Скачать jQuery UI</h4>
+      <p>Нажмите кнопку Download и сохраните файл в удобное для Вас место на жестком диске.</p>
+
+      <p>Теперь (<i>вне зависимости скачали ли Вы стандартную комплектацию или собрали свою собственную</i>) необходимо
+        подключить jQuery UI к скрипту. Для этого необходимо распаковать скаченный файл и указать пути к файлам
+        <i>jquery-ui-версия.custom.css</i> и
+        <i>jquery-ui-версия.custom.min.js</i> в секции head скрипта.
+      </p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+&lt;!-- 1. Подключим библиотеку jQuery (без нее jQuery UI не будет работать) --&gt;
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"&gt;&lt;/script&gt;
+&lt;!-- 2. Подключим jQuery UI --&gt;
+&lt;link type="text/css" href="путь_к_папке/css/themename/jquery-ui-1.8.13.custom.css" rel="stylesheet" /&gt;
+&lt;script type="text/javascript" src="путь_к_папке/js/jquery-ui-1.8.13.custom.min.js"&gt;&lt;/script&gt;
+</pre>
+
+      <h2>Удаленное подключение jQuery UI</h2>
+      <p>В этом варианте подключения Вы не можете настраивать комплектацию jQuery UI и можете использовать только ее
+        стандартную версию.</p>
+      <p>Для того, чтобы подключить библиотеку удаленно необходимо добавить следующие строчки в секцию head Вашей
+        страницы:</p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+&lt;!-- 1. Подключим библиотеку jQuery (без нее jQuery UI не будет работать) --&gt;
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"&gt;&lt;/script&gt;
+&lt;!-- 2. Подключим jQuery UI --&gt;
+&lt;link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"&gt;&lt;/script&gt;
+</pre>
+      <button type="button" class="button"><a class="button__link" href="jquery8.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="jquery10.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

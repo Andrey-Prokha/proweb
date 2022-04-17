@@ -1,0 +1,851 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>XML DTD</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>XML DTD</h1>
+      <p>Цель лабораторной работы:</p>
+      <ol>
+        <li>Познакомиться DTD определениями типа XML документов.</li>
+        <li>Научиться описывать структуру XML документов.</li>
+      </ol>
+      <h2>Теоретические сведения</h2>
+      <p>Можно сказать, что XML документы состоят из элементов и атрибутов. В DTD описываются и некоторые другие
+        объекты,
+        опредеделения которых смотрите ниже, но документы всегда поддерживают эти две основные концепции.</p>
+      <p>По отношению к документу DTD могут быть&nbsp;<dfn>внутренние</dfn>&nbsp;и&nbsp;<dfn>внешние</dfn>. Внутренние
+        DTD
+        описываются в непосредственно в файле XML документа вот так:</p>
+      <pre class="code">&lt;?xml version="1.0" ?&gt;
+  &lt;!DOCTYPE queue [
+  &nbsp; &nbsp; &nbsp;  ...
+  ]&gt;
+  &lt;queue&gt;
+  &lt;message to="aaa@bbb.cc" from="ccc@bbb.aa" subj="subject of ..."&gt;
+  &nbsp; &nbsp; &nbsp; Text of mail message ...
+  &nbsp; &nbsp; &nbsp; &nbsp;  ...
+  &lt;/message&gt;</pre>
+      <p>Строка &lt;!<strong>DOCTYPE</strong>&nbsp;queue [ называется&nbsp;<dfn>определением типа документа</dfn>. За
+        ключевым словом&nbsp;<dfn>DOCTYPE</dfn>&nbsp;должно следовать имя корневого элемента XML документа (в примере
+        -&nbsp;<strong>queue</strong>). Далее, в квадратных скобках следует
+        список&nbsp;<dfn>элементов</dfn>,&nbsp;<dfn>атрибутов</dfn>&nbsp;и&nbsp;<dfn>сущностей</dfn>&nbsp;- именно из
+        этих компонентов состоит XML документ. Заканчивает DTD последовательность ]&gt;.</p>
+      <p>DTD может также располагаться и во внешнем файле. Внешние DTD делятся на системные (SYSTEM) и общедоступные
+        (PUBLIC). В любом случае файл DTD должен иметь расширение&nbsp;<dfn>.dtd</dfn>. Связывание системного DTD и XML
+        документа выглядит следующим образом:</p>
+      <pre class="code">&lt;?xml version="1.0" ?&gt;
+  &lt;!DOCTYPE queue SYSTEM "./dtd/msg_queue.dtd"&gt;
+  &lt;queue&gt;
+  &nbsp; &nbsp; &nbsp;  ...
+  &lt;/queue&gt;</pre>
+      <p>В данном случае анализатору указывается, что DTD находится во внешнем файле, по адресу "./dtd/msg_queue.dtd".
+        Существует ряд общеизвестных DTD, разработанных для определенных целей. В случае использования такого DTD его
+        объявление будет иметь несколько другой вид:</p>
+      <pre class="code">&lt;!<strong>DOCTYPE</strong> html <strong>PUBLIC </strong>"-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" &gt;</pre>
+      <p>На то, что DTD является общеизвестным, указывает ключевое слово&nbsp;<dfn>PUBLIC</dfn>. Рассмотрим поподробнее
+        строку&nbsp;<strong>"-//W3C//DTD XHTML 1.1//EN"</strong>. Если DTD является стандартом ISO, то данная строка
+        начинается словом ISO. Если DTD не является стандартом ISO, но используемый стандарт был принят группой
+        стандартизации, то DTD начинается со знака (+). Если же но не был принят официально группой стандартизации, то
+        объявление следует начинать со знака (-). Далее, с разделителем (//) следуют владелец данного DTD, имя DTD и
+        язык. Из приведенного примера видно, что используется DTD, не стандартизованное официально, принадлежащее
+        компании&nbsp;<dfn>W3C</dfn>, с именем&nbsp;<dfn>XHTML 1.1</dfn>.</p>
+      <p>Приведем несколько доводов в пользу внешних DTD:</p>
+      <ul>
+        <li>Внешние DTD могут быть общеизвестными (public).</li>
+        <li>Внешние DTD позволяют отделить структуру от содержания. Вы можете изменить и расширить правила словаря, не
+          открывая содержания XML документов.</li>
+        <li>Можно однажды написанное DTD использовать во множестве документов.</li>
+      </ul>
+      <p>Далее в уроке подробно рассматриваются элементы DTD.</p>
+      <h3>Сущности</h3>
+      <p>В языке XML есть возможность продекларировать фрагменты содержания, а затем ссылаться на них при необходимости,
+        что позволяет сэкономить время и силы разработчикам. Объявляя сущность в DTD мы определяем ее имя и содержание,
+        на которое она ссылается. Ссылаясь на сущность, мы заставляем анализатор заменить ссылку на содержимое сущности.
+        Сущности бывают</p>
+      <ul>
+        <li><dfn>анализируемыми</dfn>&nbsp;(parsed entity) - содержимое сущности анализируется, т.е, например, при
+          встрече в нем ссылок на другие сущности, они так же замещаются их содержимым; разметка внутри таких
+          сущностей так же интерпретируется.</li>
+        <li><dfn>неанализируемыми</dfn>&nbsp;(unparsed entity) - это не обязательно текст в XML формате, или совсем не
+          текст (графика или другое мультимедиа содержание).</li>
+      </ul>
+      <p>Ниже приведен пример объявления и использования анализируемых
+        сущностей&nbsp;<strong>author</strong>&nbsp;и&nbsp;<strong>copyright</strong><em>&nbsp;(обратите внимание:
+          сущность&nbsp;<strong>copyright</strong>&nbsp;ссылается на&nbsp;<strong>author</strong>)</em>:</p>
+      <pre class="code">&lt;?xml version="1.0" ?&gt;
+  &lt;!DOCTYPE lesson [
+  &nbsp; &nbsp; &nbsp;  &lt;!ENTITY author "Иванов Иван Иванович"&gt;
+  &nbsp; &nbsp; &nbsp;  &lt;!ENTITY copyright "2003, Odessa, &amp;author;"&gt;
+  ]&gt;
+  &lt;lesson&gt;
+  &nbsp; &nbsp; &nbsp;  &lt;theme&gt;Document Type Definition - DTD&lt;/theme&gt;
+  &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp;  &lt;author&gt;&amp;author;&lt;/author&gt;
+  &nbsp; &nbsp; &nbsp;  В данном уроке мы с вами рассмотрим ...
+  &nbsp; &nbsp; &nbsp;  ...
+  &nbsp; &nbsp; &nbsp;  &lt;copyright&gt;&amp;copyright;&lt;/copyright&gt;
+  &lt;/lesson&gt; </pre>
+      <p>Строка &lt;!<strong>ENTITY</strong>&nbsp;author "Иванов Иван Иванович"&gt; объявляет сущность author со
+        значением
+        "Иванов Иван Иванович". Ссылка на сущность выглядит как символьная подстановка в
+        HTML:&nbsp;<em>&amp;author;</em>. При разборе документа анализатор встретит ссылку на сущность и заменит ее на
+        значение сущности. В итоге документ примет следующий вид:</p>
+      <pre class="code">&lt;?xml version="1.0" ?&gt;
+  &lt;!DOCTYPE lesson [
+  &nbsp; &nbsp; &nbsp;  &lt;!ENTITY author "Иванов Иван Иванович"&gt;
+  &nbsp; &nbsp; &nbsp;  &lt;!ENTITY copyright "2003, Odessa, &amp;author;"&gt;
+  ]&gt;
+  >&lt;lesson&gt;
+  &nbsp; &nbsp; &nbsp;  &lt;theme&gt;Document Type Definition - DTD&lt;/theme&gt;
+  &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp;  &lt;author&gt;Иванов Иван Иванович&lt;/author&gt;
+  &nbsp; &nbsp; &nbsp;  В данном уроке мы с вами рассмотрим ...
+  &nbsp; &nbsp; &nbsp;  ...
+  &nbsp; &nbsp; &nbsp;  &lt;copyright&gt;2003, Odessa, Иванов Иван Иванович&lt;/copyright&gt;
+  &lt;/lesson&gt; </pre>
+      <p>Из приведенного рисунка видно, что ссылка на сущность&nbsp;<em>&amp;author;</em>&nbsp;была замененна ее
+        содержимым "Иванов Иван Иванович", причем и в "теле" другой сущности -&nbsp;<em>&amp;copyright;</em>.
+        Анализируемые сущности могут также содержать и разметку.</p>
+      <h4>Внешние сущности</h4>
+      <p>Текст замещения может содержаться во внешнем файле, тогда объявление сущности будет выглядеть так:</p>
+      <pre class="code">&lt;!<strong>DOCTYPE</strong> doc [
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!<strong>ENTITY</strong> license <strong>SYSTEM </strong>"./files/license.txt"
+  ...
+  ]&gt;
+  &lt;<strong>license</strong>&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>&amp;license;</em>
+  &lt;<strong>/license</strong>&gt;</pre>
+      <p>Вместо ключевого слова&nbsp;<dfn>SYSTEM</dfn>&nbsp;может быть использованно слово&nbsp;<dfn>PUBLIC</dfn>, в
+        случае, если речь идет об общедоступной сущности (см. системные и общедоступные DTD).</p>
+      <p>В XML существует ряд предопределенных сущностей, служащих для преодоления ограничений, связанных с синтаксисом
+        языка. Перечень их приведен в таблице ниже:</p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <th class="table__cell">Символ</th>
+            <th class="table__cell">Ссылка на сущность</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>&gt;&nbsp;</p>
+            </td>
+            <td class="table__cell">
+              <p>&amp;lt;</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>&lt;&nbsp;</p>
+            </td>
+            <td class="table__cell">
+              <p>&amp;gt;</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>&amp;</p>
+            </td>
+            <td class="table__cell">
+              <p>&amp;amp;</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>"</p>
+            </td>
+            <td class="table__cell">
+              <p>&amp;quot;</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>' (апостроф)</p>
+            </td>
+            <td class="table__cell">
+              <p>&amp;apos;</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Таким образом, для вывода текста</p>
+      <pre class="code">if ((a &lt; b)&amp;&amp;(с &gt; 150)) { ... }</pre>
+      <p>нужно использовать следующий код:</p>
+      <pre class="code">if ((a <em>&amp;lt;</em> b)<em>&amp;amp;&amp;amp;</em>(с <em>&amp;gt;</em> 150)) { ... }</pre>
+      <p>Кроме того, на любой символ можно сослаться по его коду в таблице символов. Например, символу '&lt;'
+        соответствует ссылка '<strong><em>&amp;#60</em></strong>' (десятичный код) или
+        '<strong><em>&amp;#x3C</em></strong>' (16ричный код);</p>
+      <h4>Параметрические сущности</h4>
+      <p>Данный подвид сущностей относится к анализируемым и предназначен для использования строго внутри DTD. Они дают
+        возможность ссылаться на часто встречающиеся в DTD конструкции, что впоследствии позволяет их быстро
+        редактировать. Для объявления таких сущностей испольхуется ключевое слово&nbsp;<strong>ENTITY</strong>, знак %,
+        имя и значение сущности.</p>
+      <pre
+        class="code">&lt;!<strong>ENTITY</strong> % peopleParams "name CDATA #REQUIRED age CDATA #IMPLIED country CDATA #REQUIRED" &gt;</pre>
+      <p>Демонстрация ссылки на такого рода сущность потребует знаний других элементов DTD, поэтому их описание
+        приведено
+        ниже.</p>
+      <h4>Неанализируемые сущности и нотации</h4>
+      <p>Нотации (<strong>NOTATION</strong>) описывают содержание, разработанное не на языке XML. Используются они для
+        того, чтобы объявить конкретный класс данных и связать его с внешней программой. Эта внешняя программа
+        становится обработчиком объявленного класса данных. Например, связав с документом изобржение в
+        формате&nbsp;<strong>JPEG</strong>, разработчик желает, чтобы программа приняла и визуализировала двоичные
+        данные в этом формате. Ниже представлены примеры объявления нотаций:</p>
+      <pre class="code">&lt;!<strong>NOTATION</strong> doc&nbsp; <strong>SYSTEM </strong>"winword.exe"&gt;
+  &lt;!<strong>NOTATION</strong> jpeg <strong>SYSTEM </strong>"c:\Progrm Files\ACDSee\acdsee.exe"&gt;</pre>
+      <p>Где же используются нотации? Например, для объявления двоичных сущностей:</p>
+      <pre
+        class="code">&lt;!<strong>ENTITY</strong> photo <strong>SYSTEM </strong>"images/myphoto.jpg" <strong>NDATA</strong> jpeg&gt;</pre>
+      <p>На то, что сущность является неанализируемой, двоичной указывает ключевое
+        слово&nbsp;<strong>NDATA</strong>&nbsp;-&nbsp;<em>notation data, данные нотации</em>, за которым следует имя
+        объявленной ранее нотации.</p>
+      <h3>Элементы</h3>
+      <p>"Сердцем и душой" документа XML является элемент. В DTD типы элементы объявляются при помощи ключевого
+        слова&nbsp;<strong>ELEMENT</strong>:</p>
+      <pre class="code">&lt;!<strong>ELEMENT</strong> message (<strong>#PCDATA</strong>)&gt;
+  ...</pre>
+      <p>За ключевым словом&nbsp;<strong>ELEMENT</strong>&nbsp;должно следовать имя элемента (message), затем,
+        спецификация содержания (<strong>#PCDATA</strong>&nbsp;- анализируемые символьные данные). Существуют следующие
+        варианты описания содержания элементов:</p>
+      <ul>
+        <li><strong>EMPTY</strong></li>
+        <li><strong>ANY</strong></li>
+        <li><strong>(#PCDATA)</strong></li>
+        <li><strong>(модель содержания)</strong></li>
+      </ul>
+      <h4>EMPTY</h4>
+      <p>При помощи ключевого слова&nbsp;<strong>EMPTY</strong>&nbsp;описываются элементы с пустым содержанием. Такие
+        элементы не могут содержать текст или порожденные (дочерние) элементы, но могут иметь атрибуты. Например:</p>
+      <pre class="code">&lt;!<strong>ELEMENT</strong> logo <strong>EMPTY</strong>&gt;
+  ...
+  &lt;<strong>logo src</strong>="./images/logo.gif"<strong> address</strong>="http://company.com"/&gt;</pre>
+      <p>Подобные элементы наверняка встречались вам и ранее в курсе HTML. Например:</p>
+      <pre class="code">&lt;<strong>br</strong> /&gt;
+  &lt;<strong>img src</strong>="./images/logo.gif" /&gt;</pre>
+      <h4>#PCDATA - анализируемые символьные данные</h4>
+      <p>Такая спецификация содержания элемента указывает на то, что элемент может содержать только текст (возможно, со
+        ссылками на сущности - это и делает его анализируемым...). В содержимом таких элементов недопустимо
+        использование других элементов:</p>
+      <pre
+        class="code">&lt;!<strong>ELEMENT</strong> author (<strong>#PCDATA</strong>)&gt;
+  ...
+  &lt;!-- корректная конструкция --&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;<strong>author</strong>&gt;Автор: <em>&amp;author;</em>&lt;<strong>/author</strong>&gt;
+  &lt;!-- некорректная конструкция (содержит элемент &lt;b&gt;) --&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;<strong>author</strong>&gt;&lt;<strong>b</strong>&gt;Автор:&lt;<strong>/b</strong>&gt; <em>&amp;author;</em>&lt;<strong>/author</strong>&gt; </pre>
+      <h4>ANY</h4>
+      <p>Данный тип содержания полностью соответствует значению слова: ANY - любой. Элемент может содержать
+        анализируемые
+        текстовые данные (#PCDATA) вперемешку с дочерними элементами. Например:</p>
+      <pre class="code">&lt;!ELEMENT lesson ANY&gt;
+  ...
+  &lt;lesson&gt;
+  &nbsp; &nbsp; &nbsp;  Название: &lt;title&gt;Использование DTD&lt;/title&gt;
+  &nbsp; &nbsp; &nbsp;  Автор: &lt;author&gt;&amp;author;&lt;/author&gt;
+  &nbsp; &nbsp; &nbsp;  ...</pre>
+      <h4>Чисто элементное содержание</h4>
+      <p>Иногда возникает необходимость задать структуру элемента, содержащего некоторые дочерние элементы, более
+        жестко,
+        чем это позволяет тип&nbsp;<strong>ANY</strong>. В таком случае нам прийдется воспользоваться некоторыми
+        спецсимволами для описания&nbsp;<strong>модели содержания</strong>&nbsp;элементов:</p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <th class="table__cell">Символ</th>
+            <th class="table__cell">Значение</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>|</p>
+            </td>
+            <td class="table__cell">
+              <p>Задает выбор одного варианта из нескольких возможных:</p>
+              <pre class="code">&lt;!<strong>ELEMENT</strong> elem (<strong>a|b|c</strong>)&gt;</pre>
+              <p>означает, что описываемый элемент (<strong>elem</strong>) может содержать или
+                элемент&nbsp;<strong>a</strong>, или элемент&nbsp;<strong>b</strong>, или
+                элемент&nbsp;<strong>c</strong>.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>,</p>
+            </td>
+            <td class="table__cell">
+              <p>Указывает, что перечисленные элементы должны следовать в заданном порядке:</p>
+              <pre class="code">&lt;!<strong>ELEMENT</strong> elem (<strong>a,b,c</strong>)&gt;</pre>
+              <p>означает, что описываемый элемент содержит элемент&nbsp;<strong>a</strong>, затем
+                элемент&nbsp;<strong>b</strong>&nbsp;и, наконец, элемент&nbsp;<strong>c</strong>.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>?</p>
+            </td>
+            <td class="table__cell">
+              <p>Указывает, что перечисленные элементы необязательны, но, если присутствуют, должны использоваться
+                только 1 раз:</p>
+              <pre class="code">&lt;!<strong>ELEMENT</strong> elem (<strong>a,(b|c)?</strong>)&gt;</pre>
+              <p>означает, что описываемый элемент содержит элемент&nbsp;<strong>a</strong>, затем необязательный
+                элемент&nbsp;<strong>b</strong>&nbsp;или необязательный элемент&nbsp;<strong>c</strong>.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>*</p>
+            </td>
+            <td class="table__cell">
+              <p>Указывает, что перечисленные элементы могут повторяться неограниченное количество раз, или ни
+                разу:</p>
+              <pre class="code">&lt;!<strong>ELEMENT</strong> elem (<strong>a*</strong>)&gt;</pre>
+              <p>означает, что описываемый элемент может быть пустым, или содержать несколько
+                элементов&nbsp;<strong>a</strong>.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>+</p>
+            </td>
+            <td class="table__cell">
+              <p>Указывает, что перечисленные элементы могут повторяться неограниченное количество раз (минимум 1
+                раз):</p>
+              <pre class="code">&lt;!<strong>ELEMENT</strong> elem (<strong>a*</strong>)&gt;</pre>
+              <p>означает, что описываемый элемент может содержать один или более
+                элементов&nbsp;<strong>a</strong>.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>()</p>
+            </td>
+            <td class="table__cell">
+              <p>Скобки служат, как вы уже наверное догадались, для группировки элементов.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>Смешанное содержание</h4>
+      <p>Когда необходимо указать в качестве содержания элемента набор определенных дочерних элементов и символьных
+        данных
+        используют следующий подход:</p>
+      <pre class="code">&lt;!DOCTYPE formated-text [
+  &nbsp;  &lt;!ELEMENT strong &nbsp;  (#PCDATA)&gt;
+  &nbsp;  &lt;!ELEMENT emphasis  (#PCDATA)&gt;
+  &nbsp;  &lt;!ELEMENT title &nbsp; &nbsp; (#PCDATA)&gt;
+  &nbsp;  &lt;!ELEMENT paragraph (#PCDATA|strong|emphasis)*&gt;
+  &nbsp;  &lt;!ELEMENT section &nbsp; (title,paragraph+)&gt;
+  ]&gt;</pre>
+      <p>Обратите внимание на описание элемента&nbsp;<strong>paragrapg</strong>: он может содержать неограниченную
+        (возможно, пустую) последовательность
+        элементов&nbsp;<strong>strong</strong>&nbsp;или&nbsp;<strong>emphasis</strong>&nbsp;или символьные данные. Ниже
+        приводится пример применения этих элементов:</p>
+      <pre class="code">&lt;section&gt;
+  &nbsp; &nbsp; &nbsp;  &lt;title&gt;Смешанное содержание&lt;/title&gt;
+  &nbsp; &nbsp; &nbsp;  &lt;paragraph&gt;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Как следует из самого названия, смешанное содержание
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (&lt;emphasis&gt;mixed content&lt;/emphasis&gt;) является сочетанием
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; элементного содержания и символьных данных.
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ...
+  &nbsp; &nbsp; &nbsp;  &lt;/paragraph&gt;
+  &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp;  ...
+  &nbsp; &nbsp; &nbsp;
+  &lt;/section&gt;</pre>
+      <h3>Атрибуты</h3>
+      <p>По существу, атрибуты обеспечивают дополнительную информацию об элементах XML и их содержании. Если элемент
+        является пустым, то атрибуты несут дополнительное содержание. Если в элементе есть содержание, атрибуты, как
+        правило, описывают его.</p>
+      <p>В DTD атрибуты описываются при помощи деклрации "&lt;!<strong>ATTLIST</strong>&nbsp;" (список атрибутов).
+        Следом
+        за ключевым словом&nbsp;<strong>ATTLIST</strong>&nbsp;следует имя элемента, к которому применяется список
+        атрибутов, а затем 0 или более определений атрибутов. Каждое определение атрибута состоит из имени атрибута, его
+        типа и характеристики:</p>
+      <pre class="code">&lt;!ATTLIST элемент
+  &nbsp; &nbsp; &nbsp;  атрибут тип характеристика
+  &nbsp; &nbsp; &nbsp;  атрибут тип характеристика
+  &nbsp; &nbsp; &nbsp;  ... &gt;</pre>
+      <p>Значения характеристики атрибутов приведены в таблице ниже:</p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <th class="table__cell">Характеристика</th>
+            <th class="table__cell">Значение</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>#REQUIRED</p>
+            </td>
+            <td class="table__cell">
+              <p>Атрибут должен присутствовать в каждом экземпляре элемента в документе, является обязательным.
+              </p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>#IMPLIED</p>
+            </td>
+            <td class="table__cell">
+              <p>Атрибут может присутствовать, но необязателен.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>#FIXED + значение по умолчанию</p>
+            </td>
+            <td class="table__cell">
+              <p>Атрибут всегда должен иметь только значение, предлагаемое по умолчанию; если атрибут не указан,
+                значение по умолчанию все равно предполагается анализатором.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>значение по умолчанию</p>
+            </td>
+            <td class="table__cell">
+              <p>Если атрибут не приведен, значение по умолчанию предполагается анализатором. Если атрибут
+                имеется, у него может быть другое значение.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>В XML определено несколько типов для атрибутов. По существу, атрибуты всегда имеют строковое значение, однако
+        различают 3 категории типов атрибутов XML:</p>
+      <ul>
+        <li>строковые атрибуты (string attributes) - произвольная строка</li>
+        <li>маркированные атрибуты (tokenized attributes) - строка определенного вида</li>
+        <li>перечислимые атрибуты (enumerated attributes) - список значений</li>
+      </ul>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <th class="table__cell">Тип</th>
+            <th class="table__cell">Категория</th>
+            <th class="table__cell">Значение</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>CDATA</p>
+            </td>
+            <td class="table__cell">
+              <p>строковый</p>
+            </td>
+            <td class="table__cell">
+              <p>Символьные данные (строка). Атрибуты данного типа могут принимать любое значение.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>ID</p>
+            </td>
+            <td class="table__cell">
+              <p>маркированный   </p>
+            </td>
+            <td class="table__cell">
+              <p>Имя, уникальное для данного документа. Значение атрибута данного типа всегда должно быть
+                корректным именем: начинаться с буквы или символа подчеркивания, за которым следует
+                последовательность 0 или более букв, цифр или знаков подчеркивания. Если 2 или более элементов
+                имеют одинаковый ID, документ считается недействительным (invalid).</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>IDREF</p>
+            </td>
+            <td class="table__cell">
+              <p>маркированный</p>
+            </td>
+            <td class="table__cell">
+              <p>Ссылка на некоторый элемент, с атрибутом ID, который имеет то же значение, что и атрибут IDREF.
+                Если элемент с указанным ID в документе отсутствует, документ считается недействительным.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>IDREFS</p>
+            </td>
+            <td class="table__cell">
+              <p>маркированный</p>
+            </td>
+            <td class="table__cell">
+              <p>Несколько атрибутов IDREF, разделенных пустыми пространствами.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>ENTITY</p>
+            </td>
+            <td class="table__cell">
+              <p>маркированный</p>
+            </td>
+            <td class="table__cell">
+              <p>Имя заранее определенной сущности. Если в DTD не определенна указанная сущность, документ
+                считается недействительным</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>ENTITYES</p>
+            </td>
+            <td class="table__cell">
+              <p>маркированный</p>
+            </td>
+            <td class="table__cell">
+              <p>Несколько имен сущностей (ENTITY), разделенных пустыми пространствами.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>NMTOKEN</p>
+            </td>
+            <td class="table__cell">
+              <p>маркированный</p>
+            </td>
+            <td class="table__cell">
+              <p>Имя. Данный атрибут, как и ID, должен быть корректным именем, но его уникальность не требуется.
+              </p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>NMTOKENS   </p>
+            </td>
+            <td class="table__cell">
+              <p>маркированный</p>
+            </td>
+            <td class="table__cell">
+              <p>Неколько имен NMTOKEN, разделенных пустыми пространствами.</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>NOTATION</p>
+            </td>
+            <td class="table__cell">
+              <p>маркированный</p>
+            </td>
+            <td class="table__cell">
+              <p>Принимает одно из набора имен, указывающих на типы нотаций в определении DTD (см. ENTITY).</p>
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+              <p>[список значений]</p>
+            </td>
+            <td class="table__cell">
+              <p>перечислимый</p>
+            </td>
+            <td class="table__cell">
+              <p>Принимает одно из серии значений, явным образом определенных пользователем.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Давайте на примере проектирования DTD книжного кталога рассмотрим описание атрибутов в DTD. Пусть основными
+        элементами книжного каталога являются&nbsp;<strong>book</strong>&nbsp;и&nbsp;<strong>author</strong>. Именно на
+        их примере мы и рассмотрим описание атрибутов.</p>
+      <h4>CDATA</h4>
+      <p>Примером строкового атрибута может быть, например, название книги:</p>
+      <pre class="code">Описание в DTD:
+  &lt;!DOCTYPE books [
+  &nbsp;  &lt;!ELEMENT book EMPTY&gt;
+  &nbsp;  &lt;!ATTLIST book
+  &nbsp; &nbsp; &nbsp;  title CDATA #REQUIRED&gt;
+  ]&gt;
+  Применение в XML:
+  &lt;book title="XML для начинающих" /&gt;</pre>
+      <h4>ID</h4>
+      <p>Разовьем далее описание атрибутов элемента&nbsp;<strong>book</strong>. Каждая книга в каталоге должна иметь
+        уникальный код. Это можно задать в DTD следующим образом:</p>
+      <pre class="code">Описание в DTD:
+  &lt;!DOCTYPE books [
+  &nbsp;  &lt;!ELEMENT book EMPTY&gt;
+  &nbsp;  &lt;!ATTLIST book
+  &nbsp; &nbsp; &nbsp;  code  ID &nbsp;  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  title CDATA #REQUIRED&gt;
+  ]&gt;
+  Применение в XML:
+  &lt;book title="XML для начинающих" code="BK_5676" /&gt;</pre>
+      <p>Теперь, если найдется две книги в каталоге, имеющие одинаковое значение атрибута&nbsp;<strong>code</strong>,
+        документ будет недействительным.</p>
+      <h4>IDREF</h4>
+      <p>Теперь представим следующую ситуацию: авторы книг описываются отдельными элементами, каждый автор имеет
+        уникальный идентификатор. В этом случае для связи книг с их авторами можно использовать атрибут
+        типа&nbsp;<strong>IDREF</strong>:</p>
+      <pre class="code">Описание в DTD:
+  &lt;!DOCTYPE books [
+  &nbsp;  &lt;!ELEMENT author EMPTY&gt;
+  &nbsp;  &lt;!ELEMENT book EMPTY&gt;
+  &nbsp;  &lt;!ATTLIST author
+  &nbsp; &nbsp; &nbsp;  id &nbsp; &nbsp; ID &nbsp;  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  name &nbsp; CDATA #REQUIRED
+  &nbsp; &nbsp; &nbsp;  email  CDATA #IMPLIED&gt;
+  &nbsp;  &lt;!ATTLIST book
+  &nbsp; &nbsp; &nbsp;  code &nbsp; ID &nbsp;  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  title  CDATA #REQUIRED
+  &nbsp; &nbsp; &nbsp;  author IDREF #REQUIRED&gt;
+  ]&gt;
+  Применение в XML:
+  &lt;author id="AV_5698" name="Иванов И.И." /&gt;
+  &lt;author id="AV_7655" name="Петров П.П." /&gt;
+  &lt;book code="BK_5676" title="XML для начинающих" author="AV_7655" /&gt;</pre>
+      <p>В данном примере у элемента&nbsp;<strong>book</strong>&nbsp;есть
+        атрибут&nbsp;<strong>author_id</strong>&nbsp;типа&nbsp;<strong>IDREF</strong>, который может принимать значения,
+        соответствующие существующему уникальному идентификатору автора. Обратите внимние: практически все атрибуты в
+        примере объявленны с директивой&nbsp;<strong>#REQUIRED</strong>&nbsp;- обязательный, кроме
+        атрибута&nbsp;<strong>email</strong>&nbsp;элемента&nbsp;<strong>author</strong>&nbsp;- он является
+        необязательным -&nbsp;<strong>#IMPLIED</strong>(эта информация не критична, у автора может и не быть адреса
+        электронной почты, или он по каким либо причинам отказался его предоставить).</p>
+      <h4>IDREFS</h4>
+      <p>В рассмотренном выше примере каждая книга может иметь только одного автора. Однакожизненый опыт показывает, что
+        существует множество книг, написанных в соавторстве (2, 3 и более авторов). Как адаптировать наше DTD к такому
+        случаю? Здесь целесообразно применить атрибут типа&nbsp;<strong>IDREFS</strong>, дающий возможность указать
+        несколько ID, разделенных пустыми пространствами:</p>
+      <pre class="code">Описание в DTD:
+  &lt;!DOCTYPE books [
+  &nbsp;  &lt;!ELEMENT author EMPTY&gt;
+  &nbsp;  &lt;!ELEMENT book EMPTY&gt;
+  &nbsp;  &lt;!ATTLIST author
+  &nbsp; &nbsp; &nbsp;  id &nbsp; &nbsp; ID &nbsp;  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  name &nbsp; CDATA #REQUIRED
+  &nbsp; &nbsp; &nbsp;  email  CDATA #IMPLIED&gt;
+  &nbsp;  &lt;!ATTLIST book
+  &nbsp; &nbsp; &nbsp;  code &nbsp; &nbsp;  ID &nbsp; &nbsp; #REQUIRED
+  &nbsp; &nbsp; &nbsp;  title &nbsp; &nbsp; CDATA  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  authors &nbsp; IDREFS #REQUIRED&gt;
+  ]&gt;
+  Применение в XML:
+  &lt;author id="AV_5698" name="Иванов И.И." /&gt;
+  &lt;author id="AV_9812" name="Сидоров В.П." /&gt;
+  &lt;author id="AV_7655" name="Петров П.П." /&gt;
+  &lt;book code="BK_5676" title="XML для начинающих" authors="AV_7655 AV_5698" /&gt;
+  &lt;book code="BK_5677" title="XML для профессионалов" authors="AV_9898 AV_9812" /&gt;</pre>
+      <p>В данном примере ссылка на несуществующий ID автора AV_9898, делающая документ в целом недействительным.</p>
+      <h4>NMTOKEN</h4>
+      <p>Атрибут данного типа должен быть корректным именем. По синтаксису он единтичен ID, но не обязан быть уникальным
+        в
+        документе, или IDREF, но не должен ссылаться на действительный ID. В примере DTD книжного каталога это может
+        быть название категории, к которой принадлежит книга (например:&nbsp;<strong>markup</strong>&nbsp;-
+        разметка,&nbsp;<strong>programming</strong>&nbsp;- программирование и т.д.):</p>
+      <pre
+        class="code">Описание в DTD:
+  &lt;!DOCTYPE books [
+  &nbsp;  &lt;!ELEMENT author EMPTY&gt;
+  &nbsp;  &lt;!ELEMENT book EMPTY&gt;
+  &nbsp; &nbsp; &lt;!ATTLIST author
+  &nbsp; &nbsp; &nbsp;  id &nbsp; &nbsp; ID &nbsp;  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  name &nbsp; CDATA #REQUIRED
+  &nbsp; &nbsp; &nbsp;  email  CDATA #IMPLIED&gt;
+  &nbsp; &lt;!ATTLIST book
+  &nbsp; &nbsp; &nbsp;  code &nbsp; &nbsp;  ID &nbsp; &nbsp;  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  title &nbsp; &nbsp; CDATA &nbsp; #REQUIRED
+  &nbsp; &nbsp; &nbsp;  authors &nbsp; IDREFS  #REQUIRED&gt;
+  &nbsp; &nbsp; &nbsp;  category  NMTOKEN #REQUIRED&gt;
+  ]&gt;
+  Применение в XML:
+  &lt;author id="AV_5698" name="Иванов И.И." /&gt;
+  &lt;author id="AV_9812" name="Сидоров В.П." /&gt;
+  &lt;author id="AV_7655" name="Петров П.П." /&gt;
+  &lt;author id="AV_6789" name="Горбачев М.С." /&gt;
+  &lt;book code="BK_7644" title="Язык Разметки Гипертекста" category="markup" authors="AV_7655 AV_5698" /&gt;
+  &lt;book code="BK_3245" title="C++ для профессионалов" category="programming" authors="AV_9812" /&gt;
+  &lt;book code="BK_3245" title="Серверные сценарии - ASP" category="server side scripting" authors="AV_6789" /&gt;</pre>
+      <p>Ошибка, сделанная в примере: "server side scripting" не является корректным&nbsp;<strong>именем</strong>&nbsp;с
+        точки зрения анализатора XML.</p>
+      <h4>Список значений</h4>
+      <p>Атрибуты данного типа принимают одно из указанного списка значений. Переделаем наш пример так, чтобы категория,
+        к
+        которой принадлежит книга, была перечислимой:</p>
+      <pre class="code">Описание в DTD:
+  &lt;!DOCTYPE books [
+  &nbsp;  &lt;!ELEMENT author EMPTY&gt;
+  &nbsp;  &lt;!ELEMENT book EMPTY&gt;
+  &nbsp; &nbsp; &lt;!ATTLIST author
+  &nbsp; &nbsp; &nbsp;  id &nbsp; &nbsp; ID &nbsp;  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  name &nbsp; CDATA #REQUIRED
+  &nbsp; &nbsp; &nbsp;  email  CDATA #IMPLIED&gt;
+  &nbsp; &lt;!ATTLIST book
+  &nbsp; &nbsp; &nbsp;  code &nbsp; &nbsp;  ID &nbsp; &nbsp;  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  title &nbsp; &nbsp; CDATA &nbsp; #REQUIRED
+  &nbsp; &nbsp; &nbsp;  authors &nbsp; IDREFS  #REQUIRED&gt;
+  &nbsp; &nbsp; &nbsp;  category  ("common"|"markup"|"programming"|"scripting") "common"&gt;
+  ]&gt;
+  Применение в XML:
+  &lt;author id="AV_5698" name="Иванов И.И." /&gt;
+  &lt;author id="AV_9812" name="Сидоров В.П."/&gt;
+  &lt;author id="AV_5566" name="Орлов П.П." /&gt;
+  &lt;author id="AV_6789" name="Горбачев М.С."/&gt;
+  &lt;book code="BK_7644" title="Язык Разметки Гипертекста" category="markup" authors="AV_7655 AV_5698" /&gt;
+  &lt;book code="BK_3245" title="C++ для профессионалов" category="programming" authors="AV_9812" /&gt;
+  &lt;book code="BK_6677" title="Бизнес и компьютер" authors="AV_5566" /&gt;</pre>
+      <p>В данном примере атрибут&nbsp;<strong>category</strong>&nbsp;принимает значения из заданного списка. Кроме
+        того,
+        значением по умолчанию для данного атрибута является&nbsp;<strong>"common"</strong>&nbsp;(выделен в коде зеленым
+        фоном). Таким образом, если атрибут&nbsp;<strong>category</strong>&nbsp;не указан, значение по умолчанию будет
+        подставленно анализатором. Если значение атрибута&nbsp;<strong>category</strong>&nbsp;не входит в указанный
+        список, документ будет считаться недействительным.</p>
+      <h4>Параметрические сущности (продолжение)</h4>
+      <p>Параметрические сущности используются для сокращения и упрощения записи часто встречающихся в DTD фрагментов.
+        Представим себе следующую ситуацию: в нашем каталоге могут содержаться как книги, так и периодические издания
+        (журналы, газеты). И у одних и у вторых есть такие атрибуты, как код, название, год издания, типография и т.п. в
+        таком случае DTD примет следующий вид (DTD приводится в сокращенном виде):</p>
+      <pre class="code">&lt;!DOCTYPE catalog [
+  ...
+  &lt;!ELEMENT book &nbsp;  EMPTY&gt;
+  &lt;!ELEMENT magazin EMPTY&gt;
+  &lt;!ATTLIST book
+  &nbsp;  code &nbsp; &nbsp;  ID &nbsp; &nbsp; #REQUIRED
+  &nbsp;  title &nbsp; &nbsp; CDATA  #REQUIRED
+  &nbsp;  year &nbsp; &nbsp;  CDATA  #REQUIRED
+  &nbsp;  publisher CDATA  #REQUIRED
+  &nbsp;  category  ("common"|"markup"|"programming"|"scripting") "common"
+  &nbsp;  authors &nbsp; IDREFS #REQUIRED&gt;
+  &lt;!ATTLIST magazin
+  &nbsp;  code &nbsp; &nbsp;  ID &nbsp; &nbsp; #REQUIRED
+  &nbsp;  title &nbsp; &nbsp; CDATA  #REQUIRED
+  &nbsp;  year &nbsp; &nbsp;  CDATA  #REQUIRED
+  &nbsp;  publisher CDATA  #REQUIRED
+  &nbsp;  number &nbsp;  CDATA  #REQUIRED&gt;
+  ]&gt;</pre>
+      <p>Ну, например, так. Как видно из примера в списках атрибутов для книги и журнала присутствуют повторяющиеся
+        элементы (<strong>code</strong>,&nbsp;<strong>title</strong>, ...). Оптимизировать данное объявление можно путем
+        создания и использования такой параметрической сущности:</p>
+      <pre class="code">&lt;!ENTITY % commonParams
+  &nbsp; &nbsp; &nbsp; "code &nbsp; &nbsp;  ID &nbsp; &nbsp; #REQUIRED
+  &nbsp; &nbsp; &nbsp;  title &nbsp; &nbsp; CDATA  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  year &nbsp; &nbsp;  CDATA  #REQUIRED
+  &nbsp; &nbsp; &nbsp;  publisher CDATA  #REQUIRED"&gt;
+  &lt;!ELEMENT book &nbsp;  EMPTY&gt;
+  &lt;!ELEMENT magazin EMPTY&gt;
+  &lt;!ATTLIST book
+  &nbsp; &nbsp; &nbsp;  %commonParams;
+  &nbsp; &nbsp; &nbsp;  category  ("common"|"markup"|"programming"|"scripting") "common"
+  &nbsp; &nbsp; &nbsp;  authors &nbsp; IDREFS #REQUIRED&gt;
+  &lt;!ATTLIST magazin
+  &nbsp; &nbsp; &nbsp;  %commonParams;
+  &nbsp; &nbsp; &nbsp;  number &nbsp;  CDATA  #REQUIRED&gt;</pre>
+      <p>Необходимо отметить, что параметрические сущности могут использоваться только во внешних DTD.</p>
+      <h2>W3C парсеры для XML.</h2>
+      <p>Проблемой при валидации (проверка правилоьности XML документа согласно схеме) является тот факт, что
+        соответствие
+        документов их схемам некоторые броузеры не проверяют. В связи с этим возникает необходимость использовать
+        возможности DOM (Document Object Model) для проверки правильности. Функция валидации так или иначе присутствует
+        в любом парсере. Ее необходимо правильно вызвать.</p>
+      <p>Проверить соответствие XDR схеме в ОС Windows несколько легче, поскольку XML парсер от Microsoft является
+        частью
+        операционной системы. Достаточно воспользоваться Java скриптом для проверке (как в прошлой лабораторной работе).
+      </p>
+      <p>XSD является стандартом, поддерживаемым и развиваемым консорциумом W3C. В рамках этой поддержки&nbsp;<a
+          target="_blank" href="http://www.apache.org/">The Apache Software Foundation</a>&nbsp;создала набор ПО,
+        представляющего собой парсеры и другое обеспечение для&nbsp;<a target="_blank"
+          href="http://xml.apache.org/">работы с XML</a>.
+        Одним из таких известных парсеров является&nbsp;<a target="_blank" href="http://xerces.apache.org/">Xerces</a>.
+        Он существует в виде отдельного ПО, реализованного на С++ или Java. Чтобы не ограничивать Вас в выборе
+        инструментальной среды и ОС, будем использовать Java реализацию ввиду ее кроссплатворменности и простоты
+        использования.</p>
+      <p><strong>Замечание</strong>. Для запуска Java приложения необходимо, чтобы на компьютере была установлена Java
+        машина от Sun. Желательно с Java SDK.</p>
+      <p>Готовый DomValidator для проверки правильности XML документа на Java можно скачать<a target="_blank"
+          href="https://bdpx.github.io/xml/lab2/DomValidator.rar">здесь</a>&nbsp;(не нажимать, а правой кнопкой
+        выбрать "Сохранить объект как...").</p>
+      <p>Скомпилировать DOMValidator можно командой:</p>
+      <p><code class="code code--inline">javac domvalidator.java</code></p>
+      <p>Проверить правильность My.XML относительно DTD (файл с DTD должен находится по той же ссылке, которая указана
+        при
+        описании внешнего DTD в самом XML документе) можно коммандой</p>
+      <p><code class="code code--inline">java DomValidator my.xml dtd</code></p>
+      <p>Сам Xerces можно скачать&nbsp;<a target="_blank"
+          href="https://bdpx.github.io/xml/dist/xerces-j.rar">отсюда</a>&nbsp;или с&nbsp;<a target="_blank"
+          href="http://xerces.apache.org/">официального сайта</a>.</p>
+      <h2>Задание на лабораторную работу</h2>
+      <p>Необходимо для XML документа, созданого в первой лабораторной работе, определить его струткуру с помощью DTD
+        (внешней). Осуществить проверку соответсвия документа описанию его структуры.</p>
+      <p>Проверку можно осуществить с помощью специального валидатора, о котором рассказано Выше..</p>
+      <p>Для демонстрации правильности DTD необходимо проверить не только прохождение валидации, но и ее непрохождение
+        (т.е. смоделировать несолько ошибок, которые явно указывают на то или иное описание в DTD).</p>
+      <button type="button" class="button"><a class="button__link" href="xml1.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="xml3.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

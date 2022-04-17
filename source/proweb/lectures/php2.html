@@ -1,0 +1,777 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHP Основы языка</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Основы языка PHP</h1>
+      <h2>Константы</h2>
+      <p><b>Константы</b> определяются в PHP-программе с помощью функции
+        <b>define( )</b>. Например:
+      </p>
+      <pre class="code">define("PI", 3.1415927);</pre>
+      <p>После определения константа не может быть изменена. В имени константы обычно
+        используются только заглавные буквы.
+      <p>PHP имеет ряд <b>предопределенных констант</b>. Например:
+      </p>
+      <ul>
+        <li><b>_FILE_</b> содержит имя файла, включая полный путь, который в данный момент читает PHP</li>
+        <li><b>_LINE_</b> содержит номер строки этого файла</li>
+        <li><b>__DIR__</b> представляет только путь к файлу</li>
+        <li><b>__CLASS__</b> представляет имя текущего класса</li>
+        <li><b>__FUNCTION__</b> представляет имя текущей функции</li>
+        <li><b>__METHOD__</b> представляет имя текущего метода</li>
+        <li><b>__NAMESPACE__</b> представляет имя текущего пространства имен</li>
+      </ul>
+
+      <h2>Переменные</h2>
+      <p>Имя любой переменной в PHP начинается со знака <b>$</b>. Имена переменных
+        <i>чувствительны к регистру</i> символов.
+      </p>
+      <p><i>Тип переменной</i> не требуется задавать специально. Конкретный тип переменной
+        устанавливается и меняется в ходе выполнения программы.
+      </p>
+      <p>PHP поддерживает восемь типов данных:
+      </p>
+      <ul>
+        <li>логический (принимает значения true или false);
+        </li>
+        <li>целое число;
+        </li>
+        <li>вещественное число с плавающей точкой;
+        </li>
+        <li>строка;
+        </li>
+        <li>объект;
+        </li>
+        <li>массив;
+        </li>
+        <li>ресурс (специальный тип);
+        </li>
+        <li>null (специальный тип).
+        </li>
+      </ul>
+      <p>Тип переменной можно <i>проверить</i> с помощью функции <b>gettype()</b>.
+      </p>
+      <h4>Пример 1</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+     &lt;title&gt;Автоматическое изменение и проверка типа переменной&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $t = "0";
+    echo "t = $t -- ".gettype($t)."&lt;br&gt;";
+    $t += 2;
+    echo "t = $t -- ".gettype($t)."&lt;br&gt;";
+    $t = $t + 3.5;
+    echo "t = $t -- ".gettype($t)."&lt;br&gt;";
+    $t = 5 + "5 поросят";
+    echo "t = $t -- ".gettype($t)."&lt;br&gt;";
+    $t = 5.0 + "5 поросят";
+    echo "t = $t -- ".gettype($t);
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+      <p>Тип переменной можно <i>изменить</i> с помощью функции <b>settype()</b>.
+      </p>
+      <h4>Пример 2</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+     &lt;title&gt;Изменение типа переменной&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $t = 3.14;
+    echo "t = $t -- ".gettype($t)."&lt;br&gt;";
+    settype($t,"string");
+    echo "t = $t -- ".gettype($t)."&lt;br&gt;";
+    settype($t,"integer");
+    echo "t = $t -- ".gettype($t)."&lt;br&gt;";
+    settype($t,"double");
+    echo "t = $t -- ".gettype($t)."&lt;br&gt;";
+    settype($t,"boolean");
+    echo "t = $t -- ".gettype($t);
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+
+      <p><i>Приведение</i> типа переменной осуществляется с помощью операторов:
+      </p>
+      <ul>
+        <li><b>(bool)</b> - к логическому типу;
+        </li>
+        <li><b>(int)</b> - к целому числу;
+        </li>
+        <li><b>(double)</b> - к вещественному числу;
+        </li>
+        <li><b>(string)</b> - к строке;
+        </li>
+        <li><b>(array)</b> - к массиву;
+        </li>
+        <li><b>(object)</b> - к объекту.
+        </li>
+      </ul>
+      <p>Отличие от изменения типа с помощью функции settype() состоит в том,
+        что оператор приведения создает временную копию нового типа, оставляя саму
+        переменную без изменений.
+      </p>
+      <h4>Пример 3</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+     &lt;title&gt;Приведение типа переменной&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $t = 3.14;
+    $tmp = (string) $t;
+    echo "tmp = $tmp -- ".gettype($tmp)."&lt;br&gt;";
+    $tmp = (int) $t;
+    echo "tmp = $tmp -- ".gettype($tmp)."&lt;br&gt;";
+    $tmp = (double) $t;
+    echo "tmp = $tmp -- ".gettype($tmp)."&lt;br&gt;";
+    $tmp = (bool) $t;
+    echo "tmp = $tmp -- ".gettype($tmp)."&lt;br&gt;";
+    echo "t = $t -- ".gettype($t);
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+      <p>Иногда для упрощения логики программы удобнее использовать переменные имена
+        переменных. PHP предоставляет такую возможность в виде <b>динамических
+          переменных</b>. Динамической называют переменную, имя которой хранится в ней
+        самой.
+      </p>
+      <h4>Пример 4</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+     &lt;title&gt;Использование динамической переменной&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $t = "Всем";		// переменной t присваиваем значение "Всем"
+    $$t = "привет!";	// Переменной "Всем" присваиваем значение "привет!"
+    echo "$$t ".$$t."&lt;br&gt;";
+    echo "$t ${$t}&lt;br&gt;";
+    echo "$t $Всем";
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+
+      <p>В PHP возможно обращение к одной и той же переменной с использованием
+        различных имен. Для реализации этого используются <b>ссылки</b>.
+        Ссылки позволяют двум или большему количеству переменных ссылаться на одну и
+        ту же область памяти.
+      </p>
+      <h4>Пример 5</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+     &lt;title&gt;Создание ссылки на переменную&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $t1 = 96;
+    $t2 = <b>&amp;</b>$t1;
+    echo "t1 = $t1; t2 = $t2&lt;br&gt;";
+    $t1 = 315;
+    echo "t1 = $t1; t2 = $t2";
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+
+      <h2>Операторы</h2>
+      <p>Операторы PHP напоминают общеизвестные операторы языка Си.
+
+      </p>
+      <h3>Унарные операторы</h3>
+      <table class="table">
+        <colgroup>
+          <col>
+        </colgroup>
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">- </td>
+            <td class="table__cell">Изменение знака на противоположный
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">! </td>
+            <td class="table__cell">Дополнение. Используется для реверсирования значения логических переменных
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">++ </td>
+            <td class="table__cell">Увеличение значения переменной. Может применяться и как префикс, и как суффикс
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">-- </td>
+            <td class="table__cell">Уменьшение значения переменной. Может применяться и как префикс, и как суффикс
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Арифметические операторы</h3>
+      <table class="table">
+        <colgroup>
+          <col>
+        </colgroup>
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">- </td>
+            <td class="table__cell">Вычитание
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">+ </td>
+            <td class="table__cell">Сложение
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">* </td>
+            <td class="table__cell">Умножение
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">/ </td>
+            <td class="table__cell">Деление
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">% </td>
+            <td class="table__cell">Остаток от деления
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Оператор конкатенации</h3>
+      <p>Оператор конкатенации "<b>.</b>" присоединяет правую строку к левой.
+      </p>
+      <h4>Пример 6</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+     &lt;title&gt;Конкатенация строк&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $a = "Всем";
+    $b = $a." привет!";
+    echo $b;
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+
+      <p>Оператор конкатенации обрабатывает операнды любых типов как строки.
+        Результат его выполнения всегда является строкой.
+
+      </p>
+      <h3>Операторы присваивания</h3>
+      <table class="table">
+        <colgroup>
+          <col>
+        </colgroup>
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">= </td>
+            <td class="table__cell">Присваивание
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">+= </td>
+            <td class="table__cell">Сложение ($n += 777; аналогично $n = $n + 777;)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">-= </td>
+            <td class="table__cell">Вычитание ($n -= 777; аналогично $n = $n - 777;)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">*= </td>
+            <td class="table__cell">Умножение
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">/= </td>
+            <td class="table__cell">Деление
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">%= </td>
+            <td class="table__cell">Остаток от деления
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">.= </td>
+            <td class="table__cell">Конкатенация ($n .= "777"; аналогично $n = $n."777";)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Битовые операторы</h3>
+      <p>Битовые операторы позволяют изменять отдельные биты целых чисел.
+      </p>
+      <p>
+      </p>
+      <table class="table">
+        <colgroup>
+          <col>
+        </colgroup>
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">&amp; </td>
+            <td class="table__cell">И
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">| </td>
+            <td class="table__cell">ИЛИ
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">^ </td>
+            <td class="table__cell">Исключающее ИЛИ
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">~ </td>
+            <td class="table__cell">Инверсия
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&gt;&gt; </td>
+            <td class="table__cell">Сдвиг вправо
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&lt;&lt; </td>
+            <td class="table__cell">Сдвиг влево
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Операторы сравнения</h3>
+      <table class="table">
+        <colgroup>
+          <col>
+        </colgroup>
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">&gt; </td>
+            <td class="table__cell">Больше ( Больше ли первое значение, чем второе?)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&gt;= </td>
+            <td class="table__cell">Больше или равно ( Верно ли, что первое значение не меньше второго?)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&lt; </td>
+            <td class="table__cell">Меньше ( Меньше ли первое значение, чем второе?)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&lt;= </td>
+            <td class="table__cell">Меньше или равно (Верно ли, что первое значение не больше второго?)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">== </td>
+            <td class="table__cell">Равно (Равнозначны ли значения двух переменных?)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">=== </td>
+            <td class="table__cell">Идентично (Одинаковы ли как значения, так и типы двух переменных?)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">!= , &lt;&gt; </td>
+            <td class="table__cell">Не равно (Не равны ли значения двух переменных?)
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">!== </td>
+            <td class="table__cell">Не идентично (Не одинаковы ли значения или типы данных двух переменных?)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Логические операторы</h3>
+      <p>Логические операторы отличаются от битовых тем, что работают не с числами, а
+        с логическими значениями: TRUE и FALSE.
+      </p>
+      <p>
+      </p>
+      <table class="table">
+        <colgroup>
+          <col>
+        </colgroup>
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">and </td>
+            <td class="table__cell">И
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">or </td>
+            <td class="table__cell">ИЛИ
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">xor </td>
+            <td class="table__cell">Исключающее ИЛИ
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">! </td>
+            <td class="table__cell">Инверсия
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&gt;&gt; </td>
+            <td class="table__cell">Сдвиг вправо
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&lt;&lt; </td>
+            <td class="table__cell">Сдвиг влево
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">&amp;&amp; </td>
+            <td class="table__cell">И
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">|| </td>
+            <td class="table__cell">ИЛИ
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Логические операторы "И" и "ИЛИ" имеют два формата. Это не синонимы.
+        Дело в том, что оператор <b>or</b> имеет приоритет ниже, чем <b>||</b>, а
+        <b>and</b> - ниже, чем <b>&amp;&amp;</b>. Таким образом, при построении сложных
+        условных выражений можно обойтись без скобок. Однако, в таком способе указания
+        порядка проще и запутаться.
+
+      </p>
+      <h3>Проверка содержимого переменной</h3>
+      <p>Иногда необходимо проверить, существует ли переменная или какое она имеет значение. Ниже приведены функции,
+        позволяющие выполнить такие действия.</p>
+      <p>isset($имя_переменной) #Истина, если переменная объявлена даже без присваивания значения.</p>
+      <p>empty($имя_переменной) #Истина, если значение переменной равно нулю или пустой строке, либо переменная не
+        объявлена.</p>
+      <p>РНР также позволяет проверить тип переменной. Например, для того чтобы проверить, является ли переменная
+        целочисленной, следует воспользоваться функцией</p>
+      <p>is_int($number)
+      <p>
+      <p>Результатом выполнения этой функции является TRUE, если переменная $number имеет тип integer. Рассмотрим
+        подобные функции.</p>
+      <p>is_array ($var2) проверяет, является ли переменная $var2 массивом.
+        is_f loat ($number) проверяет, является ли переменная $number числом с плавающей точкой.
+        is_null ($varl) проверяет, равно ли значение переменной $varl нулю
+        is_numeric($string) проверяет, является ли переменная $string числовой строкой.
+        is_string ($string) проверяет, является ли переменная $string строкой.</p>
+      <p>Для проверки обратных условий следует воспользоваться символом восклицания (!). Например, при обработке
+        следующего выражения будет получено значение TRUE, если переменная не объявлена:</p>
+      <p>! isset($имя_переменной)</p>
+
+      <h2>Управляющие структуры</h2>
+
+      <h3>Условные операторы</h3>
+      <p>В языке PHP два условных оператора: <b>if</b> и <b>?</b>.
+      </p>
+      <p>Существует три типа оператора <b>if</b>. Первый тип - базовый условный
+        оператор. Например:
+      </p>
+      <pre class="code">if ($a &gt; $b)
+      {
+      echo "А больше Б";
+      }
+    </pre>
+      <p>Альтернативный синтаксис оператора <b>if</b>:
+      </p>
+      <pre class="code">if ($a &gt; $b):
+      echo "А больше Б";
+    endif;
+    </pre>
+      <p>Второй тип - условный оператор <b>if-else</b>. Например:
+      </p>
+      <pre class="code">if ($a &gt; $b)
+      {
+      echo "А больше Б";
+      }
+    else
+      {
+      echo "А не больше Б";
+      }
+    </pre>
+      <p>Альтернативный синтаксис оператора <b>if-else</b>:
+      </p>
+      <pre class="code">if ($a &gt; $b):
+      echo "А больше Б";
+    else:
+      echo "А не больше Б";
+    endif;
+    </pre>
+      <p>Третий тип - условный оператор <b>if-elseif</b>. Например:
+      </p>
+      <pre class="code">if ($a &gt; $b)
+      {
+      echo "А больше Б";
+      }
+    elseif ($a == $b)
+      {
+      echo "А равно Б";
+      }
+    else
+      {
+      echo "А меньше Б";
+      }
+    </pre>
+      <p>Альтернативный синтаксис оператора <b>if-elseif</b>:
+      </p>
+      <pre class="code">if ($a &gt; $b):
+      echo "А больше Б";
+    elseif ($a == $b):
+      echo "А равно Б";
+    else:
+      echo "А меньше Б";
+    endif;
+    </pre>
+      <p>Условный оператор <b>?</b> возвращает одно из двух значений, разделенных
+        двоеточием. Использование оператора <b>?</b> может сделать более компактным
+        текст программы. Например:
+      </p>
+      <pre class="code">$text = ($a == $b) ? "А равно Б" : "А не равно Б";
+    echo $text;
+    </pre>
+
+      <h3>Оператор выбора</h3>
+      <p>Оператор выбора <b>switch</b> оценивает одно выражение и в зависимости от
+        его значения выполняет один из нескольких блоков программы. Выражение в
+        операторе <b>switch</b> чаще всего бывает простой переменной. Например:
+      </p>
+      <pre class="code">switch ( $a )
+      {
+      case 1:
+      echo "А равно 1";
+      break;
+      case 2:
+      echo "А равно 2";
+      break;
+      case 3:
+      echo "А равно 3";
+      break;
+      default:
+      echo "А не равно ни 1, ни 2, ни 3";
+      }
+    </pre>
+      <p>Альтернативный синтаксис оператора <b>switch</b>:
+      </p>
+      <pre class="code">switch ( $a ):
+      case 1:
+      echo "А равно 1";
+      break;
+      case 2:
+      echo "А равно 2";
+      break;
+      case 3:
+      echo "А равно 3";
+      break;
+      default:
+      echo "А не равно ни 1, ни 2, ни 3";
+    endswitch;
+    </pre>
+
+      <h3>Цикл с параметром</h3>
+      <p>Цикл с параметром <b>for</b> относится к наиболее старому и заслуженному
+        виду цикла.
+      </p>
+      <h4>Пример 7</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+     &lt;title&gt;Цикл for&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    for ($a = 11; $a &lt;= 19; $a++)
+      {
+       echo "квадрат $a равен ".($a*$a)."&lt;br&gt;";
+      }
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+      <p>Альтернативный синтаксис оператора <b>for</b>:
+      </p>
+      <pre class="code">for ($a = 11; $a &lt;= 19; $a++):
+       echo "квадрат $a равен ".($a*$a)."&lt;br&gt;";
+    endfor;
+    </pre>
+
+      <h3>Циклы с условием</h3>
+      <p>В языке PHP сущеcтвует два типа цикла с условием:
+      </p>
+      <ul>
+        <li><b>while</b> - цикл с предусловием;
+        </li>
+        <li><b>do .. while</b> - цикл с постусловием.
+        </li>
+      </ul>
+      <p>Оператор <b>while</b> оценивает значение условия и, если оно истинно,
+        выполняет действия в фигурных скобках (тело цикла). Как только значение условия
+        станет ложным, выполнение цикла прекращается.
+      </p>
+      <h4>Пример 8</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+     &lt;title&gt;Цикл while&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $a = 11;
+    while ( $a &lt;= 19 )
+      {
+       echo "квадрат $a равен ".($a*$a)."&lt;br&gt;";
+       $a++;
+      }
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+      <p>Замечание для продвинутых: сокращенная запись не сработает как ожидается:</p>
+      <pre class="code">while ( $a &lt;= 19 )
+      {
+       echo "квадрат $a равен ".($a*($a++))."&lt;br&gt;"; // так не работает!!!
+      }</code></pre>
+      <p>Альтернативный синтаксис оператора <b>while</b>:
+      </p>
+      <pre class="code">while ( $a &lt;= 19 ):
+       echo "квадрат $a равен ".($a*$a)."&lt;br&gt;";
+       $a++;
+    endwhile;
+    </pre>
+      <p>Цикл <b>do .. while</b> отличается от цикла <b>while</b> лишь тем, что
+        истинность условия проверяется не <i>до</i>, а <i>после</i> выполнения тела
+        цикла.
+      </p>
+      <h4>Пример 9</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+     &lt;title&gt;Цикл do .. while&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $a = 11;
+    do {
+       echo "квадрат $a равен ".($a*$a)."&lt;br&gt;";
+       $a++;
+       }
+    while ( $a &lt;= 19 );
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+      <p>В организации цикла могут участвовать еще два оператора: <strong>break</strong>
+        (выход из цикла) и <strong>continue</strong> (переход на следующий шаг).
+      </p>
+      <p>Выданная справка содержит большое количество разнообразной информации о
+        среде PHP (обратите внимание на бегунок справа). Функция phpinfo()
+        бывает весьма полезна при диагностировании поведения создаваемых PHP-программ.</p>
+      <button type="button" class="button"><a class="button__link" href="php1.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="php3.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

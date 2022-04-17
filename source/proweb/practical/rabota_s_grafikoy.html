@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Работа с графикой</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>Работа с графикой. Знакомство с svg-графикой.</h1>
+      <p><strong>Рисование&nbsp;</strong><strong>svg</strong><strong>-фигур</strong></p>
+      <p>Цель: изучить способы вставки SVG-изображения на web-страницу, принципы создания svg-фигур иsvg-контуров;
+        познакомиться с правилами применения трансформации и градиентной заливки к фигурам.</p>
+      <p><strong>Теория</strong></p>
+      <p>SVG (Scalable Vector Graphics &ndash; масштабируемая векторная графика) &ndash; стандарт векторной графики,
+        разработанный консорциумом W3C.</p>
+      <p>Файлы с расширением .svg сохраняют двухмерную графику. Формат SVG базируется на расширяемом языке разметки XML.
+        Именно поэтому, хотя в файле и хранится информация об изображении, он представлен в текстовом формате. SVG
+        поддерживается всеми современными браузерами для ПК и мобильных телефонов.</p>
+      <p><strong>Достоинства SVG.</strong></p>
+      <p>Графика в формате SVG создается с использованием математических формул, которые при изменении размера
+        изображения
+        можно скорректировать. Таким образом, векторные изображения масштабируются лучше, чем растровые.</p>
+      <p>Размер векторной картинки обычно меньше, чем у сравнимых по качеству изображений в форматах JPEG, GIF или PNG.
+      </p>
+      <p>SVG графика имеет текстовый формат, который можно и править в блокноте, и рисовать в графических векторных
+        редакторах Adobe Illustrator, CorelDRAW.</p>
+      <p>Cкрипты и анимация в SVG позволяют создавать динамичную и интерактивную графику.</p>
+      <p>В SVG изображение можно добавлять ссылки.</p>
+      <p>К SVG формату можно подключать внешние таблицы стилей CSS, глобальные стили внутри контейнера
+        &lt;style&gt;...&lt;/style&gt; или добавлять внутренние стили с помощью атрибута style в тегах фигур и путей.
+      </p>
+      <p><strong>Вставка SVG на Web-страницу.</strong></p>
+      <p>SVG-изображение можно вставить на Web-страницу несколькими способами. Первый из них &ndash; это простая вставка
+        SVG-кода на страницу (при большой картинке HTML-код страницы станет огромным и трудно читаемым). При других
+        способах сначала надо сохранить SVG-код в файле с расширением&nbsp;.svg.</p>
+      <p>Итак, способы вставки SVG-изображения на Web-страницу:</p>
+      <ul>
+        <li>
+          <p>прямая вставка кода в HTML-документ в контейнере &lt;svg&gt;...&lt;/svg&gt;:</p>
+        </li>
+      </ul>
+      <pre class="code">&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"&gt;
+    &lt;!-- SVG-код --&gt;
+    &lt;/svg&gt;;</pre>
+      <ul>
+        <li>
+          <p>использование SVG-файла в качестве фонового изображения:</p>
+        </li>
+      </ul>
+      <pre class="code">&lt;style&gt;
+    .home {
+    display: block;
+    width: 200px;
+    height: 300px;
+    background: url(example.svg) 0 0;
+    background-size: contain;
+    }
+    &lt;/style&gt;
+    &lt;a href="/" class="home"&gt;&lt;/a&gt;;</pre>
+      <ul>
+        <li>
+          <p>подключение SVG-файла в HTML-документ с помощью тегов img, embed, object и iframe:</p>
+        </li>
+      </ul>
+      <pre class="code">&lt;img src="example.svg"&gt;
+    &lt;embed src="example.svg" type="image/svg+xml"&gt;
+    &lt;object data="example.svg" type="image/svg+xml"&gt;&lt;/object&gt;
+    &lt;iframe src="example.svg" width="200" height="300" style="border: none"&gt;&lt;/iframe&gt;;</pre>
+      <ul>
+        <li>
+          <p>подключение SVG-файла в PHP-документ с помощью функции include:</p>
+        </li>
+      </ul>
+      <pre class="code">&lt;? include("example.svg"); ?&gt;.</pre>
+      <p>Примеры простых фигур:</p>
+      <p>линия</p>
+      <pre class="code">&lt;line x1="220" y1="10" x2="20" y2="130" stroke="violet" stroke-width="5" /&gt;;</pre>
+      <p>ломаная</p>
+      <pre class="code">&lt;polyline points="5,135 30,5 55,135 80,5, 105,135 130,5, 155,135 180";</pre>
+      <p>замкнутая фигура, в данном случае треугольник</p>
+      <pre
+        class="code">&lt;polygon points="5,135 115,5 225,135" fill="violet" stroke="purple" stroke-width="5" /&gt;;</pre>
+      <p>прямоугольник</p>
+      <pre class="code">&lt;rect x="5" y="5" width="220" height="130"&gt;;</pre>
+      <p>прямоугольник с закругленными углами</p>
+      <pre class="code">&lt;rect x="5" y="5" width="220" height="130" rx="20" ry="40"&gt;;</pre>
+      <p>круг</p>
+      <pre class="code">&lt;circle r="65" cx="70" cy="70"&gt;;</pre>
+      <p>эллипс</p>
+      <pre class="code">&lt;ellipse rx="110" ry="60" cx="115" cy="70"&gt;.</pre>
+      <p>Следующий пример демонстрирует код с трансформацией:</p>
+      <pre class="code">&lt;svg width = &ldquo;230&rdquo; height = &ldquo;140&rdquo;&gt;
+    &lt;ellipse rx="110" ry="30" cx="115" cy="70" fill=&rdquo;gold&rdquo; stroke=&rdquo;orange&rdquo; stroke-width=&rdquo;5&rdquo; transform =&rdquo;rotate(-23 115 70&rdquo;/&gt;
+    &lt;/svg&gt;</pre>
+      <p>Виды трансформации:</p>
+      <ul>
+        <li>
+          <p>rotate(rotate-angle [cx cy]) &ndash; поворот;</p>
+        </li>
+        <li>
+          <p>scale(sx [sy]) &ndash; масштабирование;</p>
+        </li>
+        <li>
+          <p>translate(tx [ty]) &ndash; перенос;</p>
+        </li>
+        <li>
+          <p>skewX(skew-angle) &ndash; наклон по оси X;</p>
+        </li>
+        <li>
+          <p>skewY(skew-angle) &ndash; наклон по оси Y.</p>
+        </li>
+      </ul>
+      <p>В теге&nbsp;<strong>&lt;defs&gt;</strong>&nbsp;(бибиотека элементов и эффектов) можно задать градиентную
+        заливку
+        (linearGradient, radialGradient) и применить ее к отдельным фигурам. Например,</p>
+      <pre
+        class="code">&lt;defs&gt;
+    &lt;linearGradient id = &ldquo;MyGradient&rdquo;&gt;
+    &lt;stop offset = &ldquo;30%&rdquo; stop-color = &ldquo;red&rdquo;/&gt;
+    &lt;stop offset = &ldquo;70%&rdquo; stop-color = &ldquo;yellow&rdquo;/&gt;
+    &lt;/linearGradient&gt;
+    &lt;/defs&gt;
+    &lt;rect x = &ldquo;0&rdquo; y = &ldquo;0&rdquo; width = &ldquo;150&rdquo; height=&rdquo;150&rdquo; fill = &ldquo;url(#MyGradient)&rdquo;/&gt;</pre>
+      <p>Для сложных контуров существует тег &lt;<strong>path&gt;</strong>. Однако лучше нарисовать фигуру в векторном
+        графическом редакторе и, сохранив в формате svg, скопировать тег path со всеми заданными координатами.</p>
+      <p>SVG фигуры можно нарисовать в векторных редакторах Adobe Illustrator, CorelDRAW, Inkscape (рекомендуемый
+        свободный редактор SVG-графики). При сохранении графического файла в формате SVG сложные контуры записываются в
+        теге&nbsp;<strong>path</strong>.</p>
+      <p><strong>Примеры иконок в&nbsp;</strong><strong>svg</strong><strong>&nbsp;формате, нарисованных в графических
+          редакторах</strong></p>
+      <pre
+        class="code">&lt;path id="home" d="M100 59.375l-18.75-18.75v-28.125h-12.5v15.625l-18.75-18.75-50 50v3.125h12.5v31.25h31.25v-18.75h12.5v18.75h31.25v-31.25h12.5z"/&gt;</pre>
+      <pre
+        class="code">&lt;path id="heart" d="M100 34.976c0 8.434-3.635 16.019-9.423 21.274h0.048l-31.25 31.25c-3.125 3.125-6.25 6.25-9.375 6.25s-6.25-3.125-9.375-6.25l-31.202-31.25c-5.788-5.255-9.423-12.84-9.423-21.274 0-15.865 12.861-28.726 28.726-28.726 8.434 0 16.019 3.635 21.274 9.423 5.255-5.788 12.84-9.423 21.274-9.423 15.865 0 28.726 12.861 28.726 28.726z"/&gt;</pre>
+      <pre
+        class="code">&lt;path id="cog" d="M100 59.384v-18.768l-14.333-2.389c-0.582-1.771-1.291-3.483-2.119-5.127l8.443-11.82-13.271-13.271-11.799 8.428c-1.651-0.835-3.373-1.552-5.153-2.139l-2.383-14.298h-18.768l-2.383 14.298c-1.78 0.587-3.502 1.304-5.153 2.139l-11.8-8.428-13.271 13.271 8.443 11.82c-0.827 1.644-1.537 3.356-2.118 5.127l-14.333 2.389v18.768l14.367 2.395c0.582 1.755 1.29 3.452 2.113 5.081l-8.471 11.86 13.271 13.271 11.88-8.486c1.621 0.815 3.31 1.516 5.055 2.093l2.4 14.402h18.768l2.4-14.402c1.746-0.577 3.434-1.278 5.055-2.093l11.88 8.486 13.271-13.271-8.471-11.86c0.823-1.629 1.531-3.326 2.113-5.081l14.367-2.394zM50 62.5c-6.904 0-12.5-5.596-12.5-12.5 0-6.904 5.596-12.5 12.5-12.5 6.904 0 12.5 5.596 12.5 12.5 0 6.904-5.596 12.5-12.5 12.5z"/&gt;</pre>
+      <pre
+        class="code">&lt;path id="camera" d="M29.688 59.375c0 11.218 9.094 20.313 20.313 20.313s20.313-9.094 20.313-20.313-9.094-20.313-20.313-20.313-20.313 9.094-20.313 20.313zM93.75 25h-21.875c-1.563-6.25-3.125-12.5-9.375-12.5h-25c-6.25 0-7.813 6.25-9.375 12.5h-21.875c-3.438 0-6.25 2.813-6.25 6.25v56.25c0 3.438 2.813 6.25 6.25 6.25h87.5c3.438 0 6.25-2.813 6.25-6.25v-56.25c0-3.438-2.813-6.25-6.25-6.25zM50 87.109c-15.317 0-27.734-12.417-27.734-27.734 0-15.317 12.417-27.734 27.734-27.734 15.318 0 27.734 12.417 27.734 27.734 0 15.318-12.417 27.734-27.734 27.734zM93.75 43.75h-12.5v-6.25h12.5v6.25z"/&gt;</pre>
+      <pre
+        class="code">&lt;path id="bubble" d="M50 6.25c27.614 0 50 18.188 50 40.625 0 22.437-22.386 40.625-50 40.625-2.652 0-5.255-0.169-7.795-0.493-10.74 10.74-23.56 12.666-35.955 12.949v-2.629c6.693-3.279 12.5-9.252 12.5-16.078 0-0.953-0.074-1.888-0.211-2.802-11.308-7.448-18.539-18.824-18.539-31.573 0-22.437 22.386-40.625 50-40.625z"/&gt;</pre>
+      <p><strong>Задания к лабораторной работе</strong></p>
+      <p><em><strong>Задание 1.</strong></em>&nbsp;Создайте на html-страничке svg-изображение с использованием различных
+        примитивов, заливок (fill) и обводок (stroke), нарисуйте фигуры с наложением и примените прозрачность
+        (fill-opacity).</p>
+      <p><em><strong>Задание 2.</strong></em>&nbsp;Примените трансформацию к отдельным примитивам:</p>
+      <p><em><strong>Задание 3.</strong></em>&nbsp;Примените градиентную заливку к отдельным фигурам.</p>
+      <p><em><strong>Задание 4.&nbsp;</strong></em>Создайте новый html файл с svg-изображением. Скопируйте svg-код любой
+        иконки (см. выше) в раздел defs. Разместите этот контур не менее 5-ти раз на страничке при помощи тега use (в
+        теге use указывается id контура, прописываются его координаты и при необходимости трансформация). Задайте
+        различные CSS-стили и примените их к контурам. См. пример.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/rabota_s_grafikoy_pic1.png" />
+      </figure>
+      <p><em><strong>Задание 5.&nbsp;</strong></em>Примените трансформацию и измените размер отдельных экземпляров
+        иконок.
+      </p>
+      <button type="button" class="button"><a class="button__link" href="php.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="javascript1.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

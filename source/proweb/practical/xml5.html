@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>XML XSLT</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>XML XSLT</h1>
+      <p>Цель лабораторной работы: Познакомиться c языком преобразований XSLT.</p>
+      <p><strong>Задание:</strong>&nbsp;Взять в качестве исходного документа XML документ, созданый в лабораторной
+        работе
+        №1. Используя Пример, представленый ниже, лекции и теоретические сведения, написать коммандный файл для
+        получения из XML документа, согласно XSL правил (необходимо также Вам создать), документа HTML, представляющего
+        в виде гипертекста указаную в первоначальном документе информацию.</p>
+      <p><strong>Замечание.</strong></p>
+      <p> Для работы потребуются инструментальные средства: любой текстовый редактор (подойдет
+        блокнот), парсер XSLT шаблонов Xalan (<a href="https://bdpx.github.io/xml/dist/xalan-j_2_7_1-bin.zip"
+          target="_blank">скачать</a>),</p>
+      <p><strong>Практический пример.</strong></p>
+      <p>Пусть имеется созданый XML документ.</p>
+      <pre class="code">&lt;?xml version="1.0"?&gt;
+  &lt;sonnet type="Shakespearean"&gt;
+  &lt;author&gt;
+  &nbsp;  &lt;lastName&gt;Shakespeare&lt;/lastName&gt;
+  &nbsp;  &lt;firstName&gt;William&lt;/firstName&gt;
+  &nbsp;  &lt;nationality&gt;British&lt;/nationality&gt;
+  &nbsp;  &lt;yearOfBirth&gt;1564&lt;/yearOfBirth&gt;
+   &nbsp;  &lt;yearOfDeath&gt;1616&lt;/yearOfDeath&gt;
+  &lt;/author&gt;
+  &lt;title&gt;Sonnet 130&lt;/title&gt;
+  &lt;lines&gt;
+  &nbsp;  &lt;line&gt;My mistress' eyes are nothing like the sun,&lt;/line&gt;
+  &nbsp;  &lt;line&gt;Coral is far more red than her lips red.&lt;/line&gt;
+  &nbsp;  &lt;line&gt;If snow be white, why then her breasts are dun,&lt;/line&gt;
+  &nbsp;  &lt;line&gt;If hairs be wires, black wires grow on her head.&lt;/line&gt;
+  &nbsp;  &lt;line&gt;I have seen roses damasked, red and white,&lt;/line&gt;
+  &nbsp;  &lt;line&gt;But no such roses see I in her cheeks.&lt;/line&gt;
+  &nbsp;  &lt;line&gt;And in some perfumes is there more delight&lt;/line&gt;
+  &nbsp;  &lt;line&gt;Than in the breath that from my mistress reeks.&lt;/line&gt;
+  &nbsp;  &lt;line&gt;I love to hear her speak, yet well I know&lt;/line&gt;
+  &nbsp;  &lt;line&gt;That music hath a far more pleasing sound.&lt;/line&gt;
+  &nbsp;  &lt;line&gt;I grant I never saw a goddess go,&lt;/line&gt;
+  &nbsp;  &lt;line&gt;My mistress when she walks, treads on the ground.&lt;/line&gt;
+  &nbsp;  &lt;line&gt;And yet, by Heaven, I think my love as rare&lt;/line&gt;
+  &nbsp;  &lt;line&gt;As any she belied with false compare.&lt;/line&gt;
+  &lt;/lines&gt;
+  &lt;/sonnet&gt;</pre>
+      <p>Для преобразования в HTML мы создали шаблон</p>
+      <pre class="code">&lt;?xml version="1.0" ?&gt;
+  &lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+  &lt;xsl:template match="/sonnet"&gt;
+  &lt;html&gt;&lt;head&gt;&lt;title&gt;Shakespearean sonnet&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+  &lt;xsl:apply-templates/&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+  &lt;/xsl:template&gt;
+  &lt;xsl:template match="author"&gt;
+  &lt;h1&gt;&lt;xsl:value-of select="lastName"/&gt;,&lt;xsl:value-of select="firstName"/&gt;
+  (&lt;xsl:value-of select="yearOfBirth"/&gt;-&lt;xsl:value-of select="yearOfDeath"/&gt;),
+  &lt;xsl:value-of select="nationality"/&gt;&lt;/h1&gt;&lt;br/&gt;&lt;hr/&gt;
+  &lt;/xsl:template&gt;
+  &lt;xsl:template match="lines"&gt;
+  &lt;xsl:for-each select="line"&gt;
+  &nbsp;  &lt;xsl:value-of select="."/&gt;&lt;br/&gt;
+  &lt;/xsl:for-each&gt;
+  &lt;/xsl:template&gt;
+  &lt;/xsl:stylesheet&gt;</pre>
+      <p>Пусть исходный XML документ, а также XSL шаблоны находятся в одной текущей директории. Соответсвенно в
+        поддиректории&nbsp;<em>classes</em>&nbsp;находятся класс&nbsp;<strong>xalan</strong>&nbsp;в директории с таким
+        же названиями.</p>
+      <p>Тогда комманда для преобразования могут выглядеть следующим образом:</p>
+      <p><code
+          class="code code--inline"> java -cp classes\xalan\xalan.jar org.apache.xalan.xslt.Process -IN sonnet.xml -XSL sonnetrules.xsl -OUT sonnet_tesult_html.htm </code><br /><br />
+      </p>
+      <p>Получаем результирующий файл</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/xml5_pic1.png" alt="">
+      </figure>
+      <button type="button" class="button"><a class="button__link" href="xml4.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="ajax.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

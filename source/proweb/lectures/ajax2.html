@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>AJAX XMLHttpRequest</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1 class="content__title">Объект XMLHttpRequest</h1>
+
+      <p>Объект XMLHttpRequest позволяет получать данные с сервера в фоновом
+        режиме.
+        Как правило, возвращаемая информация представляется в формате XML, но данный объект
+        также позволяет работать с любыми текстовыми данными. Объект XMLHttpRequest
+        впервые был реализован компанией Microsoft в виде объекта ActiveX.
+        Сейчас он уже доступен в
+        браузерах Mozilla, Netscape (начиная с 7-ой версии) а также в Safari (с версии 1.2),
+        естественно, не в виде ActiveX-компоненты. Объект XMLHttpRequest
+        представляет собой набор API функций, используемый в JavaScript, VBScipt и т.п. для
+        передачи данных XML по протоколу HTTP.
+      </p>
+      <p>Ниже представлены методы и свойства объекта XMLHttpRequest, общие для
+        Internet Explorer 5+, Mozilla, Netscape 7 и Safari 1.2.
+
+      </p>
+      <h2>Методы объекта XMLHttpRequest:</h2>
+      <ul>
+        <li><b>abort( )</b>. Обрывает текущий запрос.
+          <p>Для браузера Internet Explorer успешный вызов abort() на самом деле может не обрывать соединение, а
+            оставлять его в подвешенном
+            состоянии на некоторый таймаут (~30 секунд).
+            У браузера есть лимит: не более 2 одновременных соединений с одним доменом. Т.е, если два соединения
+            уже висят, то третье открыто не будет, пока одно из них не умрет.
+
+          </p>
+        </li>
+        <li><b>getAllResponseHeaders( )</b>. Возвращает полный набор заголовков ответа (названий и значений)
+          в виде строки.
+
+        </li>
+        <li><b>getResponseHeader(&lt;headerLabel&gt;)</b>. Возвращает строковое значение заголовка,
+          название которого указано в параметре headerLabel.
+          Если параметр не задан, возвращает весь заголовок.
+          Например: <code class="code code--inline">http.getResponseHeader("Last-Modified");</code>
+
+        </li>
+        <li><b>open(&lt;method&gt;, &lt;URL&gt; [, &lt;asyncFlag&gt;[, &lt;userName&gt;[, &lt;password&gt;]]])</b>.
+          Открывает соединение с сервером с указанием метода
+          передачи данных.
+          <p>method: <b>GET</b>, <b>POST</b>, <b>HEAD</b>, <b>TRACE</b>, <b>DELETE</b>, <b>PUT</b>;
+          </p>
+          <p>URL: адрес запроса. Можно использовать не только HTTP или HTTPS, но и другие протоколы,
+            такие как FTP и file://. При этом запрос со страницы можно отправлять только на тот домен и порт,
+            с которого она пришла. Как обойти это ограничение описано в разделе <a target="_blank"
+              href="ajax7.html">Ошибки Ajax</a>.
+          </p>
+          <p>asyncFlag: флага асинхронности:
+            false - синхронно (скрипт будет ожидать ответа от сервера),
+            true - асинхронно (по умолчанию);
+          </p>
+          <p>userName, password: логин и пароль для простой HTTP-авторизации.
+
+          </p>
+        </li>
+        <li><b>send(&lt;content&gt;)</b>. Отправка запроса. Значением content могут быть
+          данные для POST-запроса или пустая строка.
+
+        </li>
+        <li><b>setRequestHeader(&lt;label&gt;, &lt;value&gt;)</b>.
+          Установка в отправляемом запросе заголовка <b>label</b> со значением <b>value</b>.
+          Если заголовок с таким name уже есть - он заменяется. Например,
+
+          <code class="code code--inline">http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+http.setRequestHeader('Content-type', 'text/xml')<br>
+</code>
+
+        </li>
+        <li><b>timeout</b> - время выполнения запроса в милисекундах, например
+          <code class="code code--inline">http.timeout = 10000; // 10 sec</code>
+        </li>
+        <li><b>ontimeout</b> - обработка события "время ожидания ответа истекло", например
+          <code
+            class="code code--inline">http.ontimeout = function(){hide('wait');alert("Время выполнения запроса истекло!");};</code>
+        </li>
+        <li><b>ontimeout</b> - обработка события "ошибка", например
+          <code
+            class="code code--inline">http.onerror = function(){hide('wait');alert("Ошибка выполнения запроса!");};</code>
+        </li>
+
+      </ul>
+      <h2>Свойства объекта XMLHttpRequest:</h2>
+      <ul>
+        <li><b>onreadystatechange</b>. Событие, возникающее при смене статуса объекта.
+        </li>
+        <li><b>readyState</b>. Значения статуса. Может принимать следующие значения:
+          <ul>
+            <li>0 - не инициализирован (перед началом работы объекта),</li>
+            <li>1 - загрузка (однажды, когда идет инициализация объекта),</li>
+            <li>2 - загружен (однажды, когда получен ответ от сервера),</li>
+            <li>3 - доступен (пока объект соединен с сервером),</li>
+            <li>4 - завершен (после того, как объект выполнил все задачи).</li>
+          </ul>
+        </li>
+        <li><b>responseText</b>. Строка с возвращенными сервером данными.
+        </li>
+        <li><b>responseXML</b>. DOM-совместимый объект-документ с возвращенными сервером данными.
+          Например,<br>
+          <code class="code code--inline">var authorElem = xmlhttp.responseXML.getElementById('author')</code><br>
+          Чтобы браузер успешно обработал ответ сервера в свойство responseXML,
+          в заголовок ответа должен содержать: "Content-Type: text/xml".
+          Иначе свойство responseXML будет равно null.
+        </li>
+        <li><b>status</b>. Стандартный HTTP-код статуса</a>.
+          Например, 404 (для "Not Found") или 200 (для "OK").<br>
+          Запросы по протоколам FTP, file:// не возвращают статуса, поэтому нормальным для них является status=0.</li>
+        <li><b>statusText</b>. Текстовое сообщение статуса, например "Not Found" или "OK".</li>
+      </ul>
+      <p>Общий план работы с объектом <strong>XMLHttpRequest</strong> можно представить следующим образом:
+      </p>
+      <ol>
+        <li>Создание экземпляра объекта <strong>XMLHttpRequest</strong>.
+        </li>
+        <li>Установка обработчика события <strong>onreadystatechange</strong>.
+        </li>
+        <li>Открытие соединения с сервером методом <strong>open</strong>.
+        </li>
+        <li>Непосредственно отправка запроса методом <strong>send</strong>.
+        </li>
+      </ol>
+
+      <h3>Пример</h3>
+      <pre class="code">
+var ajaxObj;
+if (window.XMLHttpRequest){
+    ajaxObj = new XMLHttpRequest();
+} else if (window.ActiveXObject){
+    ajaxObj = new ActiveXObject("Microsoft.XMLHTTP");
+} else {
+    return false ;
+}
+ajaxObj.open((post?'POST' :'GET' ), 'https://htmlweb.ru/api.php' );
+ajaxObj.setRequestHeader("Content-Type" ,
+            "application/x-www-form-urlencoded; charset=utf-8;" );
+ajaxObj.onreadystatechange =function (){
+    if (ajaxObj.readyState==4 &amp;&amp; ajaxObj.status==200 ){
+        console.log('Статус:' +ajaxObj.status+', ответ:' +ajaxObj.statusText);
+    }
+};
+ajaxObj.timeout = 10000 ; // 10 sec 
+ajaxObj.ontimeout = function (){hide('wait' );alert("Время выполнения запроса истекло!");};
+ajaxObj.onerror = function (){hide('wait' );alert("Ошибка выполнения запроса!" );};
+ajaxObj.send(post);
+return false ;
+</pre>
+      <button type="button" class="button"><a class="button__link" href="ajax1.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="ajax3.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

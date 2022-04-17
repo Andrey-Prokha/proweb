@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Эффекты</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Эффекты jQuery UI</h1>
+      <p>Возможность применения различных эффектов к элементам была и в jQuery.
+        С помощью эффектов jQuery Вы, например, могли заставить абзац постепенно пропадать или появляться, применять к
+        элементам
+        анимацию и многое другое. </p>
+      <p>Эффекты jQuery UI значительно расширяют эти возможности. Теперь можно заставить элементы пропадать или
+        появляться
+        пятнадцатью разными способами.</p>
+      <p>В анимации Вы можете использовать свойства изменения цвета фона, текста и границ элементов.</p>
+      <p>jQuery UI также расширяет базовую функциональность jQuery для манипулирования классами оформления.</p>
+
+      <h2>Скрытие и отображение элементов с помощью эффектов jQuery UI</h2>
+      <p>В jQuery UI можно использовать 15 различных эффектов для скрытия и отображения элементов на страницах.</p>
+      <p>Эффекты в jQuery UI могут использоваться со следующими методами:</p>
+      <ul>
+        <li><b>effect</b> - позволяет применяет указанный эффект к элементу</li>
+        <li><b>hide</b> - позволяет скрыть элемент с указанным эффектом</li>
+        <li><b>show</b> - позволяет отобразить элемент с указанным эффектом</li>
+      </ul>
+
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+effect(эффект,опции,скорость,функция)
+hide(эффект,опции,скорость,функция)
+show(эффект,опции,скорость,функция)
+</pre>
+
+      <p><b>эффект</b> указывает название эффекта, который будет применен. Некоторые эффекты (такие как scale, transfer
+        и
+        size) для своего вызова требуют задания дополнительных <i>опций</i>.</p>
+      <p><b>скорость</b> указывает скорость применения эффекта в миллисекундах (1000 миллисекунд = 1 секунда).</p>
+      <p><b>функция</b> задает функцию, код которой будет выполнен после завершения применения эффекта.</p>
+      <p>Эффекты jQuery UI приведены в таблице ниже:</p>
+      <table class="table">
+        <tr class="table__row">
+          <th>Название эффекта</th>
+          <th>Описание</th>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Blind</b></td>
+          <td class="table__cell">Эффект "Ослепление".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Bounce</b></td>
+          <td class="table__cell">Эффект "Отскок".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Clip</b></td>
+          <td class="table__cell">Эффект "Отсекание".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Drop</b></td>
+          <td class="table__cell">Эффект "Падение".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Explode</b></td>
+          <td class="table__cell">Эффект "Взрыв".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Fade</b></td>
+          <td class="table__cell">Эффект "Выцветание".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Fold</b></td>
+          <td class="table__cell">Эффект "Складка".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Highlight</b></td>
+          <td class="table__cell">Эффект "Освещение".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Puff</b></td>
+          <td class="table__cell">Эффект "Рассеивание".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Pulsate</b></td>
+          <td class="table__cell">Эффект "Пульсирование".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Scale</b></td>
+          <td class="table__cell">Эффект "Масштабирование". С помощью опции <b>percent:проценты</b> Вы можете задать на
+            сколько процентов от
+            текущего размера необходимо уменьшить или увеличить элемент.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Shake</b></td>
+          <td class="table__cell">Эффект "Тряска".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Slide</b></td>
+          <td class="table__cell">Эффект "Скольжение".</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Size</b></td>
+          <td class="table__cell">Эффект "Калибровка". С помощью опции <b>to:</b> и включенных в нее опций
+            <b>width:ширина_в_пикселях</b> и
+            <b>height:высота_в_пикселях</b> Вы можете задать
+            размеры, до которых необходимо "откалибровать" текущий элемент.
+          </td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>Transfer</b></td>
+          <td class="table__cell">Эффект "Переход". С помощью опции <b>to:id_или_class_элемента</b> Вы можете указать
+            элемент, в который
+            перейдет текущий элемент. С помощью опции <b>className:имя_класса</b> Вы можете
+            оформить эффект перехода с помощью CSS.</td>
+        </tr>
+      </table>
+      <p>Увидеть все эффекты не требующие дополнительных опций для вызова в действии можно в следующем примере:</p>
+
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#but1").click(function(){
+      $("#testcontainer").hide($("#effect1").val(),{},1000 );
+   });
+   $("#but2").click(function(){
+      $("#testcontainer").show($("#effect1").val(),{},1000 );
+   });
+});
+</pre>
+
+      <p>В следующем примере Вы можете увидеть использование эффектов требующих для вызова дополнительных опций.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#effect1").change(function(){
+      if ($("#effect1").val()==="scale"){
+         $("#scalecont").css("display","block");
+         $("#transfercont").css("display","none");
+         $("#sizecont").css("display","none");}
+      else if ($("#effect1").val()==="transfer"){
+         $("#transfercont").css("display","block");
+         $("#scalecont").css("display","none");
+         $("#sizecont").css("display","none");}
+      else if ($("#effect1").val()==="size"){
+         $("#sizecont").css("display","block");
+         $("#transfercont").css("display","none");
+         $("#scalecont").css("display","none");}
+   });
+   $("#but1").click(function(){
+      var options={};
+      if ($("#effect1").val()==="scale"){
+         var options={percent:50};
+         options.percent=$("#scalepercent").val();}
+      else if ($("#effect1").val()==="transfer"){
+         var options={to:"#but1", className:"transfer-effect"}
+         options.to=$("#trans1").val();
+         options.className=$("#trans2").val();}
+      else if ($("#effect1").val()==="size"){
+         var options={to:{width:200,height:200}};
+         options.to.width=$("#size1").val();
+         options.to.height=$("#size2").val();}
+      $("#testcontainer").effect($("#effect1").val(), options ,1000);
+   });
+});
+</pre>
+
+      <h2>jQuery UI анимация</h2>
+      <p>jQuery UI расширяет возможности jQuery анимации. Теперь Вы можете создавать анимацию, которая может
+        манипулировать
+        цветом. </p>
+      <p>В анимации теперь могут быть использованы следующие CSS свойств:
+      <ul>
+        <li>backgroundColor</li>
+        <li>borderColor</li>
+        <li>borderBottomColor</li>
+        <li>borderLeftColor</li>
+        <li>borderRightColor</li>
+        <li>borderTopColor</li>
+        <li>color</li>
+        <li>outlineColor</li>
+      </ul>
+      </p>
+
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#but1").click(function(){
+      $("#testcontainer").animate({
+         borderColor:"#EA3B53",
+         borderWidth:3,
+         backgroundColor:"#97D400",
+         width:500,
+         height:160},1500);
+   });
+});
+</pre>
+
+      <h2>Манипуляции с CSS оформлением</h2>
+      <p>Эффекты jQuery UI расширяют базовую функциональность jQuery для манипулирования с классами.</p>
+      <p>Теперь переключение между различными оформлениями элемента будет происходить анимировано.</p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+/* Добавит новый класс элементу с анимированным переходом между
+различными состояниями оформления */
+<b>addClass(имя_класса, продолжительность_перехода)</b>
+/* Удалит указанный класс у элемента с анимированным переходом между
+различными состояниями оформления */
+<b>removeClass(имя_класса, продолжительность_перехода)</b>
+/* Удалит указанный класс если он присутствует и добавит его если он
+отсутствует с анимированным переходом между различными состояниями оформления */
+<b>toggleClass(имя_класса, продолжительсть_перехода)</b>
+/* Переключится с класса указанного в первом параметре на второй с
+анимированным переходом между различными состояниями оформления */
+<b>switchClass(класс, новый_класс, продолжительность_перехода)</b>
+</pre>
+
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function(){
+   $("#but1").click(function(){
+      $(".el1").addClass("newclass",1000);
+   });
+   $("#but2").click(function(){
+      $(".el1").removeClass("newclass",1000);
+   });
+   $("#but3").click(function(){
+      $(".el1").toggleClass("newclass",1000);
+   });
+   $("#but4").click(function(){
+      $(".el1").switchClass("el1","newclass");
+   });
+});
+</pre>
+      <button type="button" class="button"><a class="button__link" href="jquery11.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="jquery13.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

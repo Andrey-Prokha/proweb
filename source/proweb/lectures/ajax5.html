@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>AJAX Области применения</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1 class="content__title">Области применения Ajax</h1>
+
+      <p>Для чего все-таки нужен Ajax? Где его стоит использовать, а где нет?
+      </p>
+      <p>Где стоит использовать Ajax:
+      </p>
+      <ol>
+        <li>Формы. Они очень медленны. Если асинхронно передавать данные, страница не
+          перезагружается.
+        </li>
+        <li>Навигация в виде "дерева". Вообще, такая навигация - ужас. Простая топология
+          намного удобнее, но если уж до этого дошло, лучше использовать Ajax.
+        </li>
+        <li>Голосования. Пользователю будет приятней оставить свой голос за несколько секунд,
+          чем за 30-40.
+        </li>
+        <li>Система комментариев. Пример: на сайте есть статьи, к которым можно приписывать
+          комментарии. Пользователю приходится все время перезагружать страницу, чтобы увидеть
+          новые посты. Это крайне неудобно.
+        </li>
+        <li>Фильтры. Часто на сайтах делают сортировку по дате, по имени, и т.д.
+          Ajax это будет значительно удобнее.
+        </li>
+      </ol>
+      <p>Где не стоит использовать Ajax:
+      </p>
+      <ol>
+        <li>Поиск. Лучше использовать PHP и Perl.
+        </li>
+        <li>Обычная навигация. Для навигации между документами Ajax не поможет.
+        </li>
+        <li>Обновление большого количества текста. Если текст занимает почти всю страницу, то легче перезагрузить ее.
+        </li>
+        <li>Бесполезные украшения. Всякие подсвечивающиеся ячейки и появляющиеся подсказки будут только отвлекать
+          пользователя.
+        </li>
+      </ol>
+      <p>Теперь о самой большой проблеме Ajax. Закладки и кнопки "вперед-назад" стали
+        незаменимы из-за традиционных веб-приложений. С посещением разных сайтов у
+        пользователя скапливается большая коллекция закладок, да и кнопки "вперед-назад"
+        работают прекрасно, всегда можно вернуться к интересующей информации.
+        Но Ajax-приложения довольно необычны, и обычно огромное количество данных находится
+        формально на одной и той же странице. Наши браузеры тоже считают такое приложение
+        одной страницей, поэтому при обновлении кнопки "вперед-назад" не работают, поэтому
+        нельзя вернутся, если что-то пропустил, а закладки в этом случае просто бесполезны.
+      </p>
+      <p>Итак, Ajax - это не технология, это объединение технологий, это процесс, это
+        новый взгляд на старые вещи. Ни одна из технологий, составляющих Ajax не нова.
+        Однако, их совместное использование позволяет получить новые результаты.</p>
+      <button type="button" class="button"><a class="button__link" href="ajax4.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="ajax6.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

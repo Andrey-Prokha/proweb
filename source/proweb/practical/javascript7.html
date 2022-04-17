@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Окна и таблицы</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>JavaScript Окна и таблицы</h1>
+      <p><em>Цель работы:</em>&nbsp;изучить способы управления окнами и таблицами.</p>
+      <h3>Создание нового окна</h3>
+      <p>Объект window находится в вершине дерева объектной модели W3C DOM и имеет много свойств и методов. В сценариях,
+        особенно при отладке, часто используется метод alert. Свойства setInterval, clearInterval (пример 5.1) и
+        setTimeout необходимы для оживления страницы, организации движения объектов. Чтобы не загромождать основное
+        окно, часто для просмотра дополнительной информации (графиков, таблиц и т.д.) удобно открыть новое
+        дополнительное окно. Для создания нового окна используется метод open, имеющий следующий синтаксис: var
+        windowObject=window.open([параметры) Рассмотрим сценарий (пример 7.1), по которому окно с описываемым на
+        странице графиком появляется при наведении курсора мышки на слова&nbsp;<em>на графике</em>.</p>
+      <p><strong>Пример 7.1</strong></p>
+      <pre class="code">&lt;HTML&gt;&nbsp;
+  <br />&lt;HEAD&gt;&lt;TITLE&gt;&lt;/TITLE&gt;&lt;/HEAD&gt;&nbsp;
+  <br />&lt;BODY&gt;&nbsp;
+  <br />&lt;h1 align=center&gt;График открывается в новом окне&lt;/h1&gt;&nbsp;
+  <br />Зависимость y=f(x) &lt;B onmouseover="gr('График 1','prim1.gif')" style="color:blue;"&gt; на графике 1&lt;/b&gt; имеет линейный характер.&nbsp;
+  <br />&lt;p&gt; Изменение цены и объёмов продаж показаны&nbsp;
+  <br />&lt;B onmouseover="gr('График 2','prim2.gif')" style="color:green"&gt;&nbsp;
+  <br />на графике 2&lt;/b&gt;. Объёмы продаж серого цвета.&nbsp;
+  <br />&lt;P&gt;&lt;font size=-1&gt;&nbsp;
+  <br />Примечание. Для просмотра графиков подведите курсор мышки к словам "на&nbsp;
+  <br />графике"&lt;BR&gt; &lt;/p&gt;&nbsp;
+  <br />&lt;script&gt;&nbsp;
+  <br />function gr(txt,fil)&nbsp;
+  <br />{ grWin=window.open("","","width=650,height=400")&nbsp;
+  <br />&nbsp; grWin.document.write("&lt;H1 align=center&gt;"+ txt+&nbsp;
+  <br />&nbsp; "&lt;/h1&gt;&lt;CENTER&gt;&lt;IMG SRC='"+fil+"'&gt;&lt;/center&gt;")&nbsp;
+  <br />}&nbsp;
+  <br />&lt;/script&gt;&nbsp;
+  <br />&lt;/BODY&gt;&nbsp;
+  <br />&lt;/HTML&gt;</pre>
+      <p>Первые два параметра, URL и название окна в примере оставлены пустыми. В третьем параметре заданы ширина и
+        высота
+        окна в пикселях.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/javascript7_pic1.jpg" alt="">
+        Рис. 5
+      </figure>
+      <p><strong>Задача 7.1</strong>. Создайте сайт, состоящий из двух страниц. Сайт служит для вывода таблицы значений
+        тригонометрической функции (sin, cos или tg) в заданном диапазоне и с заданным шагом. На первой странице (рис.
+        5) пользователь задаёт исходные данные, а на второй получает соответствующую таблицу. Окно с новой страницей
+        должно открываться методом open(). Исходные данные должны проверяться сразу после ввода и после нажатия кнопки
+        Вычислить. Таблица должна иметь следующий вид:</p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td colspan="2">Угол</td>
+            <td rowspan="2">sin</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">в градусах</td>
+            <td class="table__cell">в радианах</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">30</td>
+            <td class="table__cell">0.5236</td>
+            <td class="table__cell">0.5</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">32</td>
+            <td class="table__cell">0.5585</td>
+            <td class="table__cell">0.5299  </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">34</td>
+            <td class="table__cell">0.5934</td>
+            <td class="table__cell">0.5592</td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">36</td>
+            <td class="table__cell">0.6283</td>
+            <td class="table__cell">0.5878</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><em>Указания</em>. Данная задача является расширением задачи 3.2. Для проверки цифровых символов служит
+        следующая
+        функция:</p>
+      <pre class="code">function isNumb(fld)&nbsp;
+  <br />{ t=fld.value&nbsp;
+  <br />&nbsp;for (i=0;i&lt;t.length;i++)&nbsp;
+  <br />&nbsp;{ var ch=t.charAt(i)
+  if((ch&lt;"0" ||ch&gt;"9") &amp; !(ch=="," ||ch=="."))&nbsp;
+  <br />{ alert("Не цифра") fld.focus(); fld.select()&nbsp;
+  <br />&nbsp; return false&nbsp;
+  <br />}
+  &nbsp;}&nbsp;
+  <br />&nbsp;return true&nbsp;
+  <br />}</pre>
+      <p>Параметр fld &ndash; объект, значение которого проверяется. Пример обращения к функции isNumb(fld):</p>
+      <pre class="code">&lt;INPUT TYPE="text" NAME="h" onchange=isNumb(this)&gt;</pre>
+      <p>Результат выполнения оператора ch=t.charAt(i) &ndash; i-й символ строковой переменной (объекта) t. Функция
+        сообщает об ошибке, если введён любой символ кроме десятичных цифр, точки или запятой.</p>
+      <h3>Управление таблицей</h3>
+      <p>Для занесения данных в ячейку таблицы служит выражение:</p>
+      <pre class="code">document.all.tab1.rows[i].cells[j].innerHTML =x&nbsp;
+  <br />//где tabl &ndash; id таблицы</pre>
+      <p>Чтение данных из ячейки в браузере Internet Explorer симметрично занесению:</p>
+      <p>x = document.all.tab1.rows[i].cells[j].innerHTML</p>
+      <p>Браузер Mozilla не воспринимает этот оператор. Оба браузера правильно выполняют следующий оператор:</p>
+      <p>x = document.all.tab1.rows[i].cells[3].firstChild.nodeValue</p>
+      <p>Содержимое ячейки таблицы рассматривается как дочерний узел по отношению к узлу, соответствующему тегу
+        &lt;TD&gt;. В примере извлекаются данные из i-й ячейки третьей строки таблицы, имеющей ID=tab1. Нумерация строк
+        и ячеек начинается с нуля. С помощью сценария можно менять структуру таблицы, добавляя или удаляя строки и
+        ячейки. Операция вставки строки в таблицу состоит из следующих этапов.</p>
+      <ul>
+        <li>Вызов метода insertRow() и сохранение возвращенной ссылки на новую незаполненную строку.</li>
+        <li>Использование ссылки на строку при вызове метода insertCell() для каждой ячейки в строке (при этом
+          сохраняется возвращенная ссылка на каждую новую незаполненную ячейку).</li>
+        <li>Присвоение значений свойствам ячейки, включая ее содержимое.</li>
+      </ul>
+      <p>Пример добавления строки и ячейки:</p>
+      <pre class="code">NewRow= document.all.tab1.insertRow() //вставка строки&nbsp;
+  <br />NewCell=NewRow.insertCell(0) //вставка ячейки</pre>
+      <p>Для удаления строк и столбцов служат методы deleteRow(индекс строки) и deleteCell(индекс ячейки). Пример
+        удаления
+        всех строк таблицы:</p>
+      <pre class="code">while (tableRef.rows.length &gt; 0)&nbsp;
+  <br />{tableRef.deleteRow(0);}</pre>
+      <p><strong>Задача 7.2</strong>. Создайте страницу (рис. 6) для учёта поступления товаров. Пользователь может
+        менять
+        в таблице количество и цену выбранного товара, вводя новые значения в поля, расположенные под таблицей.
+        Введёнными значениями заменяются соответствующие данные в таблице и автоматически подсчитывается суммарная
+        стоимость всех товаров.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/javascript7_pic2.jpg" alt="">
+        Рис. 6
+      </figure>
+      <button type="button" class="button"><a class="button__link" href="javascript6.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="xml1.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

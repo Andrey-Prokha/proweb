@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHP Cookie</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Cookie в PHP</h1>
+      <p><b>setcookie()</a></b> определяет куку для отправки вместе с остальной header-информацией. Куки
+        обязаны быть отправлены <i>до</i> любых других шапок/headers (это ограничение кук, а не РНР). Это требует, чтобы
+        вы
+        помещали вызовы этой
+        функции перед первым выводом на страницу, т.е. до тэга &lt;html&gt;.</p>
+      <p>
+        int <b>setcookie</b> (string name [, string value [, int expire [, string path [, string domain [, int
+        secure]]]]])
+      </p>
+      <p>Все аргументы, кроме <i>name</i>,
+        являются необязательными. Если имеется только аргумент name, кука с этим
+        именем будет удалена с удалённого клиента. Вы можете также заместить любой аргумент пустой строкой (<i>""</i>),
+        чтобы пропустить этот аргумент.
+        Аргументы <i>expire</i> и <i>secure</i> это целые числа/integer и они не могут быть пропущены с
+        помощью пустой строки.
+        В них используйте нуль (<i>0</i>). Аргумент <i>expire</i> это обычное Unix time integer, возвращаемое
+        функциями
+        <b>time()</a></b> или <b>mktime()</a></b>.
+        Аргумент <i>secure</i> указывает, что данная кука должна передаваться только через секретное
+        HTTPS-соединение.
+      </p>
+      <p>После того как куки установлены, доступ к ним может быть получен при загрузке следующей страницы через массив
+        $_COOKIE (который вызывается $HTTP_COOKIE_VARS в версиях PHP до 4.1.0).</p>
+      <p>Обычные ловушки:</p>
+      <ul>
+        <li>
+          <p>Куки будут невидимы до тех пор, пока не будет загружена следующая страница.</p>
+        </li>
+        <li>
+          <p>Куки обязаны быть удалены с теми же параметрами, с которыми были установлены.</p>
+        </li>
+      </ul>
+      <p>В PHP 3 множественные вызовы <b>setcookie()</b> в том же скрипте могут быть выполнены в реверсном порядке. Если
+        вы
+        пытаетесь
+        удалить одну куку до вставки другой, вы должны сделать вставку до удаления. В PHP 4 множественные вызовы
+        <b>setcookie()</b> выполняются в порядке вызова.
+      </p>
+      <p>Далее идут примеры отправки кук:
+      </p>
+      <h5>Пример 1. Отправка кук функцией setcookie()</h5>
+      <pre class="code">setcookie ("TestCookie", $value);
+    setcookie ("TestCookie", $value,time()+3600); // период действия - 1 час
+    setcookie ("TestCookie", $value,time()+3600,
+        "/~rasmus/", ".utoronto.ca", 1);
+    </pre>
+      <p>При удалении куки вы должны убедиться, что дата окончания действия прошла, чтобы переключить механизм в вашем
+        браузере.
+        Далее идут примеры удаления куки, созданной в предыдущем примере:
+      </p>
+      <h5>Пример 2. Удаление куки с помощью setcookie()</h5>
+      <pre class="code">// установить дату окончания действия на один час назад
+    setcookie ("TestCookie", "", time() - 3600);
+    setcookie ("TestCookie", "", time() - 3600,
+        "/~rasmus/", ".utoronto.ca", 1);
+    </pre>
+
+      <h5>Пример 3. Удаление всех кук</h5>
+      <pre class="code">   foreach($_COOKIE as $ind=&gt;$val)
+      @setcookie($ind,'',time()-999, "/", ".".$_SERVER['SERVER_NAME'] );
+    </pre>
+      <h5>Пример 4.</h5>
+      <p>Обратите внимание, что часть value куки будет автоматически urlencoded при отправке куки, и, когда она
+        получена,
+        она автоматически
+        декодируется и присваивается переменной с тем же именем, что и имя куки. Для просмотра содержимого нашей
+        тестовой
+        куки в скрипте просто используйте
+        один из следующих примеров:
+      </p>
+      <pre class="code">echo $TestCookie;
+    echo $_COOKIE["TestCookie"];
+    </pre>
+      <h5>Пример 5.</h5>
+      <p>Вы можете также установить куки массива, используя нотацию в имени куки.
+        Это даёт эффект установки стольких кук, сколько элементов в этом массиве, но, когда кука получается скриптом,
+        значения помещаются в массив с именем куки:
+      </p>
+      <pre class="code">setcookie ("cookie[three]", "cookiethree");
+    setcookie ("cookie[two]", "cookietwo");
+    setcookie ("cookie[one]", "cookieone");
+    foreach($_COOKIE as $name=&gt;$val) {
+            echo "$name = $value&lt;br&gt;\n";
+      }</pre>
+
+      <h5>Пример 6.</h5>
+      <p>Если у Вашего сервера два доменных имени: "www.domain.com" и "other.domain.com",
+        и Ваш аккаунт позволяет Вам обслуживать страницы из каталога ~/myhome, Вы должны вызывать функцию setcookie()
+        следующим образом:
+      </p>
+      <pre class="code">setcookie('name', $value, time()+3600, '~/myhome', '<b>.domain.com</b>');
+    </pre>
+
+      <h5>Пример 7. Счетчик в куки с помощью setcookie()</h5>
+      <pre class="code">&lt;?
+    // Демонстрация работы с $_COOKIES.
+    // Вначале счетчик равен нулю.
+   $count = 0;
+    // Если в Cookies что-то есть, берем счетчик оттуда.
+    if (isset($_COOKIE['count']))$count =$_COOKIE['count'];
+   $count++;
+    // Записываем в Cookies новое значение счетчика.
+    setcookie("count",$count, 0x7FFFFFFF, "/");
+    // Выводим счетчик.
+    echo$count;
+   ?&gt;</pre>
+      <button type="button" class="button"><a class="button__link" href="php9.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="php11.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>XML документы</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>XML. XML документы</h1>
+      <p>Цель лабораторной работы:</p>
+      <ol>
+        <li>Познакомиться с языком разметки данных XML.</li>
+        <li>Изучить правила построения HTML документов</li>
+      </ol>
+      <h2>Теоретические сведения</h2>
+      <h3>Устройство XML документа</h3>
+      <p>Синтаксически в XML, по сравнению с HTML, нет ничего нового. Это такой же текст, размеченный тэгами, но с той
+        лишь разницей, что в HTML существует ограниченный набор тэгов, которые можно использовать в документах, в то
+        время, как XML позволяет создавать и использовать любую разметку, которая может понадобиться для разметки
+        данных.</p>
+      <p>Несомненным достоинством XML является и то, что это достаточно простой язык. Основных конструкций в XML мало,
+        но,
+        несмотря на это, с их помощью можно создавать разметку документов практически любой сложности.</p>
+      <p>Для демонстрации структуры XML документа лучше обратиться к какому нибуть примеру. Рассмотрим следующий XML
+        документ:</p>
+      <pre class="code">&lt;?xml version="1.0" ?&gt;
+  &lt;корневой_элемент&gt;
+  &nbsp; &nbsp; &lt;элемент&gt;
+  &nbsp; &nbsp; &nbsp; &nbsp; Текст &lt;еще_элемент атрибут="значение" /&gt; текст ...
+  &nbsp; &nbsp; &lt;/элемент&gt;
+  &nbsp; &nbsp; Текст текст текст &lt;элемент&gt;текст текст... &lt;/элемент&gt;  ...
+  &lt;/корневой_элемент&gt;</pre>
+      <p>Рассмотрим данный пример подробно. Первая строка документа определяет его как XML документ, построенный в
+        соответствии с первой версией языка (<strong>version</strong>="1.0"). В этой же конструкции можно указать и
+        кодировку, в которой создан документ:</p>
+      <p><code class="code code--inline">xml version="1.0" <strong>encoding</strong>="Windows-1251" ?&gt;. </code></p>
+      <p>Кодировкой по умолчанию для XML является&nbsp;<strong>unicode</strong>. Далее находится открывающий тэг
+        корневого
+        (главного) элемента &lt;<strong>корневой_элемент</strong>&gt;, содержащий элемент
+        &lt;<strong>элемент</strong>&gt;, который, в свою очередь, содержит элемент &lt;<strong>еще_элемент
+          атрибут</strong>="значение" /&gt; с атрибутом&nbsp;<strong>атрибут</strong>. Как видно из примера, правила
+        записи элементов, атрибутов и их значений в XML ничем не отличаются от правил записи элементов атрибутов и их
+        значений в HTML (также есть открывающие и закрывающие тэги элементов, элементы с содержимым и без и т.д.),
+        только набор элементов несколько расширен, благодаря чему мы и можем "нагрузить" разметку семантикой.</p>
+      <p>Ниже приводятся несколько правил построения XML документа. Итак:</p>
+      <ul>
+        <li>любой XML документ должен начинаться строкой &lt;?<strong>xml version</strong>="1.0" ?&gt;</li>
+        <li>любой XML документ должен иметь единственный (не более, не менее!) корневой элемент; например, в HTML для
+          этих целей использовался элемент&nbsp;<strong>&lt;html&gt;</strong>, в примере выше - это
+          &lt;<strong>корневой_элемент</strong>&gt;.</li>
+        <li>кодировкой по умолчанию для символов XML документа
+          является&nbsp;<strong>Unicode</strong>&nbsp;кодировка&nbsp;<strong>UTF-8</strong>, поэтому XML файлы должны
+          быть сохранены в соответствующей кодировкой или в 1-й строке документа должна быть задана кодировка
+          документа, например&nbsp;<strong>encoding</strong>="Windows-1251" (при работе только с латиницей это никак
+          себя не проявляет, так как кодировка этих символов в&nbsp;<strong>ASCII</strong>совпадает
+          с&nbsp;<strong>UTF-8</strong>).</li>
+        <li>правила записи большинства конструкций языка совпадает с правилами&nbsp;<strong>XHTML</strong>, изучавшемся
+          вами ранее (более подробно речь об основных конструкциях языка пойдет далее в уроке).</li>
+      </ul>
+      <p>XML документ представляет собой обыкновенный текстовый файл с расширением&nbsp;<strong>.xml</strong>.
+        Единственная особенность их заключается в том, что для символов файла рекомендуется использовать
+        кодировку&nbsp;<strong>Unicode</strong>.</p>
+      <h2>Основные конструкции XML</h2>
+      <p>Помимо элементов, атрибутов и текста, документы могут содержать и другие конструкции, такие как комментарии,
+        инструкции по обработке и секции символьных данных. Эти базовые составляющие используются для того, чтобы чтобы
+        гибко, но в четком соответствии со стандартами, размечать документы любой сложности. Рассмотрим эти конструкции
+        поподробнее.</p>
+      <h3>Элемент</h3>
+      <p>Тэги в XML документе не просто размечают текст - они выделяют объект, называемый&nbsp;<em>элементом</em>.
+        Элементы являются основными структурными единицами XML - именно они иерархически организуют информацию,
+        содержащуюся в документе. Элементы могут быть пустыми, т.е. не содержать ни данных, ни других конструкций, или
+        непустыми - включать в себя текст, другие элементы и т. п.</p>
+      <p>Пустой элемент имеет следующий вид:</p>
+      <p><code
+          class="code code--inline">&lt;<strong>элемент атрибут</strong>="значение" <strong>атрибут</strong>="значение" ... /&gt;</code>
+      </p>
+      <p>Примерами таких элементов в знакомом HTML являются:&nbsp;<strong>&lt;br /&gt;</strong>,&nbsp;<strong>&lt;img
+          src="images/picture.gif" /&gt;</strong>&nbsp;и др.</p>
+      <p>Непустые элементы имеют вид:</p>
+      <p><code
+          class="code code--inline"> &lt;<strong>элемент атрибут</strong>="значение" <strong>атрибут</strong>="значение" ...&gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Содержимое элемента &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... &lt;<strong>/элемент</strong>&gt; </code>
+      </p>
+      <p>В HTML таких элементов
+        большинство:&nbsp;<strong>&lt;body&gt;</strong>&nbsp;...&nbsp;<strong>&lt;/body&gt;</strong>,&nbsp;<strong>&lt;p&gt;</strong>&nbsp;...&nbsp;<strong>&lt;/p&gt;</strong>&nbsp;-
+        в этих элементах может располагаться как текст, так и другие элементы (таблицы, рисунки...).</p>
+      <p>Необходимо помнить об обной&nbsp;<strong>очень</strong>&nbsp;важной особенности XML: имена в XML -
+        регистро-зависимы, то есть&nbsp;<strong>&lt;Sample-element /&gt;</strong>,&nbsp;<strong>&lt;SAMPLE-ELEMENT
+          /&gt;</strong>&nbsp;и&nbsp;<strong>&lt;sample-element /&gt;</strong>&nbsp;- совершенно разные элементы.</p>
+      <p>Легко заметить, что документ, состоящий из вложенных друг в друга элементов, подобен дереву: родительский
+        элемент
+        является&nbsp;<strong>корнем</strong>, дочерние элементы -&nbsp;<strong>ветками</strong>, а если они не содержат
+        ничего более -&nbsp;<strong>листьями</strong>:</p>
+      <pre class="code">&lt;library&gt;
+  &nbsp;  &lt;book&gt;
+  &nbsp; &nbsp; &nbsp; &nbsp; &lt;title value="Технология XSLT" /&gt;
+  &nbsp; &nbsp; &nbsp; &nbsp; &lt;author fio="Алексей Валиков" /&gt;
+  &nbsp; &nbsp; &nbsp; &nbsp; &lt;publisher&gt;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;name value="BHV" /&gt;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;homepage url="http://www.bhv.com" /&gt;
+  &nbsp; &nbsp; &nbsp; &nbsp; &lt;/publisher&gt;
+  &nbsp;  &lt;/book&gt;
+  &nbsp;  ...
+  &lt;/library&gt;</pre>
+      <p>Графически этот пример выглядит следующим образом:</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/xml1_pic1.gif" alt="">
+      </figure>
+      <p>В данном случае &lt;<strong>library</strong>&gt; является корнем, &lt;<strong>book</strong>&gt; и
+        &lt;<strong>/publisher</strong>&gt; - ветви, а &lt;<strong>title</strong>&gt;, &lt;<strong>author</strong>&gt;,
+        &lt;<strong>name</strong>&gt; и &lt;<strong>homepage</strong>&gt; - листья</p>
+      <p><strong>Внимание:</strong>&nbsp;в XML требуется тщательно следить за правильностью вложения элементов друг в
+        друга - элементы, раньше открытые, должны быть позже закрыты. В противном случае не может быть и речи о
+        иерархической структуре документа.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/xml1_pic2.gif" alt="">
+      </figure>
+      <h3>Атрибут</h3>
+      <p>В элементах можно использовать&nbsp;<dfn>атрибуты</dfn>&nbsp;с присвоенными им значениями. Атрибут задается
+        следующим образом:</p>
+      <p><code class="code code--inline"> <strong>атрибут</strong> = "значение" </code></p>
+      <p>В отличие от HTML&nbsp;<strong>в XML атрибуты всегда должны иметь значение!</strong>&nbsp;Значение атрибута
+        заключается в двойные или одинарные кавычки. При необходимости, можно использовать одинарные кавычки внутри
+        двойных и наоборот.</p>
+      <p><code
+          class="code code--inline"> &lt;<strong>company name</strong> = 'Акционерное Общество "Витязь"' ... /&gt; ... &lt;<strong>book author</strong> = "О'Генри" ... /&gt; </code>
+      </p>
+      <p>Имена в XML регистро-зависимые. Это относится не только к элементам, но и к атрибутам.</p>
+      <h3>Символьные данные: секция CDATA</h3>
+      <p>Секция&nbsp;<dfn>CDATA</dfn>&nbsp;выделяет часть документа, внутри которых текст не должен восприниматься как
+        разметка. CDATA означает буквально "character data" - символьные данные. Вот пример секции CDATA:</p>
+      <p><code
+          class="code code--inline"> &lt;![<strong>CDATA</strong>[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; содержимое ]]&gt; </code>
+      </p>
+      <p>Внутри секции&nbsp;<strong>CDATA</strong>&nbsp;могут располагаться любые символы, даже &lt; и &amp; - они не
+        будут восприниматься анализатором как управляющие. Единственная последовательность, которая не должна
+        присутствовать в&nbsp;<strong>CDATA</strong>, это "<strong>]]&gt;</strong>" - окончание символьных данных.</p>
+      <h3>Комментарии</h3>
+      <p>XML документ может содержать комментарии, записываемые следующим образом:</p>
+      <p><code
+          class="code code--inline"> &lt;!-- Это комментарий --&gt; ... &lt;!-- комментарии могут охватывать несколько строк --&gt; </code>
+      </p>
+      <p>Текст комментария может состоять из любых символов, кроме двух "-" подряд ("--").</p>
+      <h2>Задание на лабораторную работу</h2>
+      <p>Создать XML документ, содержащий информацию о какой-либо предметной области. Название предметной области
+        согласовать с преподавателем. Для оформления XML документа использовать знания и пользоваться правилами,
+        указаными в теоретических сведениях. Проверить документ на действительность.</p>
+      <p><a target="_blank" href="http://www.apache.org/">The Apache Software Foundation</a>&nbsp;создала набор ПО,
+        представляющего собой парсеры и другое обеспечение для&nbsp;<a target="_blank"
+          href="http://xml.apache.org/">работы с XML</a>.
+        Одним из таких известных парсеров является&nbsp;<a target="_blank" href="http://xerces.apache.org/">Xerces</a>.
+        Он существует в виде отдельного ПО, реализованного на С++ или Java. Чтобы не ограничивать Вас в выборе
+        инструментальной среды и ОС, будем использовать Java реализацию ввиду ее кроссплатформенности и простоты
+        использования.</p>
+      <p><strong>Замечание</strong>. Для запуска Java приложения необходимо, чтобы на компьютере была установлена Java
+        машина от Sun. Желательно с Java SDK.</p>
+      <p>Проверить действительность My.XML можно командой</p>
+      <p><code class="code code--inline">java sax.counter my.xml</code></p>
+      <p>При необходимости нужно явно указать путь к архивам Xerces ключом&nbsp;<strong>-classpath</strong></p>
+      <p><code
+          class="code code--inline">java -classpath "PATH\XercesImpl.jar;PATH\XercesSamples.jar" sax.Counter my.xml</code>
+      </p>
+      <p>(замените&nbsp;<strong>PATH</strong>&nbsp;на свой путь к местоположению архивов)</p>
+      <p>Сам Xerces можно скачать&nbsp;<a target="_blank"
+          href="https://bdpx.github.io/xml/dist/xerces-j.rar">отсюда</a>&nbsp;или с&nbsp;<a target="_blank"
+          href="http://xerces.apache.org/">официального сайта</a>.</p>
+      <button type="button" class="button"><a class="button__link" href="javascript7.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="xml2.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

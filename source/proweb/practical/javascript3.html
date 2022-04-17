@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Формы</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>JavaScript Формы</h1>
+      <p><em>Цель работы:</em>&nbsp;научиться управлять формой через сценарий.</p>
+      <p>Форма служит для ввода пользователем через окно браузера данных и передачи их на веб-сервер. Форма состоит из
+        контейнера &lt;FORM&gt; &hellip;&lt;/form&gt; и заключённых в него тегов (элементов)&nbsp;<em>&lt;INPUT&gt;,
+          &lt;SELECT&gt;</em>&nbsp;и&nbsp;<em>&lt;TEXTAREA&gt;.</em></p>
+      <h3>Проверка данных перед отправкой на сервер</h3>
+      <p>Для уменьшения нагрузки на сеть и веб-сервер можно проверять введённые пользователем данные на браузере с
+        помощью
+        сценария на JavaScript. Если в данных обнаружится ошибка, то пользователю предоставляется возможность её
+        исправить. Введенные правильно данные отправляются на веб-сервер. Использование сценария для управления формой
+        демонстрируется в примере 3.1.</p>
+      <p><strong>Пример 3.1</strong></p>
+      <pre class="code">&lt;HTML&gt;
+  &lt;HEAD&gt;&lt;TITLE&gt;Первая страница&lt;/title&gt;&lt;/head&gt;
+  &lt;H2&gt;Представьтесь, пожалуйста&lt;/h2&gt;
+  &lt;FORM name=F1 METHOD="POST" ACTION=""&gt;
+  Имя....
+  &lt;INPUT TYPE="text" NAME="name"&gt;&lt;BR&gt;
+  Возраст &lt;INPUT TYPE="text" NAME="age"&gt;
+  &lt;P&gt; &lt;INPUT TYPE="submit" VALUE="ВВОД" onclick="Proverka()"&gt;
+  &lt;/FORM&gt;
+  &lt;SCRIPT&gt;
+  function Proverka()
+  { im=document.F1.name.value
+  vozr=document.forms[0].elements[1].value st=""
+  if(im == "") st="имя\n"
+  if(vozr == "") st+="возраст"
+  if(st == "") document.F1.action="Prim3_1.php"
+  else //отмена передачи на веб-сервер
+  {   str="Введите:\n "+st
+      alert(str)
+      return=false
+  }
+  }
+  &lt;/script&gt;
+  &lt;/html&gt;
+  &lt;HTML&gt;
+  &lt;HEAD&gt;&lt;TITLE&gt;Вторая страница&lt;/title&gt;&lt;/head&gt;
+  &lt;BODY&gt;
+  &lt;H3&gt;П Р И В Е Т С Т В И Е&lt;/h3&gt;
+  &lt;?php
+  $imja=$_POST["name"]; //приём параметров из формы
+  $age=$_POST["age"]; $x="Здравствуйте!
+  $imja.";
+  if($age&gt;50) echo "$x Вы включены в старшую группу.";
+  elseif($age&gt;30)echo "$x Вы включеныв группу среднего возраста.";
+  else echo"$x Вы относитесь к молодёжной группе.";
+  ?&gt;
+  &lt;P&gt;
+  &lt;A href="Prim3_1.html"&gt;Возврат &lt;/a&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+      <p>Пример 3.1 состоит из двух страниц.Первая страница служит для ввода пользователем данных и их проверки с
+        помощью
+        скрипта, написанного на JavaScript. Если данные введены правильно, то они отправляются на веб-сервер. На
+        веб-сервере полученные данные обрабатываются скриптом, написанным на языке PHP, формируется и пересылается на
+        браузер пользователя новая страница.</p>
+      <p>В скрипте,написанном на JavaScript, для доступа к данным, находящимся в форме, используются имена и индексы
+        элементов формы. Для задания адреса (URL) страницы, содержащей PHP-скрипт, используется
+        свойство<em>action</em>&nbsp;объекта&nbsp;<em>Form</em>.</p>
+
+      <h3>Получение данных из всплывающего списка</h3>
+
+      <p>Иногда можно полностью решать задачу ведения диалога с пользователем средствами JavaScript, не обращаясь к
+        веб-серверу. В примере 3.2 пользователь вводит код цвета в модели RGB и выбирает из списка название цвета. После
+        нажатия кнопки&nbsp;<em>Ввод</em>&nbsp;на экран выводятся окрашенные в выбранные цвета код и название цвета.</p>
+      <p><strong>Пример 3.2</strong></p>
+      <pre class="code">&lt;html&gt;
+  &lt;HEAD&gt;&lt;TITLE&gt;СКИПТ SELECT &lt;/title&gt; &lt;/head&gt;
+  &lt;body&gt;
+  &lt;!--Пример выбора и выводана экранэлемента списка Select --&gt;
+  &lt;SCRIPT&gt;
+  function select_()
+  { a=document.all.Kod.value //код цвета
+  b= document.all.Gor.selectedIndex
+  //номервыбранного элемента// спискаselect
+  c = document.all.Gor.options[b].text//текст элементасписка
+  d = document.all.Gor.options[b].value//передаваемое из формы
+  //значение&lt;option value= red&gt;
+  e="&lt;FONT size= 7 color="+a+"&gt;"+a+"&lt;/font&gt;"//трансляция и
+  document.all.alfa.innerHTML= e// вывод на экран HTML-строки
+  e= "&lt;FONT size = 7 color= "+d+"&gt;"+c+"&lt;/font&gt;"
+  document.all.beta.innerHTML= e
+  }
+  &lt;/script&gt;
+  &lt;H2&gt;Подбор оттенков цвета&lt;/h2&gt;
+  В первое поле нужно ввести шестнадцатеричный код цвета.&lt;BR&gt;
+  Например,красный цвет имеет код FF0000.
+  &lt;BR&gt;Из списка во втором поле выбирается для сравнения
+  &lt;BR&gt; один из основных цветов(красный, зелёный,синий)
+  &lt;P&gt;Введитекод цвета
+  &lt;input TYPE= "text"name="Kod"&gt; &lt;P&gt;Выберитецвет
+  &lt;SELECT NAME= "Gor"&gt;
+  &lt;option value="red"&gt;Красный &lt;/option&gt;
+  &lt;option value="yellow"&gt;Жёлтый &lt;/option&gt;
+  &lt;option value="maroon"&gt;каштановый&lt;/option&gt;
+  &lt;option value=green"&gt;Зеленый&lt;/option&gt;
+  &lt;option value="blue"&gt;Cиний
+  &lt;/select&gt;
+  &lt;P&gt; &lt;BUTTON onclick="select_()"&gt;Выполнить &lt;/button&gt;
+  &lt;P&gt;&lt;B ID="alfa"&gt;&lt;/b&gt;
+  &lt;br&gt; &lt;B ID = "beta"&gt;&lt;/b&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+      <p>В примере 3.2 нет необходимости использовать контейнер&nbsp;<em>&lt;FORM&gt; &hellip;&lt;/form&gt;</em>, так
+        как
+        на веб-сервер ничего не передаётся. Для вывода на экран кода и названия цвета используется
+        свойство&nbsp;<em>innerHTML</em>. Строго говоря,&nbsp;<em>innerHTML</em>&nbsp;следовало бы называть не
+        свойством, а методом. Рассмотрим применение этого свойства на примере вывода на экран введённого пользователем
+        кода цвета. Пусть пользователь ввёл код цвета&nbsp;<em>a=FF0000</em>, т.е. красный.</p>
+      <p>В результате выполнения оператора</p>
+      <p>e="&lt;FONT size= 7 color="+a+"&gt;"+a+"&lt;/font&gt;"</p>
+      <p>сформируется стока</p>
+      <p>e="&lt;FONT size=7 color=FF0000&gt;FF0000&lt;/font&gt;"</p>
+      <p>В результате выполнения оператора</p>
+      <p>document.all.alfa.innerHTML= e</p>
+      <p>в элемент&nbsp;<em>&lt;B ID="alfa"&gt;&lt;/b&gt;</em>&nbsp;вставится значение переменной&nbsp;<em>e</em>:</p>
+      <p>&lt;B ID="alfa"&gt;&lt;FONT size=7 color=FF0000&gt;FF0000&lt;/font&gt;&lt;/b&gt;</p>
+      <p>и браузер выполнит преобразованный злемент (оператор языка&nbsp;<em>HTML</em>), т.е. выведет на экран</p>
+      <p><strong>FF0000</strong></p>
+      <p>Таким образом, с помощью свойства&nbsp;<em>innerHTML</em>&nbsp;можно на стороне браузера программным путём
+        вносить изменения в HTML-документ (страницу сайта).</p>
+      <p><strong>Задача 3.1.</strong>&nbsp;Создайте сайт из двух страниц. Первая страница имеет заголовок&nbsp;<em>Заказ
+          мебели</em>. На ней расположены два поля со списками (теги&nbsp;<em>&lt;SELECT&gt;</em>),
+        поле&nbsp;<em>(&lt;INPUT&gt;)</em>&nbsp;и кнопка&nbsp;<em>(&lt;SUBMIT&gt;)</em>. Из первого поля со списком
+        пользователь выбирает изделие (шкаф, стол, сервант и т.д.).Из второго поля со спискомпользователь выбирает
+        материал (дуб,орех, бук). В третье поле нужно ввести количество заказываемых изделий. После ввода данных
+        необходимо проверить, все ли данные введены.Если обнаружена ошибка, то нужно вывести сообщение и предложить её
+        исправить.</p>
+      <h3>Проверка данных сразу после ввода</h3>
+      <p>Если в форме нужно заполнить много полей, то пользователю удобно получать сообщения об ошибках сразу после
+        окончания ввода данных в очередное поле, то есть после нажатия клавиши&nbsp;<em>Tab</em>&nbsp;или клавиши со
+        стрелкой. Для немедленной проверки введённых данных служит событие&nbsp;<em>onchange</em>:</p>
+      <p>&lt;INPUT TYPE ="text"SIZE=6 onchange="arg(this)"&gt;</p>
+      <p>Функция, вызываемая событием&nbsp;<em>onchange</em>, имеет примерно такую структуру:</p>
+      <pre class="code">function arg(fld)&nbsp;
+  { x=fld.value //введённое значение&nbsp;
+  &nbsp; if(x. . .) //условия проверки&nbsp;
+  &nbsp; { alert("Сообщение об ошибке");&nbsp;
+  &nbsp; &nbsp; fld.focus();&nbsp;
+  &nbsp; &nbsp; fld.select()&nbsp;
+  &nbsp; }&nbsp;
+  }</pre>
+      <p>Методы&nbsp;<em>focus()&nbsp;</em>и&nbsp;<em>select()</em>&nbsp;служат для возвращения курсора мышки в поле
+        ввода
+        и выделения ошибочных данных. Эти методы без использования специальных приёмов правильно работают только в
+        браузере Mozilla.</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/javascript3_pic1.jpg" alt="">
+        Рис. 1
+      </figure>
+      <p><strong>Задача 3.2</strong>. Создайте страницу (рис. 1) для вычисления тригонометрических функций. Вводимые
+        пользователем данные должны проверяться немедленно после ввода и после нажатия кнопки&nbsp;<em>Вычислить</em>.
+      </p>
+      <p>Указания. Не забудьте перевести градусы в радианы. Название тригонометрической функции можно передавать как
+        параметр тега :</p>
+      <p>&lt;option value="sin". . . &gt;</p>
+      <p>Сформируйте текстовую строку вида</p>
+      <pre class="code">"Math." + имя_ф + "(" + знач_аргумета + ")" // имя_ф &ndash; sin,cos или tan</pre>
+      <p>Затем воспользуйтесь функцией&nbsp;<em>eval(строка)</em>, которая выполняет выражение, хранящееся в строке.</p>
+      <button type="button" class="button"><a class="button__link" href="javascript2.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="javascript4.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

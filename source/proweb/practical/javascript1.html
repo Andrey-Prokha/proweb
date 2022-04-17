@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Доступ к объектам и сценариям</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>JavaScript Доступ к объектам и сценариям</h1>
+      <p><em>Цель работы</em>&nbsp;- научиться использовать различные способы доступа к свойствам и методам объектов для
+        внесения изменений в HTML-документ.</p>
+      <p>Все изменения в HTML-документе производятся через свойства, методы и события объектов, входящих в состав
+        объектной модели документа. Рассмотрим сценарий (пример 1.1), в котором используются типичные способы доступа к
+        свойствам и методам объектов.</p>
+      <p><strong>Пример 1.1.</strong></p>
+      <pre class="code">&lt;HTML ID='DOCUM'&gt;
+  &lt;CENTER&gt;&lt;H1 ID='zag'&amp;gt ВАСЬКА&lt;/h1&gt;
+  &lt;FORM NAME='f1'&gt;
+  &lt;INPUT TYPE=BUTTON name="bot" onclick=bm() value='Увеличить'&gt;
+  &lt;/FORM&gt;
+  &lt;IMG SRC="VaskaM.jpg" ID='Vas' onclick=bm()&gt;
+  &lt;/center&gt;
+  &lt;!--В скрипте закомментирован вывод окна со списком объектов --&gt
+  &lt;SCRIPT&gt;
+  /*
+   var msg=''
+   for(i=0; i&lt;document.all.length;i++)
+   msg+=i + ' ' + document.all[i].tagName +' ID=' + document.all[i].id+'\n'
+   alert(msg)
+  */
+  flag=true
+  function bm()
+  { if(flag)
+  { document.images[0].src='VaskaB.jpg' flag=false;
+    document.forms[0].bot.value="Уменьшить"
+    document.forms[0].bot.style.background='red'
+    document.all.bot.style.color='black';
+  }
+  else
+  { document.getElementById("Vas").src='VaskaM.jpg';
+    //обращение к кнопке по индексу
+    document.forms[0].bot.value="Увеличить"
+    document.forms[0].bot.style.background='green'
+    document.all.bot.style.color='white'; flag= true
+  }
+  }
+  &lt;/script&gt;
+  &lt;/HTML&gt;</pre>
+      <p>В примере 1.1 сценарий используется для замены фотографии и изменения цвета кнопки и надписи на ней. Друг друга
+        меняют маленькая и большая фотографии кота Васьки.</p>
+      <p>Замена фотографии и изменение вида кнопки в примере происходят при щелчке мышкой по кнопке или по самой
+        фотографии. В тегах&nbsp;<em>&lt;INPUT&gt;</em>&nbsp;и&nbsp;<em>&lt;IMG&gt;</em>&nbsp;помещён
+        атрибут&nbsp;<em>onclick=bm()</em>, при помощи которого в ответ на щелчок мышкой вызывается
+        функция&nbsp;<em>bm()</em>. Такой атрибут называют обработчиком событий. Имя файла с фотографией является
+        свойством&nbsp;<em>SRC</em>&nbsp;объекта&nbsp;<em>IMG</em>. Замена фотографии делается в сценарии двумя
+        равнозначными способами:</p>
+      <pre class="code">document.images[0].src='VaskaB.jpg'&nbsp;
+  document.getElementById("Vas").src='VaskaM.jpg'</pre>
+      <p>В первом варианте доступ к фотографии происходит через коллекцию&nbsp;<em>images</em>, в которой все
+        расположенные на странице фотографии (в примере одна фотография) пронумерованы. Нумерация начинается с нуля. Во
+        втором варианте используется метод&nbsp;<em>getElementById()</em>&nbsp;объекта&nbsp;<em>document</em>.
+        Параметром в методе&nbsp;<em>getElementById()</em>&nbsp;служит&nbsp;<em>ID</em>(идентификатор)
+        объекта&nbsp;<em>IMG</em>. Весь оператор читается так: "свойству&nbsp;<em>src</em>&nbsp;объекта,
+        имеющего&nbsp;<em>ID=Vas</em>&nbsp;и входящего в состав объекта&nbsp;<em>document</em>, присвоить
+        значение&nbsp;<em>VaskaM.jpg</em>&nbsp;". Сам объект&nbsp;<em>document</em>&nbsp;является дочерним по отношению
+        к объекту&nbsp;<em>window</em>. Поэтому полное обращение к свойству&nbsp;<em>src</em>&nbsp;следовало бы писать
+        так:</p>
+      <pre class="code">window.document.images[0].src='VaskaB.jpg'&nbsp;
+  window.document.getElementById("Vas").src='VaskaM.jpg'</pre>
+      <p>Обычно, за исключением тех случаев, когда нужно воспользоваться свойствами или методами самого
+        объекта&nbsp;<em>window</em>, это слово опускают.</p>
+      <p>Более сложная иерархия объектов наблюдается при обращении к свойствам кнопки:</p>
+      <pre class="code">document.forms[0].bot.value="Уменьшить"</pre>
+      <pre class="code">document.forms.f1.bot.style.background='red'</pre>
+      <p>Первый оператор служит для изменения надписи на кнопке. Доступ к кнопке происходит по её имени
+        (<em>name='bot'</em>). Доступ к форме осуществляется через коллекцию&nbsp;<em>forms</em>&nbsp;и номер формы в
+        коллекции.</p>
+      <p>С помощью второго оператора меняется цвет кнопки. Доступ к форме осуществляется через
+        коллекцию&nbsp;<em>forms</em>&nbsp;и имя формы&nbsp;<em>f1</em>. Своеобразие доступа к свойствам, задаваемым
+        стилем, состоит в том, что&nbsp;<em>style</em>&nbsp;выступает формально как дочерний объект. В рассматриваемом
+        примере родительским по отношению к&nbsp;<em>style</em>&nbsp;является объект с именем&nbsp;<em>bot</em>, то
+        есть, кнопка.</p>
+      <p>Для обращения к объектам удобна коллекция&nbsp;<em>all&nbsp;</em>объекта&nbsp;<em>document</em>. В
+        коллекцию&nbsp;<em>all</em>&nbsp;входят все объекты HTML-документа, поэтому выбирать объект нужно по
+        его&nbsp;<em>ID&nbsp;</em>или имени. Коллекция&nbsp;<em>all</em>&nbsp;использована для изменения цвета надписи
+        на кнопке:</p>
+      <pre class="code">document.all.bot.style.color='black'</pre>
+      <p>Все описанные способы доступа к объектам HTML-документа базируются на объектной модели документа (DOM).
+        Наиболее
+        трудной задачей, стоящей перед разработчиком сценариев, является разработка сайтов, которые будут одинаково
+        выполняться на всех браузерах. Рассматриваемый пример HTML-документа подобран так, что он (почти) одинаково
+        выполняется на браузерах Internet Explorer 6.0 и Mozilla Firefox 2.0, несмотря на то, что объектные модели в
+        этих браузерах отличаются друг от друга. Для того, чтобы убедиться в этом уберите символы комментариев /* и */
+        из первой и пятой строчек скрипта и откройте страницу в обоих браузерах. Появится окно со списком всех объектов,
+        созданных браузером для открытого документа. В созданной браузером Internet Explorer модели &ndash; 12 объектов,
+        а у Mozilla Firefox &ndash; 10.</p>
+      <p>Рассмотрим подробнее раскомментированный фрагмент скрипта.</p>
+      <pre class="code">var msg=''&nbsp;
+  for(i=0; i&lt;document.all.length;i++)&nbsp;
+  msg+=i + ' ' + document.all[i].tagName +' ID=' + document.all[i].id+'\n'&nbsp;
+  alert(msg)</pre>
+      <p>Коллекция&nbsp;<em>all&nbsp;</em>всех объектов HTML-документа имеет свойство&nbsp;<em>length</em>, равное
+        количеству всех объектов модели документа. Любой объект имеет свойство&nbsp;<em>tagName</em>, значение которого
+        совпадает с именем объекта. В приведённом фрагменте скрипта в цикле формируется строковая
+        переменная&nbsp;<em>msg</em>, состоящая из номеров, имён и&nbsp;<em>ID</em>&nbsp;объектов. Сочетание
+        символов&nbsp;<em>\n</em>&nbsp;служит для перевода строки.</p>
+      <p>Метод&nbsp;<em>getElementById()</em>&nbsp;- входит в стандарт W3C и поддерживается всеми браузерами.
+        Коллекция&nbsp;<em>all</em>разработана фирмой Microsoft для браузера&nbsp;<em>Internet Explorer</em>. В
+        настоящее время эта коллекция поддерживается почти всеми брауэерами. Как ни странно, в новом
+        браузере&nbsp;<em>Edge</em>, встроенном в ОС Windows 10, коллекция&nbsp;<em>all</em>&nbsp;не поддерживается.</p>
+      <p><strong>Задача 1.1.</strong>&nbsp;Напишите HTML-документ, который в окне браузера отображается в виде следующих
+        трёх строк:</p>
+      <ul>
+        <li>ДОСТУП К СВОЙСТВАМ И МЕТОДАМ</li>
+        <li>Коллекция all</li>
+        <li>Метод getElementById()</li>
+      </ul>
+      <p>Первую строку поместите в контейнер&nbsp;<em>&lt;H2&gt;...&lt;/h2&gt;,</em>&nbsp;вторую &ndash; в
+        контейнер&nbsp;<em>&lt;P&gt; &hellip;&lt;/p&gt;,</em>&nbsp;третью &ndash; в контейнер&nbsp;<em>&lt;DIV&gt;
+          &hellip; &lt;/div&gt;.</em>&nbsp;Напишите скрипт для изменения цветов фона и букв надписей, при щелчке по
+        этим строкам. При щелчке по первой строке цвет букв должен меняться с чёрного на белый или с белого на чёрный, а
+        фон &ndash; с жёлтого на синий или с синего на жёлтый. Так же должны меняться цвета третьей строки.</p>
+      <p>При щелчках по второй строке цвет букв на ней должен меняться с красного на белый и наоборот, а цвет фона - с
+        белого на зелёный и наоборот.</p>
+      <p>Для изменения первой и третьей строк примените метод&nbsp;<em>getElementById(),</em>&nbsp;а для второй строки
+        &ndash; коллекцию&nbsp;<em>all</em>.</p>
+      <h3>Размещение сценариев в HTML-документе</h3>
+      <p>Сценарий в HTML-документе можно размещать тремя способами:</p>
+      <ul>
+        <li>в открывающем теге в качестве значения атрибута событие (см. пример 2.1);</li>
+        <li>в контейнере, ограниченном тегами&nbsp;<em>&lt;SCRIPT&gt; ...&lt;/script&gt;;</em></li>
+        <li>в отдельном файле.</li>
+      </ul>
+      <p>Контейнеры со сценариями могут размещаться в любом месте HTML-документа. Количество сценариев в одном
+        HTML-документе не ограничено.</p>
+      <p>Выполнение сценариев происходит при загрузке HTML-документа и при наступлении событий. Во время загрузки
+        HTML-документа браузер последовательно просматривает встречающиеся сценарии и пытается их выполнить. Если
+        встретился вызов функции, то браузер ищет её описание в текущем и во всех ранее загруженных сценариях. Поэтому
+        описание функции должно размещаться либо в одном сценарии с вызовом, либо в сценариях расположенных выше вызова
+        функции.</p>
+      <p>Сценарий можно хранить в отдельном файле. Для вставки сценария в HTML-документ служит атрибут&nbsp;<em>SRC
+        </em>тега&nbsp;<em>&lt;SCRIPT&gt;.</em>&nbsp;Сценарий, размещённый в отдельном файле, можно использовать на
+        многих страницах сайта. В примере 1.2 рассматривается одна из страниц сайта сети магазинов.<br /><strong>Пример
+          1.2</strong><br /><br /></p>
+      <pre class="code">&lt;html&gt;&lt;!-- СКРИПТ загружается из файла primJs.js--&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;Сеть&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;SCRIPT language="JavaScript" src="PrimJs.js"&gt;
+  &lt;/script&gt;
+  &lt;H2 align=center style="color:green"&gt;Магазин "ПОДАРКИ"&lt;/h2&gt;
+  &lt;p&gt;Адрес: Лесная ул., д.2&lt;/P&gt;
+  &lt;p&gt;Транспорт: трамваи 7, 23, автобусы 56, 93&lt;/p&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+  // Файл primJs.js
+  a="background-color:#00ffff; color:#ff00ff;"
+  a+="font-size:24pt; font-family:'Times New Roman'"
+  naim='Сеть магазинов "ВСЁ ДЛЯ ДОМА"'
+  var da=new Date()
+  d=da.getDate()+"."+(da.getMonth()+1)+"."+da.getFullYear()
+  document.write('&lt;P align=center style= "'+a+'"&gt; '+
+  naim+'&lt;/p&gt;&lt;P&gt; Сегодня '+d+'&lt;/p&gt; ')</pre>
+      <p>Общие для страниц всех магазинов сети заголовок с названием сети и сегодняшняя дата формируются скриптом,
+        размещённым в отдельном файле&nbsp;<em>primJs.js</em>&nbsp;. Метод<em>&nbsp;write(HTML-код)</em>&nbsp;служит для
+        вставки в страницу размеченного текста (HTML-кода). Этот метод применяется только при загрузке страницы, так как
+        его применение после окончания загрузки приведёт к стиранию старого содержимого страницы.</p>
+      <p><strong>Задача 1.2.</strong>&nbsp;Добавьте в пример 1.2 три страницы. Две страницы должны отображать информацию
+        о
+        магазинах&nbsp;<em>Посуда</em>&nbsp;и&nbsp;<em>Мебель</em>. Третья страница &ndash; главная в сайте сети
+        магазинов&nbsp;<em>ВСЁ ДЛЯ ДОМА</em>. На ней должны быть ссылки на страницы магазинов, входящих в сеть. На
+        страницах магазинов должен использоваться скрипт из файла&nbsp;<em>primJs.js</em>.</p>
+      <button type="button" class="button"><a class="button__link" href="rabota_s_grafikoy.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="javascript2.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

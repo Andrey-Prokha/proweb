@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>CMS Wordpress</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+
+      <h1>CMS Wordpress. Лабораторная работа</h1>
+      <p><strong>Цель работы:</strong>&nbsp;Получить практические навыки по установке и управлению CMS Wordpress</p>
+      <p><strong>WordPress</strong>&nbsp;&mdash; CMS с открытым исходным кодом, распространяемая под GNU GPL. Написан на
+        PHP, в качестве базы данных использует&nbsp;<u><a href="http://ru.wikipedia.org/wiki/mysql"
+            target="_blank">MySQL</a></u>. Сфера применения&nbsp;&mdash; от&nbsp;<u><a
+            href="http://ru.wikipedia.org/wiki/%D0%B1%D0%BB%D0%BE%D0%B3" target="_blank">блогов</a></u>&nbsp;до
+        достаточно сложных новостных ресурсов и даже интернет-магазинов. Встроенная система &laquo;тем&raquo; и
+        &laquo;<u><a href="http://ru.wikipedia.org/wiki/%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD"
+            target="_blank">плагинов</a></u>&raquo; вместе с удачной архитектурой позволяет конструировать
+        практически любые проекты.</p>
+      <p>На сегодняшний день WordPress &mdash; самая популярная система для ведения блогов.&nbsp;</p>
+      <ul>
+        <li>возможность публикации с помощью сторонних программ и сервисов;</li>
+        <li>моментальная публикация;</li>
+        <li>простота установки, настройки;</li>
+        <li>поддержка веб-стандартов (XHTML, CSS);</li>
+        <li>поддержка RSS, Atom, trackback, pingback;</li>
+        <li>подключаемые модули (плагины) с уникальной простой системой их взаимодействия с кодом;</li>
+        <li>поддержка так называемых &laquo;тем&raquo;, позволяющих легко менять как внешний вид, так и способы вывода
+          данных;</li>
+        <li>&laquo;темы&raquo; реализованы как наборы файлов-шаблонов на PHP, что положительно сказывается на скорости и
+          гибкости;</li>
+        <li>громадные библиотеки &laquo;тем&raquo; и &laquo;плагинов&raquo;;</li>
+        <li>заложенный потенциал архитектуры позволяет легко реализовывать сложные решения;</li>
+        <li>наличие ЧПУ (человеко-понятный URL);</li>
+        <li>наличие русских переводов.</li>
+      </ul>
+      <p><strong>Борьба со спамом</strong><br /><br />Стандартно в WordPress входит плагин Akismet, который достаточно
+        эффективно борется с этим злом. Кроме этого можно создать черный список и фильтры из слов. С их помощью можно
+        просто заблокировать любой комментарий, который содержит запрещенное слово или отправить его на модерацию.
+        Наибольшую же эффективность в борьбе со спамом можно добиться с помощью т.н. капчи&nbsp;&mdash; картинки с
+        набором символов. В этом случае ставится полный заслон от автоматических спам-роботов. Установка большинства
+        плагинов антиспама очень проста, зачатую достаточно только его активировать в админ-панели (например, популярная
+        SpamKarma). С помощью специального плагина есть возможность модерировать спам-комментарии. Причем доступны как
+        обычные комментарии, так и пинги и трекбаки. В целом же плагинов для антиспама множество (я насчитал больше
+        семидесяти).</p>
+      <p><strong>Интеграция с форумом</strong><br /><br />Для WordPress'а разработан и рекомендуется форум BBPress (есть
+        и
+        руссификация), который полностью интегрируется в блог. Правда, возможности у этого форум более чем скромные. На
+        официальном сайте WordPress'а используется именно этот форум. Также существуют плагины, которые позволяют
+        частично интегрировать некоторые популярные форумы в блог. Правда для этого требуются хорошие знания
+        программирования, и при этом, все равно стопроцентной интеграции не получится&nbsp;&mdash; все-таки это разные
+        системы.</p>
+      <p><strong>Шаблоны оформления</strong><br /><br />Для WordPress'а созданы тысячи шаблонов и многие из них
+        выполнены
+        на очень хорошем дизайнерском уровне. Устройство WordPress таково, что под него несложно переделать, скажем,
+        html-шаблон. В шаблонах испольуются обычные PHP-функции, поэтому никаких сложностей с изучением т.н. языков
+        шаблонов нет. По созданию шаблонов существует довольно много статей, даже есть он-лайн генератор. Готовые
+        шаблоны достаточно загрузить в отдельный каталог и после этого в админ-панели выбрать понравившийся. Существует
+        также возможность переключать шаблоны и посетителями.</p>
+      <p><strong>Расширенная функциональность (плагины)</strong>&nbsp;<br /><br />WordPress можно расширить за счет
+        плагинов&nbsp;&mdash; это различные php-скрипты, которые автоматически подключаются к основному
+        &laquo;ядру&raquo;. Таким образом можно не просто добавить нужную функциональность, но и изменить уже
+        существующую. Создать плагин не очень сложно, все зависит от уровня знания PHP. Подключение к WordPress'у совсем
+        просто: плагин копируется в специальный каталог и активируется в админ-панели. Некоторые плагины можно
+        настраивать, некоторые нужно прописывать в шаблоне, а некоторые работают полностью
+        автоматически.&nbsp;<br /><br />Плагинов для WordPress написано несколько тысяч (только на одном
+        wp-plugins.net&nbsp;&mdash; 2568, но думаю, что целом цифру можно удвоить), поэтому можно найти плагин
+        практически под любые нужды. Исключение составляют плагины, которые требуют значительной переделки шаблона. С
+        ними обычно приходится повозиться.&nbsp;</p>
+      <p><strong>Поддержка авторов (один блог) и многопользовательские блоги</strong><br /><br />WordPress достаточно
+        хорошо зарекомендовал себя как многоавторский блог. Во всяком случае стандартные возможности у него не вызывают
+        опасений. А вот для того, чтобы расширить их, потребуется использование дополнительных плагинов. Например это
+        касается добавления произвольных полей в профиль автора, аватарка, фото и т.п. Парадокс в том, что в WordPress'е
+        уже заложен практически весь потенциал для этого, но так и не доведен до конца.&nbsp;<br /><br />Для управления
+        авторами используется система ролей. С помощью специального плагина можно легко (визуально) отредактировать
+        любую роль или разрешить/запретить выполнять какие-либо действия отдельному автору.&nbsp;<br /><br />Для
+        многопользовательских блогов существует отдельная версия: WordPress Multi User. Требования и возможности у неё
+        практически такие же как и у обычного WordPress'а, хотя есть некоторые отличия. На WordPressMU работает один из
+        крупнейших блог-сервисов WordPress.com, на котором зарегистрировано почти 1,3 миллиона блогов.&nbsp;</p>
+      <p><strong>Комментирование</strong><br /><br />Для любой записи можно разрешить или запретить комментирование.
+        Отдельно можно разрешить прием пингов/трекбаков, а также автоматический пинг по адресам, указаным в тексте
+        записи. При помощи отдельных плагинов можно сделать древовидные комментарии, а также разбить отображение
+        комментариев по страницам. Можно добавить аватарки или favicon. Текстовый редактор комментария можно снабдить
+        кнопками форматирования и смайлами. Есть также плагин (работает на AJAX), который позволяет в течение некоторого
+        времени редактировать посетителю свой комментарий.</p>
+      <p><strong>Экспорт/импорт данных</strong><br /><br />WordPress позволяет экспортировать записи и комментарии блога
+        в
+        XML-файл. Можно экспортировать записи отдельного автора. Для импорта записей в WordPress можно воспользоваться 9
+        способами. Это основные блоговские &laquo;движки&raquo; (например: ЖЖ, Blogger, Textpattern), а также в RSS и
+        свой XML-формат.</p>
+      <p><strong>Установка Wordpress</strong><br /><br />Для установки Wordpress на локальный компьютер необходимо
+        установить пакет Denwer для выполнения PHP-скриптов и работой с базой данных MySQL</p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic1.png" alt="">
+        Рис.1. Начало настройки wordpress
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic2.png" alt="">
+        Рис.2. Вывод последовательности выполнения действий
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic3.png" alt="">
+        Рис.3. Подключение к базе данных
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic4.png" alt="">
+        Рис.4. Запуск установки
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic5.png" alt="">
+        Рис.5. Создание учетной записи администратора
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic6.png" alt="">
+        Рис.6. Вход в систему
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic7.png" alt="">
+        Рис.7. Администраторская панель
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic8.png" alt="">
+        Рис.8. Стартовая страница
+      </figure>
+      <p><strong>Обзор основных возможностей системы</strong></p>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic9.png" alt="">
+        Рис.9. Добавление записи
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic10.png" alt="">
+        Рис.10. Добавление гиперссылок
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic11.png" alt="">
+        Рис.11. Возможность просмотра, редактирования и удаления комментариев
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic12.png" alt="">
+        Рис.12. Работа с дизайном сайта
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic13.png" alt="">
+        Рис.13. Страница добавления плагинов
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic14.png" alt="">
+        Рис.14. Возможность добавления пользователей и
+        управление привилегиями
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic15.png" alt="">
+        Рис.15. Инструменты позволяют экспортировать и
+        импортировать пользовательские данные из системы в систему
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic16.png" alt="">
+        Рис.16. Конфигурация параметров системы
+      </figure>
+      <figure class="image">
+        <img class="image__img" src="../../img/practical/cms2_pic17.png" alt="">
+        Рис.17. Заполненный контентом сайт
+      </figure>
+      <p><strong>Выполнение работы</strong></p>
+      <ul>
+        <li>Загрузить CMS Wordpress&nbsp;</li>
+        <li>Установка CMS Wordpress</li>
+        <li>Управление и администрирование системой</li>
+        <li>Настройка форума в системе</li>
+      </ul>
+      <p><strong>Вопросы</strong></p>
+      <ol>
+        <li>Какие минимальные требования для установки системы</li>
+        <li>Как установить БД для Wordpress</li>
+        <li>Управление и администрировании системой</li>
+      </ol>
+      <button type="button" class="button"><a class="button__link" href="cms1.html">Предыдущая лабораторная
+          работа</a></button>
+      <button type="button" class="button"><a class="button__link" href="seo.html">Следующая лабораторная
+          работа</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

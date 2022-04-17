@@ -1,0 +1,500 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHP Использование массивов</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Использование массивов</h1>
+      <p>Основное назначение массивов в PHP - организация групп связанных значений.
+        Каждый элемент массива имеет индекс (ключ) и значение. Индекс элемента
+        массива указывается в квадратных скобках после имени массива. Для того, чтобы
+        обратиться к пятому элементу массива $array1, надо написать:
+      </p>
+      <pre class="code">$array1[5]</pre>
+      <p>Помните, что по умолчанию массив начинается не с первого элемента, а с нулевого.
+      </p>
+      <p>Индекс может быть как числом, так и текстовой строкой.
+        Массив со строковыми индексами называют <i>ассоциативным</i>, а сами индексы -
+        именами элементов.
+        Например, цены на товары хранятся в ассоциативном массиве $prices,
+        индексами которого являются наименования товаров. Чтобы получить значение
+        цены на конкретный товар, надо написать:
+      </p>
+      <pre class="code">$prices["яйца 10 шт. 1 сорт"]</pre>
+      <p>Значение элемента массива может иметь любой тип. Возможна организация
+        многомерных массивов, так как элемент массива может в свою очередь являться
+        массивом. Примеры обращений к элементам многомерных массивов:
+      </p>
+      <pre class="code">$array3[0][4][1]
+    $цены["овощи"]["помидор"]
+    $список[1]["фамилия"]</pre>
+
+      <h2>Создание массива</h2>
+      <p>Массив можно создать с помощью функции <b>array()</a></b>, параметры которой и
+        составляют массив. Параметры могут задаваться парами "ключ=&gt;значение".
+        Если при создании массива ключ не указывается, то индекс определяется положением
+        элемента в массиве (начиная с 0). Например:
+      </p>
+      <pre class="code">$рост = array (174, 181, 166); //Массив с индексацией, начинающейся с нуля
+    $цена = array ("помидоры" =&gt; 15, "огурцы" =&gt; 12); //Ассоциативный массив
+    $данные = array (
+             "Иванов" =&gt; array ("рост" =&gt; 174, "вес"  =&gt; 68),
+             "Петров" =&gt; array ("рост" =&gt; 181, "вес"  =&gt; 90),
+             "Сидоров" =&gt; array ("рост" =&gt; 166, "вес"  =&gt; 73)); //Двухмерный массив</pre>
+      <p>Массивы можно создать и другим способом - непосредственно. Например:
+      </p>
+      <pre class="code">$фрукты[] = "яблоко";
+    $фрукты[] = "груша";
+    $фрукты[] = "слива";
+    $цена["помидор"] = 15;
+    $цена["огурец"] = 12;</pre>
+      <p>Индексы элементов неассоциативного массива можно не указывать.
+        PHP автоматически вычислит их. Если же указать индексы таким образом:
+      </p>
+      <pre class="code">$фрукты[0] = "груша";
+    $фрукты[5] = "яблоко";</pre>
+      <p>то в массиве будет два элемента, причем последний с индексом 5. Элементы
+        1 - 4 не инициализируются.</p>
+      <p>Можно создать массив с помощью функции array(), а затем добавить
+        к нему новый элемент:
+      </p>
+      <pre class="code">$фрукты = array("яблоко","груша","слива");
+    ...
+    $фрукты[] = "персик";</pre>
+
+      <h2>Подсчет количества элементов</h2>
+      <p>Количество элементов в массиве можно определить с помощью функций
+        <b>count()</b> или <b>sizeof()</b>.
+      </p>
+      <h4>Пример 1</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Размер массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $фрукты = array("яблоко", "груша", "слива", "персик");
+    echo "Размер массива \$фрукты равен ".count($фрукты)."&lt;br&gt;";
+    echo "Последний элемент массива \$фрукты - ".$фрукты[count($фрукты)-1]."&lt;br&gt;";
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+      <p>Для доступа к последнему элементу надо вычесть 1 из размера массива,
+        так как индексация массива начинается с нуля.
+        Для вывода зарезервированного символа "$" перед знаком доллара стоит символ
+        обратной косой черты "\".
+      </p>
+      <p>Частоту вхождения элементов в массив можно определить с помощью функции
+        <b>array_count_values()</b>. Эта функция возвращает массив, в котором
+        ключами являются элементы исследуемого массива, а значениями - частоты их
+        вхождения в исследуемый массив.
+      </p>
+      <h4>Пример 2</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Размер массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $фрукты = array("яблоко", "груша", "слива", "персик", "груша");
+    print_r (array_count_values($фрукты));
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+      <p>Функция <b>print_r()</b> отображает ключи и значения массива, указанного в
+        аргументе.</p>
+
+      <h2>Просмотр массива в цикле</h2>
+      <p>Для итерационного просмотра содержимого массива служит функция <b>foreach</b>.
+        С ее помощью можно просмотреть и простой (проиндексированный числами) массив,
+        и ассоциативный, и многомерный.
+      </p>
+      <h4>Пример 3</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Просмотр массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $фрукты = array("яблоко", "груша", "слива", "персик", "груша");
+    foreach ($фрукты as $фрукт)
+      {
+      echo  "$фрукт&lt;br&gt;";
+      }
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+      <h4>Пример 4</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Просмотр ассоциативного массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $цена = array ("помидоры" =&gt; 15, "огурцы" =&gt; 12);
+    foreach ($цена as $овощи =&gt; $руб)
+      {
+      echo  "$овощи стоят $руб руб.&lt;br&gt;";
+      }
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+      <h4>Пример 5</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Просмотр двухмерного массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $данные = array (
+             "Иванов" =&gt; array ("рост" =&gt; 174, "вес"  =&gt; 68),
+             "Петров" =&gt; array ("рост" =&gt; 181, "вес"  =&gt; 90),
+             "Сидоров" =&gt; array ("рост" =&gt; 166, "вес"  =&gt; 73));
+    foreach ($данные as $фамилия =&gt; $данные1)
+      {
+      echo  "&lt;br&gt;$фамилия:&lt;br&gt;";
+      foreach ($данные1 as $параметр =&gt; $pp)
+        {
+        echo  "$параметр = $pp&lt;br&gt;";
+        }
+      }
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+      <p><strong>print_r</strong> - Вывод всех эллементов массива. Удобная функция для отладки.</p>
+      <pre class="code">&lt;?php
+    $a = array ('a' =&gt; 'apple', 'b' =&gt; 'banana', 'c' =&gt; array ('x','y','z'));
+    <strong>print_r</strong> ($a);
+    ?&gt;</pre>
+
+      <h2>Управление массивами</h2>
+      <p>Для управление массивами в PHP существует целый ряд специализированных
+        функций. Наиболее употребимыми являются:
+      </p>
+      <ul>
+        <li><b>+</b> - объединение массивов. <code class="code code--inline">$ar=$ar1+$ar2</code></li><br>
+        <li><b>==</b> - сравнение массивов. Оператор вернёт true если все пары (ключ:значение) из первого массива
+          совпадут с
+          содержанием второго массива.</li><br>
+        <li><b>===</b> - идентичность массивов. Оператор вернёт true если:<ul>
+            <li>содержат одно и тоже количество элементов;</li>
+            <li>ключи и значения элементов одинаковы в обоих массивах;</li>
+            <li>порядок элементов;</li>
+            <li>абсолютное совпадение по типам данных у значений элементов.</li>
+          </ul>
+          Если ключи одного массива типа string, а второго integer и все значения совпадают, то оператор вернёт true.
+          Если
+          же вместо integer воспользоваться float, то результат будет false.
+
+        </li><br>
+
+        <li><b>array_merge()</b> - объединение (слияние) массивов.
+          Последующее значение элемента перекрывает предыдущее, если ключи строковые и одинаковые.
+          <h4>Пример 6</h4>
+          <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Слияние массивов&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $мнение1 = array (1, "Катя" =&gt; "умная", 2, "Женя" =&gt; "красивая", 3);
+    $мнение2 = array (4, "Женя" =&gt; "глупая", 5, "Катя" =&gt; "милая");
+    echo  "1 + 2:&lt;br&gt;";
+    print_r (array_merge ($мнение1, $мнение2));
+    echo  "&lt;br&gt;2 + 1:&lt;br&gt;";
+    print_r (array_merge ($мнение2, $мнение1));
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+        </li>
+        <li><b>array_shift()</b> - удаление первого элемента.
+          <h4>Пример 7</h4>
+          <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Удаление первого элемента массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $фрукты = array("яблоко", "груша", "слива", "персик");
+    echo  "В вазе лежали:";
+    foreach ($фрукты as $tmp)
+      {
+      echo  " $tmp";
+      }
+    echo  "&lt;br&gt;Первым съели ".array_shift($фрукты)."&lt;br&gt;";
+    echo  "В вазе остались:";
+    foreach ($фрукты as $tmp)
+      {
+      echo  " $tmp";
+      }
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+        </li>
+        <li><b>array_pop()</b> - удаление последнего элемента.
+          <h4>Пример 8</h4>
+          <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Удаление последнего элемента массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $фрукты = array("яблоко", "груша", "слива", "персик");
+    echo  "В вазе лежали:";
+    foreach ($фрукты as $tmp)
+      {
+      echo  " $tmp";
+      }
+    echo  "&lt;br&gt;Съели ".array_pop($фрукты)."&lt;br&gt;";
+    echo  "В вазе остались:";
+    foreach ($фрукты as $tmp)
+      {
+      echo  " $tmp";
+      }
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+        </li>
+        <li><b>array_push()</b> - добавление элементов в конец массива.
+          <h4>Пример 9</h4>
+          <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Добавление элементов в конец массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $a = array(1, 2, 3);
+    echo  "Массив \$a:";
+    foreach ($a as $tmp) echo " $tmp";
+    $k = array_push($a, 4, 5);
+    echo  "&lt;br&gt;Массив \$a после добавления:";
+    foreach ($a as $tmp) echo " $tmp";
+    echo  "&lt;br&gt;Его длина = $k";
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+          Имейте в виду, что если в качестве второго аргумента функции
+          array_push() передать массив, то этот
+          массив будет добавлен как элемент, т.е. будет создан двумерный массив.<br>
+        </li>
+        <li><b>array_unshift()</b> - добавление элементов в начало массива.
+          <h4>Пример 10</h4>
+          <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Добавление элементов в начало массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $a = array(1, 2, 3);
+    echo  "Массив \$a:";
+    foreach ($a as $tmp) echo " $tmp";
+    $k = array_unshift($a, 4, 5);
+    echo  "&lt;br&gt;Массив \$a после добавления:";
+    foreach ($a as $tmp) echo " $tmp";
+    echo  "&lt;br&gt;Его длина = $k";
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+        </li>
+        <li><b>array_slice()</b> - выделение фрагмента массива.
+          <p>Имеет три параметра:
+            сам массив, смещение и длину выделяемого фрагмента.
+            При положительном смещении отсчет выполняется от начала массива, при
+            отрицательном - от конца. При положительной длине результирующий фрагмент
+            будет содержать заданное число элементов. При отрицательной длине последним
+            элементом фрагмента станет тот, который находится на указанном расстоянии от
+            конца массива. Если параметр опущен, то фрагмент будет содержать все элементы от
+            начального смещения и до конца массива.
+          </p>
+          <h4>Пример 11</h4>
+          <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Выделение фрагмента массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $a = array("a", "b", "c", "d", "e", "f");
+    echo  "\$a:"; foreach ($a as $t) echo " $t";
+    $b = array_slice($a, 2);
+    echo  "&lt;br&gt;array_slice(\$a, 2):"; foreach ($b as $t) echo " $t";
+    $b = array_slice($a, 2, -1);
+    echo  "&lt;br&gt;array_slice(\$a, 2, -1):"; foreach ($b as $t) echo " $t";
+    $b = array_slice($a, -2, 1);
+    echo  "&lt;br&gt;array_slice(\$a, -2, 1):"; foreach ($b as $t) echo " $t";
+    $b = array_slice($a, 0, 3);
+    echo  "&lt;br&gt;array_slice(\$a, 0, 3):"; foreach ($b as $t) echo " $t";
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+        </li>
+      </ul>
+
+      <h2>Сортировки</h2>
+      <p>Сортировать можно как простые, так и ассоциативные массивы.
+        Для сортировки массивов в PHP существуют определенные функции:
+      </p>
+      <ul>
+        <li><b>sort()</b> - сортирует массив в алфавитном порядке, если хотя бы один
+          из его элементов является строкой, и в числовом порядке, если все его элементы -
+          числа.
+        </li>
+        <li><b>rsort()</a></b> - работает как <b>sort( )</b>, но в обратном порядке.
+        </li>
+        <li><b>asort()</a></b> - сортирует ассоциативный массив; работает как <b>sort( )</b>,
+          но сохраняет имена элементов.
+        </li>
+        <li><b>arsort()</a></b> - работает как <b>asort( )</b>, но в обратном порядке.
+        </li>
+        <li><b>ksort()</a></b> - сортирует ассоциативный массив по именам элементов.
+        </li>
+        <li><b>krsort()</a></b> - работает как <b>ksort( )</b>, но в обратном порядке.
+          <h4>Пример 12</h4>
+          <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Сортировка ассоциативного массива&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $a = array("первый" =&gt; 6, "второй" =&gt; 2, "третий" =&gt; 1);
+    echo  "\$a:&lt;br&gt;"
+    asort ($a);
+    echo  "asort (\$a):&lt;br&gt;"
+    foreach ($a as $k =&gt; $t) echo " $k = $t&lt;br&gt;";
+    ksort ($a);
+    echo  "ksort (\$a):&lt;br&gt;"
+    foreach ($a as $k =&gt; $t) echo "$k = $t&lt;br&gt;";
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+        </li>
+      </ul>
+
+      <h2>Поиск элемента</h2></a>
+      <p>Для проверки наличия элемента в массиве существуют функции:
+      </p>
+      <ul>
+        <li><b>in_array()</a></b> - если элемент найден, возвращает true,
+          иначе - false.
+        </li>
+        <li><b>array_search()</a></b> - если элемент найден, возвращает его ключ,
+          иначе - false.
+        </li>
+      </ul>
+      <h4>Пример 13</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Поиск элемента в массиве&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    $a = array("первый" =&gt; 6, "второй" =&gt; 2, "третий" =&gt; 1);
+    if (in_array (2, $a)) echo "2 нашли!&lt;br&gt;";
+    echo "ключ найденного элемента - ".array_search(2, $a);
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+      <h2>Использование итератора для обхода многомерного массива</h2>
+      <h4>Пример 13</h4>
+      <pre class="code">>// Многомерный массив
+    $arr = [
+        ["sitepoint", "phpmaster"],
+        ["buildmobile", "rubysource"],
+        ["designfestival", "cloudspring"],
+        "not an array"
+    ];
+    $iter = new RecursiveArrayIterator($arr);
+    >// Цикл по объекту
+    >// Нужно создать экземпляр RecursiveIteratorIterator
+    foreach(new RecursiveIteratorIterator($iter) as $key =&gt; $value) {
+        echo $key . ": " . $value . "&lt;br&gt;";
+    }</pre>
+      <button type="button" class="button"><a class="button__link" href="php2.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="php4.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

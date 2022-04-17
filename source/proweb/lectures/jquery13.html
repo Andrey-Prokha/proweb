@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI CSS</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">jQuery UI классы оформления</h1>
+      <p>jQuery UI содержит набор предопределенных классов для создания оформления сайтов.</p>
+      <p>Используя готовые классы Вы можете сэкономить время при создании оформления веб-страниц. Использование готовых
+        классов также поможет стандартизировать оформление Вашего сайта.</p>
+      <p>С помощью <a href='http://jqueryui.com/themeroller/' target="_blank">настройщика тем</a> Вы
+        можете настроить оформление предопределенных классов на Ваш вкус.</p>
+      <h2>Виджет themeswitcher</h2>
+      <p><b>Виджет themeswitcher</b> позволяет переключатся между различными темами оформления не покидая страницы. </p>
+      <p>Это бывает особенно полезно при подборе подходящего класса оформления.</p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+    // Добавляем ссылку на плагин (данный код должен располагаться в секции body)
+    <b>&lt;script type="text/javascript"
+      src="http://jqueryui.com/themeroller/themeswitchertool/"&gt;
+    &lt;/script&gt;</b>
+    //Создаем элемент который будет превращен в виджет
+    <b>&lt;div id="switcher"&gt;&lt;/div&gt;</b>
+    /* В тэге script задаем код, который превратит элемент в виджет
+       (данный код должен располагаться в head)*/
+    <b>$("#switcher").themeswitcher();</b>
+    </pre>
+
+      <p> Пример </p>
+      <pre class="code">
+    $(document).ready(function(){
+       $("#switcher").themeswitcher({
+          initialText:"Выбрать тему",
+          buttonPreText:"Тема: "
+       });
+    });
+    </pre>
+
+      <h2>Оформление виджетов</h2>
+      <p>С помощью класса <b>.ui-widget</b> Вы можете оформить внешний вид виджетов.
+        Данный класс устанавливает одинаковый шрифт всем вложенным элементам тем самым стандартизируя вид содержимого
+        виджета.</p>
+      <p>С помощью класса <b>.ui-widget-header</b> Вы можете оформить заголовок, а с помощью <b>.ui-widget-content</b>
+        содержимое виджетов. </p>
+
+      <p> Пример </p>
+      <pre class="code">
+    &lt;div id="widget1" class="ui-widget"&gt;
+    &lt;h2 style="text-align:center" class="ui-widget-header"&gt;....
+    &lt;p style="text-align:center" class="ui-widget-content" &gt;....
+    &lt;/div&gt;
+    </pre>
+
+      <h2>Добавление сглаженных углов</h2>
+      <p>С помощью предопределенных классов jQuery UI Вы можете сделать углы элементов сглаженными.</p>
+
+      <table class="table">
+        <tr class="table__row">
+          <th>Класс</th>
+          <th>Описание</th>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-corner-all</b></td>
+          <td class="table__cell">Позволяет сделать все углы элемента сглаженными.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-corner-tr</b></td>
+          <td class="table__cell">Делает сглаженным верхний правый угол элемента.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-corner-tl</b></td>
+          <td class="table__cell">Делает сглаженным верхний левый угол элемента.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-corner-top</b></td>
+          <td class="table__cell">Делает сглаженными верхний левый и верхний правый углы элемента.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-corner-bl</b></td>
+          <td class="table__cell">Делает сглаженным нижний левый угол элемента.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-corner-br</b></td>
+          <td class="table__cell">Делает сглаженным нижний правый угол элемента.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-corner-bottom</b></td>
+          <td class="table__cell">Делает сглаженными нижний правый и нижний левый углы элемента.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-corner-left</b></td>
+          <td class="table__cell">Делает сглаженными верхний левый и нижний левый углы элемента.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-corner-right</b></td>
+          <td class="table__cell">Делает сглаженными верхний правый и нижний правый углы элемента.</td>
+        </tr>
+      </table>
+
+      <p> Пример </p>
+      <pre class="code">
+    &lt;div id="container" class="ui-widget ui-corner-all"&gt;....
+    &lt;div id="container" class="ui-widget ui-corner-top"&gt;....
+    &lt;div id="container" class="ui-widget ui-corner-tr"&gt;....
+    </pre>
+
+      <h2>jQuery UI иконки</h2>
+      <p>Иконки помогают создать интуитивно понятный пользовательский интерфейс. К примеру Вы можете добавить иконку в
+        форме
+        знака вопроса на кнопку, которая
+        вызывает окно со справочной информацией, или добавить иконку в форме конверта на кнопку отправляющую письмо по
+        электронной почте.</p>
+      <p>jQuery UI предлагает для использования более 170 "встроенных" иконок.</p>
+      <p> Для того, чтобы вставить иконку необходимо:</p>
+      <ol>
+        <li>Создать элемент, в котором будет отображена иконка;</li>
+        <li>Добавить этому элементу класс <i>ui-icon</i>;</li>
+        <li>Добавить элементу класс соответствующий желаемой иконке.</li>
+      </ol>
+      <p>Названия классов иконок в jQuery UI имеют следующий стандартный вид: <i>.ui-icon-[название]-[дополнительное
+          описание]-[направление]</i>.</p>
+      <p>К примеру, иконка жирной стрелки направленной направо, имеет следующий класс: <i>.ui-icon-arrowthick-1-e</i>
+        (arrowthick - "жирная стрелка", e = east - "восток").</p>
+
+      <p> Пример </p>
+      <pre class="code">
+    &lt;span class="ui-icon ui-icon-carat-1-n"&gt;&lt;/span&gt;
+    &lt;span class="ui-icon ui-icon-carat-1-ne"&gt;&lt;/span&gt;
+    &lt;span class="ui-icon ui-icon-carat-1-e"&gt;&lt;/span&gt;
+    &lt;span class="ui-icon ui-icon-carat-1-se"&gt;&lt;/span&gt;
+    &lt;span class="ui-icon ui-icon-carat-1-s"&gt;&lt;/span&gt;
+    &lt;span class="ui-icon ui-icon-grip-solid-horizontal"&gt;&lt;/span&gt;
+    &lt;span class="ui-icon ui-icon-gripsmall-diagonal-se"&gt;&lt;/span&gt;
+    &lt;span class="ui-icon ui-icon-grip-diagonal-se"&gt;&lt;/span&gt;
+    </pre>
+
+      <h2>Таблица предопределенных классов</h2>
+      <p>Таблица ниже содержит описание всех остальных существующих в jQuery UI предопределенных классов:</p>
+
+      <table class="table">
+        <tr class="table__row">
+          <th>Класс</th>
+          <th>Описание</th>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-helper-hidden</b></td>
+          <td class="table__cell">Применяет display:none к элементу.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-helper-reset</b></td>
+          <td class="table__cell">Сбрасывает значения таких свойства как margin, padding, text-decoration и list-style.
+          </td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-state-default</b></td>
+          <td class="table__cell">Данный класс применяется к кнопкам, на которые не был наведен курсор мыши.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-state-hover</b></td>
+          <td class="table__cell">Данный класс применяется к кнопкам, на которые был наведен курсор мыши.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-state-active</b></td>
+          <td class="table__cell">Данный класс применяется к кнопкам во время щелчка мыши.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-state-highlight</b></td>
+          <td class="table__cell">Данный класс применяется к элементам, на которые необходимо обратить внимание.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-state-error</b></td>
+          <td class="table__cell">Данный класс применяется к элементам содержащим сообщения об ошибках.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-state-disabled</b></td>
+          <td class="table__cell">Данный класс применяется к недоступным для использования элементам.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-priority-primary</b></td>
+          <td class="table__cell">С помощью данного класса Вы можете выделить кнопку из группы кнопок как наиболее
+            важную.</td>
+        </tr>
+        <tr class="table__row">
+          <td class="table__cell"><b>.ui-priority-secondary</b></td>
+          <td class="table__cell">С помощью данного класса Вы можете выделить кнопку из группы кнопок как наименее
+            важную.</td>
+        </tr>
+      </table>
+
+      <p> Пример </p>
+      <pre class="code">
+    &lt;ul class="ui-helper-reset"&gt;....
+    &lt;button id="but1" class="ui-state-default"&gt;....
+    &lt;p class="ui-state-highlight"&gt;....
+    &lt;p class="ui-state-error"&gt;....
+    &lt;button id="but2" class="ui-state-disabled"&gt;....
+    &lt;button class="ui-priority-secondary"&gt;....
+    &lt;button class="ui-priority-primary"&gt;....
+    </pre>
+      <button type="button" class="button"><a class="button__link" href="jquery12.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="cms1.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

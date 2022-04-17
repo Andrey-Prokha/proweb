@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Виджеты</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal-eye">
+    <div class="modal-eye-wrapper">
+      <div class="font-change-wrapper">
+        <h3>Размер шрифта:</h3>
+        <button type="button" class="button-change font-change-A" title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button-change font-change-AA" title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button-change font-change-AAA"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="color-change-wrapper">
+        <h3>Цвет сайта:</h3>
+        <button type="button" class="button-change color-change-white" title="Бело-черный стиль">А</button>
+        <button type="button" class="button-change color-change-black" title="Черно-белый стиль">А</button>
+        <button type="button" class="button-change color-change-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button-change color-change-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Виджеты jQuery UI </h1>
+      <p>jQuery UI предоставляет набор готовых виджетов предназначенных для создания пользовательского интерфейса
+        веб-приложений. </p>
+      <p>Поведение виджетов может настраиваться с помощью передаваемых им опций.</p>
+      <p>Внешний вид виджетов может быть настроен:
+      <p>
+      <ol>
+        <li>С помощью выбора одной из стандартных тем доступных при скачивании библиотеки;</li>
+        <li>С помощью <a href='http://jqueryui.com/themeroller/' target="_blank">themeroller'a</a>;</li>
+        <li>Вручную путем редактирования файла jquery-ui-1.8.12.custom.css.</li>
+      </ol>
+
+      <p>Общий вид создания виджетов jQuery UI выглядит примерно следующим образом: </p>
+      <ol>
+        <li>Группировка элементов на странице особым образом (<i>индивидуально для каждого виджета</i>);</li>
+        <li>Применение к сгруппированным элементам специального метода, который превращает их в виджет.</li>
+      </ol>
+
+      <h2>Виджет accordion</h2>
+      <p><b>Виджет accordion</b> представляет собой группу объединенных выпадающих меню из которых только одно может
+        быть отрыто одновременно. </p>
+      <p>Данный виджет используется для группировки информации на странице с целью экономии места. </p>
+
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+/* 1. Группируем элементы: */
+<b>&lt;div id="accordion"&gt;</b>
+// 1.1. Определяем заголовок элемента
+<b>&lt;h2&gt;&lt;a href="#head1"&gt;Заголовок 1&lt;/a&gt;&lt;/h2&gt;</b>
+/* 1.2. Определяем содержимое элемента (значение атрибута id содержимого должно
+совпадать со значением href заголовка) */
+<b>&lt;div id="head1"&gt;Содержимое 1&lt;/div&gt;
+&lt;/div&gt;</b>
+// 2. Применяем метод к сгруппированным элементам:
+<b>$("#accordion").accordion({опция1:значение1,опцияN:значениеN});</b>
+</pre>
+
+      <p><b>Обратите внимание:</b> с помощью опций, передающихся методу, Вы можете настраивать дополнительные аспекты
+        поведения виджетов.
+        Виджетам может быть передано сразу несколько опций.</p>
+
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#accordion").accordion();
+});
+</pre>
+
+      <h2>Виджет autocomplete</h2>
+      <p><b>Виджет autocomplete</b> позволяет ускорить ввод данных в поле, отображая по мере введения определенные
+        предположения. Выбрав одно из
+        предположений пользователь может автоматически завершить ввод.</p>
+      <p>Предположения выводится в случае, если данные введенные пользователем совпадают со значением одного из
+        элементов из списка данных. </p>
+      <p>Вы можете подключать к виджету как локальные (<i>т.е. определенные в скрипте на этой же странице</i>) так и
+        удаленные списки (<i>т.е. находящиеся на удаленном сервере</i>).</p>
+      <p>Локальные списки удобны для хранения небольших наборов данных (<i>например список улиц города</i>), а
+        удаленные списки подходят для хранения больших наборов данных
+        (<i>например база данных всех городов мира</i>).</p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+/* 1. Определяем элемент input, в который будет производиться ввод информации */
+<b>&lt;input id='auto' /&gt;</b>
+/* 2. Превращаем input в виджет autocomplete */
+<b>$('#auto').autocomplete({опция1:значение1,опцияN:значениеN})</b>
+</pre>
+
+      <p>Подключить к виджету список данных можно с помощью опции <b>source</b>.</p>
+      <p>С помощью опции <b>minLength</b> Вы можете указать минимальное количество символов, которое должно содержать
+        поле ввода прежде, чем поиск совпадений начнет выполнятся.</p>
+
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#auto1").autocomplete({source:["Дмитрий","Мария","Владимир","Алексей","Екатерина","Олег","Ольга"]});
+});
+</pre>
+
+      <h2>Виджет datepicker</h2>
+      <p>Виджет <b>datepicker</b> привязывает к текстовому полю интерактивный календарь, который отображается когда
+        поле становится активным.</p>
+      <p>Если пользователь щелкнет на какую-либо дату в календаре она будет автоматически введена в текстовое поле
+        как будто он ввел ее вручную.</p>
+
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+// 1. Создадим текстовое поле
+<b >&lt;input type='text' id='datepicker' /&gt;</b>
+// 2. Привяжем к нему виджет datepicker
+<b >$('#datepicker').datepicker({опция1:значение1, опцияN:значениеN});</b>
+</pre>
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#datepicker").datepicker();
+   $("#datepicker1").datepicker({
+      monthNames:["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],
+      dayNamesMin:["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],
+      firstDay:1,
+      dateFormat:"dd.mm.yy"
+   });
+});
+</pre>
+
+      <h2>Оформление кнопок</h2>
+      <p>С помощью метода <b>button</b> Вы можете стилизовать:
+      <ul>
+        <li>обычные кнопки (определяемые тэгами button и input type='button')</li>
+        <li>кнопки отправления форм </li>
+        <li>радио кнопки</li>
+        <li>флажки</li>
+        <li>ссылки</li>
+      </ul>
+
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+/* Если Вы хотите оформить только один элемент, необходимо выбрать его с помощью
+селектора и вызвать метод button: */
+<b >$("селектор").button({опция1:значение1, опцияN:значениеN});</b>
+/* Если Вы оформляете группу элементов, необходимо вначале сгруппировать элементы
+следующим образом: */
+<b >&lt;div id="groupradio"&gt;
+&lt;input type="radio" name="radio" id="value1" /&gt;
+&lt;label for="value1"&gt;Радио кнопка 1&lt;/label&gt;
+&lt;input type="radio" name="radio" id="value2" /&gt;
+&lt;label for="value2"&gt;Радио кнопка 2&lt;/label&gt;
+&lt;input type="radio" name="radio" id="value3" /&gt;
+&lt;label for="value3"&gt;Радио кнопка 3&lt;/label&gt;
+&lt;/div&gt; </b>
+// И затем вызвать метод buttonset:
+<b >$("#groupradio").buttonset({опция1:значение1, опцияN:значениеN});</b>
+</pre>
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#but1,#but2,#but3,#but4").button();
+   $("#group1,#group2").buttonset();
+});
+</pre>
+      <h2>Виджет tabs</h2>
+      <p>Виджет <b>tabs</b> как и виджет accordion используется для группировки информации на странице с целью
+        экономии места.</p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+// 1. Создаем шаблон:
+<b>&lt;div id="tabs"&gt;</b>
+// 1.1. Определяем заголовки вкладок
+<b>&lt;ul&gt;
+&lt;li&gt;&lt;a href="#tabs-1"&gt;Вкладка 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#tabs-2"&gt;Вкладка 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#tabs-3"&gt;Вкладка 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</b>
+/* 1.2. Определяем содержимое вкладок (значение атрибута href заголовков
+и значение атрибута id содержимого должно совпадать) */
+<b>&lt;div id="tabs-1"&gt;
+&lt;p&gt;Содержимое вкладки 1&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="tabs-2"&gt;
+&lt;p&gt;Содержимое вкладки 2.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="tabs-3"&gt;
+&lt;p&gt;Содержимое вкладки 3.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</b>
+// 2. Превращаем шаблон в группу вкладок:
+<b>$("#tabs").tabs({опция1:значение1, опцияN:значениеN});</b>
+</pre>
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#tabs").tabs();
+});
+</pre>
+
+      <h2>Диалоговые окна</h2>
+      <p>С помощью метода <b>dialog</b> Вы можете превратить выбранный элемент в <b>диалоговое окно</b>.</p>
+      <p>Диалоговое окно отображается поверх текста страницы и содержит заголовок и поле с содержимым.</p>
+      <p>Диалоговое окно можно перетаскивать, растягивать и закрывать с помощью иконки "х" в верхнем правом углу
+        окна.
+        Если содержимое превышает размеры диалогового окна, то полоса прокрутки будет автоматически отображена.
+      </p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+/* 1. Сгруппируем элементы: */
+<b>&lt;div id="dialog" title="Заголовок диалогового окна"&gt;
+&lt;p&gt;Содержимое окна.&lt;/p&gt;
+&lt;/div&gt;</b>
+// 2. Превратим сгруппированные элементы в диалоговое окно:
+<b>$( "#dialog" ).dialog({опция1:значение1, опцияN:значениеN});</b>
+</pre>
+
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#dialog1").dialog();
+});
+</pre>
+
+      <p>С помощью опции <b>width</b> и <b>height</b> Вы можете устанавливать высоту и ширину диалоговых окон.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#dialog1").dialog({width:400,height:300});
+});
+</pre>
+
+      <p>Опция <b>modal</b> позволяет сделать диалоговое окно модальным.</p>
+      <p>Модальные окна используются для привлечения дополнительного внимания со стороны пользователей. Пока
+        открыто модальное окно пользователь не может взаимодействовать с другими элементами страницы.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#dialog1").dialog({modal:true,height:200,width:330});
+});
+</pre>
+
+      <p>Опция <b>autoOpen</b> устанавливает должно ли окно быть открыто автоматически после создания (значение
+        true) или нет (значение false).</p>
+      <p>С помощью метода <b>open</b> Вы можете открыть, а с помощью метода <b>close</b> закрыть модальное
+        диалоговое окно. </p>
+      <p>С помощью опции <b>buttons</b> Вы можете добавлять кнопки в диалоговые окна.
+        Кнопки определяются в следующем формате: <i>{<b>Название_Кнопки</b> : function(){<b>Код который
+            выполниться после нажатия на кнопку</b>}}</i>.</p>
+      <p><b>Обратите внимание:</b> в одно диалоговое окно может быть добавлено несколько кнопок.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#dialog1").dialog({autoOpen:false,buttons:{
+      OK:function(){
+         $(this).dialog("close");
+         alert("Вы нажали ОК");}}
+   });
+   $("#dialog2").dialog({autoOpen:false,buttons:{
+      OK:function(){
+         $(this).dialog("close");
+         alert("Вы нажали ОК");},
+      Отмена:function(){
+         $(this).dialog("close");
+         alert("Вы нажали Отмена");}}
+   });
+   $("#but1").click(function(){
+      $("#dialog1").dialog("open");
+   });
+   $("#but2").click(function(){
+      $("#dialog2").dialog("open");
+   });
+});
+</pre>
+      <h2>Виджет progressbar</h2>
+      <p>С помощью <b>виджета progressbar</b> Вы можете отобразить полосу загрузки, которая будет информировать
+        пользователя о состоянии выполнения какого-либо
+        процесса.</p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+/* 1. Создадим элемент: */
+<b>&lt;div id="progressbar" &gt;&lt;/div&gt;</b>
+// 2. Превратим созданный элемент в полосу загрузки:
+<b>$("#progressbar" ).progressbar();</b>
+</pre>
+
+      <p>С помощью опции <b>value</b> Вы можете установить процент заполнения виджета progressbar.</p>
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#progressbar").progressbar({value:40});
+});
+</pre>
+
+      <h2>Виджет slider</h2>
+      <p>С помощью <b>виджета slider</b> Вы можете превратить выбранный элемент в ползунок.</p>
+      <p><b>Синтаксис:</b></p>
+
+      <pre class="code">
+// 1. Создадим элемент:
+<b>&lt;div id="slider" &gt;&lt;/div&gt;</b>
+// 2. Превратим созданный элемент в ползунок:
+<b>$("#slider").slider();</b>
+</pre>
+
+      <p> Пример </p>
+      <pre class="code">
+$(document).ready(function() {
+   $("#slider").slider();
+});
+</pre>
+      <button type="button" class="button"><a class="button__link" href="jquery10.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="jquery12.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,821 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHP Объектное программирование</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Объектное программирование</h1>
+      <h3>Объектно-ориентированное программирование (ООП) на PHP</h3>
+      <p>Объект - это набор специальных переменных - <i>свойств</i> и специальных
+        функций - <i>методов</i>.
+        То, что в процедурном программировании называлось переменной — в ООП называется свойство.
+        То, что в процедурном программировании называлось функцией — в ООП называется методом класса.
+        Созданные на основе класса объекты называются экземплярами класса или просто объекты.</p>
+      <p>Обращение из метода к свойствам только через служебное слово $this: $this-&gt;name; (обратите внимание на
+        отсутствие знака доллара перед name)
+        Обращение внутри метода к другому методу тоже через $this: $this-&gt;foo();
+        Для доступа к свойствам и методам объекта служит оператор "-&gt;":
+        <code class="code code--inline">$this-&gt;name;</code> (обратите внимание на отсутствие знака доллара перед
+        name)<br>
+        Обращение внутри метода к другому методу тоже через $this: <code
+          class="code code--inline">$this-&gt;foo();</code>.
+        Объект создается с помощью оператора <b>new</b> на основании
+        шаблона, называемого <i>классом</i>.
+        Класс определяется ключевым словом <b>class</b>.
+      </p>
+      <h4>Пример 1</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Класс со свойством и методом&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+class класс N1
+  {
+      public $имя = "Маша"; // - это свойство класса доступное снаружи класса
+      private $Private_name;     // - это свойство доступно только методам класса
+      protected $Protected_name;  // это свойство доступно методам собственного класса, а также методам наследуемых классов
+      function Привет() // - это метод класса
+      {
+          echo "&lt;H1&gt;".$this-&gt;имя."! Привет!&lt;/H1&gt;";
+      }
+      function Пока( $a )
+      {
+          $this-&gt;имя = $a;
+          echo "&lt;H1&gt;".$this-&gt;имя."! Пока!&lt;/H1&gt;";
+      }
+  }
+  $obj = new классN1();
+  $obj-&gt;Привет();
+  $obj-&gt;имя = "Миша";
+  $obj-&gt;Привет();
+  $obj-&gt;Пока("Яша");
+  $obj-&gt;Привет();
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <p><b>Модификаторы доступа в ООП</b>:</p>
+      <ul>
+        <li><b>public</b> — позволяет иметь доступ к свойствам и методам из любого места (глобальная область)</li>
+        <li><b>protected</b> — доступ к родительскому и наследуемому классу (область класса наследника)</li>
+        <li><b>private</b> — доступ только из класса, в котором объявлен сам элемент (область самого класса)</li>
+      </ul>
+      <p>Метод по умолчанию — public. У свойств значения модификатора по умолчанию нет.</p>
+
+      <h3>Константы класса в ООП</h3>
+      <pre class="code">const NAME = 2;</pre>
+      <p>Таким образом можно создавать константы и вне класса. Это именно константы класса, они не принадлежат ни одному
+        объекту, они общие на все объекты, поэтому использование внутри метода:
+      </p>
+      <pre class="code">function printname(){
+      echo self::NAME;
+  }</pre>
+      <p>self — это сам класс!</p>
+      <p>Обращение вне класса (можно вызывать из глобальной области видимости без инициализации экземпляра класса):</p>
+      <pre class="code">echo OurClass::NAME;</pre>
+
+      <h3>this и self</h3>
+      <p>Внутри класса использована специальная переменная <b>this</b>. Это указатель,
+        с помощью которого объект может ссылаться на самого себя.</p>
+      <p>Для обращения к статическим методам используется <b>self::</b></p>
+      <p>Методу Пока передан аргумент точно так же, как и обычной функции.
+        При вызове этого метода объект меняет свое свойство имя.</p>
+
+      <p>Конструктор — это метод, который автоматически вызывается при создании нового объекта:
+        <code class="code code--inline">public function __construct(){}.</code>
+        При инициализации6 объекта через служебную конструкцию new, PHP ищет <code
+          class="code code--inline">__construct</code> и если он есть, то
+        вызывается.
+      </p>
+      <p>Также можно создать метод, имя которого совпадает с именем класса, - такой метод также будет считаться
+        конструктором.
+        Конструктор может принимать аргументы, что значительно упрощает работу с классами.</p>
+
+
+      <h4>Пример 2</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Класс с конструктором&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?
+
+  class классN2
+  {
+      private $имя; // - это свойство класса НЕ доступное снаружи класса
+      function __construct( $a="Кто-то там" )
+      {
+          $this-&gt;имя = $a;
+      }
+      function Привет()
+      {
+          echo "&lt;H1&gt;".$this-&gt;имя."! Привет!&lt;/H1&gt;";
+      }
+  }
+
+  $obj0 = new классN2();
+  $obj1 = new классN2("Миша");
+  $obj2 = new классN2("Маша");
+  $obj0-&gt;Привет();
+  $obj1-&gt;Привет();
+  $obj2-&gt;Привет();
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <p>Сложив все, изложенное выше, можно создать более осмысленный класс.
+        Например, класс, который будет располагать данные в виде таблицы с
+        поименнованными столбцами.
+      </p>
+      <h4>Пример 3</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Класс Table&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+
+class Table
+  {
+      private $headers = [];
+      private $data = [];
+      function Table ( $headers )
+      {
+          $this-&gt;headers = $headers;
+      }
+      function addRow ( $row )
+      {
+          $tmp = [];
+          foreach ( $this-&gt;headers as $header )
+          {
+              if ( ! isset( $row[$header] )) $row[$header] = "";
+              $tmp[] = $row[$header];
+          }
+          array_push ( $this-&gt;data, $tmp );
+      }
+      function output ()
+      {
+          echo "&lt;PRE&gt;&lt;B&gt;";
+          foreach ( $this-&gt;headers as $header ) echo "$header  ";
+          echo "&lt;/B&gt;&lt;BR&gt;";
+          foreach ( $this-&gt;data as $y )
+          {
+              foreach ( $y as $x ) echo "$x  ";
+              echo "&lt;BR&gt;";
+          }
+          echo "&lt;/PRE&gt;";
+      }
+  }
+
+  $test = new Table (array("a","b","c"));
+  $test-&gt;addRow(array("a"=&gt;1,"b"=&gt;3,"c"=&gt;2));
+  $test-&gt;addRow(array("b"=&gt;1,"a"=&gt;3));
+  $test-&gt;addRow(array("c"=&gt;1,"b"=&gt;3,"a"=&gt;4));
+  $test-&gt;output();
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <p>Свойства класса Table - массив имен столбцов таблицы и двумерный
+        массив строк данных. Конструктор класса Table получает массив имен
+        столбцов таблицы. Метод addRow добавляет в таблицу новую строку данных.
+        Метод output выводит таблицу на экран.</p>
+
+      <h3>Скрытые свойства и методы</h3>
+      <p>Свойства и методы класса могут быть как открытыми (public), так и скрытыми (private).
+        Скрытые свойства и методы недоступны извне класса, т.е. из сценария, в котором используется данный класс, или из
+        другого класса.</p>
+
+      <h2>Наследование</h2>
+      <p>На основе существующих классов можно создавать новые, используя <i>механизм
+          наследования</i>. Механизм наследования - это использование определенного ранее
+        класса в качестве родительского. При этом набор свойств и методов родительского
+        класса можно расширять. Имейте в виду, что производный класс имеет только
+        одного родителя.
+
+      </p>
+      <p>Чтобы создать новый класс, наследующий поведение существующего класса,
+        надо использовать ключевое слово extends в его объявлении.
+        Например:
+      </p>
+      <pre class="code">class классN2 extends классN1
+     {
+     .......
+      }
+  </pre>
+      <p>Здесь классN1 - родительский класс, классN2 - производный.
+      </p>
+      <p>Если производный класс не содержит собственного конструктора, то при создании
+        его объекта используется конструктор родительского класса. Если в производном
+        класса существует собственный конструктор, то конструктор родительского класса
+        не вызывается. При необходимости вызвать конструктор родительского класса это
+        надо сделать явно. Например:
+      </p>
+      <pre class="code">классN1::классN1();
+  </pre>
+      <p>Производный класс будет иметь все свойства и методы родительского класса.
+        Но их можно и переопределить в производном классе.
+      </p>
+      <h4>Пример 4</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Переопределение метода родительского класса&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+  class классN3
+  {
+      public $имя = "Маша";
+      function Привет()
+      {
+          echo "&lt;H1&gt;".$this-&gt;имя."! Привет!&lt;/H1&gt;";
+      }
+  }
+  class классN4 extends классN3
+  {
+      function Привет()
+      {
+          echo "&lt;H1&gt;".$this-&gt;имя."! Какая встреча!&lt;/H1&gt;";
+      }
+  }
+  $obj = new классN4();
+  $obj-&gt;Привет();
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <p>Метод Привет переопределен для производного класса.
+        Свойство имя наследуется от родительского.</p>
+
+      <p>Начиная с 4-й версии PHP, в объекте производного класса можно вызвать метод
+        родительского класса, который был переопределен.
+      </p>
+      <h4>Пример 5</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Вызов метода родительского класса&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+class классN5
+  {
+      public $имя = "Маша";
+      function Привет()
+      {
+          echo "&lt;H1&gt;".$this-&gt;имя."! Привет!&lt;/H1&gt;";
+      }
+      function Пока()
+      {
+          echo "&lt;H1&gt;".$this-&gt;имя.", пока!&lt;/H1&gt;";
+      }
+
+  }
+
+  /**
+   * Class классN6
+   */
+class классN6 extends классN5
+  {
+      /**
+       *
+       */
+      function Привет()
+      {
+          echo "&lt;H1&gt;".$this-&gt;имя."! Какая встреча!&lt;/H1&gt;";
+          классN5::Привет();
+      }
+  }
+  $obj = new классN6();
+  $obj-&gt;Привет();
+  $obj-&gt;Пока();
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <p>Итак, производный класс может наследовать, переопределять и дополнять
+        свойства и методы другого класса.
+      </p>
+      <p>В следующем примере создан класс HTMLTable, основанный на классе
+        Table из примера 3. Новый класс формирует данные, сохраненные
+        методом addRow родительского класса, и выводит их в HTML-таблицу.
+        Свойства $cellpadding и $bgcolor дают возможность
+        изменять соответствующие аргументы, при этом переменной $cellpadding
+        присваивается значение по умолчанию, равное 2.
+      </p>
+      <h4>Пример 6</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Классы Table и HTMLTable&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+
+class Tables
+  {
+      public $headers = [];
+      public $data = [];
+      function Tables( $headers )
+      {
+          $this-&gt;headers = $headers;
+      }
+      function addRow ( $row )
+      {
+          $tmp = [];
+          foreach ( $this-&gt;headers as $header )
+          {
+              if ( ! isset( $row[$header] )) $row[$header] = "";
+              $tmp[] = $row[$header];
+          }
+          array_push ( $this-&gt;data, $tmp );
+      }
+      function output ()
+      {
+          echo "&lt;PRE&gt;&lt;B&gt;";
+          foreach ( $this-&gt;headers as $header ) echo "$header  ";
+          echo "&lt;/B&gt;&lt;BR&gt;";
+          foreach ( $this-&gt;data as $y )
+          {
+              foreach ( $y as $x ) echo "$x  ";
+              echo "&lt;BR&gt;";
+          }
+          echo "&lt;/PRE&gt;";
+      }
+  }
+
+class HTMLTable extends Tables
+  {
+      public $cellpadding = "2";
+      public $bgcolor;
+      function HTMLTable ( $headers, $bg="FFFFFF" )
+      {
+          Tables::Tables( $headers );
+          $this-&gt;bgcolor = $bg;
+      }
+      function setCellpadding ( $padding )
+      {
+          $this-&gt;cellpadding = $padding;
+      }
+      function output ()
+      {
+          echo "&lt;table cellpadding='".$this-&gt;cellpadding."'&gt;&lt;tr&gt;";
+          foreach ( $this-&gt;headers as $header )
+              echo "&lt;th bgcolor='".$this-&gt;bgcolor."'&gt;".$header;
+          foreach ( $this-&gt;data as $y )
+          {
+              echo "&lt;tr&gt;";
+              foreach ( $y as $x )
+                  echo "&lt;td bgcolor='".$this-&gt;bgcolor."'&gt;$x";
+          }
+          echo "&lt;/table&gt;";
+      }
+  }
+
+  $test = new HTMLTable ( array("a","b","c"), "#00FFFF" );
+  $test-&gt;setCellpadding ( 7 );
+  $test-&gt;addRow(array("a"=&gt;1,"b"=&gt;3,"c"=&gt;2));
+  $test-&gt;addRow(array("b"=&gt;1,"a"=&gt;3));
+  $test-&gt;addRow(array("c"=&gt;1,"b"=&gt;3,"a"=&gt;4));
+  $test-&gt;output();
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <p>Обратите внимание на то, что значение свойства сellpadding
+        меняется с помощью отдельного метода setCellpadding. Конечно,
+        значения свойств можно менять непосредственно, вне объекта:
+      </p>
+      <pre class="code">$test-&gt;сellpadding = 7 ;</pre>
+      <p>Но это считается дурным тоном, т.к. в сложных объектах при изменении
+        одного из свойств могут изменяться и другие свойства.
+      </p>
+
+      <p>Использовать или нет технику объектного программирования?
+        С одной стороны, проект, интенсивно использующий объектную технику, может
+        занимать слишком много ресурсов во время выполнения. С другой стороны,
+        правильно организованный объектный подход значительно сократит время
+        разработки и сделает программу более гибкой.</p>
+
+      <h3>Удаление объектов</h3>
+      <p>Удалить ранее созданный объект можно следующим образом:</p>
+      <pre class="code">unset($objName);</pre>
+      <p>Ниже приведен пример, в котором объект класса Саг создается, а затем удаляется.</p>
+      <pre class="code">$myCar = new Car;
+  unset($myCar);</pre>
+      <p>После вызова функции unset() объект больше не существует.
+        В РНР имеется специальный метод __destruct(), который автоматически вызывается
+        при удалении объекта. Ниже приведен класс, содержащий этот метод.</p>
+      <pre class="code">class Bridge
+  {
+      function __destruct()
+      {
+          echo "Мост разрушен";
+      }
+  }
+  $bigBridge = new Bridge;
+  unset($bigBridge);</pre>
+      <p>При создании объекта класса Bridge, а затем его удалении отобразится следующее сообщение:</p>
+      <pre class="code">Мост разрушен</pre>
+      <p>Оно отображается вследствие вызова метода __destruct() при вызове функции unset().
+        При удалении объекта может потребоваться акрыть некоторые файлы или записать информацию в базу данных.</p>
+
+      <h3>Копирование (клонирование) объекта</h3>
+
+      <p>Клонирование объекта:</p>
+      <pre class="code">$a = clone $b;</pre>
+      <p>Конструктор не вызывается при клонировании, вызывается магический метод <code
+          class="code code--inline"><b>__clone()</b>{}</code>.
+        Он НЕ принимает аргументов и к нему нельзя обратиться как к методу.</p>
+
+
+      <h3>Преобразование объекта в строку</h3>
+      <p>Для конвертации объекта в строку, и обратно, используются следующие функции:<br>
+        <b>serialize()</b> - принимает объект и возвращает строковое представление его класса и свойств;<br>
+        <b>unserialize()</b> - принимает строку, созданную при помощи serialize(), и возвращает объект.<br>
+      </p>
+      <p>serialize() и unserialize() работают со всеми типами данных, но они не работают с ресурсами.</p>
+      <p>Специальные методы для обслуживания функций serialize() и unserialize():<br>
+        <b>__sleep()</b> - вызывается строго перед тем, как объект сериализуется с помощью функции serialize().
+        Функция __sleep() должна будет вернуть список полей класса, которые функция serialize() включит в возвращаемую
+        строку.
+        Вы можете использовать это для того, чтобы исключить ненужные поля из строкового представления объекта.
+        Например:
+      </p>
+      <pre class="code">public function __sleep() {   // почистить
+      return array_keys( get_object_vars( $this ) );
+  }</pre>
+      <p><b>__wakeup()</b> - вызывается сразу после того, как объект десериализуется с помощью unserialize().</p>
+
+      <h3>Абстрактный класс</h3>
+      <p><b>Абстрактный класс</b> - это класс, который не может быть реализован, то есть, вы не сможете создать объект
+        класса, если он абстрактный.
+        Вместо этого вы создаете дочерние классы от него и спокойно создаете объекты от этих дочерних классов.
+        Абстрактные классы представляют собой шаблоны для создания классов.</p>
+      <pre class="code">abstract class Person {
+
+      private $firstName = "";
+      private $lastName = "";
+
+      public function setName( $firstName, $lastName ) {
+      $this-&gt;firstName = $firstName;
+      $this-&gt;lastName = $lastName;
+      }
+
+      public function getName() {
+      return "$this-&gt;firstName $this-&gt;lastName";
+      }
+
+      abstract public function showWelcomeMessage();
+      /*  абстрактный метод showWelcomeMessage().
+      Так как он абстрактный, в нем нет ни строчки кода, это просто его объявление.
+      Любой дочерний класс обязан добавить и описать метод showWelcomeMessage() */
+  }</pre>
+
+      <h3>Интерфейс</h3>
+      <p><b>Интерфейс</b> - это шаблон, который задает поведение одного или более классов.
+        Вот основные отличия между интерфейсами и абстрактными классами:</p>
+      <ul>
+        <li>Ни один метод не может быть описан в интерфейсе. Они все абстрактны. В абстрактном классе могут быть и не
+          абстрактные методы.</li>
+        <li>Интерфейс не может содержать полей - только методы.</li>
+        <li>Класс имплементирует интерфейс, и класс наследует или расширяет другой класс.</li>
+        <li>Класс может имплементировать несколько интерфейсов одновременно. Этот же класс может наследовать другой
+          класс. Но у дочернего класса может быть только один супер-класс (абстрактный или нет).</li>
+      </ul>
+      <pre class="code">interface MyInterface {
+      public function aMethod();
+      public function anotherMethod();
+  }
+
+  class MyClass implements MyInterface {
+
+      public function aMethod() {
+          // (имплементация метода)
+      }
+
+      public function anotherMethod() {
+          // (имплементация метода)
+      }
+  }</pre>
+
+      <h3>Методы-перехватчики (магические методы)</h3>
+
+      <ul>
+        <li><b>__get</b>($property) - вызывается при обращении к неопределенному свойству</li>
+        <li><b>__set</b>($property,$value) - вызывается, когда неопределенному свойству присваивается значение</li>
+        <li><b>__unset</b>($property) - вызывается, когда функция unset() вызывается для неопределенного свойства</li>
+        <li><b>__isset</b>($property) - вызывается, когда функция isset() вызывается для неопределенного свойства</li>
+        <li><b>__call</b>($method,$arg array) - вызывается при обращении к неопределенному методу</li>
+        <li><b>__callStatic</b>($method,$arg array) - вызывается при обращении к неопределенному статическому методу
+        </li>
+        <li><b>__toString</b>() - Вызывается, если есть попытка вывести объект, как строку.</li>
+        <li><b>__debugInfo</b>() - В PHP 5.6 был добавлен новый магический метод, который позволяет менять свойства и
+          значения объекта, когда он печатается с помощью функции var_dump(класс).</li>
+        <li><b>__invoke</b>() - для вызова объекта как функции. Пример</li>
+      </ul>
+
+      <h4>Пример использования необъявленных свойств класса</h4>
+      <h5>Где и зачем могут быть использованны методы-перехватчики?</h5>
+      <p>Например есть у вас таблица в базе данных, называется user
+        и есть в ней некие поля, например id, name, email, phone, password, avatar
+        И Вы создали класс на для работы с юзерами, так его и назвали - User</p>
+      <p>Какие свойства будут у данного класса? Если вы сделаете такие же как в БД - id, name, email и так далее,
+        то получается что при каждом изменении базы данных - вам нужно менять код в классе User, как то не очень удобно.
+        Добавили вы например поле site - значит нужно его добавлять и в класс User, ну и так далее.<br>
+        Используя же методы __get() и __set() Вы можете это всё автоматизировать.
+        У вас в классе User вообще не будет ни одного свойства из БД, у нас есть допустим только одно $data - мы туда
+        взяли, да и загрузили всё что есть в базе данных на данного пользователя.
+        А потом, когда программист что то запрашивает, например $user-&gt;email мы просто в __get() методе можете
+        посмотреть - если мы такую информацию загрузили из БД, и она лежит в $data['email'] - то вот мы её вам и
+        возвращаем.
+        А в __set() наоборот. Есть такое поле в БД? Значит присвоим ему новое значение.</p>
+      <pre class="code">/**
+   * Class User
+   * @property-read integer id текущего пользователя
+   * @property-write String site возвращает ссылку на сайт пользователя
+   */
+class User
+  {
+      private $data;
+      private $f_write=false;
+      public function __set($name, $value) {
+          $this-&gt;data[$name] = $value;
+          $this-&gt;f_write=true; // признак, что нужно сохранить данные
+      }
+
+      public function __get($name) {
+          if(empty($data)){
+              // читаем запись из БД в data
+          }
+          return $this-&gt;data[$name];
+      }
+      function __destruct()
+      {
+          if(!empty($data)&amp;&amp;$this-&gt;f_write){
+              // сохраняем изменения в БД
+          }
+      }
+  }
+
+  $user=new User();
+  $user-&gt;site='http://kdg.htmlweb.ru/';        //присваеваем переменной
+  echo $user-&gt;site;        //выводим значение переменной
+  // записываем в БД. Можно это явно не делать, т.к. при окончании работы скрипта это поизойдет автоматически
+  unset($user);</pre>
+
+      <h4>Пример использование необъявленного свойства класса как элемент массива</h4>
+      <p>Обратите внимание на то, что из __get возвращается ссылка:</p>
+      <pre class="code">class Foo {
+      private $data = [];
+      public function __set($name, $value) {
+          $this-&gt;data[$name] = $value;
+      }
+
+      public function &amp; __get($name) {
+          return $this-&gt;data[$name];
+      }
+  }
+
+  $foo = new Foo();
+  $foo-&gt;bar[2] = 'lol';
+  var_dump($foo-&gt;bar);</pre>
+
+      <h4>Использоватние перехватчиков обращения к необъявленным методам класса</h4>
+      <pre class="code">class OurClass
+  {
+      public function __call($name,array $params)
+      {
+          echo 'Вы хотели вызвать $Object-&gt;'.$name.', но его не существует,
+                  и сейчас выполняется '.__METHOD__.'()';
+          return;
+      }
+
+      public static function __callStatic($name,array $params)
+      {
+          echo 'Вы хотели вызвать '.__CLASS__.'::'.$name.', но его не существует,
+                  и сейчас выполняется '.__METHOD__.'()';
+          return;
+      }
+  }
+
+  $Object=new OurClass;
+  $Object-&gt;DynamicMethod();
+  OurClass::StaticMethod();</pre>
+
+      <p>Пример обхода закрытых метов класса:</p>
+      <pre class="code">class _byCallStatic{
+    // Пример обхода "закрытых" методов класса,
+    // при использовании метода "__callStatic()" для вызова статического метода.
+    public static function __callStatic($_name, $_param) {
+      return call_user_func_array('static::'. $_name, $_param);
+    }
+    private static function _newCall(){ echo 'Method: '. __METHOD__; }
+  }
+  echo _byCallStatic::_newCall(114, 'Integer', 157); # Результат: Method: _byCallStatic::_newCall</pre>
+
+      <p>Как вызвать через статический метод любой динамический:</p>
+      <pre class="code">/**
+   * Class o
+   * @method static void __f(int $a1 = 1)
+   */
+class o
+  {
+      public static function __callStatic($method, $args)
+      {
+          $class = get_called_class();
+          $obj = new $class($args[0]);
+          $method = substr($method, 2);
+          $pass = array_slice($args,1);
+          $reflection = new ReflectionMethod($obj, $method);
+          return $reflection-&gt;invokeArgs($obj, $pass);
+      }
+
+      public function f($a1 = 1) {
+          var_dump('oo', func_get_args());
+      }
+  }
+class a extends o
+  {
+      public function f($a1 = 1, $a2 = 2) { var_dump('aa', $a1 ); }
+  }
+class b extends o
+  {
+      public function f($b1 = 1) { var_dump('bb', $b1); }
+  }
+  a::__f(1,2,3);
+  b::__f(4,5,6);</pre>
+
+      <h3>Как использовать объект как функцию?</h3>
+      <pre class="code">class Dog
+  {
+      private $name;
+      public function __construct($dogName = 'Тузик') {
+          $this-&gt;name = $dogName;
+      }
+      public static function __invoke() {
+          $args = func_get_args();
+          echo 'Собака получила: ' . implode(' и ', $args);
+      }
+  }
+
+  $dog = new Dog('Мухтар');
+  $dog('кость', 'поводок');</pre>
+
+      <h3>Как обращаться к объекту как к массиву?</h3>
+      <p>Для этого необходимо создать такой объект который реализует интерфейс ArrayAccess из SPL.
+        Следующий пример реализует объект доступ к данным которого можно получать как в стиле обращения к массиву, так и
+        через получение свойств:</p>
+      <pre class="code">class MyArray implements ArrayAccess
+  {
+      protected $arr = array();
+      public function offsetSet($key, $value) {
+          $this-&gt;arr[$key] = $value;
+      }
+      public function offsetUnset($key) {
+          unset($this-&gt;arr[$key]);
+      }
+      public function offsetGet($key) {
+          return $this-&gt;arr[$key];
+      }
+      public function offsetExists($key) {
+          return isset($this-&gt;arr[$key]);
+      }
+      public function __get($key)
+      {
+          return $this-&gt;offsetGet($key);
+      }
+      public function __set($key, $val)
+      {
+          $this-&gt;offsetSet($key, $val);
+      }
+  }
+  $a = new MyArray();
+  $a['whoam'] = 'Я значение массива, или объекта? &lt;br/ &gt;';
+  echo $a['whoam'];
+  echo $a-&gt;whoam;</pre>
+
+      <h3>Автозагрузка классов</h3>
+      <p>Файлы автозагружаемых классов обычно располагаются в общем месте, например в /include/class/. Имя файла
+        формируется в формате ИМЯ_КЛАССА.php.
+        Данный код необходимо подключить во все PHP-скрипты:</p>
+      <pre class="code">spl_autoload_register(function ($class_name) {
+      //echo "Autoload ".$class_name;
+      $file = $_SERVER['DOCUMENT_ROOT'] . "/include/class/" . strtolower($class_name) . '.php';
+      if (file_exists($file) == false) {
+          if($GLOBALS['DEBUG']) echo "Нет файла ".$file;
+          return false;
+      }
+      include_once($file);
+      return true;
+  });</pre>
+
+      <p>Для автоподгрузки классов можно также использовать определение функции __autoload();</p>
+
+      <h3>Обработка исключений в ООП</h3>
+      <p>Для обработки некритических ошибок используются исключения(Exception).</p>
+      <pre class="code">try {
+      $a = 1;
+      $b = 0;
+      if($b == 0)
+          throw new Exception ("деление на ноль!");
+      $c = $a/$b;
+  } catch (Exception $e) {
+      echo $e-&gt;getMessage();
+      echo $e-&gt;getLine();
+  }</pre>
+      <p>Exception — встроенный класс. Если попали в throw, то код ниже не выполняется и осуществляется переход к блоку
+        catch.</p>
+      <p>Блок try-catch используется как в процедурном, так и в ООП программировании. Он используется для отлова ошибок
+        —
+        большой блок try с множеством throw и все отлавливаются в одном месте — блоке catch.</p>
+      <p>Exception можно наследовать, желательно при этом перезагрузить конструктор:</p>
+      <pre class="code">class MyException extends Exception {
+      function __construct($msg){
+          parent::__construct($msg);
+      }
+  }</pre>
+      <p>Блоков catch может быть несколько — для каждого класса наследника Exception.</p>
+
+      <button type="button" class="button"><a class="button__link" href="php5.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="php7.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

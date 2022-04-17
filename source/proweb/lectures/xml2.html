@@ -1,0 +1,928 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Язык преобразований XSLT</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Язык преобразований XSLT</h1>
+      <h2>Что такое XSLT?</h2>
+      <p><strong>XSLT</strong> (eXtensible Stylesheet Language Transformations) -
+        расширяемый язык преобразования листов стилей.
+      </p>
+      <p>Язык XSLT служит транслятором, с помощью которого можно свободно модифицировать
+        исходный текст. XLST играет решающую роль в утверждении XML в качестве
+        универсального языка хранения и передачи данных. Область применения XSLT широка -
+        от электронной коммерции до беспроводного Web.
+      </p>
+      <p>Фактическая сборка результирующего документа происходит, когда исходный документ
+        и лист стилей XSLT передаются в синтаксический анализатор XSLT (XSLT-процессор).
+      </p>
+      <p>При использовании XSLT в среде Web синтаксический анализ может происходить либо
+        на стороне пользователя (т.е. в пользовательском браузере), либо на стороне сервера.
+      </p>
+      <p>Анализ XSLT на стороне клиента похож на процедуру применения каскадных листов
+        стилей. В исходный документ нужно добавить тег
+      </p>
+      <pre class="code">&lt;?xml-stylesheet type="text/xsl" href="transform.xsl" ?&gt;
+ </pre>
+      <p>Здесь transform.xsl - имя файла листа стилей XSLT.
+      </p>
+      <h2>Шаблоны</h2>
+      <p>Каждый элемент XSLT начинается префиксом xsl:.
+        Элемент xsl:stylesheet служит контейнером для листа стилей XSLT.
+        Атрибут version="1.0" этого элемента определяет версию спецификации XSL.
+      </p>
+      <p>Преобразования XSLT основаны на шаблонах. Шаблон определяется
+        инструкцией xsl:template.
+      </p>
+      <p>XSLT-процессор анализируют исходный документ и пытается найти подходящий XSL-шаблон.
+        Если такой шаблон найден, то выполняются инструкции внутри него.
+      </p>
+      <p>Обработка всегда начинается с шаблона, где match="/".
+        Это значение пути адресации соответствует корневому узлу (в примере 1 это книга).
+      </p>
+      <h4>Пример 1</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t01.xsl" ?&gt;
+ &lt;книга&gt;
+      &lt;название&gt;Мастер и Маргарита&lt;/название&gt;
+      &lt;автор&gt;Михаил Булгаков&lt;/автор&gt;
+ &lt;/книга&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t01.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;h1 align="center"&gt;
+           &lt;xsl:value-of select="//название"/&gt;
+      &lt;/h1&gt;
+      &lt;h2 align="right"&gt;
+           &lt;xsl:value-of select="//автор"/&gt;
+      &lt;/h2&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>Содержание элементов может быть извлечено из исходного документа двумя основными
+        способами:
+      </p>
+      <ol>
+        <li>инструкцией xsl:value-of. В этом случае содержание элемента
+          используется без какой-либо дальнейшей обработки (см. пример 2);
+        </li>
+        <li>инструкцией xsl:apply-templates. В этом случае XSLT-процессор продолжает
+          обрабатывать выбранные элементы, для которых определен шаблон (см. пример 3).
+        </li>
+      </ol>
+      <h4>Пример 2</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t02.xsl" ?&gt;
+ &lt;книга&gt;
+      &lt;название&gt;Мастер и Маргарита.&lt;/название&gt;
+      &lt;автор&gt;Михаил Булгаков&lt;/автор&gt;
+ &lt;/книга&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t02.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;h2&gt;
+           &lt;xsl:value-of select="."/&gt;
+      &lt;/h2&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="автор"&gt;
+      &lt;i&gt;
+           &lt;xsl:value-of select="."/&gt;
+      &lt;/i&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <h4>Пример 3</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t03.xsl" ?&gt;
+ &lt;книга&gt;
+      &lt;название&gt;Мастер и Маргарита.&lt;/название&gt;
+      &lt;автор&gt;Михаил Булгаков&lt;/автор&gt;
+ &lt;/книга&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t03.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;h2&gt;
+           &lt;xsl:apply-templates/&gt;
+      &lt;/h2&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="автор"&gt;
+      &lt;i&gt;
+           &amp;#160;&lt;xsl:value-of select="."/&gt;
+      &lt;/i&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>В качестве значений атрибутов match и select используются
+        выражения, синтаксис которых похож на маршрут файловой системы:
+      </p>
+      <p>
+      </p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">Выражение</td>
+            <td class="table__cell">Описание
+            </td>
+          </tr>
+        </tbody>
+        <colgroup>
+          <col>
+        </colgroup>
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">/</td>
+            <td class="table__cell">Корневой узел
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">.</td>
+            <td class="table__cell">Текущий узел
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">..</td>
+            <td class="table__cell">Родительский узел текущего узла
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fruit</td>
+            <td class="table__cell">Узел fruit
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fruit/lime</td>
+            <td class="table__cell">Подузел lime узла fruit
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fruit/*</td>
+            <td class="table__cell">Все потомки узла fruit
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">/fruit</td>
+            <td class="table__cell">Узел fruit, являющийся прямым потомком корневого узла
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">@taste</td>
+            <td class="table__cell">Атрибут taste текущего узла
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">@*</td>
+            <td class="table__cell">Все атрибуты текущего узла
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fruit@taste</td>
+            <td class="table__cell">Атрибут taste узла fruit
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fruit/lime@taste</td>
+            <td class="table__cell">Атрибут taste узла lime, являющегося подузлом узла fruit
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">..@taste</td>
+            <td class="table__cell">Атрибут taste родительского узла
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">//</td>
+            <td class="table__cell">Любое количество промежуточных узлов
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fruit//lime</td>
+            <td class="table__cell">Все узлы lime, имеющие предка fruit
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">|</td>
+            <td class="table__cell">Знак разделения конкретных узлов
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">lime|grape</td>
+            <td class="table__cell">Узел lime и узел grape
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">[]</td>
+            <td class="table__cell">Предикатное выражение
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fruit[lime]</td>
+            <td class="table__cell">Узел fruit, имеющий потомка lime
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fruit[lime="fine"]</td>
+            <td class="table__cell">Узел fruit, имеющий потомка lime, значение которого равно fine
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fruit[@taste]</td>
+            <td class="table__cell">Узел fruit, имеющий атрибут taste
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">fruit[@taste="5"]</td>
+            <td class="table__cell">Узел fruit, имеющий атрибут taste, значение которого равно 5
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">count(fruit/*)</td>
+            <td class="table__cell">Количество потомков узла fruit
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">name()</td>
+            <td class="table__cell">Имя текущего узла
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Сравните результаты примера 4 (перечисление узлов) и примера 5 (все узлы).
+      </p>
+      <h4>Пример 4</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t04.xsl" ?&gt;
+ &lt;книга&gt;
+      &lt;название&gt;Мастер и Маргарита&lt;/название&gt;
+      &lt;автор&gt;Михаил Булгаков&lt;/автор&gt;
+ &lt;/книга&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t04.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="название|автор"&gt;
+      &lt;div&gt;
+           [шаблон
+           "&lt;xsl:value-of select="name()"/&gt;"
+           содержит
+           "&lt;xsl:apply-templates/&gt;"
+           ]
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <h4>Пример 5</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t05.xsl" ?&gt;
+ &lt;книга&gt;
+      &lt;название&gt;Мастер и Маргарита&lt;/название&gt;
+      &lt;автор&gt;Михаил Булгаков&lt;/автор&gt;
+ &lt;/книга&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t05.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="*"&gt;
+      &lt;div&gt;
+           [шаблон
+           "&lt;xsl:value-of select="name()"/&gt;"
+           содержит
+           "&lt;xsl:apply-templates/&gt;"
+           ]
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>В путях адресации очень часто встречается "//".
+        В начале пути адресации он обозначает: выбрать все узлы определенного типа в
+        документе (пример 6). Внутри пути адресации он обозначает: выбрать все узлы,
+        являющиеся потомками узла, указанного в первой части пути адресации (пример 7).
+      </p>
+      <h4>Пример 6</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t06.xsl" ?&gt;
+ &lt;source&gt;
+ &lt;AAA id="a1"&gt;
+      &lt;BBB id="b1"/&gt;
+      &lt;BBB id="b2"/&gt;
+ &lt;/AAA&gt;
+ &lt;AAA id="a2"&gt;
+      &lt;BBB id="b3"/&gt;
+      &lt;BBB id="b4"/&gt;
+      &lt;CCC id="c1"&gt;
+           &lt;DDD id="d1"/&gt;
+      &lt;/CCC&gt;
+      &lt;BBB id="b5"&gt;
+           &lt;CCC id="c2"/&gt;
+      &lt;/BBB&gt;
+ &lt;/AAA&gt;
+ &lt;/source&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t06.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;xsl:apply-templates select="//BBB"/&gt;
+      &lt;xsl:apply-templates select="//CCC"/&gt;
+      &lt;xsl:apply-templates select="//DDD"/&gt;
+      &lt;xsl:apply-templates select="//AAA"/&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="AAA"&gt;
+      &lt;div style="color:navy"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="BBB"&gt;
+      &lt;div style="color:purple"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC"&gt;
+      &lt;div style="color:red"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="DDD"&gt;
+      &lt;div style="color:blue"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <h4>Пример 7</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t07.xsl" ?&gt;
+ &lt;source&gt;
+ &lt;AAA id="a1"&gt;
+      &lt;BBB id="b1"/&gt;
+      &lt;BBB id="b2"/&gt;
+ &lt;/AAA&gt;
+ &lt;AAA id="a2"&gt;
+      &lt;BBB id="b3"/&gt;
+      &lt;BBB id="b4"/&gt;
+      &lt;CCC id="c1"&gt;
+           &lt;DDD id="d1"/&gt;
+      &lt;/CCC&gt;
+      &lt;BBB id="b5"&gt;
+           &lt;CCC id="c2"/&gt;
+      &lt;/BBB&gt;
+ &lt;/AAA&gt;
+ &lt;/source&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t07.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;xsl:apply-templates select="/source/AAA//CCC"/&gt;
+      &lt;xsl:apply-templates select="/source//AAA/BBB//*"/&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="AAA"&gt;
+      &lt;div style="color:navy"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="BBB"&gt;
+      &lt;div style="color:purple"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC"&gt;
+      &lt;div style="color:red"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="DDD"&gt;
+      &lt;div style="color:blue"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>С помощью режимов mode элемент может быть обработан многократно, причем
+        каждый раз с различным результатом.
+      </p>
+      <h4>Пример 8</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t08.xsl" ?&gt;
+ &lt;source&gt;
+ &lt;AAA id="a1"&gt;
+      &lt;BBB id="b1"/&gt;
+      &lt;BBB id="b2"/&gt;
+ &lt;/AAA&gt;
+ &lt;AAA id="a2"&gt;
+      &lt;BBB id="b3"/&gt;
+      &lt;BBB id="b4"/&gt;
+      &lt;CCC id="c1"&gt;
+           &lt;CCC id="c2"/&gt;
+      &lt;/CCC&gt;
+      &lt;BBB id="b5"&gt;
+           &lt;CCC id="c3"/&gt;
+      &lt;/BBB&gt;
+ &lt;/AAA&gt;
+ &lt;/source&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t08.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;xsl:apply-templates select="//CCC" mode="red"/&gt;
+      &lt;xsl:apply-templates select="//CCC" mode="blue"/&gt;
+      &lt;xsl:apply-templates select="//CCC"/&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC" mode="red"&gt;
+      &lt;div style="color:red"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC" mode="blue"&gt;
+      &lt;div style="color:blue"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC"&gt;
+      &lt;div style="color:purple"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>Достаточно часто несколько шаблонов соответствует одному и тому же элементу в
+        исходном XML. Поэтому надо решить, какой из них следует использовать. Для этого
+        можно определить приоритеты с помощью атрибута priority.
+        Если этот атрибут не
+        определен, его приоритет вычисляется в соответствии с несколькими правилами.
+        Вычисленные приоритеты располагаются в диапозоне от -0.5 до 0.5. Более подробная
+        информация содержится в Спецификации XSLT.
+      </p>
+      <p>Для примеров 9-14 исходным является XML из примера 8.
+      </p>
+      <p>Пример 9 и пример 10 различаются приоритетами их шаблонов.
+      </p>
+      <h4>Пример 9</h4>
+      <h3><i>Преобразование XSLT</i></h3>
+      <pre class="code">&lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;xsl:apply-templates select="//CCC"/&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC" priority="3"&gt;
+      &lt;h3 style="color:blue"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h3&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC/CCC" priority="4"&gt;
+      &lt;h2 style="color:red"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h2&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <h4>Пример 10</h4>
+      <h3><i>Преобразование XSLT</i></h3>
+      <pre class="code">&lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;xsl:apply-templates select="//CCC"/&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC" priority="4"&gt;
+      &lt;h3 style="color:blue"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h3&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC/CCC" priority="3"&gt;
+      &lt;h2 style="color:red"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h2&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>Пример 11 показывает действие по умолчанию в отсутствие атрибутов
+        priority. Шаблон CCC имеет меньший приоритет по сравнению с
+        CCC/CCC, поскольку он менее специфичный.
+      </p>
+      <h4>Пример 11</h4>
+      <h3><i>Преобразование XSLT</i></h3>
+      <pre class="code">&lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;xsl:apply-templates select="//CCC"/&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC"&gt;
+      &lt;h3 style="color:blue"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h3&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC/CCC"&gt;
+      &lt;h2 style="color:red"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h2&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>Сравните пример 12 и пример 13. Шаблоны CCC/CCC и AAA/CCC/CCC
+        имеют одинаковый приоритет, и он выше, чем приоритет CCC.
+        XSLT-процессор выбирает среди шаблонов с равным приоритетом тот, который
+        будет последним в преобразовании, или сообщает об ошибке.
+      </p>
+      <h4>Пример 12</h4>
+      <h3><i>Преобразование XSLT</i></h3>
+      <pre class="code">&lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;xsl:apply-templates select="//CCC"/&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC"&gt;
+      &lt;h3 style="color:blue"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h3&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC/CCC"&gt;
+      &lt;h2 style="color:red"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h2&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="AAA/CCC/CCC"&gt;
+      &lt;h2 style="color:green"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h2&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <h4>Пример 13</h4>
+      <h3><i>Преобразование XSLT</i></h3>
+      <pre class="code">&lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;xsl:apply-templates select="//CCC"/&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC"&gt;
+      &lt;h3 style="color:blue"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h3&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="AAA/CCC/CCC"&gt;
+      &lt;h2 style="color:green"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h2&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC/CCC"&gt;
+      &lt;h2 style="color:red"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h2&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>В примере 14 менее специфичный "*" имеет меньший приоритет по сравнению с
+        CCC.
+      </p>
+      <h4>Пример 14</h4>
+      <h3><i>Преобразование XSLT</i></h3>
+      <pre class="code">&lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+      &lt;xsl:apply-templates select="//CCC"/&gt;
+      &lt;xsl:apply-templates select="//AAA"/&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="CCC"&gt;
+      &lt;h3 style="color:blue"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h3&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="*"&gt;
+      &lt;h3 style="color:green"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/h3&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <h2>Атрибуты</h2>
+      <p>К атрибутам можно обращаться также, как и к элементам. Надо только поставить
+        "@" перед именем атрибута.
+      </p>
+      <h4>Пример 15</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t15.xsl" ?&gt;
+ &lt;полка1&gt;
+ &lt;книга isbn="5-7890-0248X"&gt;
+      &lt;данные название="Web-технологии"
+      автор="Колесников Д.Г."/&gt;
+ &lt;/книга&gt;
+ &lt;/полка1&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t15.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="книга"&gt;
+    &lt;p&gt;
+      &lt;b&gt;
+           &lt;xsl:text&gt;ISBN: &lt;/xsl:text&gt;
+      &lt;/b&gt;
+           &lt;xsl:value-of select="@isbn"/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;b&gt;
+           &lt;xsl:text&gt;Автор: &lt;/xsl:text&gt;
+      &lt;/b&gt;
+           &lt;xsl:value-of select="данные/@автор"/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;b&gt;
+           &lt;xsl:text&gt;Название: &lt;/xsl:text&gt;
+      &lt;/b&gt;
+           &lt;xsl:value-of select="данные/@название"/&gt;
+    &lt;/p&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>Атрибуты можно обрабатывать аналогично элементам.
+      </p>
+      <h4>Пример 16</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t16.xsl" ?&gt;
+ &lt;полка1&gt;
+ &lt;книга isbn="5-7890-0248X"&gt;"Web-технологии"
+ &lt;/книга&gt;
+ &lt;/полка1&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t16.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="книга"&gt;
+      &lt;xsl:value-of select="."/&gt;
+      &lt;xsl:text&gt; [&lt;/xsl:text&gt;
+      &lt;xsl:apply-templates select="@isbn"/&gt;
+      &lt;xsl:text&gt;]&lt;/xsl:text&gt;
+ &lt;/xsl:template&gt;
+ &lt;xsl:template match="@isbn"&gt;
+      &lt;b&gt;
+          &lt;xsl:value-of select="."/&gt;
+      &lt;/b&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>Также можно выбирать элементы, которые содержат или не содержат данный атрибут.
+        Преобразование XSLT из примера 17 включает элементы, если определенный атрибут
+        присутствует.
+      </p>
+      <h4>Пример 17</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t17.xsl" ?&gt;
+ &lt;source&gt;
+      &lt;BBB id="b1" checked="yes"/&gt;
+      &lt;BBB id="b2" checked="yes"/&gt;
+      &lt;BBB id="b3"/&gt;
+ &lt;/source&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t17.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="BBB[@checked]"&gt;
+      &lt;p&gt;
+           &lt;xsl:text&gt;BBB: &lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/p&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <p>Преобразование из примера 18 исключает элементы, содержащие указанный атрибут.
+      </p>
+      <h4>Пример 18</h4>
+      <h3><i>Преобразование XSLT</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="BBB[not(@checked)]"&gt;
+      &lt;p&gt;
+           &lt;xsl:text&gt;BBB: &lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/p&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+
+      <h2>Повторение и сортировка</h2>
+      <p>Инструкция xsl:for-each определяет шаблон, который применяется для
+        каждого узла, выбранного с помощью атрибута select. Таким образом,
+        инструкцию xsl:for-each можно использовать для организации простых циклов.
+      </p>
+      <h4>Пример 19</h4>
+      <h3><i>Исходный XML</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;?xml-stylesheet type="text/xsl" href="t19.xsl" ?&gt;
+ &lt;source&gt;
+ &lt;AAA id="a1"&gt;
+      &lt;BBB id="b1"/&gt;
+      &lt;BBB id="b2"/&gt;
+ &lt;/AAA&gt;
+ &lt;AAA id="a2"&gt;
+      &lt;BBB id="b3"/&gt;
+      &lt;BBB id="b4"/&gt;
+      &lt;CCC id="c1"&gt;
+           &lt;DDD id="d1"/&gt;
+      &lt;/CCC&gt;
+      &lt;BBB id="b5"&gt;
+           &lt;CCC id="c2"/&gt;
+      &lt;/BBB&gt;
+ &lt;/AAA&gt;
+ &lt;/source&gt;
+ </pre>
+      <h3><i>Преобразование XSLT ( файл t19.xsl )</i></h3>
+      <pre class="code">&lt;?xml version="1.0" encoding="WINDOWS-1251" ?&gt;
+ &lt;xsl:stylesheet version = "1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+ &lt;xsl:template match="/"&gt;
+    &lt;xsl:for-each select="//BBB"&gt;
+      &lt;div style="color:purple"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+    &lt;/xsl:for-each&gt;
+    &lt;xsl:for-each select="/AAA/CCC"&gt;
+      &lt;div style="color:navy"&gt;
+           &lt;xsl:value-of select="name()"/&gt;
+           &lt;xsl:text&gt; id=&lt;/xsl:text&gt;
+           &lt;xsl:value-of select="@id"/&gt;
+      &lt;/div&gt;
+    &lt;/xsl:for-each&gt;
+ &lt;/xsl:template&gt;
+ &lt;/xsl:stylesheet&gt;
+ </pre>
+      <button type="button" class="button"><a class="button__link" href="xml1.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="xml3.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

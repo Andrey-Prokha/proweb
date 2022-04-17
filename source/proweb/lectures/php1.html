@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Введение в PHP</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Введение в PHP</h1>
+      <h2>Что такое PHP?</h2>
+      <p>PHP - язык создания сценариев, который давно перерос свое название.
+        Дело в том, что PHP - это аббревиатура от слов Personal Home Page.
+        Первая версия PHP была создана Расмусом Лердорфом в 1994 г. и представляла
+        собой набор инструментов для отслеживания посетителей Web-страницы.
+        Со временем PHP из набора инструментов превратился в полноценный язык
+        программирования, а его название было изменено как рекурсивное образование
+        PHP HyperText Preprocessor (препроцессор гипертекста PHP).
+      </p>
+      <p>PHP - это серверный язык создания сценариев. Конструкции PHP, вставленные в
+        HTML-текст, выполняются сервером при каждом посещении страницы. Результат их
+        обработки вместе с обычным HTML-текстом передается браузеру.
+      </p>
+      <p>В настоящее время основной версией PHP является седьмая.
+      </p>
+      <p>Существуют два основных конкурента PHP: Active Server Pages (ASP)
+        компании Microsoft и ColdFusion компании Allaire.
+        По сравнению с ними PHP обладает рядом преимуществ, в числе которых:
+      </p>
+      <ul>
+        <li><b>Высокая производительность.</b> PHP-программы работают быстрее, чем ASP.
+        </li>
+        <li><b>Функциональность.</b> Разработку PHP-программы можно отделить от
+          собственно разработки Web-страницы, что упростит жизнь и программисту, и
+          дизайнеру.
+        </li>
+        <li><b>Цена.</b> PHP абсолютно бесплатен.
+        </li>
+        <li><b>Простота в использовании.</b> Имеющие опыт программирования на
+          распространенных языках найдут синтаксис PHP хорошо знакомым.
+        </li>
+        <li><b>Переносимость.</b> Один и тот же PHP-код можно использовать как в
+          среде NT, так и на платформах UNIX.
+        </li>
+      </ul>
+      <h2>Общие правила построения PHP-программы</h2>
+      <p>PHP-программы состоят из простого текста, поэтому набирать их можно в любом
+        текстовом редакторе. Популярные HTML-редакторы имеют встроенную поддержку для
+        редактирования PHP-программ.
+      </p>
+      <p>Расширение файлов PHP-программ по умолчанию в PHP4 - <b>.php</b>.
+        На основании этого расширения сервер распознает файл как PHP-программу и
+        запускает интерпретатор.
+      </p>
+      <p>PHP-программа должна быть отделена от обычного HTML-текста. Существует
+        четыре стиля обрамления PHP-кода:
+      </p>
+      <p>
+      </p>
+      <table class="table">
+        <tbody>
+          <tr class="table__row">
+            <td class="table__cell">Стиль</td>
+            <td class="table__cell">Открывающий тег</td>
+            <td class="table__cell">Закрывающий тег
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">Сокращенный</td>
+            <td class="table__cell">&lt;?</td>
+            <td class="table__cell">?&gt;
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">XML (стандартный)</td>
+            <td class="table__cell">&lt;?php</td>
+            <td class="table__cell">?&gt;
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">ASP</td>
+            <td class="table__cell">&lt;%</td>
+            <td class="table__cell">%&gt;
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">SCRIPT (программный)</td>
+            <td class="table__cell">&lt;SCRIPT LANGUAGE="php"&gt;</td>
+            <td class="table__cell">&lt;/SCRIPT&gt;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Из перечисленных тегов только стандартные и программные работают в любой
+        конфигурации PHP.
+      </p>
+      <p>Так выглядит простейший смешанный документ, состоящий из HTML-текста и PHP-кода:
+      </p>
+      <h4>Пример 1</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+     &lt;title&gt;Документ, состоящий из HTML-текста и PHP-кода&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+    echo "А вот и PHP!&lt;br&gt;";
+    ?&gt;
+    Всё очень просто!
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+      <p>Здесь содержится один PHP-оператор <b>echo</b>. Этот оператор передает
+        строку-аргумент "А вот и PHP!&lt;br&gt;" в HTML-страницу, которую генерирует
+        сервер. При этом тег &lt;br&gt; сделает свое дело, т.е. осуществит
+        переход на новую строку.
+
+      <p>Для разделения операторов (по аналогии с Си) используется точка с запятой.
+      </p>
+      <p>Комментарии в PHP-программе могут быть трех стилей:
+      </p>
+      <pre class="code">/* Многострочный комментарий
+    в стиле классического Си */
+    // Однострочный комментарий в стиле С++
+    #  Однострочный комментарий в стиле Perl
+    </pre>
+      <p>В одном документе можно чередовать HTML-текст и блоки PHP-операторов сколько
+        угодно раз. При этом все переменные, функции и классы, определенные в первом
+        блоке, будут доступны и в последующих блоках.
+      </p>
+      <p>В примере 1 заменим вызов функции echo на вызов встроенной функции
+        <b>phpinfo( )</b>, которая выдаст список параметров PHP-среды.
+      </p>
+      <h4>Пример 2</h4>
+      <pre class="code">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Информационная страница PHP&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+       phpinfo();
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+      <p>Выданная справка содержит большое количество разнообразной информации о
+        среде PHP (обратите внимание на бегунок справа). Функция phpinfo()
+        бывает весьма полезна при диагностировании поведения создаваемых PHP-программ.</p>
+      <button type="button" class="button button--disabled" disabled><a class="button__link">Предыдущая
+          лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="php2.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

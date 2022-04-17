@@ -1,0 +1,868 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHP Файлы</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg></button>
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Работа с файлами</h1>
+      <p>Работа с файлами - важный инструмент PHP.
+
+      </p>
+      <h2>Включение внешних файлов</h2>
+      <p>В каждый PHP-документ можно включить файл с помощью инструкции
+        <b>include()</a></b>. Её аргумент: путь к файлу. Этой инструкцией удобно
+        пользоваться при наличии одинаковых кусков кода во многих PHP-программах.
+        Содержимое включаемого файла обрабатывается как простой HTML-текст.
+        Для того, чтобы содержимое этого файла обрабатывалось как PHP-программа, нужно
+        обрамлять его открывающим и закрывающим тегами PHP.
+      </p>
+      <h4>Пример 1</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Использование include()&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+  include("top.php");
+  echo "&lt;H2&gt;...Основная часть...&lt;/H2&gt;";
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <p>Включаемый файл top.php с PHP-программой:
+      </p>
+      <pre class="code">echo "&amp;lt;H1 align=center&amp;gt;...Общее приветствие...&amp;lt;/H1&amp;gt;"</pre>
+
+      <p>В данном случае результат будет тем же, если включаемый файл top.php
+        содержит только строку HTML-текста:
+      </p>
+      <pre class="code">&lt;H1 align=center&gt;...Общее приветствие...&lt;/H1&gt;</pre>
+      <p>Включаемые файлы могут возвращать значения подобно функциям. Использование
+        оператора return прерывает выполнение этого файла так же, как и
+        функции.
+
+      </p>
+      <h4>Пример 2</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Использование инструкции include(), возвращающей значение&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+ &lt;?php
+  $res = include("top.php");
+  echo "&lt;H2&gt;Включаемый файл вернул $res&lt;/H2&gt;";
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+      <p>Включаемый файл top.php с PHP-программой:
+      </p>
+      <pre class="code">&lt;?php
+$a = 7 * 8;
+  return $a;
+  ?&gt;</pre>
+
+      <p>Инструкцию <b>include()</b> можно использовать внутри цикла.
+        В цикле <b>include()</b> выполняется при каждой итерации. Это можно
+        использовать для включения нескольких файлов. Например:
+      </p>
+      <pre class="code">for ($i=1; $i&lt;=5; $i++)
+    include("incfile{$i}.htm");</pre>
+      <p>Определение имени включаемого файла и его загрузка производятся повторно при
+        каждом вызове <nobr><b>include()</b></nobr>. Это означает, что если содержание
+        включаемого файла с момента предыдущего вызова изменилось, то загрузится новое
+        содержание.
+      </p>
+      <p>Оператор <b>include()</b> также можно включать в тело условного оператора.
+      </p>
+      <p>Несмотря на сходство по внешнему виду с функцией, <b>include()</b>
+        функцией не является, а представляет собой специальную конструкцию языка.
+      </p>
+      <p>Для указания что файл нужно подключать только один раз используется оператор include_once()</p>
+
+      <h2>Анализ файлов</h2>
+      <p>PHP содержит множество функций, дающих информацию о файлах.
+        Наиболее употребимыми являются:
+      </p>
+      <ul>
+        <li><b>file_exists()</a></b> - определяет существование файла. Например:
+          <pre class="code">if ( !file_exists( "aaa.php" ) )
+    echo "Внимание! Файл aaa.php не найден!";
+  </pre>
+        </li>
+        <li><b>is_file()</a></b> - определяет, является ли исследуемый объект файлом.
+          Например:
+          <pre class="code">if ( is_file( "bbb.txt" ) )
+    echo "Можете не сомневаться, bbb.txt - это файл";
+  </pre>
+        </li>
+        <li><b>is_dir()</a></b> - определяет, является ли исследуемый объект каталогом.
+          Например:
+          <pre class="code">if ( is_dir( "/tmp" ) )
+    echo "Действительно, /tmp - это каталог";
+  </pre>
+        </li>
+        <li><b>is_readable()</a></b> - определяет, доступен ли файл для чтения.
+          Например:
+          <pre class="code">if ( is_readable( "db.dbf" ) )
+    echo "db.dbf можно читать";
+  </pre>
+        </li>
+        <li><b>is_writable()</a></b> - определяет, доступен ли файл для записи.
+          Например:
+          <pre class="code">if ( is_writable( "db.dbf" ) )
+    echo "В db.dbf писать можно";</pre>
+        </li>
+        <li><b>filesize()</a></b> - определяет размер файла в байтах.
+        </li>
+        <li><b>filemtime()</a></b> - определяет дату и время последнего изменения файла.
+        </li>
+        <li><b>fileatime()</a></b> - определяет дату и время последнего обращения к файлу.
+        </li>
+      </ul>
+      <p>Время возвращается в формате Unix, т.е. представляет собой количество секунд,
+        прошедших после 1 января 1970 г. В примере 2 это число преобразуется в понятный
+        для человека формат с помощью функции <b>date( )</b>.
+      </p>
+      <h4>Пример 3</h4>
+      <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Информация о файле&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+$file = "top.php";
+  infoFile ( $file );
+  function infoFile ( $f )
+  {
+      if ( !file_exists( $f ) )
+      {
+          echo "$f не найден!";
+          return;
+      }
+      echo "$f - ".( is_file( $f ) ? "" : "не " )."файл&lt;br&gt;";
+      echo "$f - ".( is_dir( $f ) ? "" : "не " )."каталог&lt;br&gt;";
+      echo "$f ".( is_readable( $f ) ? "" : "не " )."доступен для чтения&lt;br&gt;";
+      echo "$f ".( is_writable( $f ) ? "" : "не " )."доступен для записи&lt;br&gt;";
+      echo "размер $f в байтах - ".( filesize( $f ) )."&lt;br&gt;";
+      echo "последнее изменение $f - ".( date( "d M Y H:i", filemtime( $f ) ) )."&lt;br&gt;";
+      echo "последнее обращение к $f - ".( date( "d M Y H:i", fileatime( $f ) ) )."&lt;br&gt;";
+  }
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+      <p>Внимание! С удаленными файлами эти функции не работают. Их можно применять
+        только к локальной файловой системе.
+      </p>
+      <h2>Управление файлами</h2>
+      <p>PHP содержит множество функций управления файлами.
+        Наиболее употребимыми являются:
+      </p>
+      <ul>
+        <li><b>touch()</a></b> - создает пустой файл с заданным именем. Если такой
+          файл уже существует, то функция изменит дату модификации. Например:
+          <pre class="code">touch( "ex1.txt" );
+  </pre>
+
+        </li>
+        <li><b>copy()</a></b> - копирует файл.
+          Для копирования файлов в php применяется функция copy ($source, $result). Ей нужно передать лишь два
+          параметра
+          - источник $source и имя файла-копии - $result. Стоит отметить, что следует указывать полные адреса к
+          файлам.
+          Пример применения функции copy:<br><br>
+          <pre class="code">&lt;?php
+  if (copy('Z:/home/site/www/file.txt', 'Z:/home/site/www/file2.txt'))
+      { echo "Копирование успешно выполнено"; }
+  else
+      { echo "Ошибка при копировании"; }
+  ?&gt;</pre>
+        </li>
+        <li><b>unlink()</a></b> - удаляет заданный файл. Например:
+          <pre class="code">&lt;?php
+  if (unlink('filename.txt'))
+      { echo "Файл удален"; }
+  else
+      { echo "Ошибка при удалении файла"; }
+  ?&gt;</pre>
+
+        </li>
+        <li><b>fopen( )</b></a> - открывает локальный или удаленный файл и возвращает
+          указатель на него. Указатель используется во всех операциях с содержимым файла.
+          Аргументы: имя файла и режим открытия.
+          <p></p>
+          <table class="table">
+            <colgroup>
+              <col>
+              <col>
+            </colgroup>
+            <tbody>
+              <tr class="table__row">
+                <td class="table__cell">r</td>
+                <td class="table__cell">чтение. Указатель файла устанавливается на его начало
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">r+</td>
+                <td class="table__cell">чтение и запись. Указатель файла устанавливается на его начало
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">w</td>
+                <td class="table__cell">запись. Указатель файла устанавливается на его начало.
+                  Все старое содержимое файла теряется. Если файл с указанным именем не
+                  существует, функция пытается его создать
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">w+</td>
+                <td class="table__cell">чтение и запись. Указатель файла устанавливается на его начало.
+                  Все старое содержимое файла теряется. Если файл с указанным именем не
+                  существует, функция пытается его создать
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">a</td>
+                <td class="table__cell">запись. Указатель файла устанавливается на его конец.
+                  Если файл с указанным именем не существует, функция пытается его создать
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">a+</td>
+                <td class="table__cell">чтение и запись. Указатель файла устанавливается на его конец.
+                  Если файл с указанным именем не существует, функция пытается его создать
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Например:
+          </p>
+          <pre class="code-wrapper">$fp = fopen( "http://www.php.net/", "r" ); // для чтения
+$fp = fopen( "ex1.txt", "w" );             // для записи
+$fp = fopen( "ex2.txt", "a" );             // для добавления в конец</pre>
+          <p>Если открыть файл не удалось, то можно прервать выполнение программы. Например:
+          </p>
+          <pre class="code">$fp = fopen( "ex1.txt", "w" ) or die ( "Не удалось открыть файл" );
+  </pre>
+        </li>
+        <li><b>fclose()</a></b> - закрывает файл. Аргумент: указатель файла,
+          полученный ранее от функции fopen(). Например:
+          <pre class="code">fclose( $fp );
+  </pre>
+        </li>
+        <li><b>feof()</a></b> - проверка конца файла. Аргумент: указатель файла.
+        </li>
+        <li><b>fgetc()</a></b> - чтение очередного символа из файла. Аргумент:
+          указатель файла.
+        </li>
+        <li><b>fgets()</a></b> - чтение очередной строки файла. Аргументы: указатель файла
+          и длина считываемой строки. Операция прекращается либо после считывания
+          указанного количества символов, либо после обнаружения конца строки или файла.<br>
+
+          <h4>Пример 4</h4>
+          <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Чтение строк из файла&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+ &lt;?php
+  $fp = fopen( "ex1.txt", "r" ) or die ( "Не удалось открыть файл" );
+  while ( ! feof ( $fp ) )
+      echo ( fgets( $fp, 1024 ) )."&lt;br&gt;";
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+        </li>
+        <li><b>fread()</a></b> - общая функция чтения из файла. Аргументы: указатель файла
+          и количество считываемых символов.
+        </li>
+        <li><b>fseek()</a></b> - отступ от начала файла. Аргументы: указатель файла
+          и смещение.<br>
+
+          <h4>Пример 5</h4>
+          <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Вывод на экран второй половины файла&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+ &lt;?php
+  $f = "ex1.txt";
+  $fp = fopen( $f, "r" ) or die ( "Не удалось открыть $f" );
+  $fsize = filesize( $f );
+  $half = (int)( $fsize / 2 );
+  fseek ( $fp, $half );
+  echo ( fread( $fp, ($fsize - $half) ) );
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+        </li>
+        <li><b>fputs()</a></b> - запись строки в файл. Аргументы: указатель файла
+          и строка.
+        </li>
+        <li><b>fwrite()</a></b> - полный аналог функции <b>fputs( )</b>.
+          <br>
+          <h4>Пример 6</h4>
+          <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Запись и добавление в файл&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+ &lt;?php
+  $fp = fopen( "ex2.txt", "w" ) or die ( "Не удалось открыть файл" );
+  fputs( $fp, "Запись в файл\n" );
+  fclose( $fp );
+  $fp = fopen( "ex2.txt", "a" ) or die ( "Не удалось открыть файл" );
+  fputs( $fp, "Добавление в конец файла" );
+  fclose( $fp );
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+        </li>
+        <li><b>flock()</a></b> - блокирует файл, т.е. не позволяет другим пользователям
+          читать этот файл или писать в него, пока тот, кто наложил блокировку не
+          закончит работу с данным файлом.
+          Аргументы: указатель файла и номер режима блокировки.
+          <p></p>
+          <table class="table">
+            <colgroup>
+              <col>
+              <col>
+            </colgroup>
+            <tbody>
+              <tr class="table__row">
+                <td class="table__cell">1</td>
+                <td class="table__cell">Можно читать, нельзя писать
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">2</td>
+                <td class="table__cell">Нельзя ни читать, ни писать
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">3</td>
+                <td class="table__cell">Снятие блокировки
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Пример 7</h4>
+          <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Блокировка файла&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+ &lt;?php
+  $fp = fopen( "ex1.txt", "a" ) or die ( "Не удалось открыть файл" );
+  flock( $fp, 2 ); // Полная блокировка
+  // Запись в файл
+  flock( $fp, 3 ); // Снятие блокировки
+  fclose( $fp );
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+          <p>Блокировка с помощью <b>flock()</b> не является абсолютной. С ней
+            будут считаться только те программы, которые тоже используют эту функцию.
+          </p>
+        </li>
+      </ul>
+
+      <p>В PHP версии 4.3.0 появились новые удобные функции работы с файлами:</p>
+      <ul>
+        <li><b>file_get_contents()</a></b> - прочитать весь файл или URL</li>
+        <li><b>file_put_contents()</a></b> - записать файл</li>
+      </ul>
+
+      <h2>Работа с каталогами</h2>
+      <p>В PHP есть несколько функций для работы с каталогами:
+      </p>
+      <ul>
+        <li><b>mkdir()</a></b> - создание каталога. Аргументы: путевое имя каталога и
+          режим доступа. Режим доступа - восьмеричное число из трех цифр с ведущим нулем.
+          Первая цифра - право доступа для владельца, вторая - для группы, третья -
+          для всех остальных. В системе Windows режим доступа игнорируется.
+          В системе UNIX определены следующие права доступа:
+          <p></p>
+          <table class="table">
+            <colgroup>
+              <col>
+              <col>
+            </colgroup>
+            <tbody>
+              <tr class="table__row">
+                <td class="table__cell">0</td>
+                <td class="table__cell">Нет доступа
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">1</td>
+                <td class="table__cell">Доступ для запуска
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">2</td>
+                <td class="table__cell">Доступ для записи
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">3</td>
+                <td class="table__cell">Доступ для записи и запуска
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">4</td>
+                <td class="table__cell">Доступ для чтения
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">5</td>
+                <td class="table__cell">Доступ для чтения и запуска
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">6</td>
+                <td class="table__cell">Доступ для чтения и записи
+                </td>
+              </tr>
+              <tr class="table__row">
+                <td class="table__cell">7</td>
+                <td class="table__cell">Полный доступ
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Например, право полного доступа для владельца, чтения и запуска для группы и
+            запуска для всех остальных:
+          </p>
+          <pre class="code">mkdir( "testdir", 0751 );
+  </pre>
+        </li>
+        <li><b>rmdir()</a></b> - удаление каталога. Аргумент: путевое имя каталога.
+          Удалить можно лишь пустой каталог при наличии права на это. При успешном
+          выполнении функция возвращает true.
+        </li>
+        <li><b>opendir()</a></b> - открытие каталога. Аргумент: путевое имя каталога.
+          В случае возникновения ошибки функция возвращает false.
+          Ошибка при открытии может быть вызвана тем, что каталог не существует или
+          программа не имеет права его читать.
+        </li>
+        <li><b>readdir()</a></b> - чтение каталога. Аргумент: путевое имя каталога.
+          Возвращает строку, содержащую имя найденного файла или подкаталога.
+          По достижении конца каталога функция возвращает false.
+          <h4>Пример 8</h4>
+          <pre class="code">&lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Чтение каталога&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+ &lt;?php
+  $d = "testdir";
+  $dh = opendir( $d ) or die ( "Не удалось открыть каталог $d" );
+  while ( $f = readdir( $dh ) )
+      echo "$f&lt;br&gt;";
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+          <p>Проверочное выражение цикла сработает не так, как хотелось бы, если в
+            каталоге есть файл с именем "0". В таком случае имя "0" будет преобразовано в 0,
+            что вызовет завершение цикла. Избежать подобного можно, если принять
+            дополнительные меры безопасности, изменив проверочное выражение:
+          </p>
+          <pre class="code">gettype( $f = readdir( $dh ) ) != "boolean"
+  </pre>
+
+          <p>
+            Помимо использования функция fgetc() fgets() fgetss(), Вы можете использовать<br>
+            $file = file($filename). Она читает $filename в массив($file).<br>
+            <br>
+            Пример:<br>
+          </p>
+          <pre class="code">$file=file($filename);
+  for ($i=0; $i&lt;=count($file); $i++) {
+      echo $file[$i], "&lt;br /&gt;";
+  }
+  </pre>
+        </li>
+      </ul>
+
+      <h2>Передача файла с сервера. Скачать файл. DownLoad.</h2>
+      <p>
+        Ручной Download, или как скриптом открыть пользователю окошко сохранения файла.
+        Чтобы в браузере открылся диалог "Сохранить файл" с названием файла file.dat, скрипт должен послать такие
+        заголовки:<br>
+      </p>
+      <pre class="code">header("Content-Disposition: attachment; filename=file.dat");
+  header("Content-Type: application/x-force-download; name=\"file.dat\"");
+  </pre>
+
+      <p>Готовый пример отправки файла с диска:
+      </p>
+      <pre class="code">&lt;?php
+$filename = "DownloadedFile.mp3";   // имя файл предложенное для сохранения в окне браузера
+$myFile = $_SERVER['DOCUMENT_ROOT']."/my/file.mp3"; // файл на серевере
+
+$mm_type="application/octet-stream";
+
+  header("Cache-Control: public, must-revalidate"); // кешировать
+  header("Pragma: hack");
+  header("Content-Type: " . $mm_type);
+  header("Content-Length: " .(string)(filesize($myFile)) );
+  header('Content-Disposition: attachment; filename="'.$filename.'"');
+  header("Content-Transfer-Encoding: binary");
+
+  readfile($myFile); // прочитать файл и отправить в поток
+  ?&gt;</pre>
+      <p>Не мешало бы также ссылаться на скрипт как http://.../download.php?file.dat, иначе браузеры, основанные на
+        Mozilla,
+        могут попытаться записать файл как file.dat.php. или указать атрибут download:</p>
+      <pre class="code">&lt;a href="имя.php" download="file.dat"&gt;Скачать&lt;/a&gt;</pre>
+      <p><em>Примечание:</em> Не используйте заголовок header("Cache-Control: no-cache") в таких скриптах,
+        большинство версий Internet Explorer не смогут скачать файл.</p>
+
+      <p>Следующий пример скрипта демонстрирует <b>как организовать поддержку докачки</b>:</p>
+      <p>Предполагается, что $cd - путь к файлу, $fn - имя файла</p>
+      <pre class="code">&lt;?php
+$filename = $cd."/".$fn;
+  if (!file_exists($filename))
+  {
+      header ("HTTP/1.0 404 Not Found");
+      exit;
+  }
+$fsize = filesize($filename);
+$ftime = date("D, d M Y H:i:s T", filemtime($filename));
+$fd = @fopen($filename, "rb");
+  if (!$fd){
+      header ("HTTP/1.0 403 Forbidden");
+      exit;
+  }
+  // Если запрашивающий агент поддерживает докачку
+  if ($HTTP_SERVER_VARS["HTTP_RANGE"]) {
+    $range = $HTTP_SERVER_VARS["HTTP_RANGE"];
+    $range = str_replace("bytes=", "", $range);
+    $range = str_replace("-", "", $range);
+      if ($range) {fseek($fd, $range);}
+  }
+$content = fread($fd, filesize($filename));
+  fclose($fd);
+  if ($range) {
+      header("HTTP/1.1 206 Partial Content");
+  }
+  else {
+      header("HTTP/1.1 200 OK");
+  }
+  header("Content-Disposition: attachment; filename=$fn");
+  header("Last-Modified: $ftime");
+  header("Accept-Ranges: bytes");
+  header("Content-Length: ".($fsize-$range));
+  header("Content-Range: bytes $range-".($fsize -1)."/".$fsize);
+  header("Content-type: application/octet-stream");
+  print $content;
+  exit;
+  ?&gt;</pre>
+
+      <h2>Функции для работы с каталогами</h2>
+      <ul>
+        <li><b>chdir()</a> - Сменить каталог</b></li>
+        boolean chdir (string str)<br>
+        <p>Изменяет текущий каталог PHP на указанный в качестве параметра str. Возвращает TRUE в случае успешного
+          завершения, FALSE в случае возникновения ошибки
+
+        </p>
+        <li><b>chroot()</a> - Сменить корневой каталог</b></li>
+        boolean chroot (string str)
+        <p>Изменяет корневой каталог текущего процесса на переданный в качестве параметра str. Возвращает TRUE в случае
+          успешного завершения, FALSE в случае возникновения ошибки..
+        </p>
+        <p>Замечание: Для Windows-платформ эта функция не реализована.
+
+        </p>
+        <li><b>closedir()</a> - Освободить дескриптор каталога</b></li>
+        void closedir (resourse catalog)
+        <p>Закрывает поток, связанный с каталогом и переданный в качестве параметра catalog. Перед использованием данной
+          функции, поток должен быть открыт с помощью функции opendir().
+
+        </p>
+        <h4>dir - Класс directory</h4>
+        <pre class="code">class dir
+  {
+  dir (string str)
+  string path
+  resource handle
+  string read (void)
+  void rewind (void)
+  void close (void)
+  }</pre>
+        <p>Псевдо-объектно-ориентированный механизм для чтения каталога, переданного в параметре каталог.
+          С момента открытия каталога становятся доступными два свойства класса.
+          Свойство "handle" может быть использовано с другими функциями для работы с каталогами, например,
+          с функциями readdir(), rewinddir()
+          и closedir(). Свойство "path" содержит путь к открытому каталогу.
+          Доступны три метода: read, rewind and close.
+        </p>
+        <p>Пожалуйста, обратите внимание на способ, которым осуществляется проверка значения,
+          возвращаемого методами класса dir() в примере, приведенном ниже.
+          В этом примере проводится проверка значения на идентичность (выражения идентичны, когда они равны
+          и являются одного типа - за более подробной информацией обратитесь к главе Операторы сравнения) значению
+          FALSE,
+          поскольку в ином случае, любой элемент каталога, чье имя может быть выражено как FALSE, остановит цикл.
+        </p>
+        <p>Пример кода:
+        </p>
+        <pre class="code">&lt;?php
+  $d = dir("/etc");
+  echo "Дескриптор: ".$d-&gt;handle."&lt;br&gt;\n";
+  echo "Путь: ".$d-&gt;path."&lt;br&gt;\n";
+  while (false !== ($entry = $d-&gt;read())) {
+      echo $entry."&lt;br&gt;\n";
+  }
+  $d-&gt;close();
+  ?&gt;</pre>
+        <p>Замечание: Порядок, в котором метод "read" возвращает элементы каталога, зависит от операционной системы.
+        </p>
+        <p>Замечание: Также, PHP автоматически определяет внутренний класс Directory, что означает,
+          что вы не сможете определять собственные классы с таким же именем.</p>
+
+        <br>
+        <li><b>getcwd()</a> - Получить имя текущего рабочего каталога</b></li>
+        string getcwd (void)
+        <p>Возвращает имя текущего рабочего каталога.</p>
+
+        <br>
+        <li><b>opendir()</a> - Открыть каталог</b></li>
+        resourse opendir (string path)
+        <p>Возвращает дескриптор каталога для последующего использования с функциями closedir(), readdir() и
+          rewinddir().
+        </p>
+        <p>Если путь не существует или каталог, расположенный по указанному пути,
+          не может быть открыт вследствие правовых ограничений или ошибок файловой системы,
+          функция opendir() возвращает значение FALSE и генерирует сообщение PHP об ошибке уровня E_WARNING.
+          Вы можете запретить вывод сообщения об ошибке, предварив имя функции opendir() символом '@'.
+        </p>
+        <p>Пример кода
+        </p>
+        <pre class="code">&lt;?php
+  $dir = "/tmp/";
+  // Открыть заведомо существующий каталог
+  // и начать считывать его содержимое
+  if (is_dir($dir))
+  {
+    if ($dh = opendir($dir))
+    {
+      while (($file = readdir($dh)) !== false)
+      {
+       print "Файл: $file : тип: " . filetype($dir . $file) . "\n";
+      }
+      closedir($dh);
+    }
+  }
+  ?&gt;
+  </pre>
+        <p>Начиная с версии PHP 4.3.0, параметр путь может также являться любым URL'ом, обращение к которому приводит к
+          получению списка его файлов и каталогов.
+          Однако, данный способ работает только при использовании url-упаковщика file://. В версии PHP 5.0.0 была
+          добавлена поддержка url-упаковщика ftp://.</p>
+
+        <li><b>readdir</a> - Получить элемент каталога по его дескриптору</b></li>
+        string readdir (resource catalog)
+        <p>Возвращает имя следующего по порядку элемента каталога. Имена элементов возвращаются в порядке, зависящем от
+          файловой системы.
+
+        </p>
+        <p>Обратите внимание на способ проверки значения, возвращаемого функцией readdir() в приведенном ниже примере.
+          В этом примере осуществляется проверка значения на идентичность (выражения идентичны,
+          когда они равны и являются значениями одного типа - за более подробной информацией обратитесь к главе
+          Операторы сравнения) значению FALSE,
+          поскольку в ином случае, любой элемент каталога, чье имя может быть выражено как FALSE, остановит цикл
+          (например, элемент с именем "0").
+
+        </p>
+        <p>Пример кода
+        </p>
+        <pre class="code">&lt;?php
+  // Вывести список всех файлов в каталоге
+  // Оператор !== не существовал до версии 4.0.0-RC2
+  if ($handle = opendir('/path/to/files'))
+  {
+      echo "Дескриптор каталога: $handle\n";
+      echo "Файлы:\n";
+      /* Именно этот способ чтения элементов
+       каталога является правильным. */
+      while (false !== ($file = readdir($handle)))
+      {
+          echo "$file\n";
+      }
+      // Этот способ НЕВЕРЕН.
+      while ($file = readdir($handle))
+      {
+          echo "$file\n";
+      }
+      closedir($handle);
+  }
+  ?&gt;</pre>
+
+        <p>Обратите внимание, что функция readdir() также возвращает элементы с именами, и, если вы не хотите получать
+          эти значения, просто отбрасывайте их:
+
+        </p>
+        <p>Пример кода
+        </p>
+        <pre class="code">&lt;?php
+  if ($handle = opendir('.'))
+  {
+      while (false !== ($file = readdir($handle)))
+      {
+          if ($file != "." &amp;&amp; $file != "..")
+          {
+              echo "$file\n";
+          }
+      }
+      closedir($handle);
+  }
+  ?&gt;</pre>
+        <p></p>
+
+        <br>
+        <li><b>rewinddir()</a> - Сбросить дескриптор каталога</b></li>
+        void rewinddir (resource catalog)
+        <p>Сбрасывает поток каталога, переданный в параметре catalog таким образом, чтобы тот указывал на начало
+          каталога</p>
+
+        <li><b>scandir()</a> - Получить список файлов и каталогов, расположенных по указанному пути</b></li>
+        array scandir (string catalog [, int order])
+        <p>Возвращает массив, содержащий имена файлов и каталогов, расположенных по пути, переданном в параметре
+          catalog. Если каталог не является таковым, функция возвращает логическое значение FALSE и генерирует
+          сообщение об ошибке уровня E_WARNING.
+        </p>
+        <p>По умолчанию, сортировка производится в алфавитном порядке по возрастанию. Если указан необязательный
+          параметр order (равен 1), сортировка производится в алфавитном порядке по убыванию.
+          Пример кода
+        </p>
+        <pre class="code">&lt;?php
+  $dir    = '/tmp';
+  $files1 = scandir($dir);
+  $files2 = scandir($dir, 1);
+
+  print_r($files1);
+  print_r($files2);
+  ?&gt;</pre>
+        <p>Результатом будет нечто вроде:
+        </p>
+        <pre class="code">Array
+  (
+      [0] =&gt; .
+      [1] =&gt; ..
+      [2] =&gt; bar.php
+      [3] =&gt; foo.txt
+      [4] =&gt; somedir
+  )
+  Array
+  (
+      [0] =&gt; somedir
+      [1] =&gt; foo.txt
+      [2] =&gt; bar.php
+      [3] =&gt; ..
+      [4] =&gt; .
+  )</pre>
+
+        <p>Пример кода
+        </p>
+        <pre class="code">&lt;?php
+  // Альтернативный вариант функции scandir() для PHP 4
+  $dir = "/tmp";
+  $dh  = opendir($dir);
+  while (false !== ($filename = readdir($dh)))
+  {
+      $files[] = $filename;
+  }
+
+  sort($files);
+  print_r($files);
+  rsort($files);
+  print_r($files);
+  ?&gt;</pre>
+      </ul>
+      <button type="button" class="button"><a class="button__link" href="php7.html">Предыдущая лекция</a></button>
+      <button type="button" class="button"><a class="button__link" href="php9.html">Следующая лекция</a></button>
+
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+
+</body>
+
+</html>

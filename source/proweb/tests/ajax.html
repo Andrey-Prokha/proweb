@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>AJAX тест</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+  <script src="../../js/md5.js"></script>
+</head>
+
+<body class="page__body">
+
+  <section class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__block">
+        <h3 class="modal__title">Размер шрифта:</h3>
+        <button type="button" class="button button--accessibility fontsize-standart"
+          title="Стандартный размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-2x"
+          title="Увелеченный дважды размер шрифта">А</button>
+        <button type="button" class="button button--accessibility fontsize-4x"
+          title="Увелеченный четырежды размер шрифта">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Цвет сайта:</h3>
+        <button type="button" class="button button--accessibility color-whiteblack" title="Бело-черный стиль">А</button>
+        <button type="button" class="button button--accessibility color-blackwhite" title="Черно-белый стиль">А</button>
+        <button type="button" class="button button--accessibility color-blue" title="Сине-голубой стиль">А</button>
+        <button type="button" class="button button--accessibility color-standart" title="Стандартный стиль">А</button>
+      </div>
+      <div class="modal__block">
+        <h3 class="modal__title">Изображения:</h3>
+        <button type="button" class="button button--accessibility image-off" title="Отключить изображение"><span
+            class="visually-hidden">Выкл.</span></button>
+        <button type="button" class="button button--accessibility image-on" title="Включить изображение"><span
+            class="visually-hidden">Вкл.</span><svg class="image__svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 350">
+            <path
+              d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z" />
+          </svg></button>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="accessibility" title="Открыть панель доступности"><svg width="50" height="50"
+      viewBox="0 0 1750 1750" xmlns="http://www.w3.org/2000/svg">
+      <path class="accessibility__svg"
+        d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z">
+      </path>
+    </svg>
+  </button>
+
+  <div class="page__wrapper">
+
+    <header class="header">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="../../index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../lectures.html">Лекции</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../video.html">Видео-уроки</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../practical.html">Лабораторные работы</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../tests.html">Тесты</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main class="content">
+      <h1 class="content__title">Тест по AJAX</h1>
+      <form class="test test--ajax">
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            1. Что такое AJAX?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer1" value="a11">
+            <span class="test__text">Новое средство личной гигиены</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer1" value="a12">
+            <span class="test__text">Технология обмена данными с сервером</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer1" value="a13">
+            <span class="test__text">Давно забытый язык программирования</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            2. Что нельзя сделать с помощью XmlHttpRequest?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer2" value="a21">
+            <span class="test__text">Передать запрос другого типа кроме GET и POST</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer2" value="a22">
+            <span class="test__text">Отправить файл посетителя на сервер без &lt;input type="file"&gt;</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer2" value="a23">
+            <span class="test__text">Произвести запрос так, чтобы ответ был готов до следующей строки скрипта</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer2" value="a24">
+            <span class="test__text">Сделать запрос с http://duka.com на http://buka.duka.com</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            3. В какой кодировке XmlHttpRequest отправляется на сервер ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer3" value="a31">
+            <span class="test__text">В той, какую укажем в заголовке запроса</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer3" value="a32">
+            <span class="test__text">В кодировке страницы</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer3" value="a33">
+            <span class="test__text">Всегда в UTF-8</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer3" value="a34">
+            <span class="test__text">В той, какую захочет получить сервер</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer3" value="a35">
+            <span class="test__text">Как повезет..</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            4. Что надо сделать, чтобы в свойстве responseXml объекта XmlHttpRequest появился XML-документ из ответа
+            сервера ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer4" value="a41">
+            <span class="test__text">Прислать валидный XML и поставить на сервере заголовок Content-type:text/xml</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer4" value="a42">
+            <span class="test__text">Достаточно прислать валидный XML.</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer4" value="a43">
+            <span class="test__text">Некоторые браузеры просто игнорируют это свойство.</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            5. Какая из этих технологий не используется в AJAX ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer5" value="a51">
+            <span class="test__text">Flash</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer5" value="a52">
+            <span class="test__text">XML</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer5" value="a53">
+            <span class="test__text">DOM</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer5" value="a54">
+            <span class="test__text">Javascript</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer5" value="a55">
+            <span class="test__text">CSS</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            6. JSON - это..
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer6" value="a61">
+            <span class="test__text">JavaScript Over Network</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer6" value="a62">
+            <span class="test__text">Название следующей версии javascript</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer6" value="a63">
+            <span class="test__text">JavaScript Object Notation</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer6" value="a64">
+            <span class="test__text">Имя создателя javascript</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            7. Какая функция чаще всего применяется к данным в формате JSON ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer7" value="a71">
+            <span class="test__text">exec()</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer7" value="a72">
+            <span class="test__text">test()</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer7" value="a73">
+            <span class="test__text">eval()</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer7" value="a74">
+            <span class="test__text">run()</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            8. Объект XMLHttpRequest(или ActiveX-аналог) - это единственный кросс-браузерный способ посылки асинхронных
+            запросов на сервер?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer8" value="a81">
+            <span class="test__text">Да</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer8" value="a82">
+            <span class="test__text">Нет</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            9. Сколько одновременно выполняющихся HTTP-запросов на один полный хост (протокол://домен:порт) поддерживает
+            браузер при настройках по умолчанию ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer9" value="a91">
+            <span class="test__text">1</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer9" value="a92">
+            <span class="test__text">2</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer9" value="a93">
+            <span class="test__text">4</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer9" value="a94">
+            <span class="test__text">8</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer9" value="a95">
+            <span class="test__text">неограниченно</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            10. Можно ли использовать один объект XmlHttpRequest для множества разных запросов?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer10" value="a101">
+            <span class="test__text">Да, можно</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer10" value="a102">
+            <span class="test__text">Да, но перед каждым новым запросом надо вызывать abort()</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer10" value="a103">
+            <span class="test__text">Нет, только один запрос на один объект</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            11. Может ли свойство responseXml объекта XmlHttpRequest содержать после запроса XML-документ, отличный от
+            принятого с сервера ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer11" value="a111">
+            <span class="test__text">Нет, либо принятый документ, либо пусто</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer11" value="a112">
+            <span class="test__text">Да, в Firefox такое случается</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer11" value="a113">
+            <span class="test__text">Во всем виновата Opera</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer11" value="a114">
+            <span class="test__text">Глюки IE и не такое покажут</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            12. Вася запустил три асинхронных XmlHttpRequest-запроса на свой сайт. Первый - подгружает содержимое
+            страницы /tree.php, второй - обращается за сообщениями к страничке /getnewmessages.php, третий - на тайную
+            страничку /secret.php. В каком порядке будут обработаны эти запросы?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer12" value="a121">
+            <span class="test__text">Сначала первый, потом второй, потом третий.</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer12" value="a122">
+            <span class="test__text">Неизвестно в каком, но первый или второй обязательно опередят третий</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer12" value="a123">
+            <span class="test__text">Вообще в любом порядке.</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            13. Какой AJAX-транспорт позволит отправить файл на сервер без перезагрузки страницы?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer13" value="a131">
+            <span class="test__text">Только использование фреймов(IFrame)</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer13" value="a132">
+            <span class="test__text">XmlHttpRequest справится!</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer13" value="a133">
+            <span class="test__text">Мне поможет тэг SCRIPT</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer13" value="a134">
+            <span class="test__text">Невозможно ввиду ограничений безопасности javascript</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <fieldset class="test__question">
+          <legend class="test__legend">
+            14. Может ли свойство status объекта XmlHttpRequest быть 100 или 1000 ?
+          </legend>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer14" value="a141">
+            <span class="test__text">Нет, никогда, это же HTTP Status!</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer14" value="a142">
+            <span class="test__text">Да, но только до вызова send().</span>
+          </label>
+          <label>
+            <input class="test__radiobutton" type="radio" name="answer14" value="a143">
+            <span class="test__text">Всякое бывает...</span>
+          </label>
+          <label class="test__yes-no"></label>
+        </fieldset>
+        <button type="button" class="button button--test"><a class="button__link">Завершить</a></button>
+      </form>
+      <section class="test__result">
+      </section>
+      <button type="button" class="button"><a class="button__link" href="javascript2.html">Предыдущий тест</a></button>
+      <button type="button" class="button"><a class="button__link" href="jquery.html">Следующий тест</a></button>
+    </main>
+
+  </div>
+
+  <script src="../../js/accessibility.js"></script>
+  <script src="../../js/test.js"></script>
+
+</body>
+
+</html>
