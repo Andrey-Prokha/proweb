@@ -4,7 +4,6 @@ const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const sync = require("browser-sync").create();
 const csso = require("gulp-csso");
-const rename = require('gulp-rename');
 const imagemin = require("gulp-imagemin");
 const htmlmin = require("gulp-htmlmin");
 const jsmin = require("gulp-jsmin");
@@ -24,6 +23,7 @@ function html() {
     .pipe(plumber())
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("build"))
+    .pipe(sync.stream())
 }
 
 exports.html = html;
@@ -35,6 +35,7 @@ function js() {
     .pipe(plumber())
     .pipe(jsmin())
     .pipe(gulp.dest("build/js"))
+    .pipe(sync.stream())
 }
 
 exports.js = js;
@@ -49,6 +50,7 @@ function styles() {
     ]))
     .pipe(csso())
     .pipe(gulp.dest("build/css"))
+    .pipe(sync.stream())
 }
 
 exports.styles = styles;
@@ -72,7 +74,7 @@ exports.images = images;
 const server = (done) => {
   sync.init({
     server: {
-      baseDir: 'source'
+      baseDir: 'build'
     },
     cors: true,
     notify: false,
@@ -86,9 +88,9 @@ exports.server = server;
 // Watcher
 
 const watcher = () => {
-  gulp.watch("source/css/*.css").on("change", sync.reload);
-  gulp.watch("source/**/**/*.html").on("change", sync.reload);
-  gulp.watch("source/js/*.js").on("change", sync.reload);
+  gulp.watch("source/css/*.css", gulp.series("styles"));
+  gulp.watch("source/**/**/*.html", gulp.series("html"));
+  gulp.watch("source/js/*.js", gulp.series("js"));
 }
 
 exports.build = gulp.series(delbuild, html, js, images, styles);
